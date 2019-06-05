@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="subject" namespace="/" extends="groups-default">
+	    
+	    <action name="subjectIndex" class="subjectIndexAction">
+			<result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/index.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/index.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/index.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/index.ftl
+			</result>
+		</action>
+		
+		<action name="newsList" class="newListAction">
+			<result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/newsList.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/newsList.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/newsList.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/newsList.ftl
+			</result>
+		</action>
+		<action name="placardList" class="placardListAction">
+			<result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/placardList.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/placardList.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/placardList.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/placardList.ftl
+			</result>
+		</action>
+		<action name="activity" class="activityAction">
+			<result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/activity_page.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/activity_page.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/activity_page.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/activity_page.ftl
+			</result>
+		</action>
+		<action name="showSubjectNews" class="showSubjectNewsAction">
+			<result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/showSubjectNews.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/showSubjectNews.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/showSubjectNews.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/showSubjectNews.ftl
+			</result>
+		</action>
+		<action name="showSubjectPlacard" class="showSubjectPlacardAction">
+			<result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/showSubjectPlacard.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/showSubjectPlacard.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/showSubjectPlacard.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/showSubjectPlacard.ftl
+			</result>
+		</action>
+		<action name="specialsubject" class="specialsubjectAction_1">
+			<result name="error_template1" type="freemarker">/WEB-INF/subjectpage/template1/specialsubject_page_error.ftl
+			</result>
+			<result name="error_template2" type="freemarker">/WEB-INF/subjectpage/template2/specialsubject_page_error.ftl
+			</result>
+			<result name="error_template3" type="freemarker">/WEB-INF/subjectpage/template3/specialsubject_page_error.ftl
+			</result>
+			<result name="error_template4" type="freemarker">/WEB-INF/subjectpage/template4/specialsubject_page_error.ftl
+			</result>
+
+			<result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/specialsubject_page.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/specialsubject_page.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/specialsubject_page.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/specialsubject_page.ftl
+			</result>
+		</action>
+		<action name="listall" class="listAllAction" />
+		<action name="show_topic" class="showTopicAction" />
+		<action name="editform" class="editFormAction" /><!--vote editform-->
+		<action name = "questioneditform" class="questionEditFormAction">
+		   <result name="not_found" type="freemarker">/WEB-INF/mod/questionanswer/not_found.ftl</result>
+		   <result name="not_logined" type="freemarker">/WEB-INF/mod/questionanswer/not_logined.ftl</result>
+		</action><!--question editform-->
+		<action name="manage_list" class="manageListAction">
+			<result name="manage_list_nohead" type="freemarker">/WEB-INF/mod/vote/manage_list_nohead.ftl
+			</result>
+		</action>
+		<action name="question_manage_list" class="questionManageListAction">
+			<result name="manage_list_nohead" type="freemarker">/WEB-INF/mod/vote/manage_list_nohead.ftl
+			</result>
+		</action>
+		<action name="question_getcontent" class="questionGetContentAction">
+			<result name="show_text" type="freemarker">/WEB-INF/mod/show_text.ftl</result>
+			<result name="not_found" type="freemarker">/WEB-INF/mod/questionanswer/not_found.ftl</result>
+			<result name="not_logined" type="freemarker">/WEB-INF/mod/questionanswer/not_logined.ftl</result>
+		</action>
+		
+		<action name="modify_vote" class="modifyVoteAction" />
+		<action name="getcontent" class="getContentAction" />
+		<action name="showresult" class="showResultAction" />
+		<action name="vote_morevote" class="moreVoteAction" />
+		<action name="new_topic" class="newTopicAction" />
+		<action name="subjectHome" class="subjectHomeAction" />
+		<action name="subjectGetLoginUserNewMessageCount" class="subjectGetLoginUserNewMessageCountAction" />
+		
+		<action name="groupList" class = "groupListAction_1">
+		  <result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/groupList.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/groupList.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/groupList.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/groupList.ftl
+			</result>
+		</action>
+		
+		<action name="topic_manage_list" class="topicManageListAction" >
+		   <result name = "manage_list_nohead" type="freemarker">/WEB-INF/ftl2/special/special_topic_manage.ftl</result>
+		</action>
+		<action name="question_listall" class="questionListAllAction" >
+		  <result name = "show_text" type ="freemarker">/WEB-INF/mod/show_text.ftl</result>
+		  <result name = "not_found" type ="freemarker">/WEB-INF/mod/questionanswer/not_found.ftl</result>
+		</action>
+		<action name="subjectArticle" class = "subjectArticleAction">
+		  <result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/article_page.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/article_page.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/article_page.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/article_page.ftl
+			</result>
+		</action>
+		
+		<action name="subjectResource" class = "subjectResourceAction">
+		  <result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/resource_page.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/resource_page.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/resource_page.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/resource_page.ftl
+			</result>
+		</action>
+		<action name="blog" class = "blogAction">
+		  <result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/blog_page.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/blog_page.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/blog_page.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/blog_page.ftl
+			</result>
+		</action>
+		<action name="subjectGroup" class = "subjectGroupAction">
+		  <result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/group_page.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/group_page.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/group_page.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/group_page.ftl
+			</result>
+		</action>
+		<action name="subjectPrepareCourse" class = "subjectPrepareCourseAction">
+		  <result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/preparecourse_page.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/preparecourse_page.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/preparecourse_page.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/preparecourse_page.ftl
+			</result>
+		</action>
+		<action name="showArticleList" class="showArticleListAction">
+			<result name="error_template1" type="freemarker">/WEB-INF/subjectpage/template1/specialsubject_page_error.ftl
+			</result>
+			<result name="error_template2" type="freemarker">/WEB-INF/subjectpage/template2/specialsubject_page_error.ftl
+			</result>
+			<result name="error_template3" type="freemarker">/WEB-INF/subjectpage/template3/specialsubject_page_error.ftl
+			</result>
+			<result name="error_template4" type="freemarker">/WEB-INF/subjectpage/template4/specialsubject_page_error.ftl
+			</result>
+
+			<result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/show_article_list.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/show_article_list.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/show_article_list.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/show_article_list.ftl
+			</result>
+		</action>
+		<action name="showMoreSpecialSubjectList" class="showMoreSpecialSubjectListAction">
+			<result name="error_template1" type="freemarker">/WEB-INF/subjectpage/template1/specialsubject_page_error.ftl
+			</result>
+			<result name="error_template2" type="freemarker">/WEB-INF/subjectpage/template2/specialsubject_page_error.ftl
+			</result>
+			<result name="error_template3" type="freemarker">/WEB-INF/subjectpage/template3/specialsubject_page_error.ftl
+			</result>
+			<result name="error_template4" type="freemarker">/WEB-INF/subjectpage/template4/specialsubject_page_error.ftl
+			</result>
+
+			<result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/show_more_specialsubject_list.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/show_more_specialsubject_list.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/show_more_specialsubject_list.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/show_more_specialsubject_list.ftl
+			</result>
+		</action>
+		
+		<action name="show_topic_list" class="showTopicListAction">
+			<result name="error_template1" type="freemarker">/WEB-INF/subjectpage/template1/specialsubject_page_error.ftl
+			</result>
+			<result name="error_template2" type="freemarker">/WEB-INF/subjectpage/template2/specialsubject_page_error.ftl
+			</result>
+			<result name="error_template3" type="freemarker">/WEB-INF/subjectpage/template3/specialsubject_page_error.ftl
+			</result>
+			<result name="error_template4" type="freemarker">/WEB-INF/subjectpage/template4/specialsubject_page_error.ftl
+			</result>
+
+			<result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/show_topic_list.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/show_topic_list.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/show_topic_list.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/show_topic_list.ftl
+			</result>
+		</action>
+		<!-- <action name="subject_video" class="subjectVideoAction">
+		   <result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/video_page.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/video_page.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/video_page.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/video_page.ftl
+			</result>
+		</action> -->
+	</package>
+</struts>
+
+
+

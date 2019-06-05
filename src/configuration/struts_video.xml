@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"struts-2.0.dtd">
+<struts>
+  <package name="video" namespace="/manage" extends="groups-default">
+    <action name="video" class="videoAction">
+      <interceptor-ref name="fileUpload">
+        <param name="maximumSize">1073741824</param><!-- 1024B * 1024KB * 1024M -->
+      </interceptor-ref>
+      <interceptor-ref name="defaultStack"></interceptor-ref>
+      <interceptor-ref name="loginInterceptorStack"></interceptor-ref>
+      <result name="input" type="freemarker">/WEB-INF/ftl/input.ftl</result>
+      <result name="Edit_Success" type="freemarker">/WEB-INF/ftl/video/Video_Edit.ftl</result>
+      <result name="Upload_Video_ReturnId" type="freemarker">/WEB-INF/ftl/video/uploadvideoId.ftl</result>
+      <result name="List_UserVideo" type="freemarker">/WEB-INF/ftl/video/user_video_list.ftl</result>
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/video/Video_List.ftl</result>
+      <result name="Admin_List_Success" type="freemarker">/WEB-INF/ftl/video/Video_Admin_List.ftl</result>
+      <result name="Show_Success" type="freemarker">/WEB-INF/ftl2/video/Show_Video.ftl</result>
+      <result name="uploadify_success" type="freemarker">/WEB-INF/ftl/video/ShowNewId.ftl</result>
+      <result name="Comment_list" type="freemarker">/WEB-INF/ftl2/video/Video_Comment_List.ftl</result>
+      <result name="Comment_List_Success" type="freemarker">/WEB-INF/ftl/video/Video_CommentList.ftl</result>
+      <result name="Edit_Comment" type="freemarker">/WEB-INF/ftl/video/edit_comment.ftl</result>
+      <result name="show_error" type="freemarker">/WEB-INF/ftl/video/error.ftl</result>
+      <result name="Dest_Cate" type="freemarker">/WEB-INF/ftl/resource/dest_cate.ftl</result>
+      <result name="Channel_Cate" type="freemarker">/WEB-INF/ftl/channel/channel_cate.ftl</result>
+      <result name="ShowMoreComment" type="freemarker">/WEB-INF/ftl2/video/showMoreComment.ftl</result>
+    </action>
+    <!-- 视频个人分类管理 -->
+    <action name="videocate" class="userVideoCategoryAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/video/video_cate_list.ftl</result>
+      <result name="Add_Success" type="freemarker">/WEB-INF/ftl/video/video_cate_add.ftl</result>
+    </action>
+    
+  </package>
+</struts>

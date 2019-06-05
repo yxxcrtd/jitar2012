@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.Comment" table="B_Comment">
+		<id name="id" type="int">
+			<column name="Id" />
+			<generator class="identity" />
+		</id>
+		<property name="objType" type="int">
+			<column name="ObjType" not-null="true" />
+		</property>
+		<property name="objId" type="int">
+			<column name="ObjId" not-null="true" />
+		</property>
+		<property name="title" type="java.lang.String">
+			<column name="Title" length="512" />
+		</property>
+		<property name="content" type="java.lang.String">
+			<column name="Content" length="1000" />
+		</property>
+		<property name="audit" type="boolean">
+			<column name="Audit" not-null="true" />
+		</property>
+		<property name="star" type="int">
+			<column name="Star" not-null="true" />
+		</property>
+		<property name="createDate" type="java.util.Date">
+			<column name="createDate" length="23" />
+		</property>
+		<property name="userId" type="java.lang.Integer">
+			<column name="userId" />
+		</property>
+		<property name="userName" type="java.lang.String">
+			<column name="UserName" length="50" not-null="true" />
+		</property>
+		<property name="ip" type="java.lang.String">
+			<column name="ip" length="50" />
+		</property>
+		<property name="aboutUserId" type="java.lang.Integer">
+			<column name="AboutUserId" />
+		</property>
+	</class>
+</hibernate-mapping>

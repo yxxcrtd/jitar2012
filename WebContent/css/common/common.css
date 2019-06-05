@@ -1,0 +1,245 @@
+/* 本文件存放用户通用样式，包括文字大小，颜色、样式等等，同时定义一些通用界面的样式  */
+html,body {
+	font-family:Verdana,Arial,Helvetica,"宋体",sans-serif;
+	font-size:12px;
+	font-size-adjust:none;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal; 
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+	text-align:center;	
+	}
+input,textarea {font-size:12px;}
+input:focus,textarea:focus {background:#ff9}
+a:link {color: #00F;text-decoration:none;}     /* unvisited link */
+a:visited {color: #00F;text-decoration:none;}  /* visited link */
+a:hover {color: #F00}   /* mouse over link */
+a:active {color: #00F}   /* selected link */
+
+
+/* 一般文章正文用大一些的字体, 行间距 */
+div.article_content { width:99%;  }
+div.article_content p { font-size:16px;  }
+/* 默认对齐 */
+div {text-align:left;}
+/* 主要内容 */
+#wraper { margin:auto;text-align:center; }
+
+/* 工具条容器样式 */
+#toolbar { 	height:29px;background:url('toolbar.gif');text-align:left;margin:auto;}
+
+/* 工具条内容样式 */
+.innertoolbar {	padding:6px;}
+
+/* 登录框样式 */
+#innerToolbar {	position:absolute;	top:30px;	left:100px;	background:#EEE;}
+
+div#innerToolbar div div { padding:6px;}
+
+#subMenuDiv {
+	background:#FFF;
+	position:absolute;
+	display:none;
+	border-width:2px;
+	border-style:solid;
+	border-color:#EEE #AAA #AAA #EEE;
+	padding:6px;
+}
+
+.skin_div {	float:left;	width:80px;	height:60px;	margin:auto;	cursor:pointer;}
+
+.columnImg {float:left;	width:100px;height:100px;	margin:auto;cursor:pointer;	}
+
+.dm {height:2px;}
+
+/* webpart */
+.widgetContent ul{margin:0;	padding:0;}
+.widgetContent ul li {list-style-type:none;	}
+	
+.widgetContent img {border:0px;}
+
+.widgetWindow { margin-bottom:6px;} /* 每个块之间的间隔大小 */
+
+.widgetFrame {}
+.widgetHeader{padding:2px 0 0 0;}
+.widgetHead{vertical-align:middle;}
+
+.showWidget {
+  width:20px;
+  height:16px;
+  float:left;
+  display:none;
+  cursor:pointer;
+}
+.hideWidget {
+  width:20px; 
+  height:16px;
+  float:left;
+  display:none;
+  cursor:pointer;
+}
+
+.close {
+  width:20px;
+  height:16px;
+  float:right;
+  display:none;
+  cursor:pointer;
+}
+
+.edit {
+  float:right;
+  display:none;
+  cursor:pointer;
+  padding-top:2px;
+}
+
+.options {
+  float:left;
+  display:none;
+  cursor:pointer;
+}
+
+.refresh {
+  float:right;
+  width:20px;
+  height:16px;
+  display:none;
+  cursor:pointer;
+}
+.mod_icon{margin-top:-2px;padding:0 2px;}
+.ico {float:left;padding:2px 0 0 0;}
+.title {font-weight:bold;padding:2px 0 0 0;}
+
+/* LoginUI*/
+.hidden { display: none;}
+.popup{position: absolute;width: 450px;	z-index: 60000;}
+.container{	border: 5px solid #333;width: 445px;background: white;height:400px;}
+.LoginUIHeader{	height: 70px;	background: #32489A url(pagelogin.gif) no-repeat;}
+a.Start_Wizard_Back{ float: right; margin: 25px 20px 0 0;font-weight: bold; color: #fff; font-size: 120%;}
+#Login div{padding:2px;}
+#Login h3{margin:4px 0 6px 0;	padding:0px 0px 4px 0px;border-bottom:2px solid green;}
+
+#shareDiv {
+	background:#FFF;
+	padding:10px;
+	position:absolute;
+	border-width:2px;
+	border-color:#EEE #404040 #404040 #EEE;
+	border-style:solid;
+	display:none;
+	top:0;
+	left:0;
+	width:480px;
+	height:440px;
+}
+
+.divCls {float:right;cursor:pointer;padding:6px;background:url(bg5.gif) center center;}
+.divCls2 {float:right;cursor:pointer;padding:6px;background:url(msgClose.jpg) no-repeat center center;width:14px;height:20px;}
+.divTitle {font-weight:bold;background:url(bg5.gif) center center;padding:6px;cursor:move;}
+.divSpacer { clear:both;border-top:1px solid #b0bec7; }
+.divFrame { border:1px solid #b0bec7;z-index:9999; }
+.divBody { padding:6px; }
+div.divBody div { padding:4px; }
+#validateCode {	width:60px;	}
+
+#msgtip { background:#e2f5d8 url('msgbg.gif') repeat-x top; clear:both;display:block;}
+.msgTitle {
+	font-weight:bold;
+	padding:12px 0 0 36px;
+	cursor:move;
+	background:url('meng.gif') no-repeat center left;
+	margin:0px 0 0 4px;
+	height:32px;
+	font-size:13px;
+}
+
+.article_content {overflow:hidden;width:620px;;}
+#blog_name {padding:40px; }
+#blog_name span {font-size:24px;font-weight:bold;color:#963;float:left;display:block;border:1px solid #f00;padding:6px 20px;background:#fff;}
+
+.pagingInput { width:30px; }
+.pagingDiv { padding:2px;margin-top:4px;}
+
+.module_list {float:left;border:1px solid #AAA;width:126px;padding:4px;margin:2px;background:#EEE;cursor:pointer;}
+.module_list_over { float:left;border:1px solid #F00;width:126px;padding:4px;margin:2px;background:#FFF;cursor:pointer; }
+
+/* Tab 效果 */ 
+.tab_div {height:20px;background:url(tab_1.gif) repeat-x;border:1px solid #b0bec7;border-bottom:0;border-left:0;}
+.tab_div div {float:left;border-left:1px solid #b0bec7;height:17px;padding:3px 10px 0 10px; }
+.tab_label_1 {float:left;width:90px;height:20px;padding:0px 10px; background:url(tab_left1.gif) no-repeat;padding-top:2px;font-weight:bold;}
+.tab_div div.cur {float:left;border-left:1px solid #b0bec7;height:17px;padding:3px 10px 0 10px; background:url(tab_1.gif) repeat-x 0 -22px;}
+.tab_content{ padding:10px; background:#fff;position:relative;overflow:hidden;clear:both;border:1px solid #b0bec7;border-top:0;}
+
+/* 好友列表 */
+.frd{display:block;width:100px;float:left;}
+.imgborder{padding:1px;border:1px solid #AAA;}
+
+/* article */
+.categroy {font-weight:bold;padding:10px 0; font-size:1.2em;}
+.article_title {font-weight:bold; font-size:2.0em;border-bottom:1px solid #000;}
+.article_footer {padding:6px;border-top:1px dotted #000;border-bottom:1px dotted #000; background:#EEE;margin-top:10px;}
+
+/* 评论回复, 也许放在 article.css 里面可以节省一些地方. */
+.commentReply {
+  margin: 4px 4px 4px 4px;
+  padding: 3px;
+  border: 1px solid #dddddd;
+  background-color: #ececec;
+}
+.commentContent {
+  margin: 5px 10px 2px 10px; /*top, right, bottom, left*/
+  padding: 3px;
+  border: 1px solid #dddddd;
+  background-color: #ececec;
+}
+
+/* profile */
+.profile .profilehead {font-weight:bold;padding:10px 0;border-bottom:1px solid #888;}
+.profile table {width:100%}
+.info_entry {width:80px;font-weight:bold;vertical-align:top;}
+
+/* 列表样式 */
+ul.listul li{ padding:1px 0 1px 14px; background:url(jian01.gif) no-repeat;background-position:0 0.2em; }
+
+a.icoBlog { padding-left:20px;background:url('ico_profile.gif') no-repeat left center; }
+a.icoProfile { padding-left:20px;background:url('ico_profile.gif') no-repeat left center; }
+a.icoFriend { padding-left:20px;background:url('ico_addLink.gif') no-repeat left center; }
+a.icoMessage { padding-left:20px;background:url('ico_writeMessage.gif') no-repeat left center; }
+a.icoRss { padding-left:20px;background:url('rss.gif') no-repeat left center; }
+a.icoVideo { padding-left:20px;background:url('ico_video.gif') no-repeat left center; }
+
+.photo_list {text-align:center;width:25%;}
+.comment_list{padding:1px 0 1px 14px; background:url(jian01.gif) no-repeat;background-position:0 4px;}
+
+.digg{background:url(digg.gif) no-repeat;width:60px;height:67px;text-align:center;padding-top:24px;vertical-align:top;cursor:pointer;}
+.comment{background:url(comment.gif) no-repeat;width:60px;height:67px;text-align:center;padding-top:24px;vertical-align:top;}
+.trample{background:url(trample.gif) no-repeat;width:60px;height:67px;text-align:center;padding-top:24px;vertical-align:top;cursor:pointer;}
+
+.table1 {background-color:#DCC;}
+.table1 thead td {background:#EEE;padding:2px;}
+.table1 tbody td {background:#FFF;padding:2px;}
+
+.table2 {width:100%;border:1px solid #666;}
+.table2 td {padding:4px;}
+.head1 {width:200px;}
+td.list_icon{background:url('jian01.gif') no-repeat 0px 4px;;padding-left:12px;}
+
+#navbar {background: #FFF;margin:auto;position:relative;}
+/* a.navlink {font-weight:bold;} */
+.pc_table {background:#DDDDDD none repeat scroll 0 0;width:100%;}
+.pc_table td {background:#FFFFFF none repeat scroll 0 0;padding:2px;}
+tr.curbackground td { background:#cfc;}
+tr.curbackgroundred td { background:pink;}
+.fontbold{font-weight:bold;}
+
+pre {
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap !important;  /* Mozilla */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}

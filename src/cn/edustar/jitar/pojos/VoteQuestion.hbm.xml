@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.VoteQuestion" table="P_VoteQuestion">
+        <id name="voteQuestionId" type="java.lang.Integer">
+            <column name="VoteQuestionId" />
+            <generator class="identity" />
+        </id>
+        <property name="title" type="java.lang.String">
+            <column name="Title" length="2000" not-null="true" />
+        </property>
+        <property name="questionType" type="java.lang.Byte">
+            <column name="QuestionType" not-null="true" />
+        </property>
+        <property name="maxSelectCount" type="int">
+            <column name="MaxSelectCount" not-null="true" />
+        </property>
+        
+        <property name="voteId" type="int">
+            <column name="VoteId" not-null="true" />
+        </property>
+        <property name="itemIndex" type="int">
+            <column name="ItemIndex" not-null="true" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

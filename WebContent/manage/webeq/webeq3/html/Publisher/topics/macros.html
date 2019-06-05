@@ -1,0 +1,140 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+	<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Using WebTeX Macros</h1>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>A useful feature of WebEQ Publisher is its ability to process
+document-wide macro definitions; if you are a WebTeX author, you can
+introduce shorthand commands for your commonly used notations.</p>
+
+
+	<p>WebTeX macro definitions can either be specified once at the
+beginning of a source document, or in a separate file.  The 
+Publisher facilitates both kinds of macro definitions.</p>
+
+
+	<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Specifying Macros in the Document Header</h3>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>When WebEQ Publisher runs, it looks for WebTeX macro definitions in a
+special comment block in the HTML source file header.  The syntax of
+this comment block is illustrated below:</p>
+
+
+	<p>
+		<blockquote><pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;An Example&amp;lt;/title&gt;
+
+&lt;!-- webeq
+\define{\gump}{x^2}
+--&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+
+This is a test $\gump = 9$.
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre></blockquote>
+	</p>
+
+
+	<p>
+		<b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Note:</b> The comment block must exactly match this format,
+including whitespace characters.  Provided the "Translate WebTeX to
+MathML in applets" box is not checked, the Publisher will generate an
+HTML output file like this:</p>
+
+
+	<p>
+		<blockquote><pre>
+&amp;lt;html&gt;
+&amp;lt;head&gt;
+&amp;lt;title&gt;An Example&amp;lt;/title&gt;
+&amp;lt;/head&gt;
+&amp;lt;body&gt;
+
+This is a test
+
+&lt;b&gt;&amp;lt;applet code="webeq.ViewerControl" height="30" width="54"&gt;
+&amp;lt;param name="eq" value="x^2 = 9"&gt;
+&amp;lt;applet&gt;&lt;/b&gt;
+
+&amp;lt;/body&gt;
+&amp;lt;/html&gt;
+
+</pre></blockquote>
+	</p>
+
+
+	<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Specifying Macros in File</h3>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>If you wish to use a large collection of macros, or if you wish
+to share macros between a number of HTML files, it will probably be
+more convenient to specify macro definitions in an external file.  A
+macro file can be used in conjunction with macro definitions given in
+the document header, for example, to extend a base set of macros in an
+external file.</p>
+
+
+	<p>You could do the previous example using a macro file as follows.
+Create a macro file named <tt xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">macros.txt</tt> containing the single line</p>
+
+
+	<p>
+		<blockquote><pre>
+\define{\gump}{x^2}
+</pre></blockquote>
+	</p>
+
+
+	<p>Then, you would create essentially the same source document, but
+without the macro definition in the document header:</p>
+
+
+	<p>
+		<blockquote><pre>
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;An Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+This is a test $\gump = 9$.
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre></blockquote>
+	</p>
+
+
+	<p>In the <a href="translation.html#translation">Translation Options</a> dialog,
+you would then enter the location of <tt xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">macros.txt</tt> in the "Local
+macro file for WebTeX" field.  The output would be exactly the same as
+in the case where the macros were defined in the source document
+header.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+</body>
+</html>

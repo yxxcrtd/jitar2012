@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="cn.edustar.jitar.pojos.Unit" table="Jitar_Unit">
+    <id name="unitId" type="int">
+      <column name="UnitId" />
+      <generator class="assigned" />
+    </id>
+    <property name="unitGuid" type="java.lang.String">
+      <column name="UnitGuid" length="36" not-null="true" />
+    </property>
+    <property name="unitName" type="java.lang.String">
+      <column name="UnitName" length="256" not-null="true" />
+    </property>
+    <property name="unitTitle" type="java.lang.String">
+      <column name="UnitTitle" length="256" not-null="true" />
+    </property>
+    <property name="siteTitle" type="java.lang.String">
+      <column name="SiteTitle" length="256" not-null="true" />
+    </property>
+    <property name="parentId" type="int">
+      <column name="ParentId" not-null="true" />
+    </property>
+    <property name="unitPathInfo" type="java.lang.String">
+      <column name="UnitPathInfo" length="1024" not-null="true" />
+    </property>
+    <property name="hasChild" type="java.lang.Boolean">
+      <column name="HasChild" not-null="true" />
+    </property>
+    <property name="userCount" type="int">
+      <column name="UserCount" not-null="true" />
+    </property>
+    <property name="articleCount" type="int">
+      <column name="ArticleCount" not-null="true" />
+    </property>
+    <property name="historyArticleCount" type="int">
+      <column name="HistoryArticleCount" not-null="true" />
+    </property>
+    <property name="recommendArticleCount" type="int">
+      <column name="RecommendArticleCount" not-null="true" />
+    </property>
+    <property name="resourceCount" type="int">
+      <column name="ResourceCount" not-null="true" />
+    </property>
+    <property name="recommendResourceCount" type="int">
+      <column name="RecommendResourceCount" not-null="true" />
+    </property>
+    <property name="photoCount" type="int">
+      <column name="PhotoCount" not-null="true" />
+    </property>
+    <property name="videoCount" type="int">
+      <column name="VideoCount" not-null="true" />
+    </property>
+    <property name="totalScore" type="int">
+      <column name="TotalScore" not-null="true" />
+    </property>
+    <property name="itemIndex" type="int">
+      <column name="ItemIndex" not-null="true" />
+    </property>
+    <property name="templateName" type="java.lang.String">
+      <column name="TemplateName" length="50" />
+    </property>
+    <property name="themeName" type="java.lang.String">
+      <column name="ThemeName" length="50" />
+    </property>
+    <property name="unitLogo" type="java.lang.String">
+      <column name="UnitLogo" length="256" />
+    </property>
+    <property name="headerContent" type="java.lang.String">
+      <column name="HeaderContent" />
+    </property>
+    <property name="footerContent" type="java.lang.String">
+      <column name="FooterContent" />
+    </property>
+    <property name="shortcutTarget" type="java.lang.String">
+      <column name="ShortcutTarget" length="256" />
+    </property>
+    <property name="rank" type="int">
+      <column name="Rank" not-null="true" />
+    </property>
+    <property name="aveScore" type="java.lang.Double">
+      <column name="AveScore" precision="53" scale="0" not-null="true" />
+    </property>
+    <property name="unitType" type="java.lang.String">
+      <column name="UnitType" length="50" />
+    </property>
+    <property name="unitPhoto" type="java.lang.String">
+      <column name="UnitPhoto" length="512" />
+    </property>
+    <property name="unitInfo" type="java.lang.String">
+      <column name="UnitInfo" />
+    </property>		
+    <property name="delState" type="boolean">
+		<column name="DelState" not-null="true" />
+	</property>
+  </class>
+</hibernate-mapping>

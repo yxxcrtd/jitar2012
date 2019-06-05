@@ -1,0 +1,90 @@
+/**
+ * 字体定义
+ */
+html,body,p,div,table,input,textarea {
+  font-family: '宋体', arial, verdana;
+  font-size: 12px;
+}
+
+/* widgetWindow 及其相关样式,参见文档 'WidgetWindow 结构' */
+.widgetWindow {
+  border: 1px solid green;
+  margin: 4px;
+  padding: 2px;
+}
+
+.widgetFrame {
+	padding: 1px;
+}
+
+.widgetHeader {
+	border: 1px solid #DDD;
+  	margin: 2px;
+	padding: 2px;
+	font-size: 12px;
+}
+
+.widgetEditor {
+	border: 1px solid yellow;
+	display: none;
+}
+
+.widgetContent {
+  border: 1px solid green;
+  margin: 2px;
+  padding: 2px;
+  background: #889933;
+}
+
+/* widgetHeader 区域各个按钮样式 */
+.widgetHeader .showHide {
+  cursor: pointer;
+  float: left;
+  background: transparent url(images/showhide.gif) no-repeat;
+  width: 15px;
+  height: 15px;
+}
+
+.widgetHeader .close {
+  cursor: pointer;
+  float: right;
+  background: transparent url(images/close.gif) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+
+.widgetHeader .edit {
+  cursor: pointer;
+  float: right;
+  display: none;
+}
+
+.widgetHeader .options {
+  cursor: pointer;
+  float: right;
+  background: transparent url(images/options.gif) no-repeat;
+  width: 11px;
+  height: 11px;
+  display: none;
+}
+
+.widgetHeader .refresh {
+  cursor: pointer;
+  float: right;
+  background: transparent url(images/refresh.gif) no-repeat;
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+
+.widgetHeader .ico {
+  float: left;
+  display: none;
+}
+
+.widgetHeader .title {
+  display: inline;
+  overflow: hidden;
+}
+
+

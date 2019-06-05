@@ -1,0 +1,6 @@
+#UserCard_Layer {text-align:left;}
+div.UserCard{position:absolute; z-index:1; width:176px; height:129px; background:url(bgUserCard.gif) no-repeat;}
+div.UserCard table{position:relative; top: 12px; left:56px; width:112px;}
+div.UserCard td.left{width:36px; vertical-align:middle; line-height:170%;}
+div.UserCard td.right{width:76px; text-align:left; vertical-align:top; line-height:170%;}
+div.UserCard td.totalCont{ text-align:left; vertical-align:top; line-height:170%;padding-top:6px;}

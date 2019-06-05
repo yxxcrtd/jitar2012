@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="cn.edustar.jitar.pojos.UnitDayCount" table="Jitar_UnitDayCount">
+    <id name="unitId" type="int">
+      <column name="UnitId" />
+      <generator class="assigned" />
+    </id>
+    <property name="userCount" type="java.lang.Integer">
+      <column name="UserCount" not-null="true" default="0" />
+    </property>
+    <property name="articleCount" type="java.lang.Integer">
+      <column name="ArticleCount" not-null="true" default="0" />
+    </property>
+    <property name="resourceCount" type="java.lang.Integer">
+      <column name="ResourceCount" not-null="true" default="0" />
+    </property>
+    <property name="photoCount" type="java.lang.Integer">
+      <column name="PhotoCount" not-null="true" default="0" />
+    </property>
+    <property name="videoCount" type="java.lang.Integer">
+      <column name="VideoCount" not-null="true" default="0" />
+    </property>
+    <property name="historyArticleCount" type="java.lang.Integer">
+      <column name="HistoryArticleCount" not-null="true" default="0" />
+    </property>
+    <property name="unitPathInfo" type="java.lang.String">
+      <column name="UnitPathInfo" not-null="true" />
+    </property>
+  </class>
+</hibernate-mapping>

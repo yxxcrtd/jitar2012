@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.VPrepareCourseMember" table="vPrepareCourseMember" mutable="false">
+        <id name="prepareCourseId" type="java.lang.Integer">
+            <column name="PrepareCourseId" />
+            <generator class="assigned" />
+        </id>    	
+        <property name="cc" type="int">
+            <column name="cc"/>
+        </property>
+    </class>
+</hibernate-mapping>

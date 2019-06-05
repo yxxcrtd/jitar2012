@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+		"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 前台显示页面如主页等 -->
+	<package name="Tag" namespace="/" extends="groups-default">
+		<action name="tags" class="tagsAction" >
+			<result name="success" type="freemarker">/WEB-INF/ftl2/tag/site_tags_v2.ftl</result>
+		</action>
+		<action name="showMoreTagContent" class="showMoreTagContentAction">
+		  <result name="success" type="freemarker">/WEB-INF/ftl2/tag/showMoreTagContent.ftl</result>
+		  <result name="error" type="freemarker">/WEB-INF/ftl/Error.ftl</result>
+		</action>
+    </package>
+</struts>

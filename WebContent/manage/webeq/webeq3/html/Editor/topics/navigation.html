@@ -1,0 +1,142 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+    <h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Navigating with the Cursor</h1>
+
+    <idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+    <p>The arrow keys move the cursor around in the equations. Most of the time, cursor movement in WebEQ Editor works as you would expect, and you don't need to think too hard about it. As the cursor moves through your equation its shape changes  to give you extra information about the equation structure.</p>
+
+
+    <p>In addition to the arrow keys, you can also position the cursor with the mouse. WebEQ Editor will try to move the cursor to the insertion point nearest to a mouse click.</p>
+
+
+    <h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Cursor Shapes</h2>
+
+    <h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Math Cursor</h3>
+
+    <p>When you start a new equation, the cursor automatically starts as a
+blinking red vertical line in an empty template.  As you type, the
+cursor will move, indicating the current insertion point.  Also, a
+faint gray box will appear, outlining the template in which the cursor
+is currently located.  As you move around in an equation, the gray
+outline shifts, giving you a visual cue about the nesting structure of
+the underlying MathML, as illustrated below.</p>
+
+
+    <idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+    <table class="nobg" xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">
+        <tbody>
+            <tr>
+                <td>
+                    <img src="images/cursor1.gif">
+                </td>
+
+                <td>
+                    <img src="images/cursor2.gif">
+                </td>
+
+                <td>
+                    <img src="images/cursor3.gif">
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+    <idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+    <idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+    <h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Token Cursor</h3>
+
+    <idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+    <p>The editor will automatically put characters into special MathML
+templates called tokens.  There are tokens for variables (called
+an &lt;mi&gt; box in MathML), numbers (&lt;mn&gt;), operators
+(&lt;mo&gt;), and so on.</p>
+
+
+    <p>The right and left arrow keys generally move the cursor between the
+tokens in the row.  When you move the cursor over a token that groups
+several characters together, it will take an upside down T-shape to show the
+extent of the grouped items by underlining them, as shown here:</p>
+
+
+    <p>
+        <img src="images/cursor10.gif">
+    </p>
+
+
+    <p>Within a token, the arrow keys will move the cursor between the individual characters in the token. You can also position the cursor within a multi-character token the mouse.</p>
+
+
+    <p>Tokens with more than one character, e.g "sin", are rendered in an
+upright font by default, while single character alphabetic tokens are
+rendered in italic.  If you move two alphabetic tokens together, say
+by deleting an intervening space, the editor will automatically merge
+the characters together into a single token.  A similar behavior
+applies to numbers.  By noticing the cursor shape, you can easily keep
+track of what characters are being grouped into tokens.</p>
+
+
+    <idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+    <idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+    <idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+    <h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Text Cursor</h3>
+
+    <p>MathML also has a 'text' token type for plain text contained in an 
+equation.  To put characters into a text token, you must explicitly insert 
+one from the toolbar.  When inserting characters into the 'text' template, 
+the cursor takes on an I-beam shape.</p>
+
+
+    <idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+    <idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+    <p>
+        <img src="images/cursor11.gif">
+    </p>
+
+
+    <h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Template Blanks</h2>
+
+    <p>When you insert a new template into an equation, small squares indicate the empty slots, or template blanks, where data should be inserted.</p>
+
+
+    <p>
+        <img src="images/cursor4.gif">
+    </p>
+
+
+    <p>When you insert a template, the cursor will automatically jump to
+the first template blank.  If you want to fill in the template blanks
+later, you can move the cursor out of the template without entering characters.  Reposition the cursor in the template when you are ready to fill it in.  You can verify that the cursor is on a template
+blank by looking at the <a href="ancestry.html#ancestry">MathML ancestry</a>
+bar.</p>
+
+
+    <p>To cycle between all open template blanks, hit the TAB key.  You can also move the cursor to a template blank by clicking on it with the mouse.</p>
+
+
+    <idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+    <idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+</body>
+</html>

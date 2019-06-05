@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+  <package name="group" namespace="/manage" extends="groups-default">
+    <!-- 群组管理 -->
+    <action name="group" class="groupAction" >
+  	  <result name="List_Success" type="freemarker">/WEB-INF/ftl/group/list.ftl</result>
+      <result name="Edit_Success" type="freemarker">/WEB-INF/ftl/group/create_or_edit.ftl</result>
+      <result name="List_MyInvite" type="freemarker">/WEB-INF/ftl/group/myinvite_list.ftl</result>
+      <result name="List_InviteMe" type="freemarker">/WEB-INF/ftl/group/inviteme_list.ftl</result>
+      <result name="List_MyJoinReq" type="freemarker">/WEB-INF/ftl/group/myjoinreq_list.ftl</result>
+      <result name="List_ReqMe" type="freemarker">/WEB-INF/ftl/group/reqme_list.ftl</result>
+      <result name="Manage_Frame" type="freemarker">/WEB-INF/ftl/group/group_manage_frame.ftl</result>
+      <result name="Manage_Left" type="freemarker">/WEB-INF/ftl/group/group_manage_left.ftl</result>
+      <result name="Group_Info" type="freemarker">/WEB-INF/ftl/group/group_info.ftl</result>
+      <result name="Member_List" type="freemarker">/WEB-INF/ftl/group/group_member_list.ftl</result>
+      <result name="Group_Home" type="freemarker">/WEB-INF/ftl/group/group_home.ftl</result>  
+      <result name="SaveKTUser_Success" type="freemarker">/WEB-INF/ftl/group/group_ktuser_list.ftl</result>
+    </action>
+    
+    <!-- 群组成员 -->
+    <action name="groupMember" class="groupMemberAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/group/group_member_list.ftl</result>
+      <result name="View_List" type="freemarker">/WEB-INF/ftl/group/member_view_list.ftl</result>
+      <result name="Invite_User" type="freemarker">/WEB-INF/ftl/group/invite_user.ftl</result>
+      <result name="edit_member" type="freemarker">/WEB-INF/ftl/group/edit_member.ftl</result>
+      
+    </action>
+    
+    <!-- 群组文章管理 -->
+    <action name="groupArticle" class="groupArticleAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/group/group_article_list.ftl</result>
+    </action>
+    
+    <!-- 群组资源管理 -->
+    <action name="groupResource" class="groupResourceAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/group/group_resource_list.ftl</result>
+    </action>
+    
+    <!-- 群组图片管理 -->
+    <action name="groupPhoto" class="groupPhotoAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/group/group_photo_list.ftl</result>
+    </action>
+    
+    <!-- 群组视频管理 -->
+    <action name="groupVideo" class="groupVideoAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/group/group_video_list.ftl</result>
+    </action>
+    
+    <!-- 群组的分类管理 -->
+    <action name="groupCategory" class="groupCategoryAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/group/group_cate_list.ftl</result>
+      <result name="Add_Success" type="freemarker">/WEB-INF/ftl/group/group_cate_add.ftl</result>
+    </action>
+    
+    <!-- 群组公告管理 -->
+    <action name="groupPlacard" class="groupPlacardAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/group/group_placard_list.ftl</result>
+      <result name="AddEdit_Placard" type="freemarker">/WEB-INF/ftl/group/group_placard_add.ftl</result>
+    </action>
+    
+    <!-- 群组留言管理 -->
+    <action name="groupLeaveword" class="groupLeavewordAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/group/group_lw_list.ftl</result>
+      <result name="Reply_LeaveWord" type="freemarker">/WEB-INF/ftl/group/group_lw_reply.ftl</result>
+    </action>
+    
+    <!-- 群组论坛管理 -->
+    <action name="groupBbs" class="groupBbsAction">
+    	<result name="Topiclist_Success" type="freemarker">/WEB-INF/ftl/group/group_topic_list.ftl</result>
+    	<result name="Replylist_Success" type="freemarker">/WEB-INF/ftl/group/group_reply_list.ftl</result>
+    	<result name="EditTopic_Success" type="freemarker">/WEB-INF/ftl/group/group_edit_topic.ftl</result>
+    	<result name="EditReply_Success" type="freemarker">/WEB-INF/ftl/group/group_edit_reply.ftl</result>
+    	<result name="AddTopic_Success"  type="freemarker">/WEB-INF/ftl/group/group_add_topic.ftl</result>
+    	<result name="AddReply_Success"  type="freemarker">/WEB-INF/ftl/group/group_add_reply.ftl</result>
+    </action> 
+    
+    <!-- 群组链接管理 -->
+    <action name="groupLink" class="groupLinkAction">
+    	<result name="Write_Success" type="freemarker">/WEB-INF/ftl/group/group_addEdit_link.ftl</result>
+    	<result name="List_Link" type="freemarker">/WEB-INF/ftl/group/group_link_list.ftl</result>
+    </action>
+    
+    <!-- 群组讨论室管理 -->
+    <action name="groupTalkRoom" class="groupTalkRoomAction">
+    	<result name="listRoom_Success" type="freemarker">/WEB-INF/ftl/group/group_talkroom_list.ftl</result>
+    	<result name="AddRoom_Success" type="freemarker">/WEB-INF/ftl/group/group_addroom.ftl</result>
+    	<result name="TalkRoom_Success" type="freemarker">/WEB-INF/ftl/group/group_talkroom.ftl</result>
+    	<result name="Chatinfo_Success" type="freemarker">/WEB-INF/ftl/group/group_chatinfo.ftl</result>
+    	<result name="Chatuser_Success" type="freemarker">/WEB-INF/ftl/group/group_chatuser.ftl</result>
+    	<result name="Chatsend_Success" type="freemarker">/WEB-INF/ftl/group/group_chatsend.ftl</result> 
+    	<result name="Showprivateinfo_Success" type="freemarker">/WEB-INF/ftl/group/group_showprivateinfo.ftl</result>
+    	<result name="Showchatinfo_Success" type="freemarker">/WEB-INF/ftl/group/group_showchatinfo.ftl</result>
+    	<result name="getPublicChatInfo_Success" type="freemarker">/WEB-INF/ftl/group/group_showpublicinfo.ftl</result>
+    	<result name="getPrivateChatInfo_Success" type="freemarker">/WEB-INF/ftl/group/group_showprivatechatinfo.ftl</result>
+    	<result name="SaveMessage_Success" type="freemarker">/WEB-INF/ftl/group/group_savemessagesuc.ftl</result>
+    </action>
+     
+  </package>
+</struts>

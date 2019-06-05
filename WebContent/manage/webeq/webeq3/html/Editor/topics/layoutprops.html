@@ -1,0 +1,146 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+	<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Layout Properties Dialog</h1>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>MathML templates that only contain other templates, and not
+character data, are called layout templates.  The Layout Properties
+Dialog allows you set set a handful of miscellaneous properties that
+apply to one or more layout templates.</p>
+
+
+	<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"><a id="displaystyle"></a>Display style</h3>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>There are two typographic styles for typesetting equations called
+"display style" and "inline style".  In general, display style is used
+for equations that are centered and set off from the surrounding text, and inline
+style is used for equations mixed in with the text of a paragraph.</p>
+
+
+	<p>The main difference is that inline style tries to minimize the
+vertical space used by an equation, so inter-line spacing is effected
+less.  Specifically, in display style, larger symbols are used for
+summations, integrals, etc. and limits are typeset over and under the
+operators instead of in the script positions.  Fractions and scripts
+are also set in larger type faces, and with more vertical spacing.</p>
+
+
+	<p>The <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">display style</b> property only applies to the <a href="propmenu.html#stylechange">style change</a> template, and by default, the
+display style property is 'false'.  However, WebEQ Editor
+will automatically insert a style change template wrapper if you try
+to set the display style property for some other layout template.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>In general, it is not a good idea to have only part of an equation
+in display style, so the standard way of using this property is to
+insert a <a href="propmenu.html#stylechange">style change</a> template just
+inside the top-level &lt;math&gt; element, and set display style to
+'true' on that.  That has the effect of setting display style to true 
+for all templates nested inside it.</p>
+
+
+	<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Script level</h3>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>Traditional mathematical typesetting employs at most three
+different font sizes in any given equation -- a base font size, a
+slightly smaller size for scripts, and a much smaller size for scripts
+of scripts.  All other notation in an equation is usually typeset using one of
+these sizes as appropriate, depending on the level of nesting of
+templates.</p>
+
+
+	<p>In MathML, which font size a particular template will use is
+determined by its script level.  The base font corresponds to
+script level 0, script size is level 1, and "script script" size is
+level 2.  By default, the <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">script level</b> property is <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">automatic</em>
+and standard typesetting algorithms determine the script level of
+any given template.  However, in some situations, you may want to
+explicitly set the script level to achieve a certain visual
+effect.</p>
+
+
+	<p>The script level property only applies to the <a href="propmenu.html#stylechange">style change</a> template. However, WebEQ
+Editor will automatically insert a style change template wrapper
+if you try to set the script level property for some other layout
+template.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Foreground and Background color</h3>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">foreground color</b> and <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">background color</b> properties set the foreground and background colors for layout templates, just as the background color property on the <a href="fontprops.html#fontprops">font properties dialog</a> sets the background
+color for token templates that contain character data.  The default values for these properties are <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">inherited</em> and can be set to
+any <a href="propvals.html#colorval">color value</a>.</p>
+
+
+	<p>The background color property only applies to the <a href="propmenu.html#stylechange">style change</a> template. However, WebEQ
+Editor will automatically insert a style change template wrapper if
+you try to set the background color property for some other layout
+template.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Fraction line thickness</h3>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">fraction line thickness</b> property determines the
+thickness for the horizontal bar in a fraction template.  It only
+applies to fraction templates. It can be set to any positive <a href="propvals.html#sizeval">size value</a>, any positive integer without units
+(interpreted as number of pixels), or one of the keywords 'thin',
+'medium', 'thick'</p>
+
+
+	<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Treat underscript/overscript as accent</h3>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>When typesetting overscripts and underscripts, the usual practice
+is to use a smaller type face.  However, when typesetting mathematical
+accents, such as a tilde or a bar, as an overscript, you typically
+want the font sizes to match.  By setting these properties to
+'true' you can instruct MathML renderers not to decrease the
+font size for a template being typeset and an under- or
+overscript.</p>
+
+
+	<p>The default value is <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">automatic</em>.  These attributes only
+apply to overscript and underscript templates respectively.</p>
+
+
+	<p>See also the <a href="opprops.html#opaccentprop">treat as accent</a>
+operator property, which has the same effect when set on an 
+&lt;mo&gt; template in the script position.</p>
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.UnitNewsNotice" table="UnitNewsNotice">
+        <id name="unitNewsId" type="java.lang.Integer">
+            <column name="UnitNewsId" />
+            <generator class="identity" />
+        </id>
+        <property name="title" type="java.lang.String">
+            <column name="Title" not-null="true" />
+        </property>
+        <property name="createUserId" type="int">
+            <column name="CreateUserId" not-null="true" />
+        </property>
+        <property name="organizationUnitId" type="int">
+            <column name="OrganizationUnitId" not-null="true" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="viewCount" type="int">
+            <column name="ViewCount" not-null="true" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="Content" length="1073741823" not-null="true" />
+        </property>
+        <property name="picture" type="java.lang.String">
+            <column name="Picture" length="512" />
+        </property>
+        <property name="itemType" type="int">
+            <column name="ItemType" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

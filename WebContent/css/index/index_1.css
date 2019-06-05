@@ -1,0 +1,83 @@
+/*首页公用样式*/
+.leftWidth{width:686px;_overflow:hidden;}
+.rightWidth{width:300px;}
+.teachScroll,.indImg li,.teachScrollBtn li,.sectionTitle,ul.imgList li,.articleInfo,.articleImg,.photoStyle1,.photoStyle2,.photoStyle3,.photoRight,.special,.tag,.video ul li{float:left;}
+.teachNews,.articleList,.newClass,.teamTag{float:right;}
+.rightWidth,.teachScroll,.teachScrollImg li,.photo a,.video ul li{position:relative;}
+.teach,.article,.stadio,.latest,.natural,.activity,.specialCont,.newClassCont,.video,.team,.agency{_overflow:hidden;padding:20px 18px 16px;height:240px;background:#fff;}
+/*教研动态*/
+.teachScroll,.indImg li,.container,.indImg li img{overflow:hidden;width:320px;height:240px;}
+.indImg{width:2700px;height:240px;float:left;}
+.indImg li div{position:relative;width:320px;height:30px;margin-top:-34px;}
+.indImg li div a{position:absolute;z-index:1;padding-left:7px;line-height:30px;font-size:13px;color:#fff;}
+.indImg li div p{position:absolute;width:320px;height:30px;background:#000;opacity:0.5;}
+.teachScrollBtn{position:absolute;right:0;bottom:10px;height:12px;}
+.pagination li{display:block;overflow:hidden;width:10px;height:10px;margin-right:5px;background:#63727b;border-radius:10px;border:1px solid #63727d;cursor:pointer;line-height:200px;}
+.pagination li.active{background:#1283d5;border:1px solid #1283d7;}
+
+.teachNews{width:306px;}
+.teachNews h4 a{font-size:16px;color:#333;}
+.teachNews h4 a:hover{color:#0a75bc;}
+ul.ulList li{line-height:25px;}
+/*文章*/
+.article{height:150px;}
+.articleInfo{width:315px;}
+.articleImg{width:118px;height:90px;margin-right:17px;}
+.articleInfo h4{margin-bottom:15px;}
+.articleInfo h4 a{font-size:14px;color:#333;}
+.articleInfo h4 a:hover{color:#0a75bc;}
+.articleInfo p{font-size:13px;color:#555;line-height:22px;text-indent:2em;}
+.articleInfo p a{margin-left:20px;}
+ul.articleList{width:310px;font-size:13px;}
+/*最新工作室*/
+.stadio{overflow:hidden;width:646px;height:150px;padding:25px 20px;}
+ul.imgList{width:681px;margin-left:-5px;}
+ul.imgList li{width:120px;margin-right:14px;text-align:center;}
+ul.imgList li a.imgLi{display:block;width:116px;height:116px;margin-bottom:6px;padding:2px;}
+ul.imgList li a.imgLi:hover{background:#33a2f0;}
+/*第一屏右侧*/
+.latest{height:95px;}
+.latest ul.ulList,.natural ul.ulList,.activity ul.ulList{margin-top:-5px;_margin-top:0;}
+.natural{height:255px;}
+.activity{height:204px;}
+/*图集代码*/
+.photo{width:1000px;height:240px;}
+.photo a{overflow:hidden;*text-decoration:none;*cursor:pointer;}
+.photoRight{width:800px;}
+.photoStyle1,.photoStyle1 a{display:block;width:200px;height:240px;}
+.photoStyle2,.photoStyle2 a{display:block;width:160px;height:120px;}
+.photoStyle3,.photoStyle3 a{display:block;width:200px;height:120px;}
+.photoStyle1 a div,.photoStyle2 a div,.photoStyle3 a div{position:absolute;left:0;top:0;display:none;background:url(../../images/index/nav/imgBg.png) repeat;font-size:14px;color:#fff;text-align:center;}
+.photoStyle1 a div{width:160px;height:130px;padding:110px 20px 0;}
+.photoStyle2 a div{width:120px;height:80px;padding:40px 20px 0;}
+.photoStyle3 a div{width:160px;height:80px;padding:40px 20px 0;}
+.photoStyle1 a:hover div,.photoStyle2 a:hover div,.photoStyle3 a:hover div{display:block;}
+.tx p{text-decoration:none;}
+/*专题*/
+.specialWrap{width:688px;}
+.special{width:320px;}
+.specialCont,.newClassCont{height:148px;}
+.specialCont ul,.newClassCont ul{margin-top:-7px;}
+.newClass{width:354px;}
+/*优秀名师*/
+ul.imgList li.tag{width:265px;}
+.ms{padding:12px 20px 10px;}
+/*视频*/
+.video{height:300px;}
+.video ul{width:680px;}
+.video ul li{width:150px;height:150px;margin:0 17px 8px 0;text-align:center;_line-height:20px;}
+.video ul li .videoImg{display:inline-block;width:150px;height:120px;}
+.video ul li .videoPlayBg{display:none;position:absolute;top:0;left:0;width:150px;height:120px;background:url(../../images/index/nav/imgBg.png) repeat;}
+.video ul li .videoPlay{display:none;position:absolute;top:35px;left:50px;z-index:1;width:49px;height:49px;background:url(../../images/index/nav/skin.png) no-repeat 0 -134px;}
+.video ul li:hover .videoPlayBg,.video ul li:hover .videoPlay{display:block;}
+/*推荐协作 团队*/
+.team{height:148px;}
+.team ul{width:269px;}
+.team ul li{width:120px;float:left;text-align:center;}
+.team ul li.teamTag{width:116px;float:right;margin:0;}
+/*活跃机构*/
+.agency{height:255px;}
+.agency ul{margin-top:-5px;}
+/*统计*/
+.count{_position:absolute;_left:-7px;width:302px;height:218px;padding:31px 20px 20px 30px;background:url(../../images/index/nav/countBg.jpg) no-repeat;margin-left:-7px;_margin-left:0;}
+.count p{font-size:13px;color:#555;line-height:26px;}

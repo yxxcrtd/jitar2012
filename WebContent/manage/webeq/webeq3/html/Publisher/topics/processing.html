@@ -1,0 +1,111 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+
+<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Specifying the Equation Format</h1>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>WebEQ Publisher generates equation output in four formats.  You
+specify the format you want by selecting from the pulldown menu 
+in the Output Document panel at the bottom of the Publisher main
+window.</p>
+
+
+
+<p>For each equation format, you can set a number of additional
+processing options from the dialogs accessible from the Options menu.
+The settings on the <a href="appearance.html#appearance">Appearance Options</a>
+panel apply to all output formats.  The settings on the other option
+panels only apply for some of the output formats.</p>
+
+
+
+<p>The possible equation output formats are:</p>
+
+
+
+<dl xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">
+<dt><b>Viewer Control Applets</b></dt>
+
+<dd>This option generates a WebEQ Viewer Control
+applet code in the output document.   When this option is selected,
+you will typically need to fine-tune processing settings on the <a href="viewer.html#viewer">Viewer Control Options</a> panel.
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+</dd>
+
+
+<dt><b>Applets with fallback images</b></dt>
+
+<dd>This option generates a WebEQ Viewer Control
+applet code in the output document just as the previous option.
+However, it also generates fallback image files, which display in
+browsers that have Java turned off.  When this equation format is
+selected additional processing setting from both the <a href="translation.html#translation">Translation Options</a> and 
+<a href="image.html#image">Image Options</a> panels apply.
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+</dd>
+
+
+<dt><b>Strict MathML</b></dt>
+
+<dd>This option writes out processed MathML code for the equations.
+To view the resulting output, readers will need a MathML capable
+browser, or a browser with a MathML plug-in.  MathML plug-ins and
+MathML capable browsers usually require additional declarations which
+must be added to document headers.  To specify what kind of additional
+declarations to include, you will want to adjust the processing
+settings on the <a href="translation.html#translation">Translation Options</a>
+panel. 
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+</dd>
+
+
+<dt><b>Images Only</b></dt>
+ 
+
+<dd>This option generates image files for equations.  When this
+equation format is selected, the adjacent "Image" pulldown menu
+becomes active and determines the graphics format, PNG or JPG, for the
+images to be generated. PNG is generally superior, and is the default.
+The HTML output will have the necessary &lt;IMG&gt; tags for the page to
+display all of the equations properly.  The image files themselves
+will be saved to the local disk.  You specify the location on the
+local disk from the <a href="translation.html#translation">Image Options</a>
+panel.
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+</dd>
+
+</dl>
+
+
+</body>
+</html>

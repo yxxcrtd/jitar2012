@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.UnitType" table="Jitar_UnitType">
+		<id name="Id" type="int">
+			<column name="Id" />
+			<generator class="identity" />
+		</id>
+		<property name="unitTypeGuid" type="java.lang.String">
+			<column name="UnitTypeGuid" length="36" not-null="true" />
+		</property>
+		<property name="unitTypeName" type="java.lang.String">
+			<column name="UnitTypeName" length="50" not-null="true" />
+		</property>
+		<property name="orderNo" type="int">
+			<column name="OrderNo"/>
+		</property>
+	</class>
+</hibernate-mapping>

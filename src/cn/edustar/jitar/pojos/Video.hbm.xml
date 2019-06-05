@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.Video" table="B_Video">
+		<id name="videoId" type="int">
+			<column name="VideoId" />
+			<generator class="identity" />
+		</id>
+		<property name="objectUuid" type="java.lang.String" update="false">
+			<column name="ObjectUuid" length="40" not-null="true" />
+		</property>
+		<property name="userId" type="int">
+			<column name="UserId" not-null="true" />
+		</property>		
+		<property name="title" type="java.lang.String">
+			<column name="V_Title" length="256" not-null="true" />
+		</property>
+		<property name="tags" type="java.lang.String">
+			<column name="V_Tags" length="256" />
+		</property>
+        <property name="categoryId" type="int">
+            <column name="CategoryId" />
+        </property>		
+		<property name="userCateId" type="int">
+			<column name="UserCateId" />
+		</property><!-- 
+		<many-to-one name="sysCate" column="CategoryId"
+			class="cn.edustar.jitar.pojos.Category" fetch="join" not-null="false"
+			lazy="proxy" insert="false" update="false">
+			</many-to-one>		 -->				
+		<property name="summary" type="java.lang.String">
+			<column name="V_Summary" length="1073741823" />
+		</property>
+		<property name="addIp" type="java.lang.String" update="false">
+			<column name="V_AddIP" length="50" />
+		</property>
+		<property name="createDate" type="java.util.Date" update="false">
+			<column name="V_CreateDate" length="23" not-null="true" />
+		</property>
+		<property name="lastModified" type="java.util.Date">
+			<column name="V_LastModified" length="23" not-null="true" />
+		</property>
+		<property name="viewCount" type="int" update="false">
+			<column name="V_ViewCount" not-null="true" />
+		</property>
+		<property name="commentCount" type="int" update="false">
+			<column name="V_CommentCount" not-null="true" />
+		</property>
+		<property name="downloadCount" type="int" update="false">
+			<column name="V_DownloadCount" not-null="true" />
+		</property>
+		<property name="href" type="java.lang.String">
+			<column name="V_Href" length="256" />
+		</property>
+		<property name="flvHref" type="java.lang.String">
+			<column name="V_FlvHref" length="256" />
+		</property>
+		<property name="flvThumbNailHref" type="java.lang.String">
+			<column name="V_FlvThumbNailHref" length="256" />
+		</property>
+		<property name="auditState" type="short">
+			<column name="V_AuditState" not-null="true" />
+		</property>
+		<property name="typeState" type="boolean">
+			<column name="V_TypeState" not-null="true" />
+		</property>	
+		<property name="unitId" type="java.lang.Integer">
+			<column name="UnitId" />
+		</property>
+		<property name="gradeId" type="java.lang.Integer">
+			<column name="gradeId" />
+		</property>
+		<property name="subjectId" type="java.lang.Integer">
+			<column name="subjectId" />
+		</property>
+		<property name="specialSubjectId" type="java.lang.Integer">
+			<column name="SpecialSubjectId" />
+		</property>
+		<property name="status" type="short">
+			<column name="Status" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

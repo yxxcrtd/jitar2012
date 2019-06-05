@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.GroupDataQuery" table="Jitar_GroupQuery">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="objectGuid" type="java.lang.String">
+            <column name="ObjectGuid" length="50" not-null="true" />
+        </property>
+        <property name="createDate" type="java.sql.Timestamp">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="beginDate" type="java.lang.String">
+            <column name="BeginDate" length="50" not-null="true" />
+        </property>
+        <property name="endDate" type="java.lang.String">
+            <column name="EndDate" length="50" not-null="true" />
+        </property>
+        <property name="loginName" type="java.lang.String">
+            <column name="LoginName" not-null="true" />
+        </property>
+        <property name="trueName" type="java.lang.String">
+            <column name="TrueName" />
+        </property>
+        <property name="unitName" type="java.lang.String">
+            <column name="UnitName" />
+        </property>
+        <property name="unitTitle" type="java.lang.String">
+            <column name="UnitTitle" />
+        </property>
+        <property name="metaSubjectId" type="java.lang.Integer">
+            <column name="MetaSubjectId" />
+        </property>
+        <property name="metaSubjectTitle" type="java.lang.String">
+            <column name="MetaSubjectTitle" />
+        </property>
+        <property name="gradeId" type="java.lang.Integer">
+            <column name="GradeId" />
+        </property>
+        <property name="gradeTitle" type="java.lang.String">
+            <column name="GradeTitle" />
+        </property>
+        <property name="articleCount" type="java.lang.Integer">
+            <column name="ArticleCount" not-null="true" />
+        </property>
+        <property name="bestArticleCount" type="java.lang.Integer">
+            <column name="BestArticleCount" not-null="true" />
+        </property>
+        <property name="resourceCount" type="java.lang.Integer">
+            <column name="ResourceCount" not-null="true" />
+        </property>
+        <property name="bestResourceCount" type="java.lang.Integer">
+            <column name="BestResourceCount" not-null="true" />
+        </property>
+        <property name="topicCount" type="java.lang.Integer">
+            <column name="TopicCount" not-null="true" />
+        </property>
+        <property name="replyCount" type="java.lang.Integer">
+            <column name="ReplyCount" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

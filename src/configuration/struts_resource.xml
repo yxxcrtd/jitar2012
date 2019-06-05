@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "struts-2.0.dtd">
+<struts>
+  <package name="resource" namespace="/manage" extends="groups-default">
+    <!-- 资源管理 -->
+    <action name="resource" class="resourceAction">
+      <result name="input" type="freemarker">/WEB-INF/ftl/input.ftl</result>
+      <interceptor-ref name="fileUpload">
+        <param name="allowedTypes"></param>
+        <param name="maximumSize">10485760</param><!-- 1024B*1024=[1048576]*2*5=2M -->
+      </interceptor-ref>
+      <interceptor-ref name="loginInterceptorStack"></interceptor-ref>
+      <result name="publish_result" type="freemarker">/WEB-INF/ftl/resource/publish_result.ftl</result>
+      <result name="select_cate2" type="freemarker">/WEB-INF/ftl/resource/select_resource_cate2.ftl</result>
+      <result name="select_cate" type="freemarker">/WEB-INF/ftl/resource/select_resource_cate.ftl</result>
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/resource/user_resman_list.ftl</result>
+      <result name="List_UserResource" type="freemarker">/WEB-INF/ftl/resource/user_resource_list.ftl</result>
+      <result name="View_Resource" type="freemarker">/WEB-INF/ftl/resource/view_resource.ftl</result>
+      <result name="Edit_Resource" type="freemarker">/WEB-INF/ftl/resource/edit_resource.ftl</result>
+      <result name="Upload_Resource" type="freemarker">/WEB-INF/ftl/resource/upload_resource.ftl</result>
+      <result name="Upload_Resource_ReturnId" type="freemarker">/WEB-INF/ftl/resource/uploadresourceId.ftl</result>
+      <result name="Dest_Cate" type="freemarker">/WEB-INF/ftl/resource/dest_cate.ftl</result>
+      <result name="Upload_BeikeResource" type="freemarker">/WEB-INF/ftl/resource/upload_beikeresource.ftl</result>
+      <result name="Recycle_List" type="freemarker">/WEB-INF/ftl/resource/recycle_list.ftl</result>
+      <result name="Comment_List" type="freemarker">/WEB-INF/ftl/resource/resource_comment_list.ftl</result>
+      <result name="Reply_Comment" type="freemarker">/WEB-INF/ftl/resource/reply_comment.ftl</result>
+      <result name="Edit_Comment" type="freemarker">/WEB-INF/ftl/resource/edit_comment.ftl</result>
+      <result name="Channel_Cate" type="freemarker">/WEB-INF/ftl/channel/channel_cate.ftl</result>
+    </action>
+    <!-- 资源个人分类管理 -->
+    <action name="rescate" class="userResourceCategoryAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/resource/res_cate_list.ftl</result>
+      <result name="Add_Success" type="freemarker">/WEB-INF/ftl/resource/res_cate_add.ftl</result>
+    </action>
+  </package>
+  <package name="resourcepy" namespace="/" extends="groups-default">
+    <!-- 资源访问 -->
+    <action name="resources" class="siteResourcesAction">
+      <result name="query" type="freemarker">/WEB-INF/ftl/queryresource.ftl</result>
+      <result name="list" type="freemarker">/WEB-INF/ftl/site_resources.ftl</result>
+      <result name="list2" type="freemarker">/WEB-INF/ftl2/site_resources.ftl</result>
+      <result name="siteerror" type="freemarker">/WEB-INF/ftl/site_err.ftl</result>
+      <result name="ajax" type="freemarker">/WEB-INF/ftl2/resource/site_resources_ajax.ftl</result>
+    </action>
+    <action name="showResource" class="showResourceAction">
+      <result name="show" type="freemarker">/WEB-INF/ftl2/resource/show_resource.ftl</result>
+      <result name="ERROR_INFO" type="freemarker">/WEB-INF/ftl2/common/ErrorWithMessage.ftl</result>
+      <result name="ShowMoreComment" type="freemarker">/WEB-INF/ftl2/resource/showMoreComment.ftl</result>      
+    </action>
+  </package>
+</struts>

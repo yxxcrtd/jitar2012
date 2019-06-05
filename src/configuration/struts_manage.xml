@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+  "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <!-- 后台管理 -->
+  <package name="manage" namespace="/manage" extends="groups-default">
+    <!-- 举报内容管理 -->
+    <action name="adminReport" class="adminReportAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Report_List.ftl</result>
+    </action>
+    <!-- 系统配置 -->
+    <action name="admin_sys" class="sysConfigAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Sys_Config.ftl</result>
+    </action>
+    <!-- 系统/学科新闻动态管理 -->
+    <action name="admin_news" class="adminNewsAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/news_list.ftl</result>
+      <result name="Add_Or_Edit" type="freemarker">/WEB-INF/ftl/admin/news_add_edit.ftl</result>
+    </action>
+    <!-- 系统公告管理 -->
+    <action name="admin_placard" class="adminPlacardAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/placard_list.ftl</result>
+      <result name="placard_add_edit" type="freemarker">/WEB-INF/ftl/admin/placard_add_edit.ftl</result>
+    </action>
+    <!-- 资源类型管理 -->
+    <action name="admin_resType" class="adminResTypeAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/restype_list.ftl</result>
+      <result name="Add_Or_Edit" type="freemarker">/WEB-INF/ftl/admin/restype_info.ftl</result>
+      <result name="Select" type="freemarker">/WEB-INF/ftl/admin/restype_select.ftl</result>
+    </action>
+    <!-- 学科管理 -->
+    <action name="admin_subject" class="adminSubjectAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/subject_list.ftl</result>
+      <result name="Add_Or_Edit" type="freemarker">/WEB-INF/ftl/admin/subject_add_edit.ftl</result>
+    </action>
+    <!-- 元学科管理 -->
+    <action name="admin_msubject" class="adminMetaSubjectAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/msubject_list.ftl</result>
+      <result name="Add_Or_Edit" type="freemarker">/WEB-INF/ftl/admin/msubject_add_edit.ftl</result>
+    </action>
+    <!-- 元学段管理 -->
+    <action name="admin_grade" class="adminGradeAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/grade_list.ftl</result>
+      <result name="Add_Or_Edit" type="freemarker">/WEB-INF/ftl/admin/grade_add_edit.ftl</result>
+    </action>
+    <!-- 群组统计 -->
+    <action name="admin_stat_group" class="adminStatGroupAction">
+      <result name="input" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Group.ftl</result>
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Group.ftl</result>
+      <result name="List_Success1" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Group_ReLoad.ftl</result>
+      <result name="List_Excel_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Excel_Group.ftl</result>
+    </action>
+    <action name="unitWebpartAction" class="unitWebpartAction"></action>
+    <action name="subjectWebpartAction" class="subjectWebpartAction"></action>
+    <!-- 机构统计 -->
+    <action name="admin_stat_unit" class="adminStatUnitAction">
+      <result name="input" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Unit.ftl</result>
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Unit.ftl</result>
+      <result name="List_Success1" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Unit_ReLoad.ftl</result>
+      <result name="List_Excel_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Excel_Unit.ftl</result>
+    </action>
+    <!-- 学科统计 -->
+    <action name="admin_stat_subject" class="adminStatSubjectAction">
+      <result name="input" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Subject.ftl</result>
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Subject.ftl</result>
+      <result name="List_Success1" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Subject_ReLoad.ftl</result>
+      <result name="List_Excel_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Excel_Subject.ftl</result>
+    </action>
+  </package>
+</struts>

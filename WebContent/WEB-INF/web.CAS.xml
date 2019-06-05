@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+      version="3.0">
+    <display-name>中教启星网络教研平台</display-name>
+    
+    <listener>
+      <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
+    
+    <!-- 监听 session 中的对象 -->
+    <listener>
+        <listener-class>cn.edustar.jitar.listener.HttpSessionListener</listener-class>
+    </listener>
+    <!-- 监听 session 中的在线用户 -->
+    <listener>
+        <listener-class>cn.edustar.jitar.listener.OnlineListener</listener-class>
+    </listener>
+    
+    <!-- 120分钟 Session超时 -->
+    <session-config>
+    	<session-timeout>120</session-timeout>
+    </session-config>
+
+    <!-- 关闭 session -->
+    <filter>
+        <filter-name>OpenSessionInViewFilter</filter-name>
+        <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>OpenSessionInViewFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- 自动加载 Listener,在 web.xml 启动的时候由 ContextLoader 声明式创建 ApplicationContext -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/classes/applicationContext.xml,/WEB-INF/classes/jitarModules.xml</param-value>
+    </context-param>
+    
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- 设置编码开始 -->
+    <filter>
+        <filter-name>Set Character Encoding</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>Set Character Encoding</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- 设置编码结束 -->
+
+    <filter>
+        <filter-name>XmlRpcUserContextFilter</filter-name>
+        <filter-class>cn.edustar.jitar.filter.XmlRpcUserContextFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>XmlRpcUserContextFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- 统一用户认证过滤器 -->
+    <filter>
+        <filter-name>UserMgrVerify</filter-name>
+        <filter-class>cn.edustar.jitar.filter.UserVerifyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>UserMgrVerify</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- 放盗链，此配置必须放到 JitarUrlRewriter 配置之前 -->
+    <filter>
+        <filter-name>SimpleAntiTheftChain</filter-name>
+        <filter-class>cn.edustar.jitar.filter.SimpleAntiTheftChain</filter-class>
+        <init-param>
+            <param-name>Splider</param-name>
+            <param-value>baiduspider,Googlebot,mediapartners-google,sohu-search,3721</param-value>
+        </init-param>
+        <init-param>
+            <param-name>MainDomainName</param-name>
+            <param-value>xcwljy.cn</param-value>
+        </init-param>
+        <init-param>
+            <param-name>Debug</param-name>
+            <param-value>false</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>SimpleAntiTheftChain</filter-name>
+        <url-pattern>*.mp3</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>SimpleAntiTheftChain</filter-name>
+        <url-pattern>*.wmv</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>SimpleAntiTheftChain</filter-name>
+        <url-pattern>*.flv</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>SimpleAntiTheftChain</filter-name>
+        <url-pattern>*.rm</url-pattern>
+    </filter-mapping>
+
+    <!-- 页面过期设置 文档来自 http://tomcat.apache.org/tomcat-7.0-doc/config/filter.html#Expires_Filter -->
+    <filter>
+        <filter-name>ExpiresFilter</filter-name>
+        <filter-class>org.apache.catalina.filters.ExpiresFilter</filter-class>
+        <init-param>
+            <param-name>ExpiresByType image</param-name>
+            <param-value>modification plus 7 days</param-value>
+        </init-param>
+        <init-param>
+            <param-name>ExpiresByType application/x-shockwave-flash</param-name>
+            <param-value>modification plus 1 years</param-value>
+        </init-param>
+        <!-- <init-param> <param-name>ExpiresByType text</param-name> <param-value>modification 
+            plus 1 months</param-value> </init-param> -->
+        <init-param>
+            <param-name>ExpiresByType application/javascript</param-name>
+            <param-value>modification plus 1 months</param-value>
+        </init-param>
+        <init-param>
+            <param-name>ExpiresExcludedResponseStatusCodes</param-name>
+            <param-value>302, 500, 503</param-value>
+        </init-param>
+        <!-- <init-param> <param-name>ExpiresDefault</param-name> <param-value>modification 
+            plus 1 days</param-value> </init-param> -->
+    </filter>
+    <filter-mapping>
+        <filter-name>ExpiresFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- 教研系统 URL 重写过滤器 -->
+    <filter>
+        <filter-name>JitarUrlRewriter</filter-name>
+        <filter-class>cn.edustar.jitar.filter.JitarUrlRewriter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>JitarUrlRewriter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- 用户文件过滤器 -->
+    <filter>
+        <filter-name>UserFileFilter</filter-name>
+        <filter-class>cn.edustar.jitar.filter.UserFileFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>UserFileFilter</filter-name>
+        <url-pattern>/user/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Struts2 调度过滤器，用来初始化 Struts2,并处理所有的 Web 请求 -->
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>*.action</url-pattern>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+        <dispatcher>ASYNC</dispatcher>
+    </filter-mapping>
+
+    <!-- 初始化 FreeMarker, 启动 JspSupportServlet -->
+    <servlet>
+        <servlet-name>JspSupportServlet</servlet-name>
+        <servlet-class>org.apache.struts2.views.JspSupportServlet</servlet-class>
+        <load-on-startup>1</load-on-startup><!-- 配置 JspSupportServlet 自启动 -->
+    </servlet>
+    
+  <servlet>
+    <servlet-name>img_1</servlet-name>
+    <servlet-class>cn.edustar.jitar.action.GetImageServlet</servlet-class>
+  </servlet>
+   
+  <servlet-mapping>
+      <servlet-name>img_1</servlet-name>
+      <url-pattern>/i/*</url-pattern>
+  </servlet-mapping>
+
+    <!-- /u/ 个人, /g/ 群组, /s/ 系统 的映射 -->
+    <servlet>
+        <servlet-name>user_page</servlet-name>
+        <servlet-class>cn.edustar.jitar.servlet.BlogServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user_page</servlet-name>
+        <url-pattern>/u/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>group_page</servlet-name>
+        <servlet-class>cn.edustar.jitar.servlet.GroupServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>group_page</servlet-name>
+        <url-pattern>/g/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>preparecourse_page</servlet-name>
+        <servlet-class>cn.edustar.jitar.servlet.PrepareCourseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>preparecourse_page</servlet-name>
+        <url-pattern>/p/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>system_page</servlet-name>
+        <servlet-class>cn.edustar.jitar.servlet.EntityPageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>system_page</servlet-name>
+        <url-pattern>/s/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>unit_page</servlet-name>
+        <servlet-class>cn.edustar.jitar.servlet.UnitServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>unit_page</servlet-name>
+        <url-pattern>/d/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>subject_page</servlet-name>
+        <servlet-class>cn.edustar.jitar.servlet.SubjectServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>subject_page</servlet-name>
+        <url-pattern>/k/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Jython 脚本解释执行 -->
+    <servlet>
+        <servlet-name>JythonServlet</servlet-name>
+        <servlet-class>cn.edustar.jitar.jython.JythonServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>JythonServlet</servlet-name>
+        <url-pattern>*.py</url-pattern>
+    </servlet-mapping>
+
+    <!-- 资源下载, url = /manage/resourceDownload?resourceId=x -->
+    <servlet>
+        <servlet-name>ResourceDownload</servlet-name>
+        <servlet-class>cn.edustar.jitar.servlet.ResourceDownloadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResourceDownload</servlet-name>
+        <url-pattern>/manage/resourceDownload</url-pattern>
+    </servlet-mapping>
+
+    <!-- 集备文件下载 -->
+    <servlet>
+        <servlet-name>DownloadCourseFile</servlet-name>
+        <servlet-class>cn.edustar.jitar.servlet.DownloadCourseFile</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DownloadCourseFile</servlet-name>
+        <url-pattern>/manage/DownloadCourseFile</url-pattern>
+    </servlet-mapping>
+
+    <!-- 请求其它网站 rss 数据的代理 servlet -->
+    <servlet>
+        <servlet-name>rss_proxy</servlet-name>
+        <servlet-class>cn.edustar.jitar.servlet.RssProxyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>rss_proxy</servlet-name>
+        <url-pattern>/manage/proxy/rss</url-pattern>
+    </servlet-mapping>
+
+    <!-- 显示图片 -->
+    <servlet>
+        <servlet-name>showImage</servlet-name>
+        <servlet-class>cn.edustar.jitar.servlet.ShowImageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>showImage</servlet-name>
+        <url-pattern>/manage/showImage</url-pattern>
+    </servlet-mapping>
+    <!-- 欢迎页 -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.action</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error404.jsp</location>
+    </error-page>
+    <!-- 开发阶段禁止使用
+    <error-page> 
+        <error-code>500</error-code> 
+        <location>/error500.jsp</location> 
+    </error-page> 
+  -->
+    <context-param>
+        <param-name>reserved</param-name>
+        <param-value>_test,config-browser,starter,html,mashup,push,program,units,manage,group,subject,css,images,js,user,theme,mod,skin,data,jython,UploadFiles,system,help,media,include,chat,fckeditor,webeq,zdsoft,verify,invalidate,ffmpeg,channel,script,preparecoursefolder,pcfile,SWFTools,download,InterFaceServer,cas,logout,login</param-value>
+    </context-param>
+
+    <!-- 此项是非标准项： 为简化配置，下面的配置项当作是否启用word功能的标志。这个配置项不存在，就认为不使用word方式，不管SWFTools是否安装到了本站目录下，这里都必须配置了 -->
+    <context-param>
+        <param-name>pdf2swfPath</param-name>
+        <param-value>E:\SWFTools\pdf2swf.exe</param-value>
+    </context-param>
+    
+    <!-- 视频上传路径（注意：后面不需要斜线，如双引号中的示例："D:\upload" 或 "/root/upload"） -->
+    <context-param>
+        <param-name>videoUploadPath</param-name>
+        <param-value>D:\upload</param-value>
+    </context-param>
+    
+    <!-- 视频映射路径（注意：后面的反斜线不能少） -->
+    <context-param>
+        <param-name>mappingPath</param-name>
+        <param-value>/upload/</param-value>
+    </context-param>
+    
+    
+    <!-- 配学科资源群的资源推送 -->
+    <context-param>
+        <param-name>reslib_url</param-name>
+        <param-value>http://www.jitar.com.cn:8228/</param-value>
+    </context-param>
+    <context-param>
+        <param-name>reslib_ip</param-name>
+        <!-- <param-value>192.168.3.5</param-value> -->
+        <param-value>127.0.0.1</param-value>
+    </context-param>    
+    
+
+    <!--为视频平台提供的接口 
+    <servlet>
+        <servlet-name>XmlRpcServer</servlet-name>
+        <servlet-class>cn.edustar.xmlrpc.servlet.XmlRpcServer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>XmlRpcServer</servlet-name>
+        <url-pattern>/InterFaceServer</url-pattern>
+    </servlet-mapping>
+    -->
+
+    <!-- 教研的视频会议接口 http://www.jitar.com.cn:5080/edustarmeetings/EnterRoom?interface=jiaoyanInterface-->
+    <context-param>
+        <param-name>video_url</param-name>
+        <param-value></param-value>
+    </context-param>
+    <!-- 教研的视频会议接口 结束 -->
+
+    <mime-mapping>
+        <extension>rar</extension>
+        <mime-type>application/octet-stream</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>iso</extension>
+        <mime-type>application/octet-stream</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>pdf</extension>
+        <mime-type>application/pdf</mime-type>
+    </mime-mapping>
+
+    <!-- 删除临时文件 -->
+    <servlet>
+        <servlet-name>DeleteTmpFileServlet</servlet-name>
+        <servlet-class>cn.edustar.jitar.servlet.DeleteTmpFileServlet</servlet-class>
+        <load-on-startup>8</load-on-startup>
+    </servlet>
+
+
+    <servlet>
+        <servlet-name>logoutServlet</servlet-name>
+        <servlet-class>cn.edustar.jitar.servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    
+    <!--必须放在CAS的最前面-->
+    <filter>
+        <filter-name>CasConstFilter</filter-name>
+        <filter-class>org.jasig.cas.client.util.CasConstFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CasConstFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- 单点退出过滤器 -->
+    <filter>  
+        <filter-name>CAS Single Sign Out Filter</filter-name>
+        <filter-class>org.jasig.cas.client.session.SingleSignOutFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CAS Single Sign Out Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <!-- 单点退出监听器 -->
+    <listener>
+        <listener-class>org.jasig.cas.client.session.SingleSignOutHttpSessionListener</listener-class>
+    </listener>
+    
+    <!-- CAS登录过滤器  CAS-Authentication-Filter 名字不能改变-->
+    <filter>
+        <filter-name>CAS-Authentication-Filter</filter-name>
+        <filter-class>org.jasig.cas.client.authentication.AuthenticationFilter</filter-class><!-- 负责客户端认证 -->
+        <init-param>
+            <param-name>casServerLoginUrl</param-name>
+            <!-- <param-value>http://192.168.3.134:8080/usermgr3/login</param-value>登录地址,如果不设置，则必须安装在本地，且名称必须是usermgr3 -->
+            <param-value>http://localhost:8080/usermgr3/login</param-value>
+        </init-param>
+        <init-param>
+            <param-name>serverName</param-name>
+            <param-value>http://www.jitar.com.cn</param-value>
+        </init-param>
+        <init-param>
+            <param-name>callbackLogOutUrl</param-name>
+            <param-value>/logout</param-value>
+        </init-param>
+        <init-param>
+            <param-name>returnUrl</param-name>
+            <param-value>/login/index.jsp</param-value>
+        </init-param>       
+    </filter>
+    
+    <!-- CAS验证过滤器   CASValidationFilter 名字不要修改-->
+    <filter>
+        <filter-name>CASValidationFilter</filter-name>
+        <!-- <filter-class>org.jasig.cas.client.validation.Cas10TicketValidationFilter</filter-class>按照CAS1体系结构校验Ticket -->
+        <filter-class>org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter</filter-class><!-- 按照CAS2体系结构校验Ticket -->
+        <init-param>
+            <param-name>casServerUrlPrefix</param-name>
+          <!--   <param-value>http://192.168.3.134:8080/usermgr3</param-value>CAS 验证地址 -如果不设置，则必须安装在本地，且名称必须是usermgr3 -->
+             <param-value>http://localhost:8080/usermgr3</param-value><!-- CAS 验证地址 -如果不设置，则必须安装在本地，且名称必须是usermgr3-->
+        </init-param>
+        <init-param>
+            <param-name>serverName</param-name>
+            <param-value>http://www.jitar.com.cn</param-value>
+        </init-param>
+    </filter>
+    <!-- CAS登录信息封装过滤器 -->
+    <filter>
+        <filter-name>CAS-HttpServletRequest-Wrapper-Filter</filter-name>
+        <filter-class>org.jasig.cas.client.util.HttpServletRequestWrapperFilter</filter-class><!-- 包装request.getRemoteUser()数据 -->
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CAS-Authentication-Filter</filter-name>
+        <url-pattern>/login/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>CASValidationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>CAS-HttpServletRequest-Wrapper-Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>  
+   
+</web-app>

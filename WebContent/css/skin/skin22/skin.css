@@ -1,0 +1,170 @@
+/**/
+body {
+	background: #fff38a none repeat scroll 0% 0%
+}
+
+#container {
+	background:#fff38a;
+	margin:auto;
+	text-align:left;
+	width:1023px;
+}
+#toolbar {
+	width:1023px;
+}
+#header {
+	background: transparent url(banner_02.jpg) no-repeat scroll left top;
+	border-color: #C1C1BF rgb(193, 193, 191) -moz-use-text-color;
+	border-style: solid solid none;
+	border-width: 1px 1px medium;
+	height: 308px;
+	margin:auto;
+	width:1023px;
+}
+
+#navbar {
+	background: transparent url(25_05.jpg) no-repeat scroll left top;
+	width:950px;
+	margin:auto;
+}
+
+.widgetWindow {
+	border:1px solid #878267;
+	background:#fee75d;
+	padding:1px;
+	margin-top:6px;
+}
+
+.widgetFrame {
+	border:1px solid #d8e7ee;
+	background:url('25_19.jpg');
+}
+
+.widgetHeader {
+	border:1px solid #878267;
+	background:url('25_09.jpg');
+	padding:6px 6px 0 6px;
+}
+
+.showWidget {
+	background:url('ico_showMod.gif') no-repeat;
+	width:20px;
+	height:20px;
+	float:left;
+	display:none;
+	cursor:pointer;
+}
+
+.hideWidget {
+	background:url('ico_hideMod.gif') no-repeat;
+	width:20px;
+	height:20px;
+	float:left;
+	display:none;
+	cursor:pointer;
+}
+
+.close {
+	background:url('ico_cls.gif') no-repeat;
+	width:20px;
+	height:20px;
+	float:right;
+	display:none;
+	cursor:pointer;
+}
+
+.edit {
+	float:right;
+	display:none;
+	cursor:pointer;
+}
+
+.options {
+	float:left;
+	display:none;
+	cursor:pointer;
+}
+
+.refresh {
+	float:right;
+	background:url('ico_rfs.gif') no-repeat;
+	width:20px;
+	height:20px;
+	display:none;
+	cursor:pointer;
+}
+
+.ico {
+	float:left;	
+}
+
+.title {
+	height:22px;
+	font-weight:bold;	
+}
+
+.widgetEditor {
+	float:left;
+}
+
+.widgetContent {
+	padding:10px;
+}
+
+/* */
+.friend{
+	display:block;
+	padding-top:5px;
+}
+
+.friendIcon {
+	width:48px;
+	height:48px;
+}
+
+.friendImg,.friendInfo {
+	float:left;
+}
+
+/* 通用行列模式样式 */
+.wrapGridFrame{
+	padding-top:
+}
+.wrapGridItem{
+	margin-bottom:6px;
+	border:1px solid #300;
+}
+.wrapGridItemHeader {
+	padding:4px;
+}
+
+.wrapGridBody {
+	padding:4px;
+	}
+.floatRight {
+	float:right;
+}
+.floatLeft {
+	float:left;
+}
+
+.fontBold{
+ font-weight:bold;
+}
+.padding2px{
+	padding:2px;
+	}
+
+a.linkButton {
+	display:inline;
+	width:60px;
+	height:20px;
+	text-decoration:none;
+	color:#000;
+}
+
+a.icoBlog { padding-left:20px;background:url('ico_profile.gif') no-repeat left center; }
+a.icoProfile { padding-left:20px;background:url('ico_profile.gif') no-repeat left center; }
+a.icoFriend { padding-left:20px;background:url('ico_addLink.gif') no-repeat left center; }
+a.icoMessage { padding-left:20px;background:url('ico_writeMessage.gif') no-repeat left center; }
+

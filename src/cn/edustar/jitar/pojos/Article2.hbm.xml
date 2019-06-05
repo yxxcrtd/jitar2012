@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.Article2" mutable="false">
+		<id name="articleId" type="int">
+			<column name="ArticleId" />
+			<generator class="assigned" />
+		</id>
+		<property name="objectUuid" type="java.lang.String" update="false">
+			<column name="ObjectUuid" length="40" />
+		</property>
+		<property name="title" type="java.lang.String">
+			<column name="Title" length="256" />
+		</property>
+		<property name="userId" type="int">
+			<column name="UserID" />
+		</property>
+		<property name="createDate" type="java.util.Date" update="false">
+			<column name="CreateDate" length="23" />
+		</property>
+		<property name="lastModified" type="java.util.Date">
+			<column name="LastModified" length="23" />
+		</property>
+		<property name="userTrueName" type="java.lang.String">
+			<column name="UserTrueName" length="50" />
+		</property>
+		<property name="articleTags" type="java.lang.String">
+			<column name="ArticleTags" length="256" />
+		</property>
+		<property name="viewCount" type="int" update="false">
+			<column name="ViewCount" />
+		</property>
+		<property name="digg" type="int" update="false">
+			<column name="Digg" />
+		</property>
+		<property name="trample" type="int" update="false">
+			<column name="Trample" />
+		</property>
+		<property name="starCount" type="int">
+			<column name="StarCount" />
+		</property>
+		<property name="commentCount" type="int" update="false">
+			<column name="CommentCount" />
+		</property>
+		<property name="subjectId" type="java.lang.Integer">
+			<column name="SubjectId" />
+		</property>
+		<property name="gradeId" type="java.lang.Integer">
+			<column name="GradeId" />
+		</property>		
+		<property name="userCateId" type="java.lang.Integer">
+			<column name="UserCateId" />
+		</property>
+		<property name="sysCateId" type="java.lang.Integer">
+			<column name="SysCateId" />
+		</property>		
+		<property name="hideState" type="short">
+			<column name="HideState" />
+		</property>
+		<property name="auditState" type="short">
+			<column name="AuditState" />
+		</property>
+		<property name="topState" type="boolean">
+			<column name="TopState" />
+		</property>
+		<property name="bestState" type="boolean">
+			<column name="BestState" />
+		</property>
+		<property name="draftState" type="boolean">
+			<column name="DraftState" />
+		</property>
+		<property name="delState" type="boolean">
+			<column name="DelState" />
+		</property>
+		<property name="recommendState" type="boolean">
+			<column name="RecommendState" />
+		</property>
+		<property name="commentState" type="boolean">
+			<column name="CommentState" />
+		</property>
+		<property name="addIp" type="java.lang.String" update="false">
+			<column name="AddIP" length="50" />
+		</property>
+		<property name="typeState" type="boolean">
+			<column name="TypeState" />
+		</property>
+		<property name="unitId" type="java.lang.Integer">
+			<column name="UnitId" />
+		</property>
+		<property name="pushState" type="int">
+			<column name="PushState" />
+		</property>
+		<property name="pushUserId" type="java.lang.Integer">
+			<column name="PushUserId" />
+		</property>
+		<property name="unitPathInfo" type="java.lang.String">
+			<column name="UnitPathInfo" length="1024" />
+		</property>
+		<property name="orginPath" type="java.lang.String">
+			<column name="OrginPath" length="1024" />
+		</property>
+		<property name="rcmdPathInfo" type="java.lang.String">
+			<column name="RcmdPathInfo" length="1024" />
+		</property>
+		<property name="approvedPathInfo" type="java.lang.String">
+			<column name="ApprovedPathInfo" length="1024" />
+		</property>		
+		<property name="loginName" type="java.lang.String">
+			<column name="LoginName" length="50" />
+		</property>
+	</class>
+	<sql-query name="findPagingArticle" callable="true">
+		<return alias="article2" class="cn.edustar.jitar.pojos.Article2">		
+			<return-property name="articleId" column="ArticleId" />
+			<return-property name="objectUuid" column="ObjectUuid" />
+			<return-property name="title" column="title" />
+			<return-property name="userId" column="UserId" />
+			<return-property name="createDate" column="CreateDate" />
+			<return-property name="lastModified" column="LastModified" />
+			<return-property name="userTrueName" column="UserTrueName" />
+			<return-property name="articleTags" column="ArticleTags" />
+			<return-property name="viewCount" column="ViewCount" />
+			<return-property name="commentCount" column="CommentCount" />
+			<return-property name="subjectId" column="subjectId" />
+			<return-property name="gradeId" column="GradeId" />
+			<return-property name="userCateId" column="UserCateId" />
+			<return-property name="sysCateId" column="SysCateId" />
+			<return-property name="hideState" column="HideState" />
+			<return-property name="auditState" column="AuditState" />
+			<return-property name="topState" column="TopState" />
+			<return-property name="bestState" column="BestState" />
+			<return-property name="draftState" column="DraftState" />
+			<return-property name="delState" column="DelState" />
+			<return-property name="recommendState" column="RecommendState" />
+			<return-property name="commentState" column="CommentState" />
+			<return-property name="addIp" column="AddIP" />
+			<return-property name="trample" column="Trample" />
+			<return-property name="digg" column="Digg" />
+			<return-property name="starCount" column="StarCount" />
+			<return-property name="typeState" column="TypeState" />
+			<return-property name="unitId" column="UnitId" />
+			<return-property name="pushState" column="PushState" />
+			<return-property name="pushUserId" column="PushUserId" />
+			<return-property name="orginPath" column="OrginPath" />
+			<return-property name="unitPathInfo" column="UnitPathInfo" />
+			<return-property name="approvedPathInfo" column="ApprovedPathInfo" />
+			<return-property name="rcmdPathInfo" column="RcmdPathInfo" />
+			<return-property name="loginName" column="LoginName" />
+		</return>
+		{call PageView(?,?,?,?,?,?,?)}
+	</sql-query>
+</hibernate-mapping>

@@ -1,0 +1,105 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+	<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Getting Started with WebEQ Publisher</h1>
+
+	<p>WebEQ Publisher is a document processing program. It reads in
+a <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">source</em> file containing math markup 
+and produces a new <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">output</em> file where the math has been
+processed into a format ready for publication.</p>
+
+
+	<p>The source file <idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+ is an ordinary HTML
+file, with MathML or WebTeX math markup interspersed with the text.
+In the HTML output file, the Publisher replaces the source math markup
+with processed MathML, applet code or image tags.  The HTML output file is then ready
+to post to the Web or view with a browser.  Whenever you need to make
+a change to your document, you should make the change in the source
+file, then run the Publisher on it again to produce an updated output
+file.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>
+		<img src="images/main1.gif">
+	</p>
+
+
+	<p>To use the Publisher, you will generally need to go through the
+following steps:</p>
+
+
+	<ol xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">
+		<li>
+			<a href="prepare.html#prepare">Prepare a source file</a> containing either
+MathML or WebTeX markup for equations.</li>
+
+		<li>Specify the <a href="sourcedoc.html#sourcedoc">source file</a> and <a href="outputdoc.html#outputdoc">output file</a>. </li>
+
+		<li>Set the <a href="processing.html#processing">type of processing</a> you want
+to do.</li>
+
+		<li>Fine tune any relevant processing options using the Options Menu</li>
+
+		<li>Click "Process Now" on the main panel, and check the output when
+the Publisher is finished.</li>
+
+	</ol>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Example</h3>
+
+	<p>A common way to use the Publisher is to process a source HTML
+file with embedded WebTeX code to produce an output HTML file with a
+Viewer Control applet tag for each equation.  For example, in an
+HTML source file, an author might write:</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>
+		<blockquote><pre>
+The area of a circle is given by $A = \pi r^2$, 
+where &lt;em&gt;r&lt;/em&gt; is the radius.
+</pre></blockquote>
+	</p>
+
+
+	<p>In the HTML output file, the Publisher would write out something like:</p>
+
+
+	<p>
+		<blockquote><pre>
+The area of a circle is given by
+&lt;b&gt;&lt;applet codebase="classes" code="webeq3.ViewerControl" height="28" width="87"&gt;
+&lt;param name="eq" value="A= \pi r^2"&gt;
+&lt;/applet&gt;&lt;/b&gt;, where &lt;em&gt;r&lt;/em&gt; is the radius.
+</pre></blockquote>
+	</p>
+
+
+	<p>Note that the Publisher writes out the height and width of the
+applet, since Java applets must specify in advance how large they
+should be, and fills in the <tt xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">codebase</tt> attribute in the applet
+tag.</p>
+
+
+	<p>As an example of the fine tuning processing options, you might want
+to change the <tt xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">codebase</tt> to a different location by using the
+<a href="viewer.html#viewer">Viewer Control Options</a>.</p>
+
+
+</body>
+</html>

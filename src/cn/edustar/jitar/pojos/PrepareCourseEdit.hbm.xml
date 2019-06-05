@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.PrepareCourseEdit" table="C_PrepareCourseEdit">
+        <id name="prepareCourseEditId" type="java.lang.Integer">
+            <column name="PrepareCourseEditId" />
+            <generator class="identity" />
+        </id>
+        <property name="prepareCourseId" type="java.lang.Integer">
+            <column name="PrepareCourseId" not-null="true" />
+        </property>
+        <property name="editDate" type="java.util.Date">
+            <column name="EditDate" length="23" not-null="true" />
+        </property>
+        <property name="editUserId" type="java.lang.Integer">
+            <column name="EditUserId" not-null="true" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="Content" length="1073741823" not-null="true" />
+        </property>
+        <property name="lockStatus" type="java.lang.Integer">
+            <column name="LockStatus" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

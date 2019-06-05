@@ -1,0 +1,61 @@
+@import url("common.css");
+
+
+.tag_table { width:950px;background:#aec6dd;margin:auto;margin-top:10px;}
+.tag_table tr { background:#FFF; }
+.tag_table_left {background:url('tag_bg1.gif');width:36x;vertical-align:middle;padding:0 10px;font-weight:bold;font-size:14px;line-height:180%;}
+.tag_table_right {width:100%;padding:10px;line-height:2em; }
+
+
+.SidebarTagCloud
+{
+ font-size: 100%;
+ list-style-type: none;
+ margin: 0px;
+ padding: 0px;
+}
+.SidebarTagCloud a:hover, .SidebarTagCloud a:active{text-decoration:underline;}
+
+.Tag0, .Tag1, .Tag2, .Tag3, .Tag4, .Tag5, .Tag6
+{
+ margin: 0px;
+ padding: 4px 10px 4px 0;
+ display: inline;
+}
+
+.Tag6 a:link, .Tag6 a:visited, .Tag6 a:active
+{
+ font-size: 180%;
+ font-weight: 900;
+}
+
+.Tag5 a:link, .Tag5 a:visited, .Tag5 a:active
+{
+ font-size: 170%;
+ font-weight: 800;
+}
+
+.Tag4 a:link, .Tag4 a:visited, .Tag4 a:active
+{
+ font-size: 150%;
+ font-weight: 600;
+}
+
+.Tag3 a:link, .Tag3 a:visited, .Tag3 a:active
+{
+ font-size: 140%;
+ font-weight: 500;
+}
+
+.Tag2 a:link, .Tag2 a:visited, .Tag2 a:active
+{
+ font-size: 120%;
+ font-weight: 300;
+}
+
+.Tag1 a:link, .Tag1 a:visited, .Tag1 a:active
+{
+ font-size: 110%;
+ font-weight: 200;
+}
+

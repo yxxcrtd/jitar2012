@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.SubjectWebpart" table="S_SubjectWebpart">
+        <id name="subjectWebpartId" type="int">
+            <column name="SubjectWebpartId" />
+            <generator class="identity" />
+        </id>
+        <property name="moduleName" type="java.lang.String">
+            <column name="ModuleName" length="255" not-null="true" />
+        </property>
+         <property name="displayName" type="java.lang.String">
+            <column name="DisplayName" length="255" not-null="true" />
+        </property>
+        <property name="systemModule" type="boolean">
+            <column name="SystemModule" not-null="true" />
+        </property>
+        <property name="subjectId" type="java.lang.Integer">
+            <column name="SubjectId" not-null="true" />
+        </property>
+        <property name="webpartZone" type="java.lang.Integer">
+            <column name="WebpartZone" not-null="true" />
+        </property>
+        <property name="rowIndex" type="java.lang.Integer">
+            <column name="RowIndex" not-null="true" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="Content" length="1073741823" />
+        </property>
+        <property name="visible" type="boolean">
+            <column name="Visible" not-null="true" />
+        </property>
+        <property name="sysCateId" type="java.lang.Integer">
+            <column name="SysCateId" />
+        </property>
+        <property name="showCount" type="java.lang.Integer">
+            <column name="ShowCount" />
+        </property>
+        <property name="showType" type="int">
+            <column name="ShowType" not-null="true" />
+        </property>
+        <property name="partType" type="int">
+            <column name="PartType" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

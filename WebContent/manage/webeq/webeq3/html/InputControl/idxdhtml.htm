@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>WebHelp3 Index frame</title>
+</head>
+<script LANGUAGE="JavaScript">
+<!--
+var gAgent = navigator.userAgent.toLowerCase(); 
+var gbMac = (gAgent.indexOf("mac") != -1);
+if (gbMac) {
+	document.write("<FRAMESET ROWS='45,100%' framespacing=0  frameborder=1>");
+} else {
+	document.write("<FRAMESET ROWS='60,100%' framespacing=0  frameborder=1>");
+}
+//-->
+</script>
+<frame SRC="idxform.htm" name="idxform" scrolling="no">
+<frame SRC="idxbody.htm" name="idxbody" scrolling="yes">
+</frameset>
+</html>

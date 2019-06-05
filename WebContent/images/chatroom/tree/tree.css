@@ -1,0 +1,33 @@
+/* +/-号及线 */
+body {
+  <!--
+   background: image;
+  -->
+  margin: 2px;
+}
+img.line {
+  border: 0px;
+  height: 18px;
+  width: 12px;
+  cursor:hand;
+  }
+/* folder.gif */
+img.icon {
+  margin-right: 2px;
+  border: 0px blue solid;
+  height: 18px;
+  width: 20px;
+}
+/* 树结点文字 */
+A.item {
+  text-decoration: none;
+  color: black;
+  margin: -1px;
+  padding-top: 10px:
+  border: 1px solid red
+}
+a.item:hover {
+  color: blue;
+}
+a{ cursor:arrow; }
+div {font-size: 9pt;}

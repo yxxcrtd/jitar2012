@@ -1,0 +1,95 @@
+1.在Web.XML中增加配置，为防止程序错误，原来的统一用户设置保留
+
+
+    <!-- ***********************此处是ZDSOFT**************************  -->
+	<listener>
+		<listener-class>net.zdsoft.passport.demo.client.SessionManager</listener-class>
+	</listener>
+   <servlet>
+        <servlet-name>passportClientInit</servlet-name>
+        <servlet-class>
+            net.zdsoft.passport.demo.servlet.PassportClientInitServlet
+        </servlet-class>
+        <init-param>
+            <param-name>passportURL</param-name>
+            <param-value>http://gs.edu88.com:10082</param-value>
+        </init-param>
+        <init-param>
+            <param-name>serverId</param-name>
+-            <param-value>423701</param-value>
+        </init-param>
+        <init-param>
+            <param-name>verifyKey</param-name>
+            <param-value>UT5ZNZR8JQDF6KY6KUEU7U8FQVRJ7AZZ</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>verify</servlet-name>
+        <servlet-class>
+            net.zdsoft.passport.demo.servlet.VerifyServlet
+        </servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>invalidate</servlet-name>
+        <servlet-class>
+            net.zdsoft.passport.demo.servlet.InvalidateServlet
+        </servlet-class>
+        <load-on-startup>3</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>
+            net.zdsoft.passport.demo.servlet.LogoutServlet
+        </servlet-class>
+        <load-on-startup>4</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>verify</servlet-name>
+        <url-pattern>/verify</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>invalidate</servlet-name>
+        <url-pattern>/invalidate</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    
+    <!-- ***********************ZDSOFT到此结束**************************  -->
+    
+    
+2.需要浙大方面配合，将产品的注册在统一用户Passport平台中，注册信息如下,产品名称及服务器地址根据客户需要修改，将信息提交给浙大方面：
+http://jy.wfjyxxg.com/
+
+-----------------------------------------------------------------------------------
+******************服务类型信息*****************************
+
+服务类型名称：教研平台
+服务类型描述：为学校教师提供教学研究
+是否允许注册：允许
+是否允许自由登录：允许
+是否区分用户类型：不需要
+
+******************服务信息**********************************
+
+服务名称：教研平台
+服务描述：中教育星教研平台
+访问域名：  http://www.jitar.com.cn:8080/
+(应用的字符编码:UTF-8）
+登录系统接口地址：  http://www.jitar.com.cn:8080/zdsoft/verify.jsp
+退出系统接口地址：  http://www.jitar.com.cn:8080/zdsoft/logout.jsp
+帐号信息同步接口地址：无
+是否需要同步帐号信息：不需要
+
+-------------------------------------------------------------------------------------
+    
+    

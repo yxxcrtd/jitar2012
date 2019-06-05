@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="cn.edustar.jitar.pojos.ViewCount" table="S_ViewCount">
+    <id name="id" type="int">
+      <column name="ID" />
+      <generator class="identity" />
+    </id>
+    <property name="objType" type="int">
+      <column name="objType" not-null="true" />
+    </property>
+    <property name="objId" type="int">
+      <column name="objId" not-null="true" />
+    </property>
+    <property name="viewDate" type="java.util.Date" update="false">
+      <column name="viewDate" length="23" not-null="true" />
+    </property>
+    <property name="viewCount" type="int">
+      <column name="viewCount" not-null="true" />
+    </property>
+    <property name="deled" type="int">
+      <column name="deled" not-null="true" />
+    </property>
+  </class>
+</hibernate-mapping>

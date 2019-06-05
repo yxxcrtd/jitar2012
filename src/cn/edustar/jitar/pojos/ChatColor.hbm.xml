@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.ChatColor" table="G_ChatColor">
+		<id name="id" type="int">
+			<column name="Id" />
+			<generator class="identity" />
+		</id>
+    <property name="colorName" type="java.lang.String">
+      <column name="ColorName" length="32" not-null="true" />
+    </property>
+    <property name="colorValue" type="java.lang.String">
+      <column name="ColorValue" length="32" not-null="true" />
+    </property>
+ </class>
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

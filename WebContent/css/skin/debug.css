@@ -1,0 +1,5 @@
+div #column_1 { border:1px solid blue; }
+#gap_1 { height: 1px; width: 3px; }
+div #column_2 { border:1px solid blue; }
+
+div.component { border:1px solid red; }

@@ -1,0 +1,59 @@
+.contentLayout { width:770px; margin:0 auto; }
+.invisible { display:none; }
+.floatLeft { float:left; }
+.clearBoth { clear:both; }	
+
+#column_1 { width:210px; padding-top:2px; overflow:hidden; }
+#gap_1 { height: 1px; width: 3px; }
+#column_2 { width:auto; background-color: #fff; padding-top:2px; overflow:hidden; }
+
+.component { width:100%; position:relative; border:0px; margin:0px; margin-bottom:4px; padding:0px; }
+.component #collapse_button { width:13px; height:13px; border:none; margin-right:6px; }
+.component #collapse_button input { background: url("../../images/sina/comp_up.gif") no-repeat transparent; border:none; width:13px; height:13px; cursor:pointer; }
+.componentInnderBorder{	background-color:transparent; width: auto; height: auto; }
+.component .layout { }
+.component .componentBar { width:100%; height:20px; background-image: url("http://blogimg.sinajs.cn/images/theme/1/images/box_1/1Up.gif"); }
+.component .componentTitle{	vertical-align:middle; color: #fff;	font-size:12px; font-weight:bold; padding-left:3px; }
+
+
+#article_container { display:block; padding:0px; margin:0px; width:550px; overflow:hidden; }
+#article_container li { position:relative; list-style:none; text-align:left; padding:0px; margin-bottom: 10px;}
+
+#article_bar { text-overflow:ellipsis; has-layout:true; white-space:nowrap; overflow:hidden;
+	position:relative; height:22px; font-size:12px; padding-right:20px; padding-left:10px; padding-top:6px; 
+	background-image: url("http://blogimg.sinajs.cn/images/theme/1/images/box_2/1Up.gif");	
+	background-position:left !important; width:auto; }
+#article_bar .articleInfo { float:left; }
+#article_bar #collapse_button { float:left; }
+#article_bar #collapse_button input { background: url("http://blogimg.sinajs.cn/images/icon/comp_up.gif") no-repeat transparent;
+	border:none; width:13px; height:13px; cursor:pointer; }
+#article_bar #collapse_button:hover input{	background-image: url("http://blogimg.sinajs.cn/images/icon/comp_up_hover.gif"); }
+#article_bar .articleTitleW { width:450px; margin-left:4px; font-size:14px; font-weight:bolder; overflow:hidden; text-overflow:ellipsis; float:left; }
+
+#article_time_holder { border-bottom:1px dashed #000; text-align:right;	padding-bottom: 6px; }
+#article_time { width:auto;	padding-right:0; white-space:pre; font-family:monospace; text-align:right; }
+
+#article_content { line-height: 1.5; padding-top:18px; color: #222; font-size:14px;	word-wrap: break-word; }
+#article_content ul{ padding-left:20px;	margin:auto; }
+#article_content li{ list-style-type:disc; padding:auto; }
+#article_content p { font-size:14px; }
+#article_content.bigSize * { font-size: 16px; line-height: 27px; }
+#article_content font * { font-size: normal; }
+#article_content.smallSize * { font-size: 12px; line-height: 21px;}
+#article_content #reference { border-top:1px dashed black; font-size:14px; padding-top: 14px;}
+
+#article_link { text-align:left; padding-left: 20px; margin-top:30px; padding-bottom:10px; font-size:14px; }
+#article_link a { font-style:italic; }
+#article_tool {	border-top: 1px dashed #000; text-align: right;	padding-top:5px; margin-top:5px; font-size:12px; }
+#article_tool a { margin: 0px 6px; }
+#article_tool a:link, #article_tool a:hover, #article_tool a:active, #article_tool a:visited { color:black; text-decoration: none;}
+#article_tool a span { color:black; }
+
+/* 用户个人信息模块. */
+#comp_user_info #user_icon { margin:5px 7px 5px 5px; text-align: center; width:auto; overflow:hidden; }
+#comp_user_info #user_icon_image { border:1px solid black; }
+#comp_user_info #user_intro { text-align: center; border-bottom: 1px dashed #6A6A6A; padding:10px; }
+#comp_user_info .personal_card { background: url("http://blogimg.sinajs.cn/images/icon/bloger_card_icon.gif") transparent no-repeat; width:21px; height:14px; padding-right:13px; cursor:pointer; border:none; }
+#comp_user_info .contact { text-align:center; padding:8px 0px; }
+#comp_user_info .invite_friend_button { border:none; cursor:pointer; background: url("http://blogimg.sinajs.cn/images/icon/invite_index.gif") transparent no-repeat;	width:58px;	height:21px; }
+#comp_user_info .send_message_button {border:none; cursor:pointer; background: url("http://blogimg.sinajs.cn/images/icon/send_index.gif") transparent no-repeat; width:48px; height:21px; }

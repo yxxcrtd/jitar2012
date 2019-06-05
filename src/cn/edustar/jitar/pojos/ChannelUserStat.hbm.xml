@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.ChannelUserStat" table="Jitar_ChannelUserStat">
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="channelId" type="int">
+            <column name="ChannelId" not-null="true" />
+        </property>
+        <property name="userId" type="int">
+            <column name="UserId" not-null="true" />
+        </property>
+        <property name="statGuid" type="java.lang.String">
+            <column name="StatGuid" length="50" not-null="true" />
+        </property>
+        <property name="loginName" type="java.lang.String">
+            <column name="LoginName" length="50" not-null="true" />
+        </property>
+        <property name="userTrueName" type="java.lang.String">
+            <column name="UserTrueName" length="50" not-null="true" />
+        </property>
+        <property name="unitId" type="int">
+            <column name="UnitId" />
+        </property>
+        <property name="unitTitle" type="java.lang.String">
+            <column name="UnitTitle" length="50" not-null="true" />
+        </property>
+        <property name="articleCount" type="int">
+            <column name="ArticleCount" not-null="true" />
+        </property>
+        <property name="resourceCount" type="int">
+            <column name="ResourceCount" not-null="true" />
+        </property>
+        <property name="photoCount" type="int">
+            <column name="PhotoCount" not-null="true" />
+        </property>
+        <property name="videoCount" type="int">
+            <column name="VideoCount" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.Plugin" table="S_Plugin">
+        <id name="pluginId" type="java.lang.Integer">
+            <column name="PluginId" />
+            <generator class="identity" />
+        </id>
+        <property name="pluginName" type="java.lang.String">
+            <column name="PluginName" length="50" not-null="true" />
+        </property>
+        <property name="pluginTitle" type="java.lang.String">
+            <column name="PluginTitle" length="50" not-null="true" />
+        </property>
+        <property name="pluginType" type="java.lang.String">
+            <column name="PluginType" length="50" not-null="true" />
+        </property>        
+        <property name="itemOrder" type="int">
+            <column name="ItemOrder" not-null="true" />
+        </property>
+         <property name="enabled" type="int">
+            <column name="Enabled" not-null="true" />
+        </property>
+        <property name="icon" type="java.lang.String">
+            <column name="Icon" length="125" not-null="false" />
+        </property>        
+    </class>
+</hibernate-mapping>

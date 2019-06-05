@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="false" monitoring="autodetect"
+  dynamicConfig="true">
+  <diskStore path="java.io.tmpdir" />
+  <defaultCache maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="120" timeToLiveSeconds="120" overflowToDisk="true" />
+  <!-- 页面内容缓存 -->
+  <cache name="main" maxElementsInMemory="1000" eternal="false" timeToIdleSeconds="150" timeToLiveSeconds="150" overflowToDisk="true" />
+  <!-- 用户缓存 -->
+  <cache name="user" maxElementsInMemory="4096" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="300" overflowToDisk="false" />
+  <!-- 协作组缓存 -->
+  <cache name="group" maxElementsInMemory="512" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="300" overflowToDisk="false" />
+  <!-- Page 实体缓存 -->
+  <cache name="page" maxElementsInMemory="512" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="300" overflowToDisk="true" />
+  <!-- 分类缓存 -->
+  <cache name="category" maxElementsInMemory="512" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="300" overflowToDisk="false" />
+  <cache name="chatUser" maxElementsInMemory="512" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="300" overflowToDisk="false" />
+  <cache name="prepareCourse" maxElementsInMemory="512" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="3600" overflowToDisk="true" />
+  <cache name="vote" maxElementsInMemory="512" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="3600" overflowToDisk="true" />
+  <cache name="specialSubject" maxElementsInMemory="512" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="3600" overflowToDisk="true" />
+  <cache name="unit" maxElementsInMemory="512" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="3600" overflowToDisk="true" />
+  <cache name="subject" maxElementsInMemory="1024" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="3600" overflowToDisk="true" />
+  <cache name="sitenav" maxElementsInMemory="1024" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="3600" overflowToDisk="true" />
+  <cache name="siteTheme" maxElementsInMemory="1024" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="3600" overflowToDisk="true" />
+  <cache name="channel" maxElementsInMemory="1024" eternal="false" timeToIdleSeconds="600" timeToLiveSeconds="3600" overflowToDisk="true" />
+  <cache name="online" maxElementsInMemory="1024" eternal="false" timeToIdleSeconds="6000" timeToLiveSeconds="36000" overflowToDisk="true" />
+  <cache name="accesscontrol" maxElementsInMemory="1024" eternal="false" timeToIdleSeconds="6000" timeToLiveSeconds="36000" overflowToDisk="true" />
+  <cache name="rootUnt" maxElementsInMemory="128" eternal="true" timeToIdleSeconds="6000" timeToLiveSeconds="36000" overflowToDisk="true" />
+  <!-- diskStore 设置缓存数据文件的存放目录。当需要使用磁盘保存的时候，需要对象实现序列化Serializable接口。 属性：path 配置文件存储位置，如c:\\，user.dir，java.io.tmpdir -->
+  <!-- maxElementsInMemory 内存中最多存放的对象数 -->
+  <!-- eternal 为：false 不是永久缓存。为：true 将忽略超时限制且元素永不消亡。 -->
+  <!-- timeToIdleSeconds = "600" 最大空闲时间为600秒 ，在创建时间和最近访问时间中取出离现在最近的时间作为基准计算的超时时长 -->
+  <!-- timeToLiveSeconds = "3600" 最大活动时间为3600秒，以创建时间为基准开始计算的超时时长 -->
+  <!-- overflowToDisk = "true" 如果内存对象溢出则保存到磁盘 -->
+  <!-- timeToIdleSeconds 当缓存闲置n秒后销毁；也就是在一个元素消亡之前，两次访问时间的最大时间间隔值。 这只能在元素不是永久驻留时有效（如果对象永恒不灭，则设置该属性也无用）。 如果该值是 0 就意味着元素可以停顿无穷长的时间。 -->
+  <!-- timeToLiveSeconds 当缓存存活n秒后销毁，也就是一个元素从构建到消亡的最大时间间隔值。这只能在元素不是永久驻留时有效。 -->
+  <!-- 当缓存在EhCache中的数据前后两次访问的时间超过timeToIdleSeconds的属性取值时，这些数据便会删除. -->
+</ehcache>

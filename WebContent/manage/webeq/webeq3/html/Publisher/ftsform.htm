@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>WebHelp 3 Full-Text-Search input frame</title>
+<script LANGUAGE="JavaScript" src="../resources/webhelp3.js"></script>
+</head>
+<body>
+<div ID="FtsInputFormDiv" style="position:absolute; left:0; top:0; height:30 z-index:1; visibility:visible;">
+<form NAME="FtsInputForm" onSubmit="FtsInputSubmit(); return false;">
+   <table width="120%" BGCOLOR="#c0c0c0" CELLSPACING="0" CELLPADDING="5" BORDER="2">
+   <tr>
+    <td>
+	<p STYLE="font-size:10pt;">Type in the word(s) to search for:<br><input TYPE="text" SIZE="27" NAME="ftsField" onFocus="FtsInputEnable(1);" onBlur="FtsInputEnable(0);"></p>
+    </td>
+   </tr>
+   </table>
+</form>
+</div>
+</body>
+<script LANGUAGE="JavaScript">
+<!--
+document.FtsInputForm.ftsField.focus();
+//-->
+</script>
+</html>

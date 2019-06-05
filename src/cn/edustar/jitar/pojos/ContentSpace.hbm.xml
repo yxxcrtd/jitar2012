@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.ContentSpace" table="ContentSpace">
+        <id name="contentSpaceId" type="int">
+            <column name="ContentSpaceId" />
+            <generator class="identity" />
+        </id>
+        <property name="spaceName" type="java.lang.String">
+            <column name="SpaceName" not-null="true" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="createUserId" type="int">
+            <column name="CreateUserId" not-null="true" />
+        </property>
+        <property name="ownerType" type="int">
+            <column name="OwnerType" not-null="true" />
+        </property>
+        <property name="ownerId" type="int">
+            <column name="OwnerId" not-null="true" />
+        </property>
+        <property name="articleCount" type="int">
+            <column name="ArticleCount" not-null="true" />
+        </property>
+        <property name="parentId" type="int">
+            <column name="parentId"/>
+        </property>
+        <property name="parentPath" type="java.lang.String">
+            <column name="ParentPath" />
+        </property>        
+    </class>
+</hibernate-mapping>

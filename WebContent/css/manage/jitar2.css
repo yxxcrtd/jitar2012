@@ -1,0 +1,6 @@
+html,body{
+	font-family: '宋体', arial, sans-serif, verdana;font-size: 12px;
+	background-color: white;padding: 2px;margin: 0;
+}
+input:focus,textarea:focus,select:focus{background:#ff9;}
+h2{border-bottom:2px solid #E6DBC0;padding-bottom:4px;}

@@ -1,0 +1,140 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+
+<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Understanding Templates</h1>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>Templates play a central role in MathML.  The choice of templates
+and the way in which templates are nested determine both how the
+equation will appear, and how easily its mathematical meaning can be
+inferred by algorithms. Understanding a few basic principles about
+MathML templates will help you get the most out of WebEQ Editor.</p>
+
+
+
+<p>Templates can be inserted from the <a href="toolbar.html#toolbar">Toolbar</a>, using <a href="keyboard.html#keyboard">Keyboard
+Shortcuts</a>, or from the Insert Menu, as described in the
+following sections.  Although most templates are available from the toolbar,
+templates for interactive equations, matrices of
+any dimension, style changes, and a few other less common MathML templates
+are only available from the Insert Menu.</p>
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>Templates are always inserted at the current
+cursor location.</p>
+
+
+
+<p><img src="images/insert1.gif"></p>
+
+
+
+<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Expression Groups</h2>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>In general, MathML expects authors to try to group expressions
+together in rough accordance with the mathematical meaning of the
+expression.   As a consequence, the <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Expression Group</b> template
+is extremely important (available on the Insert Layout submenu of the
+Insert Menu, or from the ctrl-r keyboard shortcut).</p>
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>An expression group basically acts like an invisible set of
+parentheses for purposes of clarifying the mathematical structure.
+Human readers often rely on clues from the surrounding context to
+guess which parts of an expression go together.  Automatic algorithms,
+however, need more help.  For example, many problems that arise in <a href="contentgen.html#contentgen">content generation</a> can be solved by explicitly
+grouping operators and operands with expression groups.</p>
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"><a id="stretchysymbols"></a>Controlling Stretchy Symbols</h2>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>Expression groups also control how symbols stretch.  There are many
+kinds of mathematical symbols that can stretch -- parentheses,
+brackets, braces, arrows, etc.  In authoring equations, you frequently
+need to control whether these characters stretch and by how much.</p>
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>In MathML, stretchy symbols automatically grow to cover the other
+expressions <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">in the same template</em>.  Thus, for example, to
+control the stretching of parentheses, you will frequently need to
+insert extra expression group templates in order to insure that 
+the parentheses and the expression they surround are alone in a
+template.  Otherwise, the parentheses may unexpectedly grow to match
+the height of some other part of the equation.  This is illustrated
+below.  The first set of nested parentheses are contained in an expression group, 
+while the second set is not:</p>
+
+
+
+<p><img src="images/insertparens.gif"></p>
+
+
+
+<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Cut and Paste Artifacts</h2>
+
+
+<p>Most MathML templates have a specific number of blank slots.  For
+example a superscript has two -- a base and a script.  To put multiple 
+characters into either slot, it is necessary to wrap them in an
+expression group template.  It is then the expression group which
+fills the script slot, not the individual characters.</p>
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>WebEQ Editor can often automatically group and un-group
+expressions as necessary when performing cut and paste operations.
+However, in many situations, this is not possible.  As a consequence,
+it is easy to accidently introduce erroneous expression groups in
+surprising places.  For example, it may frequently happen that one or
+two characters in the middle of an expression may end up grouped as
+the result of cut and paste, which makes further editing awkward.</p>
+
+
+
+<p>The best defense against inappropriate grouping is to learn to
+notice the gray cursor box that outlines the template in which the
+cursor is currently located (See <a href="navigation.html#navigation">Cursor
+Navigation</a> for illustrations).  The <a href="ancestry.html#ancestry">MathML
+Ancestry</a> is also useful for examining the MathML template
+structure for inappropriate groups.</p>
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+</body>
+</html>

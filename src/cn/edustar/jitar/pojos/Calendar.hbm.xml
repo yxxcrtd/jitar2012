@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="cn.edustar.jitar.pojos.Calendar" table="S_Calendar">
+    <id name="id" type="java.lang.Integer">
+      <column name="ID" />
+      <generator class="identity" />
+    </id>
+    <property name="objectGuid" type="java.lang.String">
+      <column name="ObjectGuid" length="40" not-null="true" />
+    </property>
+    <property name="objectType" type="java.lang.String">
+      <column name="ObjectType" length="100" not-null="true" />
+    </property>
+    <property name="eventTimeBegin" type="java.util.Date">
+      <column name="EventTimeBegin" length="23" />
+    </property>
+    <property name="eventTimeEnd" type="java.util.Date">
+      <column name="EventTimeEnd" length="23" />
+    </property>
+    <property name="title" type="java.lang.String">
+      <column name="Title" length="1000" />
+    </property>
+    <property name="url" type="java.lang.String">
+      <column name="Url" length="1000" />
+    </property>
+    <property name="createTime" type="java.util.Date">
+      <column name="CreateTime" length="23" not-null="true" />
+    </property>
+  </class>
+</hibernate-mapping>

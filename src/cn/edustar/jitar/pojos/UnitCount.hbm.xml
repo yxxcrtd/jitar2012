@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.UnitCount" table="Jitar_UnitCount">
+		<id name="countId" type="int">
+			<column name="CountId" />
+			<generator class="identity" />
+		</id>
+		<property name="unitId" type="int">
+			<column name="UnitId" not-null="true" />
+		</property>
+		<property name="selfHistoryArticleCount" type="int">
+			<column name="SelfHistoryArticleCount" not-null="true" />
+		</property>
+		<property name="childHistoryArticleCount" type="int">
+			<column name="ChildHistoryArticleCount" not-null="true" />
+		</property>
+		<property name="selfArticleCount" type="int">
+			<column name="SelfArticleCount" not-null="true" />
+		</property>
+		<property name="childArticleCount" type="int">
+			<column name="ChildArticleCount" not-null="true" />
+		</property>
+		<property name="selfResourceCount" type="int">
+			<column name="SelfResourceCount" not-null="true" />
+		</property>
+		<property name="selfPhotoCount" type="int">
+			<column name="SelfPhotoCount" not-null="true" />
+		</property>
+		<property name="selfVideoCount" type="int">
+			<column name="SelfVideoCount" not-null="true" />
+		</property>
+		<property name="selfUserCount" type="int">
+			<column name="SelfUserCount" not-null="true" />
+		</property>
+		<property name="childResourceCount" type="int">
+			<column name="ChildResourceCount" not-null="true" />
+		</property>
+		<property name="childPhotoCount" type="int">
+			<column name="ChildPhotoCount" not-null="true" />
+		</property>
+		<property name="childVideoCount" type="int">
+			<column name="ChildVideoCount" not-null="true" />
+		</property>
+		<property name="childUserCount" type="int">
+			<column name="ChildUserCount" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

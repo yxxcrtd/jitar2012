@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.ChatRoom" table="G_ChatRoom">
+		<id name="roomId" type="int">
+			<column name="RoomId" />
+			<generator class="identity" />
+		</id>
+	<property name="groupId" type="int">
+		<column name="GroupId" not-null="true"/>
+	</property>
+	<property name="prepareCourseId" type="int">
+		<column name="PrepareCourseId" not-null="true"/>
+	</property>
+    <property name="roomName" type="java.lang.String">
+      <column name="RoomName" length="1000" not-null="true" />
+    </property>
+    <property name="createrName" type="java.lang.String">
+      <column name="CreaterName" length="1000" />
+    </property>
+     <property name="roomInfo" type="java.lang.String">
+      <column name="RoomInfo" length="1000"  />
+    </property>
+     <property name="createDate" type="java.util.Date" update="false">
+      <column name="CreateDate" length="23" />
+    </property>
+    <property name="isClosed" type="boolean">
+    	<column name="IsClosed" not-null="true"/>
+    </property>
+     
+ </class>
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

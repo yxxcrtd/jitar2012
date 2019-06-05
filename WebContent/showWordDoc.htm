@@ -1,0 +1,937 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>Weboffice</title>
+		<style>
+			body{margin:0px}
+		</style>
+		<script language="javascript">
+		
+		function public_Toolbars(bl)
+		{
+			TANGER_OCX_OBJ = document.all.item("TANGER_OCX");
+			TANGER_OCX_OBJ.Toolbars=bl;
+		}
+		//读取文档
+		function public_LoadDocument(Url,filetype)
+		{
+			TANGER_OCX_OpenDoc(Url,filetype);
+		}
+		//读取文档
+		function public_LoadWebDocument(Url)
+		{
+			//alert("Load"+Url);
+			TANGER_OCX_OpenDoc2(Url);
+		}
+		function public_LoadWordDoc(docid)
+		{
+			//alert("Load"+docid);
+			TANGER_OCX_OpenDoc1(docid);
+		}
+		function public_LoadTemplate(strid,SysFTID,SysFTSID)//读取模板(使用模板前的读取)
+		{
+			document.all.docid.value=strid
+			TANGER_OCX_LoadTemp(strid,SysFTID,SysFTSID);
+		}
+		//function public_SaveToDatabase()()
+		function public_SaveTemplate()//保存模板
+		{
+			TANGER_OCX_ShowRevisions(false);
+			return TANGER_OCX_SaveTemplate();
+		}
+		function public_SaveDocument()//保存文档�
+		{
+			if (TANGER_OCX_OBJ.IsReadOnly==true)
+			{
+				alert("文档是只读的，不允许保存");
+				return false;
+			}
+			//TANGER_OCX_ShowRevisions(false);
+			//return TANGER_OCX_SaveEditToServerDatabase();
+			return TANGER_OCX_SaveToServer();
+		}
+		function public_PrintDoc()////打印������
+		{
+			TANGER_OCX_PrintDoc(false)
+		}			
+		function public_SetReadOnly(IsReadOnly,PassWord )//设为只读�
+		{
+			TANGER_OCX_OBJ.SetReadOnly (IsReadOnly,PassWord); 
+		}		
+		function public_ShowRevisions(flag)//true:显示痕迹   false//隐藏痕迹�
+		{
+			TANGER_OCX_ShowRevisions(flag)
+		}		
+		function public_SetMarkModify(flag)// true:留痕迹   false 不留痕
+		{
+			TANGER_OCX_SetMarkModify(flag);
+		}
+		function public_ChgLayout()//设置页码
+		{
+			TANGER_OCX_ChgLayout()
+		}
+		function public_SetdocidValue(docidvalue)//
+		{
+			document.all.docid.value=docidvalue
+		}
+			
+		function public_AcceptAllRevisions()	
+		{
+			TANGER_OCX_AcceptAllRevisions()//接受所有修订
+		}
+		function public_SetfilenameValue(strid)//设置文件名
+		{
+			 document.all.filename.value=strid
+		}
+		
+		function public_SetFileSavePath(sPath)
+		{
+			document.all.FileSavePath.value=sPath
+		}
+		
+		function public_SetSubCodeValue(strid)//设置subcode
+		{
+			 document.all.SubCode.value=strid
+		}		
+		function public_SetDocUser(struser)//设置文挡的当前编辑人
+		{
+			TANGER_OCX_Username=struser
+		}	
+		function public_isloadok()//是否文档已经加载完毕
+		{
+			if (typeof(TANGER_OCX_OBJ.ActiveDocument) == "undefined")
+			{
+				return false;
+			}
+			else if (TANGER_OCX_OBJ.ActiveDocument == null)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+		function public_setformactionurl()//提交时,解决中文乱码的问题
+		{
+			document.myForm.action="uploadedit.aspx?docid="+escape(document.all("docid").value)+"&filename="+escape(document.all("filename").value);
+			
+		}
+		function public_insertBookMarks(bookname,bookvalue)//插入书签
+		{
+			TANGER_OCX_OBJ.ActiveDocument.Bookmarks.Add(bookname,TANGER_OCX_OBJ.ActiveDocument.Application.Selection.Range);
+			TANGER_OCX_OBJ.SetBookmarkValue(bookname,bookvalue);
+		}
+		function public_directionBookMarks(bookname)//定位书签
+		{
+			TANGER_OCX_OBJ.ActiveDocument.Application.Selection.GoTo(true,0,0,bookname);
+		}
+		function public_SetBookMarks(bookname,bookvalue)//设置书签
+		{
+			TANGER_OCX_OBJ.SetBookmarkValue(bookname,bookvalue);
+		}
+		function public_GetBookMarks(bookname)//取得书签值
+
+		{
+			return TANGER_OCX_OBJ.GetBookmarkValue(bookname);
+		}
+		function public_deleteBookMarks(bookname)//删除书签
+		{
+			TANGER_OCX_OBJ.SetBookmarkValue(bookname,"");
+			TANGER_OCX_OBJ.ActiveDocument.Bookmarks(bookname).Delete();
+		}
+		function public_getallBookMarks()//返回书签数组(得到当页的文挡的书签的集合)
+		{
+			var myarray = new Array();
+			for(i=0;i<TANGER_OCX_OBJ.ActiveDocument.Bookmarks.Count;i++)
+			{
+				myarray[i] = new Array(TANGER_OCX_OBJ.ActiveDocument.Bookmarks.Item(i+1).Name,TANGER_OCX_OBJ.GetBookmarkValue(TANGER_OCX_OBJ.ActiveDocument.Bookmarks.Item(i+1).Name));
+			}
+			//return TANGER_OCX_OBJ.ActiveDocument.Bookmarks.Count;
+			return myarray;
+		}
+		</script>
+	</head>
+	<body>
+		<form id="myForm" name="myForm" method="post" ENCTYPE="multipart/form-data" action="uploadedit.jsp">
+			<input name="docid" type="hidden" value=""> 
+			<input name="SubCode" type="hidden" value="">
+			<input name="filename" type="hidden" value="">
+			<input name="FileSavePath" type="hidden" value="">
+			<object id="TANGER_OCX" classid="clsid:01DFB4B4-0E07-4e3f-8B7A-98FD6BFF153F"  codebase="/js/OfficeControlEdu.cab#version=4,0,0,6" width="100%" height="100%">
+<param name="BorderStyle" value="1">
+<param name="BorderColor" value="14402205">
+<param name="TitlebarColor" value="15658734">
+<param name="TitlebarTextColor" value="0">
+<param name="IsShowToolMenu" value="-1">
+<param name="IsUseUTF8URL" value="-1">
+<param name="MaxUploadSize" value="10000000">
+<param name="CustomMenuCaption" value="我的菜单">
+<param name="MenubarColor" value="14402205">
+<PARAM NAME="MenuButtonColor" VALUE="16180947">
+<param name="MenuBarStyle" value="3">
+<param name="MenuButtonStyle" value="7">
+<PARAM NAME="Titlebar" VALUE="0"> <!--抬头-->
+<PARAM NAME="Toolbars" VALUE="-1"> <!--工具栏-->
+<PARAM NAME="Menubar" VALUE="0"> <!--菜单-->
+<PARAM NAME="Caption" VALUE="中教育星"> <!--抬头显示的内容-->
+<PARAM NAME="FileOpen" VALUE="0"> <!--打开-->
+<PARAM NAME="FileClose" VALUE="0"> <!--关闭-->
+<PARAM NAME="FileSave" VALUE="0"> <!--保存-->
+<PARAM NAME="FileSaveAs" VALUE="0"> <!--另存为-->
+<PARAM NAME="FileNew" VALUE="0"> <!--新建-->
+<param name="MakerCaption" value="北京中教育星信息技术有限公司">
+<param name="MakerKey" value="AA768E1AF7B8C3ED84B4CB4E3852871A900952E5">
+<param name="ProductCaption" value="永泰红磡集团"">
+<param name="ProductKey" value="F5667F07206631D54C5B2CD7BF039B933DC8B12D">
+
+				<SPAN STYLE="color:red">不能装载文档控件。请在检查浏览器的选项中检查浏览器的安全设置。</SPAN>
+			</object>
+			<script language="JScript" for="TANGER_OCX" event="OnDocumentClosed()">
+					TANGER_OCX_OnDocumentClosed();
+			</script>
+			<script language="JScript" for="TANGER_OCX" event="OnDocumentOpened(TANGER_OCX_str,TANGER_OCX_obj)">
+					TANGER_OCX_OnDocumentOpened(TANGER_OCX_str,TANGER_OCX_obj);
+			</script>
+		</form>
+		<script language="javascript">
+var TANGER_OCX_bDocOpen = false;
+var TANGER_OCX_filename;
+var TANGER_OCX_actionURL; //For auto generate form fiields
+var TANGER_OCX_OBJ; //The Control
+var TANGER_OCX_Username="";
+function TANGER_OCX_SaveDoc()
+{
+	var newwin,newdoc;
+	//alert(TANGER_OCX_bDocOpen);
+	if(!TANGER_OCX_bDocOpen)
+	{
+		alert("没有打开的文档!!!");
+		return false;
+	}
+	//alert(document.forms[0].filename.value);
+	try
+	{
+	 	if(!TANGER_OCX_doFormOnSubmit())return; //如果存在，则执行表单的onsubmit函数。
+	 	//调用控件的SaveToURL函数
+		var retHTML = TANGER_OCX_OBJ.SaveToURL
+		(
+			document.forms[0].action,  //此处为uploadedit.asp
+			"EDITFILE",	//文件输入域名称,可任选,不与其他<input type=file name=..>的name部分重复即可
+			"", //可选的其他自定义数据－值对，以&分隔。如：myname=tanger&hisname=tom,一般为空
+			document.forms[0].filename.value, //文件名,此处从表单输入获取，也可自定义
+			"myForm" //控件的智能提交功能可以允许同时提交选定的表单的所有数据.此处可使用id或者序号
+		); //此函数会读取从服务器上返回的信息并保存到返回值中。
+		return true;
+	}
+	catch(err){
+		alert("不能保存到URL：" + err.number + ":" + err.description);
+	}
+	finally{
+	}
+}
+function TANGER_OCX_SaveToServer()
+{
+	if(!TANGER_OCX_bDocOpen)
+	{
+		alert("没有打开的文档!!");
+		return false;
+	}
+	TANGER_OCX_filename =document.forms[0].filename.value;
+	if (strtrim(TANGER_OCX_filename)=="")
+	{
+		TANGER_OCX_filename = prompt("附件另存为：","新文档.doc");
+		if ( (!TANGER_OCX_filename))
+		{
+			TANGER_OCX_filename ="";
+			return false;
+		}
+		else if (strtrim(TANGER_OCX_filename)=="")
+		{
+			alert("您必须输入文件名！");
+			return false;
+		}
+		document.forms[0].filename.value=TANGER_OCX_filename;
+	}
+	//alert(TANGER_OCX_filename);
+	return TANGER_OCX_SaveDoc();
+	
+
+}
+
+
+//Open Document From URL
+function TANGER_OCX_LoadTemp(strid,SysFTID,SysFTSID)
+{
+	TANGER_OCX_OBJ = document.all.item("TANGER_OCX");
+	var aa=SendHttp("Doclength.aspx","<strid><![CDATA["+strid+"]]></strid><SysFTID><![CDATA["+SysFTID+"]]></SysFTID><SysFTSID><![CDATA["+SysFTSID+"]]></SysFTSID>");
+	if(aa=="0")
+	{
+		if(strid.toUpperCase( ).indexOf(".DOC")!=-1)
+		{
+			TANGER_OCX_OBJ.CreateNew("Word.Document");
+		}
+		else if(strid.toUpperCase( ).indexOf(".PPT")!=-1)
+		{
+			TANGER_OCX_OBJ.CreateNew("Powerpoint.Show");
+		}
+		else if(strid.toUpperCase( ).indexOf(".XLS")!=-1)
+		{
+			TANGER_OCX_OBJ.CreateNew("Excel.Sheet");
+		}
+		else
+		{
+			alert("不支持此类型的文档!");
+			return false ;
+		}
+	}
+	else
+	{
+		try{TANGER_OCX_OBJ.BeginOpenFromURL("readTemplate.aspx?docid="+escape(strid)+"&SysFTID="+escape(SysFTID)+"&SysFTSID="+escape(SysFTSID));}catch(err){};
+	}
+}
+
+function TANGER_OCX_OpenDoc1(docID)
+{
+
+	TANGER_OCX_OBJ = document.all.item("TANGER_OCX");
+	if( (typeof(docID) != "undefined") && (docID != ""))
+	{
+	try{
+			document.all.docid.value=docID;
+			TANGER_OCX_OBJ.BeginOpenFromURL("ReadWordDoc2.asp?id=" + docID);
+		}
+	catch(err){};
+	}
+}
+
+function TANGER_OCX_OpenDoc2(url)
+{
+	TANGER_OCX_OBJ = document.all.item("TANGER_OCX");
+	if( (typeof(url) != "undefined") && (url != ""))
+	{
+	try{
+			TANGER_OCX_OBJ.BeginOpenFromURL(url);
+		}
+	catch(err){};
+	}
+}
+function TANGER_OCX_OpenDoc(strid,filetype)//文档的文件名,参数2:只要包含后缀就可以
+{
+	TANGER_OCX_OBJ = document.all.item("TANGER_OCX");
+	if( (typeof(strid) != "undefined") && (strid != "") )
+	{
+		try{
+				document.all.docid.value=strid;
+				//TANGER_OCX_OBJ.BeginOpenFromURL("ReadWordDoc.asp?templetID=" + strid);
+			}
+		catch(err){};
+	}
+	else
+	{
+		if(filetype.toUpperCase( ).indexOf(".DOC")!=-1)
+		{
+			TANGER_OCX_OBJ.CreateNew("Word.Document");
+		}
+		else if(filetype.toUpperCase( ).indexOf(".PPT")!=-1)
+		{
+			TANGER_OCX_OBJ.CreateNew("Powerpoint.Show");
+		}
+		else if(filetype.toUpperCase( ).indexOf(".XLS")!=-1)
+		{
+			TANGER_OCX_OBJ.CreateNew("Excel.Sheet");
+		}
+		else
+		{
+			alert("不支持此类型的文档!");
+			return false ;
+		}
+	}
+	
+}
+function TANGER_OCX_SaveEditToServerDatabase()
+{
+	if(!TANGER_OCX_bDocOpen)
+	{
+		alert("No document opened now.");
+		return;
+	}	
+	TANGER_OCX_filename = document.all.item("filename").value;
+	if ( (typeof(TANGER_OCX_filename) == "undefined")||(!TANGER_OCX_filename) || (strtrim(TANGER_OCX_filename)==""))
+	{
+		alert("You must input a file name.");
+		return;
+	}
+	var newwin,newdoc;
+	try
+	{
+	 	if(!TANGER_OCX_doFormOnSubmit())return; //we may do onsubmit first
+	 	//call SaveToURL with other form data
+		var retHTML = TANGER_OCX_OBJ.SaveToURL
+		(
+			document.forms[0].action,  
+			"EDITFILE",	
+			"", //other params seperrated by '&'. For example:myname=tanger&hisname=tom
+			TANGER_OCX_filename, //filename
+			"myForm" //submit myForm's data with document data
+		); //this function returns dta from server
+		//open a new window to show the returned data
+		/*newwin = window.open("","_blank","left=200,top=200,width=400,height=300,status=0,toolbar=0,menubar=0,location=0,scrollbars=1,resizable=1",false);
+		newdoc = newwin.document;
+		newdoc.open();
+		newdoc.write("<html><head><title>Data returned from server:</title></head><body><center><hr>")
+		newdoc.write(retHTML+"<hr>");
+		newdoc.write("<input type=button VALUE='Close Window' onclick='window.close()'>");
+		newdoc.write('</center></body></html>');
+		newdoc.close();
+		
+		if(window.opener) 
+		{
+			window.opener.location.reload();
+		}
+		//window.close();
+		*/
+		if(retHTML=="")
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
+	}
+	catch(err){
+		alert("err:" + err.number + ":" + err.description);
+	}
+	finally{
+	}
+}
+function TANGER_OCX_SaveTemplate()
+{
+	if(!TANGER_OCX_bDocOpen)
+	{
+		alert("No document opened now.");
+		return;
+	}	
+	TANGER_OCX_filename = document.all.item("filename").value;
+	if ( (typeof(TANGER_OCX_filename) == "undefined")||(!TANGER_OCX_filename) || (strtrim(TANGER_OCX_filename)==""))
+	{
+		alert("You must input a file name.");
+		return;
+	}
+	var newwin,newdoc;
+	try
+	{
+	 	if(!TANGER_OCX_doFormOnSubmit())return; //we may do onsubmit first
+	 	//call SaveToURL with other form data
+		var retHTML = TANGER_OCX_OBJ.SaveToURL
+		(
+			document.forms[0].action,  
+			"EDITTEMPLATE",	
+			"", //other params seperrated by '&'. For example:myname=tanger&hisname=tom
+			TANGER_OCX_filename, //filename
+			"myForm" //submit myForm's data with document data
+		); //this function returns dta from server
+		//open a new window to show the returned data
+		/*newwin = window.open("","_blank","left=200,top=200,width=400,height=300,status=0,toolbar=0,menubar=0,location=0,scrollbars=1,resizable=1",false);
+		newdoc = newwin.document;
+		newdoc.open();
+		newdoc.write("<html><head><title>Data returned from server:</title></head><body><center><hr>")
+		newdoc.write(retHTML+"<hr>");
+		newdoc.write("<input type=button VALUE='Close Window' onclick='window.close()'>");
+		newdoc.write('</center></body></html>');
+		newdoc.close();
+		
+		if(window.opener) 
+		{
+			window.opener.location.reload();
+		}
+		//window.close();
+		*/
+		if(retHTML=="")
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+		
+	}
+	catch(err){
+		alert("err:" + err.number + ":" + err.description);
+	}
+	finally{
+	}
+}
+function TANGER_OCX_SaveEditToServerDisk()
+{
+	if(!TANGER_OCX_bDocOpen)
+	{
+		alert("No document opened now.");
+		return;
+	}	
+	TANGER_OCX_filename = document.all.item("filename").value;
+	if ( (typeof(TANGER_OCX_filename) == "undefined")||(!TANGER_OCX_filename) || (strtrim(TANGER_OCX_filename)==""))
+	{
+		alert("You must input a file name.");
+		return;
+	}
+	var newwin,newdoc;
+	try
+	{
+	 	if(!TANGER_OCX_doFormOnSubmit())return; //we may do onsubmit first
+	 	//call SaveToURL WITOUT other form data
+		var retHTML = TANGER_OCX_OBJ.SaveToURL
+		(
+			"uploaddisk.aspx",  
+			"EDITFILE",	
+			"", //other params seperrated by '&'. For example:myname=tanger&hisname=tom
+			TANGER_OCX_filename //filename
+		); //this function returns dta from server
+		//open a new window to show the returned data
+		newwin = window.open("","_blank","left=200,top=200,width=400,height=300,status=0,toolbar=0,menubar=0,location=0,scrollbars=1,resizable=1",false);
+		newdoc = newwin.document;
+		newdoc.open();
+		newdoc.write("<html><head><title>Data returned from server:</title></head><body><center><hr>")
+		newdoc.write(retHTML+"<hr>");
+		newdoc.write("<input type=button VALUE='Close Window' onclick='window.close()'>");
+		newdoc.write('</center></body></html>');
+		newdoc.close();
+		if(window.opener) 
+		{
+			window.opener.location.reload();
+		}
+		//window.close();
+	}
+	catch(err){
+		alert("err:" + err.number + ":" + err.description);
+	}
+	finally{
+	}
+}
+function TANGER_OCX_SaveAsHTML()
+{
+	var newwin,newdoc;
+
+	if(!TANGER_OCX_bDocOpen)
+	{
+		alert("No document opened now.");
+		return;
+	}
+	TANGER_OCX_filename = document.all.item("htmlfile").value;
+	if ( (typeof(TANGER_OCX_filename) == "undefined")||(!TANGER_OCX_filename) || (strtrim(TANGER_OCX_filename)==""))
+	{
+		alert("You must input a html file name.");
+		return;
+	}	
+	try
+	{
+		var retHTML = TANGER_OCX_OBJ.PublishAsHTMLToURL
+			(
+				"uploadhtmls.aspx",
+				"HTMLFILES", 
+				"",
+				TANGER_OCX_filename
+				);
+		newwin = window.open("","_blank","left=200,top=200,width=400,height=300,status=0,toolbar=0,menubar=0,location=0,scrollbars=1,resizable=1",false);
+		newdoc = newwin.document;
+		newdoc.open();
+		newdoc.write("<center><hr>"+retHTML+"<hr><input type=button VALUE='Close Window' onclick='window.close()'></center>");
+		newdoc.close();	
+		newwin.focus();
+		if(window.opener)
+		{
+			window.opener.location.reload();
+		}
+	}
+	catch(err){
+		alert("err:" + err.number + ":" + err.description);
+	}
+	finally{
+	}
+}
+//从本地增加印章文档指定位置�
+function AddSignFromLocal()
+{
+
+   if(TANGER_OCX_bDocOpen)
+   {
+      TANGER_OCX_OBJ.AddSignFromLocal(
+	TANGER_OCX_Username,//当前登陆用户
+	"",//缺省文件
+	true,//提示选择
+	0,//left
+	0,"",1,100,0)  //top
+   }
+}
+
+//从URL增加印章文档指定位置�
+function AddSignFromURL(URL)
+{
+   if(TANGER_OCX_bDocOpen)
+   {
+      TANGER_OCX_OBJ.AddSignFromURL(
+	TANGER_OCX_Username,//当前登陆用户
+	URL,//URL
+	-50,//left
+	-50,"",1,100,0)  //top
+   }
+}
+
+//开始手写签名��
+function DoHandSign()
+{
+   if(TANGER_OCX_bDocOpen)
+   {	
+	TANGER_OCX_OBJ.DoHandSign2(
+	TANGER_OCX_Username,//当前登陆用户 必须
+	"",0,0,0); //top//可选参数
+	}
+}
+//检查签名结果����
+function DoCheckSign()
+{
+	if(TANGER_OCX_bDocOpen)
+	{		
+	var ret = TANGER_OCX_OBJ.DoCheckSign
+	(
+	/*可选参数 IsSilent 缺省为FAlSE，表示弹出验证对话框,否则，只是返回验证结果到返回值*/
+	);//返回值，验证结果字符串
+	//alert(ret);
+	}	
+}
+function AddPictureFromLocal()
+{
+	if(TANGER_OCX_bDocOpen)
+	{	
+    TANGER_OCX_OBJ.AddPicFromLocal(
+	"", //path 
+	true,//prompt to select
+	true,//is float
+	0,//left
+	0); //top
+	};	
+}
+
+function AddPictureFromURL(URL)
+{
+	if(TANGER_OCX_bDocOpen)
+	{
+    TANGER_OCX_OBJ.AddPicFromURL(
+	URL,//URL Note: URL must return Word supported picture types
+	true,//is float
+	0,//left
+	0);//top
+	};
+}
+function InsertDocFromURL(URL)
+{
+	if(TANGER_OCX_bDocOpen)
+	{
+		TANGER_OCX_OBJ.AddTemplateFromURL(URL);
+	};
+}
+
+
+function DoHandDraw()
+{
+	if(TANGER_OCX_bDocOpen)
+	{	
+	TANGER_OCX_OBJ.DoHandDraw2(
+	0,0,0);//top optional
+	}
+}
+
+function TANGER_OCX_AddDocHeader( strHeader )
+{
+	var i,cNum = 30;
+	var lineStr = "";
+	try
+	{
+		for(i=0;i<cNum;i++) lineStr += "_"; 
+		with(TANGER_OCX_OBJ.ActiveDocument.Application)
+		{
+			Selection.HomeKey(6,0); // go home
+			Selection.TypeText(strHeader);
+			Selection.TypeParagraph(); 
+			Selection.TypeText(lineStr); 
+			Selection.TypeText("���");
+			Selection.TypeText(lineStr);  
+			Selection.TypeParagraph();
+			Selection.HomeKey(6,1); 
+			Selection.ParagraphFormat.Alignment = 1; 
+			with(Selection.Font)
+			{
+				Name = "Arial";
+				Size = 12;
+				Bold = false;
+				Italic = false;
+				Underline = 0;
+				UnderlineColor = 0;
+				StrikeThrough = false;
+				DoubleStrikeThrough = false;
+				Outline = false;
+				Emboss = false;
+				Shadow = false;
+				Hidden = false;
+				SmallCaps = false;
+				AllCaps = false;
+				Color = 255;
+				Engrave = false;
+				Superscript = false;
+				Subscript = false;
+				Spacing = 0;
+				Scaling = 100;
+				Position = 0;
+				Kerning = 0;
+				Animation = 0;
+				DisableCharacterSpaceGrid = false;
+				EmphasisMark = 0;
+			}
+			Selection.MoveDown(5, 3, 0); 
+		}
+	}
+	catch(err){
+		//alert("err:" + err.number + ":" + err.description);
+	}
+	finally{
+	}
+}
+function strtrim(value)
+{
+	return value.replace(/^\s+/,'').replace(/\s+$/,'');
+}
+
+function TANGER_OCX_doFormOnSubmit()
+{
+	var form = document.forms[0];
+  	if (form.onsubmit)
+	{
+    	var retVal = form.onsubmit();
+     	if (typeof retVal == "boolean" && retVal == false)
+       	return false;
+	}
+	return true;
+}
+
+function TANGER_OCX_EnableReviewBar(boolvalue)
+{
+	try
+	{
+	TANGER_OCX_OBJ.ActiveDocument.CommandBars("Reviewing").Enabled = boolvalue;
+	TANGER_OCX_OBJ.ActiveDocument.CommandBars("Track Changes").Enabled = boolvalue;
+	TANGER_OCX_OBJ.IsShowToolMenu = boolvalue;
+	}
+	catch(e)
+	{}
+}
+
+function TANGER_OCX_SetReviewMode(boolvalue)
+{
+	try
+	{
+	TANGER_OCX_OBJ.ActiveDocument.TrackRevisions = boolvalue;
+	}
+	catch(e)
+	{}
+}
+
+function TANGER_OCX_SetMarkModify(boolvalue)
+{
+	try
+	{
+	TANGER_OCX_SetReviewMode(boolvalue);
+	TANGER_OCX_EnableReviewBar(!boolvalue);
+	}
+	catch(e)
+	{}
+}
+
+function TANGER_OCX_ShowRevisions(boolvalue)
+{
+	try
+	{
+	TANGER_OCX_OBJ.ActiveDocument.ShowRevisions = boolvalue;
+	}
+	catch(e)
+	{}
+}
+
+function TANGER_OCX_PrintRevisions(boolvalue)
+{
+	try
+	{
+	TANGER_OCX_OBJ.ActiveDocument.PrintRevisions = boolvalue;
+	}
+	catch(e)
+	{}
+}
+
+function TANGER_OCX_SetDocUser(cuser)
+{
+	try
+	{
+	with(TANGER_OCX_OBJ.ActiveDocument.Application)
+	{
+		UserName = cuser;
+		TANGER_OCX_Username = cuser;
+	}
+	}
+	catch(e)	
+	{}
+}
+
+function TANGER_OCX_ChgLayout()
+{
+ 	try
+	{
+		TANGER_OCX_OBJ.showdialog(5); 
+	}
+	catch(err){
+		alert("err:" + err.number + ":" + err.description);
+	}
+	finally{
+	}
+}
+
+function TANGER_OCX_PrintDoc()
+{
+	try
+	{
+		TANGER_OCX_OBJ.printout(true);
+	}
+	catch(err){
+		alert("err:"  + err.number + ":" + err.description);
+	}
+	finally{
+	}
+}
+
+
+function TANGER_OCX_EnableFileNewMenu(boolvalue)
+{
+	try
+	{
+	TANGER_OCX_OBJ.EnableFileCommand(0) = boolvalue;
+	}
+	catch(e)
+	{}
+}
+
+function TANGER_OCX_EnableFileOpenMenu(boolvalue)
+{
+	try
+	{
+	TANGER_OCX_OBJ.EnableFileCommand(1) = boolvalue;
+	}catch(e)
+	{}
+}
+
+function TANGER_OCX_EnableFileCloseMenu(boolvalue)
+{
+	try
+	{
+	TANGER_OCX_OBJ.EnableFileCommand(2) = boolvalue;
+	}
+	catch(e)
+	{}
+}
+
+function TANGER_OCX_EnableFileSaveMenu(boolvalue)
+{
+	try
+	{
+	TANGER_OCX_OBJ.EnableFileCommand(3) = boolvalue;
+	}
+	catch(e)
+	{}
+}
+
+function TANGER_OCX_EnableFileSaveAsMenu(boolvalue)
+{
+	try
+	{
+	TANGER_OCX_OBJ.EnableFileCommand(4) = boolvalue;
+	}
+	catch(e)
+	{}
+}
+
+function TANGER_OCX_EnableFilePrintMenu(boolvalue)
+{
+	try
+	{
+	TANGER_OCX_OBJ.EnableFileCommand(5) = boolvalue;
+	}
+	catch(e)
+	{}
+}
+
+function TANGER_OCX_EnableFilePrintPreviewMenu(boolvalue)
+{
+	try
+	{
+	TANGER_OCX_OBJ.EnableFileCommand(6) = boolvalue;
+	}
+	catch(e)
+	{}
+}
+
+function TANGER_OCX_OnDocumentOpened(str, obj)
+{
+	try
+	{
+	//alert("TANGER_OCX_OnDocumentOpened");
+	TANGER_OCX_bDocOpen = true;	
+	//alert(TANGER_OCX_bDocOpen);
+	TANGER_OCX_SetDocUser(TANGER_OCX_Username);
+	}
+	catch(e)
+	{}
+}
+
+function TANGER_OCX_OnDocumentClosed()
+{
+	try
+	{
+	//alert("TANGER_OCX_OnDocumentClosed");
+   TANGER_OCX_bDocOpen = false;
+   }
+   catch(e)
+   {}
+}
+function TANGER_OCX_AcceptAllRevisions()//��ュ��������淇�璁�
+{
+	//TANGER_OCX_OBJ.ActiveDocument.AcceptAllRevisions()
+}
+///////////////////////////////////////////////////////////////////
+		function SendHttp(sAspFile,sSend)
+		{
+			var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			xmlhttp.Open("POST", sAspFile, false);
+			try { xmlhttp.Send("<root>"+sSend+"</root>");}
+			catch (exception)
+			{
+				alert("服务器忙!")
+			}
+			try
+			{ 
+				var str11=xmlhttp.responseText //绯荤�����璇�: -1072896748���
+			}
+			catch (exception)
+			{
+			if (exception.description=='系统错误: -1072896748。') 
+				{	
+	 			str11=""
+				}
+			}
+				delete xmlhttp;
+			return str11
+		}
+		
+///////////////////////////////////////////////////
+		</script>
+	</body>
+</html>

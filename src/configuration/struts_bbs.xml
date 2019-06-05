@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="bbs" namespace="/manage" extends="struts-default">
+		<action name="board" class="boardAction">
+			<result name="List_Success" type="freemarker">/WEB-INF/ftl/bbs/topic_list.ftl</result>
+			<result name="View_Success" type="freemarker">/WEB-INF/ftl/bbs/view_topic.ftl</result>
+		</action>
+		<action name="topic" class="topicAction">
+			<result name="List_Success" type="freemarker">/WEB-INF/ftl/bbs/reply_list.ftl</result>
+			<result name="Add_Success" type="freemarker">/WEB-INF/ftl/bbs/add_topic.ftl</result>
+			<result name="View_Success" type="freemarker">/WEB-INF/ftl/bbs/view_reply.ftl</result>
+		</action>	
+	</package>
+</struts>
+
+
+

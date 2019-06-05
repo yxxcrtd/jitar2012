@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="fileUpload" namespace="/manage" extends="groups-default">	
+		<action name="fileUpload" class="cn.edustar.jitar.action.UploadAction">
+			<interceptor-ref name="fileUpload">
+			<!-- MIME Type： http://technet.microsoft.com/en-us/library/ee309278%28office.12%29.aspx -->
+                <!-- <param name="allowedTypes">application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword,application/force-download</param> -->
+				<param name="maximumSize">209715200</param><!-- 1024 * 1024 * 20 = 20M -->
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="loginInterceptorStack"></interceptor-ref>
+			<result name="success" type="freemarker">/WEB-INF/ftl/success.ftl</result>
+		</action>
+	</package>
+</struts>

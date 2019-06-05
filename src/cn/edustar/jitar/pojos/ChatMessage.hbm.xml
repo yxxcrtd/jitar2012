@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="cn.edustar.jitar.pojos.ChatMessage" table="G_ChatMessage">
+    <id name="chatMessageId" type="int">
+      <column name="ChatMessageId" />
+      <generator class="identity" />
+    </id>
+    <property name="roomId" type="int">
+      <column name="RoomId" not-null="true" />
+    </property>
+    <property name="senderId" type="int">
+      <column name="SenderId" not-null="true" />
+    </property>
+    <property name="senderName" type="java.lang.String">
+      <column name="SenderName" length="32" not-null="true" />
+    </property>
+    <property name="receiverId" type="int">
+      <column name="receiverId" />
+    </property>
+    <property name="receiverName" type="java.lang.String">
+      <column name="ReceiverName" length="32" />
+    </property>
+    <property name="talkContent" type="java.lang.String">
+      <column name="TalkContent" length="8000" />
+    </property>
+    <property name="sendDate" type="java.util.Date" update="false">
+      <column name="SendDate" length="23" />
+    </property>
+    <property name="isSendAll" type="boolean">
+      <column name="IsSendAll" not-null="true" />
+    </property>
+    <property name="isPrivate" type="boolean">
+      <column name="IsPrivate" not-null="true" />
+    </property>
+    <property name="actText" type="java.lang.String">
+      <column name="ActText" length="500" />
+    </property>
+    <property name="faceImg" type="java.lang.String">
+      <column name="FaceImg" length="100" />
+    </property>
+    <property name="senderColor" type="java.lang.String">
+      <column name="SenderColor" length="50" />
+    </property>
+    <property name="receiverColor" type="java.lang.String">
+      <column name="ReceiverColor" length="50" />
+    </property>
+  </class>
+</hibernate-mapping>

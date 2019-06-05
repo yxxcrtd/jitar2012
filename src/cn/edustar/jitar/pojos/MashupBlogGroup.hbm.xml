@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cn.edustar.push.MashupBlogGroup" table="MashupBlogGroup">
+        <id name="mashupBlogGroupId" type="java.lang.Integer">
+            <column name="MashupBlogGroupId" />
+            <generator class="identity" />
+        </id>
+        <property name="orginId" type="java.lang.Integer">
+            <column name="OrginId" not-null="true" />
+        </property>
+        <property name="contentType" type="java.lang.String">
+            <column name="ContentType" length="50" not-null="true" />
+        </property>
+        <property name="trueName" type="java.lang.String">
+            <column name="TrueName" not-null="true" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="Description" />
+        </property>
+        <property name="icon" type="java.lang.String">
+            <column name="Icon" not-null="true" />
+        </property>
+        <property name="subjectName" type="java.lang.String">
+            <column name="SubjectName" length="50" />
+        </property>
+        <property name="gradeName" type="java.lang.String">
+            <column name="GradeName" length="50" />
+        </property>
+        <property name="unitName" type="java.lang.String">
+            <column name="UnitName" length="50" not-null="true" />
+        </property>
+        <property name="unitTitle" type="java.lang.String">
+            <column name="UnitTitle" length="256" not-null="true" />
+        </property>
+        <property name="href" type="java.lang.String">
+            <column name="Href" length="512" not-null="true" />
+        </property>
+        <property name="unitId" type="java.lang.Integer">
+            <column name="UnitId" />
+        </property>
+        <property name="gradeId" type="java.lang.Integer">
+            <column name="GradeId" />
+        </property>
+        <property name="metaSubjectId" type="java.lang.Integer">
+            <column name="MetaSubjectId" />
+        </property>
+        <property name="pushUserName" type="java.lang.String">
+            <column name="PushUserName" not-null="true" />
+        </property>
+        <property name="platformGuid" type="java.lang.String">
+            <column name="PlatformGuid" length="50" not-null="true" />
+        </property>
+        <property name="platformName" type="java.lang.String">
+            <column name="PlatformName" not-null="true" />
+        </property>
+        <property name="mashupBlogGroupState" type="java.lang.Integer">
+            <column name="MashupBlogGroupState" not-null="true" />
+        </property>
+        <property name="pushDate" type="java.util.Date">
+            <column name="PushDate" length="23" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.AccessControl" table="Jitar_AccessControl">
+		<id name="accessControlId" type="int">
+			<column name="AccessControlId" />
+			<generator class="identity" />
+		</id>
+		<property name="userId" type="java.lang.Integer">
+			<column name="UserId" not-null="true" />
+		</property>
+		<property name="objectType" type="java.lang.Integer">
+			<column name="ObjectType" not-null="true" />
+		</property>
+		<property name="objectId" type="java.lang.Integer">
+			<column name="ObjectId" not-null="true" />
+		</property>
+		<property name="objectTitle" type="java.lang.String">
+			<column name="ObjectTitle" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

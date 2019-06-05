@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.PrepareCourseVideo" table="C_PrepareCourseVideo">
+        <id name="prepareCourseVideoId" type="java.lang.Integer">
+            <column name="PrepareCourseVideoId" />
+            <generator class="identity" />
+        </id>
+        <property name="videoId" type="java.lang.Integer">
+            <column name="VideoId" not-null="true" />
+        </property>
+        <property name="prepareCourseId" type="java.lang.Integer">
+            <column name="PrepareCourseId" not-null="true" />
+        </property>
+        <property name="userId" type="java.lang.Integer">
+            <column name="UserId" not-null="true" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="videoTitle" type="java.lang.String">
+            <column name="VideoTitle" length="125" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

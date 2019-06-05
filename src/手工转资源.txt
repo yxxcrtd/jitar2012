@@ -1,0 +1,2 @@
+E:\SWFTools\pdf2swf.exe "e:\d486ff6e-5b3a-4087-bb94-d8a08e53d24a.pdf" -o  "e:\d486ff6e-5b3a-4087-bb94-d8a08e53d24a.swf" -T 9 -f
+

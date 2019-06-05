@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.BackYear" table="Jitar_BackYear">
+		<id name="backYearId" type="int">
+			<column name="BackYearID" />
+			<generator class="identity" />
+		</id>
+		<property name="backYear" type="int">
+			<column name="BackYear" not-null="true" />
+		</property>
+		<property name="backYearType" type="java.lang.String">
+			<column name="BackYearType" length="50" not-null="true" />
+		</property>
+		<property name="backYearCount" type="int">
+			<column name="BackYearCount" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

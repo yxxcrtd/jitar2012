@@ -1,0 +1,480 @@
+
+<html>
+<head>
+
+ <title>Search</title><!-- BSSCMARK_POS TITLE -->
+
+ <base target="bsscright"><!-- BSSCMARK_POS BASETARGET -->
+<script type="text/javascript" src="../resources/webhelp3.js"></script>
+<script type="text/javascript">
+<!--
+FtsWriteClassStyle();
+-->
+</script>
+</head>
+<body>
+<script type="text/javascript">
+<!--
+var        bIE4 = false;
+var        bNav4 = false;
+var Agent = navigator.userAgent.toLowerCase(); 
+var bMac = (gAgent.indexOf("mac") != -1);
+if (parseInt(navigator.appVersion) >= 4) {
+        bIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+        bNav4 = (navigator.appName == "Netscape");
+}
+if (bIE4) {
+        document.write("<div id='Loading'>Loading search...</div>");
+}
+//-->
+</script>
+
+<script type="text/javascript">
+<!--
+gFtsTopicArray[0] = new TopicEntry("Getting Started", "topics/main.html");
+gFtsTopicArray[1] = new TopicEntry("The Toolbar", "topics/toolbar.html");
+gFtsTopicArray[2] = new TopicEntry("Navigating with the Cursor", "topics/navigation.html");
+gFtsTopicArray[3] = new TopicEntry("Keyboard Shortcuts", "topics/keyboard.html");
+gFtsTopicArray[4] = new TopicEntry("Checking Syntax", "topics/checksyntax.html");
+gFtsKeywordArray[0]= new FtsKeywordEntry('^', 3);
+gFtsKeywordArray[1]= new FtsKeywordEntry('account', 0);
+gFtsKeywordArray[2]= new FtsKeywordEntry('action', 3);
+gFtsKeywordArray[3]= new FtsKeywordEntry('activ', 2);
+gFtsKeywordArray[4]= new FtsKeywordEntry('ad', 3);
+gFtsKeywordArray[5]= new FtsKeywordEntry('addition', 3);
+gFtsKeywordArray[6]= new FtsKeywordEntry('additional', 0);
+gFtsKeywordArray[7]= new FtsKeywordEntry('again', 2, 4);
+gFtsKeywordArray[8]= new FtsKeywordEntry('ahead', 2);
+gFtsKeywordArray[9]= new FtsKeywordEntry('algorithm', 4);
+gFtsKeywordArray[10]= new FtsKeywordEntry('almost', 0);
+gFtsKeywordArray[11]= new FtsKeywordEntry('alphabetic', 2);
+gFtsKeywordArray[12]= new FtsKeywordEntry('anywher', 0);
+gFtsKeywordArray[13]= new FtsKeywordEntry('appear', 2);
+gFtsKeywordArray[14]= new FtsKeywordEntry('applet', 0);
+gFtsKeywordArray[15]= new FtsKeywordEntry('appli', 2);
+gFtsKeywordArray[16]= new FtsKeywordEntry('around', 0, 2);
+gFtsKeywordArray[17]= new FtsKeywordEntry('arrow', 0, 2);
+gFtsKeywordArray[18]= new FtsKeywordEntry('attach', 0);
+gFtsKeywordArray[19]= new FtsKeywordEntry('automatically', 2);
+gFtsKeywordArray[20]= new FtsKeywordEntry('back', 4);
+gFtsKeywordArray[21]= new FtsKeywordEntry('bar', 1);
+gFtsKeywordArray[22]= new FtsKeywordEntry('bas', 0);
+gFtsKeywordArray[23]= new FtsKeywordEntry('begin', 2);
+gFtsKeywordArray[24]= new FtsKeywordEntry('behavior', 2);
+gFtsKeywordArray[25]= new FtsKeywordEntry('behind', 0);
+gFtsKeywordArray[26]= new FtsKeywordEntry('black', 2);
+gFtsKeywordArray[27]= new FtsKeywordEntry('blank', 0, 2, 3);
+gFtsKeywordArray[28]= new FtsKeywordEntry('blink', 2, 4);
+gFtsKeywordArray[29]= new FtsKeywordEntry('blu', 1, 4);
+gFtsKeywordArray[30]= new FtsKeywordEntry('box', 0, 2);
+gFtsKeywordArray[31]= new FtsKeywordEntry('build', 0);
+gFtsKeywordArray[32]= new FtsKeywordEntry('button', 1, 4);
+gFtsKeywordArray[33]= new FtsKeywordEntry('cal', 2);
+gFtsKeywordArray[34]= new FtsKeywordEntry('cas', 0, 4);
+gFtsKeywordArray[35]= new FtsKeywordEntry('charact', 2, 3);
+gFtsKeywordArray[36]= new FtsKeywordEntry('character', 1, 2);
+gFtsKeywordArray[37]= new FtsKeywordEntry('check', 1, 4);
+gFtsKeywordArray[38]= new FtsKeywordEntry('children', 2);
+gFtsKeywordArray[39]= new FtsKeywordEntry('closest', 0);
+gFtsKeywordArray[40]= new FtsKeywordEntry('cod', 4);
+gFtsKeywordArray[41]= new FtsKeywordEntry('color', 1, 4);
+gFtsKeywordArray[42]= new FtsKeywordEntry('common', 1, 3);
+gFtsKeywordArray[43]= new FtsKeywordEntry('complex', 0);
+gFtsKeywordArray[44]= new FtsKeywordEntry('complicat', 0);
+gFtsKeywordArray[45]= new FtsKeywordEntry('consist', 1);
+gFtsKeywordArray[46]= new FtsKeywordEntry('contain', 1, 2, 4);
+gFtsKeywordArray[47]= new FtsKeywordEntry('content', 1, 4);
+gFtsKeywordArray[48]= new FtsKeywordEntry('control', 0, 3, 4);
+gFtsKeywordArray[49]= new FtsKeywordEntry('convenient', 3);
+gFtsKeywordArray[50]= new FtsKeywordEntry('copy', 3);
+gFtsKeywordArray[51]= new FtsKeywordEntry('correspond', 0);
+gFtsKeywordArray[52]= new FtsKeywordEntry('ctrl', 3);
+gFtsKeywordArray[53]= new FtsKeywordEntry('ctrl-', 3);
+gFtsKeywordArray[54]= new FtsKeywordEntry('ctrl-^', 3);
+gFtsKeywordArray[55]= new FtsKeywordEntry('ctrl-_', 3);
+gFtsKeywordArray[56]= new FtsKeywordEntry('ctrl-a', 3);
+gFtsKeywordArray[57]= new FtsKeywordEntry('ctrl-b', 3);
+gFtsKeywordArray[58]= new FtsKeywordEntry('ctrl-c', 3);
+gFtsKeywordArray[59]= new FtsKeywordEntry('ctrl-f', 3);
+gFtsKeywordArray[60]= new FtsKeywordEntry('ctrl-p', 3);
+gFtsKeywordArray[61]= new FtsKeywordEntry('ctrl-q', 3);
+gFtsKeywordArray[62]= new FtsKeywordEntry('ctrl-r', 3);
+gFtsKeywordArray[63]= new FtsKeywordEntry('ctrl-v', 3);
+gFtsKeywordArray[64]= new FtsKeywordEntry('ctrl-x', 3);
+gFtsKeywordArray[65]= new FtsKeywordEntry('ctrl-z', 3);
+gFtsKeywordArray[66]= new FtsKeywordEntry('cu', 2);
+gFtsKeywordArray[67]= new FtsKeywordEntry('currently', 2);
+gFtsKeywordArray[68]= new FtsKeywordEntry('cursor', 0, 2, 3);
+gFtsKeywordArray[69]= new FtsKeywordEntry('cut', 0, 1, 3);
+gFtsKeywordArray[70]= new FtsKeywordEntry('cycl', 2, 3);
+gFtsKeywordArray[71]= new FtsKeywordEntry('default', 2);
+gFtsKeywordArray[72]= new FtsKeywordEntry('delet', 2);
+gFtsKeywordArray[73]= new FtsKeywordEntry('denot', 4);
+gFtsKeywordArray[74]= new FtsKeywordEntry('detail', 1, 4);
+gFtsKeywordArray[75]= new FtsKeywordEntry('detect', 4);
+gFtsKeywordArray[76]= new FtsKeywordEntry('developer', 0, 1, 4);
+gFtsKeywordArray[77]= new FtsKeywordEntry('direction', 0);
+gFtsKeywordArray[78]= new FtsKeywordEntry('directly', 0, 2);
+gFtsKeywordArray[79]= new FtsKeywordEntry('display', 1, 4);
+gFtsKeywordArray[80]= new FtsKeywordEntry('documentation', 0, 1, 4);
+gFtsKeywordArray[81]= new FtsKeywordEntry('doesnt', 2);
+gFtsKeywordArray[82]= new FtsKeywordEntry('down', 0, 2);
+gFtsKeywordArray[83]= new FtsKeywordEntry('e.g', 2);
+gFtsKeywordArray[84]= new FtsKeywordEntry('easi', 2);
+gFtsKeywordArray[85]= new FtsKeywordEntry('easily', 2);
+gFtsKeywordArray[86]= new FtsKeywordEntry('edit', 0, 3, 4);
+gFtsKeywordArray[87]= new FtsKeywordEntry('editor', 0, 1, 2);
+gFtsKeywordArray[88]= new FtsKeywordEntry('empty', 2);
+gFtsKeywordArray[89]= new FtsKeywordEntry('ent', 0);
+gFtsKeywordArray[90]= new FtsKeywordEntry('enter', 0, 2);
+gFtsKeywordArray[91]= new FtsKeywordEntry('equation', 0, 1, 2, 3, 4);
+gFtsKeywordArray[92]= new FtsKeywordEntry('error', 4);
+gFtsKeywordArray[93]= new FtsKeywordEntry('etc', 0);
+gFtsKeywordArray[94]= new FtsKeywordEntry('even', 0);
+gFtsKeywordArray[95]= new FtsKeywordEntry('exactly', 0);
+gFtsKeywordArray[96]= new FtsKeywordEntry('expect', 0, 3);
+gFtsKeywordArray[97]= new FtsKeywordEntry('explicitly', 2);
+gFtsKeywordArray[98]= new FtsKeywordEntry('expression', 0, 3, 4);
+gFtsKeywordArray[99]= new FtsKeywordEntry('extent', 2);
+gFtsKeywordArray[100]= new FtsKeywordEntry('extra', 4);
+gFtsKeywordArray[101]= new FtsKeywordEntry('faint', 2);
+gFtsKeywordArray[102]= new FtsKeywordEntry('far', 4);
+gFtsKeywordArray[103]= new FtsKeywordEntry('feedback', 4);
+gFtsKeywordArray[104]= new FtsKeywordEntry('fill', 0, 2);
+gFtsKeywordArray[105]= new FtsKeywordEntry('find', 2);
+gFtsKeywordArray[106]= new FtsKeywordEntry('focu', 2);
+gFtsKeywordArray[107]= new FtsKeywordEntry('follow', 4);
+gFtsKeywordArray[108]= new FtsKeywordEntry('font', 2);
+gFtsKeywordArray[109]= new FtsKeywordEntry('forth', 4);
+gFtsKeywordArray[110]= new FtsKeywordEntry('fraction', 0);
+gFtsKeywordArray[111]= new FtsKeywordEntry('function', 3, 4);
+gFtsKeywordArray[112]= new FtsKeywordEntry('generally', 2);
+gFtsKeywordArray[113]= new FtsKeywordEntry('generat', 1);
+gFtsKeywordArray[114]= new FtsKeywordEntry('generation', 4);
+gFtsKeywordArray[115]= new FtsKeywordEntry('giv', 0, 2, 4);
+gFtsKeywordArray[116]= new FtsKeywordEntry('given', 2);
+gFtsKeywordArray[117]= new FtsKeywordEntry('gray', 0, 2);
+gFtsKeywordArray[118]= new FtsKeywordEntry('green', 4);
+gFtsKeywordArray[119]= new FtsKeywordEntry('group', 2);
+gFtsKeywordArray[120]= new FtsKeywordEntry('handl', 3);
+gFtsKeywordArray[121]= new FtsKeywordEntry('hard', 2);
+gFtsKeywordArray[122]= new FtsKeywordEntry('hav', 2);
+gFtsKeywordArray[123]= new FtsKeywordEntry('highlight', 1, 4);
+gFtsKeywordArray[124]= new FtsKeywordEntry('hit', 2);
+gFtsKeywordArray[125]= new FtsKeywordEntry('horizontally', 2);
+gFtsKeywordArray[126]= new FtsKeywordEntry('i-beam', 2);
+gFtsKeywordArray[127]= new FtsKeywordEntry('icon', 1);
+gFtsKeywordArray[128]= new FtsKeywordEntry('idea', 0);
+gFtsKeywordArray[129]= new FtsKeywordEntry('illustrat', 2, 4);
+gFtsKeywordArray[130]= new FtsKeywordEntry('important', 1);
+gFtsKeywordArray[131]= new FtsKeywordEntry('indicat', 0, 2);
+gFtsKeywordArray[132]= new FtsKeywordEntry('input', 0, 3, 4);
+gFtsKeywordArray[133]= new FtsKeywordEntry('insert', 0, 1, 2, 3);
+gFtsKeywordArray[134]= new FtsKeywordEntry('insertion', 0, 2, 3);
+gFtsKeywordArray[135]= new FtsKeywordEntry('insid', 0);
+gFtsKeywordArray[136]= new FtsKeywordEntry('instead', 2);
+gFtsKeywordArray[137]= new FtsKeywordEntry('interpret', 4);
+gFtsKeywordArray[138]= new FtsKeywordEntry('interven', 2);
+gFtsKeywordArray[139]= new FtsKeywordEntry('intuitiv', 0);
+gFtsKeywordArray[140]= new FtsKeywordEntry('involv', 0);
+gFtsKeywordArray[141]= new FtsKeywordEntry('italic', 2);
+gFtsKeywordArray[142]= new FtsKeywordEntry('item', 2);
+gFtsKeywordArray[143]= new FtsKeywordEntry('jump', 0, 2);
+gFtsKeywordArray[144]= new FtsKeywordEntry('key', 0, 2, 3);
+gFtsKeywordArray[145]= new FtsKeywordEntry('keyboard', 0, 2, 3);
+gFtsKeywordArray[146]= new FtsKeywordEntry('layer', 2);
+gFtsKeywordArray[147]= new FtsKeywordEntry('lead', 4);
+gFtsKeywordArray[148]= new FtsKeywordEntry('learn', 3);
+gFtsKeywordArray[149]= new FtsKeywordEntry('left', 0, 1, 2);
+gFtsKeywordArray[150]= new FtsKeywordEntry('let', 3);
+gFtsKeywordArray[151]= new FtsKeywordEntry('letter', 0);
+gFtsKeywordArray[152]= new FtsKeywordEntry('level', 4);
+gFtsKeywordArray[153]= new FtsKeywordEntry('lin', 2);
+gFtsKeywordArray[154]= new FtsKeywordEntry('list', 3);
+gFtsKeywordArray[155]= new FtsKeywordEntry('locat', 0, 2);
+gFtsKeywordArray[156]= new FtsKeywordEntry('location', 0);
+gFtsKeywordArray[157]= new FtsKeywordEntry('loos', 2);
+gFtsKeywordArray[158]= new FtsKeywordEntry('mac', 3);
+gFtsKeywordArray[159]= new FtsKeywordEntry('magnify', 1, 3);
+gFtsKeywordArray[160]= new FtsKeywordEntry('main', 1, 3);
+gFtsKeywordArray[161]= new FtsKeywordEntry('mak', 0);
+gFtsKeywordArray[162]= new FtsKeywordEntry('mark', 4);
+gFtsKeywordArray[163]= new FtsKeywordEntry('markup', 1);
+gFtsKeywordArray[164]= new FtsKeywordEntry('mathml', 0, 1, 2);
+gFtsKeywordArray[165]= new FtsKeywordEntry('matric', 0);
+gFtsKeywordArray[166]= new FtsKeywordEntry('menu', 3);
+gFtsKeywordArray[167]= new FtsKeywordEntry('merg', 2);
+gFtsKeywordArray[168]= new FtsKeywordEntry('middl', 1);
+gFtsKeywordArray[169]= new FtsKeywordEntry('mis-match', 4);
+gFtsKeywordArray[170]= new FtsKeywordEntry('mod', 4);
+gFtsKeywordArray[171]= new FtsKeywordEntry('motion', 0);
+gFtsKeywordArray[172]= new FtsKeywordEntry('mous', 0, 1, 2, 3);
+gFtsKeywordArray[173]= new FtsKeywordEntry('mov', 0, 2);
+gFtsKeywordArray[174]= new FtsKeywordEntry('movement', 0, 2);
+gFtsKeywordArray[175]= new FtsKeywordEntry('multi-charact', 2);
+gFtsKeywordArray[176]= new FtsKeywordEntry('natural', 0);
+gFtsKeywordArray[177]= new FtsKeywordEntry('navigat', 0, 2);
+gFtsKeywordArray[178]= new FtsKeywordEntry('negotiat', 0);
+gFtsKeywordArray[179]= new FtsKeywordEntry('nest', 0, 2, 4);
+gFtsKeywordArray[180]= new FtsKeywordEntry('new', 2);
+gFtsKeywordArray[181]= new FtsKeywordEntry('next', 0, 2);
+gFtsKeywordArray[182]= new FtsKeywordEntry('normal', 4);
+gFtsKeywordArray[183]= new FtsKeywordEntry('notic', 2);
+gFtsKeywordArray[184]= new FtsKeywordEntry('numb', 3);
+gFtsKeywordArray[185]= new FtsKeywordEntry('number', 0, 2);
+gFtsKeywordArray[186]= new FtsKeywordEntry('open', 2, 3);
+gFtsKeywordArray[187]= new FtsKeywordEntry('operand', 4);
+gFtsKeywordArray[188]= new FtsKeywordEntry('operation', 1, 3);
+gFtsKeywordArray[189]= new FtsKeywordEntry('operator', 2, 4);
+gFtsKeywordArray[190]= new FtsKeywordEntry('osx', 3);
+gFtsKeywordArray[191]= new FtsKeywordEntry('out', 0, 2);
+gFtsKeywordArray[192]= new FtsKeywordEntry('outlin', 2);
+gFtsKeywordArray[193]= new FtsKeywordEntry('ov', 1, 2);
+gFtsKeywordArray[194]= new FtsKeywordEntry('palet', 0, 1);
+gFtsKeywordArray[195]= new FtsKeywordEntry('panel', 1);
+gFtsKeywordArray[196]= new FtsKeywordEntry('parenthes', 4);
+gFtsKeywordArray[197]= new FtsKeywordEntry('parenthesiz', 3);
+gFtsKeywordArray[198]= new FtsKeywordEntry('past', 0, 1, 3);
+gFtsKeywordArray[199]= new FtsKeywordEntry('peopl', 3);
+gFtsKeywordArray[200]= new FtsKeywordEntry('plac', 2);
+gFtsKeywordArray[201]= new FtsKeywordEntry('plain', 2);
+gFtsKeywordArray[202]= new FtsKeywordEntry('platform', 3);
+gFtsKeywordArray[203]= new FtsKeywordEntry('play', 4);
+gFtsKeywordArray[204]= new FtsKeywordEntry('point', 0, 2);
+gFtsKeywordArray[205]= new FtsKeywordEntry('pop-up', 1);
+gFtsKeywordArray[206]= new FtsKeywordEntry('position', 0, 2);
+gFtsKeywordArray[207]= new FtsKeywordEntry('possibl', 0);
+gFtsKeywordArray[208]= new FtsKeywordEntry('pref', 3);
+gFtsKeywordArray[209]= new FtsKeywordEntry('previou', 3);
+gFtsKeywordArray[210]= new FtsKeywordEntry('problem', 4);
+gFtsKeywordArray[211]= new FtsKeywordEntry('pulldown', 0);
+gFtsKeywordArray[212]= new FtsKeywordEntry('put', 2);
+gFtsKeywordArray[213]= new FtsKeywordEntry('r', 4);
+gFtsKeywordArray[214]= new FtsKeywordEntry('ready', 2);
+gFtsKeywordArray[215]= new FtsKeywordEntry('regular', 4);
+gFtsKeywordArray[216]= new FtsKeywordEntry('releas', 1);
+gFtsKeywordArray[217]= new FtsKeywordEntry('render', 2);
+gFtsKeywordArray[218]= new FtsKeywordEntry('reposition', 2);
+gFtsKeywordArray[219]= new FtsKeywordEntry('result', 0, 2);
+gFtsKeywordArray[220]= new FtsKeywordEntry('revert', 4);
+gFtsKeywordArray[221]= new FtsKeywordEntry('right', 0, 1, 2, 4);
+gFtsKeywordArray[222]= new FtsKeywordEntry('rol', 4);
+gFtsKeywordArray[223]= new FtsKeywordEntry('row', 2);
+gFtsKeywordArray[224]= new FtsKeywordEntry('scen', 0);
+gFtsKeywordArray[225]= new FtsKeywordEntry('screen', 0);
+gFtsKeywordArray[226]= new FtsKeywordEntry('second', 3);
+gFtsKeywordArray[227]= new FtsKeywordEntry('section', 1);
+gFtsKeywordArray[228]= new FtsKeywordEntry('select', 0, 3);
+gFtsKeywordArray[229]= new FtsKeywordEntry('set', 3);
+gFtsKeywordArray[230]= new FtsKeywordEntry('shap', 2);
+gFtsKeywordArray[231]= new FtsKeywordEntry('shift', 2);
+gFtsKeywordArray[232]= new FtsKeywordEntry('shortcut', 3);
+gFtsKeywordArray[233]= new FtsKeywordEntry('show', 2);
+gFtsKeywordArray[234]= new FtsKeywordEntry('shown', 2);
+gFtsKeywordArray[235]= new FtsKeywordEntry('shrink', 1, 3);
+gFtsKeywordArray[236]= new FtsKeywordEntry('sid', 1);
+gFtsKeywordArray[237]= new FtsKeywordEntry('signal', 4);
+gFtsKeywordArray[238]= new FtsKeywordEntry('similar', 2);
+gFtsKeywordArray[239]= new FtsKeywordEntry('similarly', 0);
+gFtsKeywordArray[240]= new FtsKeywordEntry('sin', 2);
+gFtsKeywordArray[241]= new FtsKeywordEntry('singl', 2);
+gFtsKeywordArray[242]= new FtsKeywordEntry('sometim', 2);
+gFtsKeywordArray[243]= new FtsKeywordEntry('spac', 2);
+gFtsKeywordArray[244]= new FtsKeywordEntry('special', 2);
+gFtsKeywordArray[245]= new FtsKeywordEntry('standard', 1, 4);
+gFtsKeywordArray[246]= new FtsKeywordEntry('start', 0, 2, 4);
+gFtsKeywordArray[247]= new FtsKeywordEntry('structur', 0, 2);
+gFtsKeywordArray[248]= new FtsKeywordEntry('subexpression', 0);
+gFtsKeywordArray[249]= new FtsKeywordEntry('subscript', 0);
+gFtsKeywordArray[250]= new FtsKeywordEntry('suit', 0, 1, 4);
+gFtsKeywordArray[251]= new FtsKeywordEntry('superscript', 0, 3);
+gFtsKeywordArray[252]= new FtsKeywordEntry('support', 3);
+gFtsKeywordArray[253]= new FtsKeywordEntry('symbol', 0, 1, 4);
+gFtsKeywordArray[254]= new FtsKeywordEntry('syntactic', 4);
+gFtsKeywordArray[255]= new FtsKeywordEntry('syntax', 1, 4);
+gFtsKeywordArray[256]= new FtsKeywordEntry('t-shap', 2);
+gFtsKeywordArray[257]= new FtsKeywordEntry('tab', 2, 3);
+gFtsKeywordArray[258]= new FtsKeywordEntry('tak', 2);
+gFtsKeywordArray[259]= new FtsKeywordEntry('templat', 0, 1, 2, 3, 4);
+gFtsKeywordArray[260]= new FtsKeywordEntry('text', 2);
+gFtsKeywordArray[261]= new FtsKeywordEntry('though', 3);
+gFtsKeywordArray[262]= new FtsKeywordEntry('thre', 1);
+gFtsKeywordArray[263]= new FtsKeywordEntry('tim', 2);
+gFtsKeywordArray[264]= new FtsKeywordEntry('togeth', 2, 3);
+gFtsKeywordArray[265]= new FtsKeywordEntry('toggl', 4);
+gFtsKeywordArray[266]= new FtsKeywordEntry('token', 2);
+gFtsKeywordArray[267]= new FtsKeywordEntry('tool', 1);
+gFtsKeywordArray[268]= new FtsKeywordEntry('toolbar', 0, 1, 2, 4);
+gFtsKeywordArray[269]= new FtsKeywordEntry('toolbox', 1);
+gFtsKeywordArray[270]= new FtsKeywordEntry('track', 2);
+gFtsKeywordArray[271]= new FtsKeywordEntry('tri', 0, 2);
+gFtsKeywordArray[272]= new FtsKeywordEntry('turn', 2);
+gFtsKeywordArray[273]= new FtsKeywordEntry('two', 2);
+gFtsKeywordArray[274]= new FtsKeywordEntry('typ', 2, 3);
+gFtsKeywordArray[275]= new FtsKeywordEntry('underlin', 2);
+gFtsKeywordArray[276]= new FtsKeywordEntry('underly', 2);
+gFtsKeywordArray[277]= new FtsKeywordEntry('undo', 1, 3);
+gFtsKeywordArray[278]= new FtsKeywordEntry('unexpect', 0, 2);
+gFtsKeywordArray[279]= new FtsKeywordEntry('upright', 2);
+gFtsKeywordArray[280]= new FtsKeywordEntry('upsid', 2);
+gFtsKeywordArray[281]= new FtsKeywordEntry('useful', 1, 3);
+gFtsKeywordArray[282]= new FtsKeywordEntry('usually', 0);
+gFtsKeywordArray[283]= new FtsKeywordEntry('valid', 0);
+gFtsKeywordArray[284]= new FtsKeywordEntry('variabl', 2);
+gFtsKeywordArray[285]= new FtsKeywordEntry('variety', 1);
+gFtsKeywordArray[286]= new FtsKeywordEntry('vertical', 2);
+gFtsKeywordArray[287]= new FtsKeywordEntry('vertically', 2);
+gFtsKeywordArray[288]= new FtsKeywordEntry('visual', 2, 4);
+gFtsKeywordArray[289]= new FtsKeywordEntry('watch', 0);
+gFtsKeywordArray[290]= new FtsKeywordEntry('webeq', 0, 1, 2, 3, 4);
+gFtsKeywordArray[291]= new FtsKeywordEntry('x', 3);
+gFtsKeywordArray[292]= new FtsKeywordEntry('x^2', 3);
+gFtsKeywordArray[293]= new FtsKeywordEntry('y', 4);
+gFtsStopArray[0] = new FtsStopWord("0");
+gFtsStopArray[1] = new FtsStopWord("1");
+gFtsStopArray[2] = new FtsStopWord("2");
+gFtsStopArray[3] = new FtsStopWord("3");
+gFtsStopArray[4] = new FtsStopWord("4");
+gFtsStopArray[5] = new FtsStopWord("5");
+gFtsStopArray[6] = new FtsStopWord("6");
+gFtsStopArray[7] = new FtsStopWord("7");
+gFtsStopArray[8] = new FtsStopWord("8");
+gFtsStopArray[9] = new FtsStopWord("9");
+gFtsStopArray[10] = new FtsStopWord("a");
+gFtsStopArray[11] = new FtsStopWord("after");
+gFtsStopArray[12] = new FtsStopWord("all");
+gFtsStopArray[13] = new FtsStopWord("along");
+gFtsStopArray[14] = new FtsStopWord("already");
+gFtsStopArray[15] = new FtsStopWord("also");
+gFtsStopArray[16] = new FtsStopWord("am");
+gFtsStopArray[17] = new FtsStopWord("among");
+gFtsStopArray[18] = new FtsStopWord("an");
+gFtsStopArray[19] = new FtsStopWord("and");
+gFtsStopArray[20] = new FtsStopWord("another");
+gFtsStopArray[21] = new FtsStopWord("any");
+gFtsStopArray[22] = new FtsStopWord("are");
+gFtsStopArray[23] = new FtsStopWord("as");
+gFtsStopArray[24] = new FtsStopWord("at");
+gFtsStopArray[25] = new FtsStopWord("be");
+gFtsStopArray[26] = new FtsStopWord("because");
+gFtsStopArray[27] = new FtsStopWord("been");
+gFtsStopArray[28] = new FtsStopWord("between");
+gFtsStopArray[29] = new FtsStopWord("but");
+gFtsStopArray[30] = new FtsStopWord("by");
+gFtsStopArray[31] = new FtsStopWord("can");
+gFtsStopArray[32] = new FtsStopWord("do");
+gFtsStopArray[33] = new FtsStopWord("does");
+gFtsStopArray[34] = new FtsStopWord("doesn");
+gFtsStopArray[35] = new FtsStopWord("done");
+gFtsStopArray[36] = new FtsStopWord("each");
+gFtsStopArray[37] = new FtsStopWord("either");
+gFtsStopArray[38] = new FtsStopWord("for");
+gFtsStopArray[39] = new FtsStopWord("from");
+gFtsStopArray[40] = new FtsStopWord("get");
+gFtsStopArray[41] = new FtsStopWord("has");
+gFtsStopArray[42] = new FtsStopWord("have");
+gFtsStopArray[43] = new FtsStopWord("here");
+gFtsStopArray[44] = new FtsStopWord("how");
+gFtsStopArray[45] = new FtsStopWord("i");
+gFtsStopArray[46] = new FtsStopWord("if");
+gFtsStopArray[47] = new FtsStopWord("in");
+gFtsStopArray[48] = new FtsStopWord("into");
+gFtsStopArray[49] = new FtsStopWord("is");
+gFtsStopArray[50] = new FtsStopWord("isn");
+gFtsStopArray[51] = new FtsStopWord("it");
+gFtsStopArray[52] = new FtsStopWord("like");
+gFtsStopArray[53] = new FtsStopWord("may");
+gFtsStopArray[54] = new FtsStopWord("maybe");
+gFtsStopArray[55] = new FtsStopWord("more");
+gFtsStopArray[56] = new FtsStopWord("must");
+gFtsStopArray[57] = new FtsStopWord("need");
+gFtsStopArray[58] = new FtsStopWord("non");
+gFtsStopArray[59] = new FtsStopWord("not");
+gFtsStopArray[60] = new FtsStopWord("of");
+gFtsStopArray[61] = new FtsStopWord("ok");
+gFtsStopArray[62] = new FtsStopWord("okay");
+gFtsStopArray[63] = new FtsStopWord("on");
+gFtsStopArray[64] = new FtsStopWord("or");
+gFtsStopArray[65] = new FtsStopWord("other");
+gFtsStopArray[66] = new FtsStopWord("rather");
+gFtsStopArray[67] = new FtsStopWord("re");
+gFtsStopArray[68] = new FtsStopWord("s");
+gFtsStopArray[69] = new FtsStopWord("same");
+gFtsStopArray[70] = new FtsStopWord("see");
+gFtsStopArray[71] = new FtsStopWord("so");
+gFtsStopArray[72] = new FtsStopWord("some");
+gFtsStopArray[73] = new FtsStopWord("such");
+gFtsStopArray[74] = new FtsStopWord("t");
+gFtsStopArray[75] = new FtsStopWord("than");
+gFtsStopArray[76] = new FtsStopWord("that");
+gFtsStopArray[77] = new FtsStopWord("the");
+gFtsStopArray[78] = new FtsStopWord("their");
+gFtsStopArray[79] = new FtsStopWord("them");
+gFtsStopArray[80] = new FtsStopWord("then");
+gFtsStopArray[81] = new FtsStopWord("there");
+gFtsStopArray[82] = new FtsStopWord("these");
+gFtsStopArray[83] = new FtsStopWord("they");
+gFtsStopArray[84] = new FtsStopWord("this");
+gFtsStopArray[85] = new FtsStopWord("those");
+gFtsStopArray[86] = new FtsStopWord("to");
+gFtsStopArray[87] = new FtsStopWord("too");
+gFtsStopArray[88] = new FtsStopWord("unless");
+gFtsStopArray[89] = new FtsStopWord("use");
+gFtsStopArray[90] = new FtsStopWord("used");
+gFtsStopArray[91] = new FtsStopWord("using");
+gFtsStopArray[92] = new FtsStopWord("ve");
+gFtsStopArray[93] = new FtsStopWord("want");
+gFtsStopArray[94] = new FtsStopWord("was");
+gFtsStopArray[95] = new FtsStopWord("way");
+gFtsStopArray[96] = new FtsStopWord("were");
+gFtsStopArray[97] = new FtsStopWord("what");
+gFtsStopArray[98] = new FtsStopWord("when");
+gFtsStopArray[99] = new FtsStopWord("whenever");
+gFtsStopArray[100] = new FtsStopWord("where");
+gFtsStopArray[101] = new FtsStopWord("whether");
+gFtsStopArray[102] = new FtsStopWord("which");
+gFtsStopArray[103] = new FtsStopWord("will");
+gFtsStopArray[104] = new FtsStopWord("with");
+gFtsStopArray[105] = new FtsStopWord("within");
+gFtsStopArray[106] = new FtsStopWord("without");
+gFtsStopArray[107] = new FtsStopWord("yet");
+gFtsStopArray[108] = new FtsStopWord("you");
+gFtsStopArray[109] = new FtsStopWord("your");
+
+//--></script>
+<!-- BSSCMARK_POS FTSSCRIPT -->
+
+<script type="text/javascript">
+<!--
+var bNav4 = false;
+var        bIE4 = false;
+if (parseInt(navigator.appVersion) >= 4) {
+        bNav4 = (navigator.appName == "Netscape");
+        bIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+}
+if (bIE4) {
+        document.all.Loading.style.visibility = "hidden";
+}
+//-->
+</script>
+<script type="text/javascript">
+<!--
+if (bIE4) {
+        var strWrite = "<div id=\"FtsFindTable\" style=\"position:absolute; left:5; top:";
+        if (bMac) {
+                strWrite += "10;";
+        } else {
+                strWrite += "2;";
+        }
+        strWrite += 'z-index:2; visibility:visible; background-color:white;">';
+        document.write(strWrite);
+        document.write("</div>");
+} else if (bNav4) {
+        document.write("<layer id=\"FtsFindTable\" clip=\"0,0,2048,1536\" bgcolor=white>");
+        document.write("</layer>");
+        document.close();
+}
+// -->
+</script>
+</body>
+</html>

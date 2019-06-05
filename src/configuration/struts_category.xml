@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="staple" namespace="/manage" extends="groups-default">
+	  <!-- 用户个人文章分类 -->
+	  <action name="usercate" class="userCateAction">
+	    <result name="List_Success" type="freemarker">/WEB-INF/ftl/user/user_cate_list.ftl</result>
+	    <result name="Add_Success" type="freemarker">/WEB-INF/ftl/user/user_cate_add.ftl</result>
+	    <result name="Create_Success" type="freemarker">/WEB-INF/ftl/user/cate_create_success.ftl</result>
+	  </action>
+	</package>
+</struts>

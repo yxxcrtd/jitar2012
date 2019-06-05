@@ -1,0 +1,11 @@
+/* 给 msgbox.js 配套的 css 定义.*/
+div.message_frame {display: none; width:50%;}
+#MessageTip {width:50%;}
+#MessageTip_2 {width:50%;}
+#blockUI {display: none; width:100%; height:100%; background-image: url(images/filter.gif); position:absolute; left: 0px; top: 0px; z-index: 50000; -moz-opacity: 0.5;}
+.hidden {display: none;}
+.popup{position: absolute; z-index: 60000;}
+.container{ background:#FFF;padding:2px; position:absolute;border-width:2px;border-color:#EEE #404040 #404040 #EEE;border-style:solid;display:none;top:0;left:0;z-index: 60001;}
+.boxHead {background:url(common/bg5.gif) center center;}
+.boxCloseButton {float:right;cursor:pointer;padding:6px;font-family:Fixedsys}
+.boxTitle {font-weight:bold;padding:6px;cursor:move;}

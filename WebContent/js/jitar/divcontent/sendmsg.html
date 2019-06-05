@@ -1,0 +1,21 @@
+<form name="sendMsgForm" action="message.pu" method="post">
+	<div class="divFrame">
+		<div class="divCls fontBold" onclick="$('shareDiv').style.display='none'">X</div>
+		<div onmousedown="DivUtil.dragStart(event, 'shareDiv')" class="divTitle">发送消息</div>
+		<div class="divSpacer"></div>
+		<div class="divBody">
+			<div>您正在给 ${loginName} 发送消息</div>
+			<input type="hidden" name="cmd" value="" />
+			<input type="hidden" name="redirect" value="true" />
+			<input type="hidden" name="messageReceiver" id="loginname" value="${loginname}" />
+			<div>消息标题：<input type="text" name="messageTitle" size="30" maxLength="50" /></div>
+			<div>消息内容：</div>
+			<div><textarea id="msgContent" name="messageContent" style="width: 100%; height: 200px"></textarea></div>
+			<div>			
+				<input type="button" value="发送消息" onclick="DivUtil.doSendMsg(this.form)" />
+				<input type="button" value="关闭窗口" onclick="$('shareDiv').style.display = 'none'" />
+			</div>
+			<div style="color: red">最多输入2000字。</div>
+		</div>
+	</div>
+</form>

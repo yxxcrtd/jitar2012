@@ -1,0 +1,232 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"><a>Customizing Editing Behavior</a>
+</h1>
+
+
+<p>WebEQ Editor allows you to customize several aspects of its
+user interface.  This is done from the Preferences | General Editing
+dialog.</p>
+
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Changing the Toolbar</h2>
+
+
+<p>The Toolbar pulldown menu lets you select between
+several standard pre-defined toolbar configurations by using the
+pulldown menu on the left.</p>
+
+
+
+<p><img src="images/preferences4.gif"></p>
+
+
+
+<p>You can also load a custom toolbar from a toolbar configuration file. To do
+  this, choose "custom" from the pulldown, which then activates the input field
+  for a toolbar configuration file. Enter the path to your toolbar configuration
+  file.</p>
+
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Changing Spacebar Behavior</h2>
+
+
+<p>In editing MathML, the need to insert an InvisibleTimes character is
+extremely common.  Since MathML groups runs of characters into tokens,
+just typing "xy" leads to a single two-character token, typeset
+in an upright font.  However, what you probably meant was "x
+InvisibleTimes y" typeset as two single-character tokens in an italic
+font.</p>
+
+
+
+<p>To make entering InvisibleTimes more convenient, WebEQ Editor
+gives you several options for the spacebar behavior.</p>
+
+
+
+<DL xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">
+<DT><b>Invisible times after an operand, space otherwise</b></DT>
+
+<dd>This is the default behavior. This takes some getting used to, but
+is quite handy.  Most of the time, the default is correct.  When it
+isn't, you can use the following tricks:
+
+<p>Forcing a space --  Note that if you hit the spacebar twice, you
+will always get a true space character the second time, since the
+first character (InvisibleTimes or space) is never an operand.
+So if you want a space where the default was InvisibleTimes, you hit
+spacebar twice to get 'InvisibleTimes', ' ' and then backspace over
+the InvisibleTimes.</p>
+
+
+
+<p>Forcing an InvisibleTimes -- If you need an InvisibleTimes
+when space is the default, insert it from the invisible characters
+palette on the standard toolbar.</p>
+
+
+</dd>
+
+
+<dt><b>Invisible times always</b></dt>
+
+
+<dd>This option gives you control over where the invisible times
+markers are placed.  However, for most people, it is hard to refrain
+from automatically hitting the space bar at times, so it is also
+dangerous. To get a true space character, use the invisible character
+palette on the standard toolbar.
+</dd>
+
+
+<dt><b>Space always</b></dt>
+
+
+<dd>This is usually not a good idea unless you only care about the
+appearance of the equations.  To get an invisible times character, use
+the invisible character palette on the standard toolbar.
+</dd>
+
+
+<dt><b>Nothing</b></dt>
+
+<dd>If you prefer, you can turn off the spacebar entirely, and use the
+invisible character palette on the standard toolbar for both space and
+InvisibleTimes characters.</dd>
+
+
+</DL>
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Changing Parentheses Behavior</h2>
+
+<p>MathML specifies that by default parentheses stretch vertically to
+surround the tallest item in the same template slot with them.  As a
+side effect, this behavior forces you to be more conscious of putting
+in the proper group for the mathematical structure of an equation.
+However, many authors are more comfortable with parentheses that don't
+stretchy unless they tell them to.</p>
+
+
+
+<p>If you set your preference to non-stretchy parentheses, parens won't
+stretch unless you edit their operator properties, and manually set the
+stretchy property to true.  Also, the parentheses in the parentheses
+template from the standard toolbar are always stretchy regardless of
+this setting.
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<H2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Changing Auto-italic Behavior</H2>
+
+<p>MathML specifies that the default font for single character
+identifiers is italic, while for multi-character identifiers the
+default is upright.  This is extremely convenient for mathematics
+where this guideline is almost always followed.  However, this is not
+the case in other disciplines, notably chemistry.
+Therefore, you can choose whether single character identifiers are
+to be set in italics by default.</p>
+
+
+
+<p>Sometimes it is desirable to not automatically italicize uppercase
+Greek letters, even if auto-italic behavior is selected.  There is
+an option to choose whether uppercase Greek letters should be normal
+by default. Even if auto-italic behavior is checked, uppercase Greek
+letters can be made normal (in effect overriding the auto-italic behavior).</p>
+
+
+
+<p>Regardless of these settings, you can always change the font by
+manually setting the logical font property in a token's font
+properties dialog. </p>
+
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<H2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Changing Auto-recognize Functions Behavior</H2>
+
+
+<p>WebEQ Editor has two modes for determining how keystrokes should be 
+interpreted.  In the default mode where auto-recognition of functions is enabled, 
+each keystroke is assumed to be a separate 
+variable, number or operator.  Thus, typing 'x','y','z' will be interpreted as
+individual variables (&lt;mi&gt;x&lt;/mi&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mi&gt;z&lt;/mi&gt; in the MathML markup) 
+and typeset in italics accordingly.  At the same time,
+the WebEQ Editor scans the equation for common elementary function names, such as 
+'sin' and 'log'.  When it sees these functions, it automatically merges the characters 
+into a single function name and typesets the result in an upright serif font.  This mode 
+produces the best results for most users, and will be familiar to users of Design Science
+Equation Editor and MathType.</p>
+
+
+
+<p>Some users that want to have explicit control over how keyboard data is tokenized into
+MathML elements may wish to turn auto-recognition of functions off.  In this mode, number and
+alphabetic characters from the keyboard are all placed in the same MathML token element.  To
+start a new token, the user must insert a new element, usually by inserting an "invisible 
+times" character via the spacebar.  Thus, in this mode, typing 'x', 'y', 'z' produces a single
+identifier (&lt;mi&gt;xyz&lt;/mi&gt; in the MathML) typeset in an upright serif font.  To obtain
+the italic variables multiplied together, one would need to type 'x', spacebar, 'y', spacebar, 'z'.
+Most users do not need or desire this level of control over markup, but from time to time it 
+it still useful for modifying equations where the results of auto-function recognition are not
+what was desired.</p>
+
+
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<H2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Changing Differential D Rendering Behavior</H2>
+
+
+<p>MathML uses a special "differential d" character to indicate differentiation. This
+semantic hint is valuable for properly interpreting MathML in a computer algebra system.
+In particular, Mathematica<sup xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">tm</sup>
+ has introduced the convention of using a doublestruck
+(or openface) font to render the diffferential d character.  In some situations, authors may
+wish to follow this convention by enabling the "use double struck differential d" option.  By
+default, this option is disabled, and the differential d character will display with a normal
+serif d, as is more traditional in mathematical typesetting.</p>
+
+
+
+</p>
+
+
+</body>
+</html>

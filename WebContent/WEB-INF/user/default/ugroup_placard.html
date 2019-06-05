@@ -1,0 +1,14 @@
+<#-- 传递进来的数据参见 UgroupPlacardModule, data 结构为
+
+   data = List [ Map [ placard = Placard , group = GroupModel ] ] 
+ -->
+ <marquee direction='up' scrolldelay='100' scrollamount='2' style="height:180px;width:100%;" onmouseover='this.stop()' onmouseout='this.start()'>
+<ul class='listul'>12312312
+<#list data as item>
+  <li>
+   <div>[<a href='${SiteUrl}g/${item.group.groupName}'>${item.group.groupTitle!}</a>] ${item.placard.createDate?string('yyyy-MM-dd')}</div>
+   <div><a href='showplacard.jsp?id=xxx'>${item.placard.title!}</a></div>
+  </li>
+</#list>
+</ul>
+</marquee>

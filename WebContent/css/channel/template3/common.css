@@ -1,0 +1,157 @@
+html{padding:0;margin:0;font-size:12px;font-family:Arial,"Courier New","Fixedsys","宋体";width:100%;text-align:center;color:#000;}
+body {margin-top:0px;padding-top:0px;text-align:center;color:#000;background:url(pagebg.jpg) repeat-y center;}
+.bodycontent{margin-left:auto;margin-right:auto;width:1200px;min-height:900px;background:url(background.jpg) no-repeat;}
+a:link {color: #07519a;text-decoration:none;}     /* unvisited link */
+a:visited {color: #07519a;text-decoration:none;}  /* visited link */
+a:hover {color: #FF0000}   /* mouse over link */
+a:active {color: #0000FF}   /* selected link */
+.headnav {padding:4px 0;background:#e7f2fe;}
+.headnav div span{color:#f00;font-weight:bold;}
+.headnav div{padding:5px 0 0 60px;}
+.logo {padding-top:2px 0;background:#FFF;}
+.navbar {width:1002px;height:66px;background:url(navbg.jpg) repeat-x;}
+.navbar div { padding-left:0px;text-align:center; width:980px;font-size:14px;}
+.navbar div span {padding:3px 10px;margin-top:-6px;width:90px;color:#F00;}
+.navbar div a:link,.navbar div a:visited {color:#FFF;text-decoration:none;font-weight:bold;padding:0 6px;} 
+.navbar div a:hover,.navbar div a:active {color:#FF0000;font-weight:bold;padding:0 6px;}
+.navbar div strong{color:#EEE;display:none}
+.content{width:1002px;position:relative;top:222px;margin-left:auto;margin-right:auto;left:-4px}
+.footer {margin-left:auto;margin-riht:auto;width:1002px; height:100px; text-align:center; vertical-align:middle;}
+.footer span{text-align:center; vertical-align:bottom;position:relative;top:50px;}
+
+.dTreeNode img{border:0;vertical-align:middle;}
+
+.pager{padding:10px 0;text-align:center;}
+
+.left{border:2px solid #C6C7C2;padding:1px;background:#F1F5E7;width:22%;height:100%;}
+.leftcontainer{padding:10px;text-align:left;}
+
+.right{border:0px;padding-left:10px;background:#FFF;}
+.rightcontainer{background:#fff;padding-left:0px;
+border-top:1px solid #C6C7C2;border-left:1px solid #C6C7C2;border-right:1px solid #C6C7C2;border-bottom:1px solid #C6C7C2;
+}
+.rightcontainer a{color:#000000;}
+
+.datalist{width:100%;}
+.datalist thead tr{background:#EDEBEC;}
+.datalist th{height:30px;color:#289307;border-bottom:1px solid #348F06;background:url(thsplit.jpg) no-repeat right top}
+.datalist td{height:22px;margin-left:10px;text-align:left;padding:0px;padding-top:6px;border-bottom:1px dotted #B0BEC7;}
+.datalist td span{color:#289307;margin-right:10px;}
+
+.bordertable { background:#ddd;}
+.bordertable tr {}
+.panel{width:auto;border:1px solid #C6C7C2;font-size:12px;}
+.panel_head {text-align:left;height:34px;border-bottom:1px solid #C6C7C2;background-color:#ECECEC;}
+.panel_head_left {width:108px;height:34px;border-bottom:1px solid #4C9307;padding:0px 0 0 10px; color:#289307;text-align:left;float:left; }
+.panel_head_left p{position:relative;top:10px;margin-top:0px;padding:10px 0 0 0px;background:url(captiondot.gif) no-repeat left top;display:inline;}
+.panel_head_left span{font-size:14px;font-weight:bold;padding-left:14px;}
+.panel_head_right {text-align:right;height:34px;padding:8px 10px 0 0;font-family:"BankGothic Md BT";color:#289307;font-size:12px;float:right;}
+.panel_head_right a{color:#289307;}
+
+.panel_content { padding:6px;background:#fff;}
+
+.ulist { margin:0;padding:0;list-style-type:none;color:#393939}
+.ulist li {text-align:left;padding-bottom:2px;background:url(d.gif) no-repeat 0 6px;padding-left:8px; display:block;margin-bottom:2px;}
+.ulist li a{color:#383838;}
+.ulist li span { float:right;}
+.stat div {padding:2px 0;}
+
+
+.body_title_container {
+    text-align:left;
+    FONT-SIZE: 1.6em; 
+    HEIGHT: 32px; 
+    FONT-FAMILY:黑体; 
+    background:url(ball.gif) no-repeat 10px 0px; FONT-WEIGHT: bold; COLOR: #000000; PADDING-LEFT: 50px; LINE-HEIGHT: 32px
+}
+
+.school_container {
+    PADDING-BOTTOM: 14px; PADDING-TOP: 14px; PADDING-LEFT: 12px; PADDING-RIGHT: 12px
+}
+.school_info_container {
+    HEIGHT: 313px
+}
+.school_info_container .school_pic_content {
+    WIDTH: 480px;HEIGHT: 310px;
+    BORDER-LEFT: #CCCCCC 1px solid; BORDER-TOP: #CCCCCC 1px solid;  BORDER-RIGHT: #CCCCCC 1px solid; BORDER-BOTTOM: #CCCCCC 1px solid; 
+    FLOAT: left; 
+    PADDING-BOTTOM: 2px; PADDING-TOP: 2px; PADDING-LEFT: 2px;  PADDING-RIGHT: 2px; 
+}
+.school_info_container .school_pic_content IMG {
+    HEIGHT: 309px; WIDTH: 479px
+}
+.school_info_container .school_intro_content {
+    HEIGHT: 330px; FLOAT: right; WIDTH: 440px; FONT-SIZE: 1.3em;
+}
+
+.school_info_container .school_intro_content .left{
+    background:url(schoolinfoleftbg.jpg) repeat-x left bottom;
+    MIN-WIDTH:200px;
+    BORDER:0px;
+    HEIGHT:30px;
+    TEXT-ALIGN:center;
+    font-weight:bold;
+}
+.school_info_container .school_intro_content .right{
+    background:url(shoolinforight.gif) repeat-x left bottom;
+    BORDER:0px;
+    WIDTH:100%;
+}
+
+
+.school_info_container .school_intro_content .intro_content {
+    TEXT-ALIGN:left;OVERFLOW: hidden; WORD-WRAP: break-word; FONT-SIZE: 12px; HEIGHT: 280px; POSITION: relative; WORD-BREAK: break-all; PADDING-BOTTOM: 20px; PADDING-TOP: 12px; PADDING-LEFT: 18px; LINE-HEIGHT: 26px; PADDING-RIGHT: 10px; TEXT-INDENT: 2em
+}
+.school_info_container .school_intro_content .intro_content .more_content {
+    HEIGHT: 20px; RIGHT: 0px; POSITION: absolute; TEXT-ALIGN: right; WIDTH: 100px; BOTTOM: 0px
+}
+
+.school_list_container {
+    MIN-HEIGHT: 300px;
+    BORDER-LEFT: #CCCCCC 1px solid; BORDER-TOP: #CCCCCC 1px solid;  BORDER-RIGHT: #CCCCCC 1px solid; BORDER-BOTTOM: #CCCCCC 1px solid;
+}
+.school_list_container .school_list_caption{
+    margin-top:10px;
+    HEIGHT:34px;
+    TEXT-ALIGN:left;
+    background:url(schoolistbg.jpg) repeat-x; 
+    BORDER-TOP: #CDCDCD 1px solid;   
+    BORDER-BOTTOM: #569C08 1px solid;
+}
+.school_list_container .school_list_caption .left{
+    background:url(flag.jpg) no-repeat left top; 
+    border:0 0 0 0px;
+    TEXT-ALIGN:left;
+    WIDTH:130px;
+    HEIGHT:34px;
+    border:0px;
+}
+.school_list_container .school_list_caption .left div{
+	HEIGHT:33px;
+	margin-left:40px;
+	padding-left:0px;
+	padding-top:0px;
+	margin-top:0px;
+	width:100px;
+	background:url(schoollistname.jpg) no-repeat left center;
+}
+.shoollist{
+    LIST-STYLE-TYPE: none; OVERFLOW: hidden; HEIGHT: auto; PADDING-BOTTOM: 14px; PADDING-TOP: 14px; PADDING-LEFT: 0px; CLEAR: both; PADDING-RIGHT: 0px; _height: 20px; _overflow: visible
+}
+.shoollist LI {
+    OVERFLOW: hidden; HEIGHT: 32px; background:url(dotx2.gif) no-repeat 1px 4px; 
+    WHITE-SPACE: nowrap; TEXT-OVERFLOW: ellipsis; 
+    PADDING-LEFT: 40px; 
+    MARGIN: 0px 0px 0px 10px; 
+    DISPLAY: inline; 
+    MIN-WIDTH: 180px;
+    FLOAT: left;
+    TEXT-ALIGN:LEFT;
+}
+.shoollist LI A {
+    FONT-SIZE: 1.2em; COLOR: #000000; TEXT-DECORATION: none; LINE-HEIGHT: 32px
+}
+.shoollist LI.selected {
+	background:url(dotx1.gif) no-repeat 1px 4px; 
+    background-color:#DAE7B9;
+}

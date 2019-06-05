@@ -1,0 +1,68 @@
+@import url("common.css");
+
+.r_s {text-align:center;padding:4px;background:#ececec;border:2px solid #FFF;border-left:0;border-right:0;}
+.s_input { border:1px solid #95a9b4;width:68px;}
+
+.main_left{float:left;width:162px;overflow:hidden;}
+.main_middle{float:left;width:608px;overflow:hidden;}
+.main_right{float:left;width:226px;}
+
+.res1 {border:1px solid #b0bec7;background:#FFF;position:relative;z-index:1;}
+.res1_c { margin:1px;background:#eff5fc; padding:20px 0 10px 10px;position:relative;z-index:10;}
+.res1_c div {padding:4px 0 4px 10px;position:relative;z-index:20;}
+.res1_c div.cur { border:1px solid #b0bec7;border-right:0px;position:relative;z-index:30;margin-right:-1px;background:#FFF;}
+
+.res_table {width:100%}
+.res_table tbody td {padding:3px;}
+.td_left {padding:0 6px;border:1px solid #b0bec7;border-right:0;background:url(resbg1.gif);height:19px;font-weight:bold;vertical-align:bottom;}
+.td_middle {border:1px solid #b0bec7;border-right:0;border-left:0;background:url(resbg1.gif);height:19px;font-weight:bold;vertical-align:bottom;}
+.td_right{border:1px solid #b0bec7;border-left:0;background:url(resbg1.gif);height:19px;font-weight:bold;vertical-align:bottom;}
+
+
+/* New Tab*/
+.tab2 {height:26px;}
+.tab2 label {float:left;width:20px;height:25px;background:url(tab_2.gif) repeat-x 0 -28px;}
+.tab2 div {background:url(tab_2.gif) repeat-x;float:left;border:1px solid #b0bec7;border-bottom:0;border-right:0;height:16px;padding:8px 10px 0 10px; color:#073b9a;font-weight:bold;}
+.tab2 div.cur {float:left;border-left:1px solid #b0bec7;height:17px;padding:8px 10px 0 10px; background:url(tab_2.gif) repeat-x 0 -28px;color:#073b9a;font-weight:bold;}
+.tab_outer {border:1px solid #aec6dd;}
+.tab_content{padding:10px;border:0;border-top:1px solid #b0bec7;position:relative;top:-1px;z-index:1;}
+
+.b1{width:227px;border:1px solid #b0bec7;overflow:hidden;}
+
+.b1_head {height:19px;border-bottom:1px solid #b0bec7;background:url(rbg2.gif) repeat-x;}
+.b1_head_left {width:108px;border-left:1px solid #fff;padding:4px 0 0 10px; color:#07519a;font-weight:bold;}
+.b1_head_right {float:right;padding:2px 10px 0 0;font-family:"BankGothic Md BT";color:#1f9a07;font-size:12px;}
+.b1_content { padding:6px;width:100%;}
+
+.tc1 div { float:left;width:66px;height:80px; text-align:center;}
+.tc1 div span { border:1px solid #bdcbd5;padding:1px;display:block;width:56px;height:56px;margin-bottom:4px;}
+
+.rank_head {height:25px;background:url(rankbg.gif) repeat-x;border-bottom:1px solid #aec6dd;}
+.rank_head_left {float:left;font-weight:bold;padding-top:4px;width:48px;}
+.tab_rank {height:25px;font-size:12px;}
+.tab_rank div {width:72px;float:left;border-left:1px solid #aec6dd;height:25px;word-break:keep-all;padding:0 4px;}
+.tab_rank div span {padding-top:8px;display:block;}
+.tab_rank div.cur {width:72px;color:#f00;display:block; float:left;border-left:1px solid #aec6dd;border-bottom:1px solid #FFF;height:25px;background:#FFF;;padding:0 4px;}
+
+.rank_tab2 {height:26px;background:url(rank_bg2.gif) repeat-x;}
+.rank_tab2 div {float:left;border-left:1px solid #aec6dd;padding:6px 10px 0 10px; height:20px;}
+.rank_tab2 label {float:left;width:68px;height:20px;padding:0px 10px; background:url(rank_bg1.gif) repeat-x;padding-top:6px;font-weight:bold;}
+.rank_tab2 div.cur {float:left;border-left:1px solid #aec6dd;height:20px;padding:6px 10px 0 10px; background:url(rank_bg2.gif) repeat-x 0 -28px;}
+.rank_tab_content {padding:6px;clear:both;}
+
+.pgr{ border:1px solid #b0bec7;background:url(pager_bg1.gif);padding-top:4px;text-align:center;margin:10px 0;height:22px;}
+
+/* 带缺口的样式 */
+.outer_div {border-left:1px solid #b0bec7;border-right:1px solid #b0bec7;background:#FFF;}
+.inner_div {margin-left:1px;margin-right:1px;;background:#eff5fc;padding:4px 2px 4px 20px;}
+.current_outer_div {margin-left:1px;background:#eff5fc;}
+.current_outer_outer_div {border-left:1px solid #b0bec7;border-right:0px solid #b0bec7;background:#FFF;}
+.current_inner_div {border:1px solid #b0bec7;border-right:0;margin-left:9px;background:#FFF;padding:4px 2px 4px 10px;}
+.top_outer_div{border:1px solid #b0bec7;background:#FFF;border-bottom:0;}
+.top_inner_div{margin:1px;margin-bottom:0;background:#eff5fc;padding:10px;}
+.bottom_outer_div{border:1px solid #b0bec7;background:#FFF;border-top:0;}
+.bottom_inner_div{margin:1px;margin-top:0;background:#eff5fc;height:10px;}
+
+.rank_left{width:20px;height:20px;vertical-align:top;background:url(num_.gif) no-repeat 3px 1px;text-align:center;color:#FFF;font-weight:bold;}
+.rank_right {width:200px}
+div.tab2_border{ width:255px;border-right:1px solid #aec6dd; }

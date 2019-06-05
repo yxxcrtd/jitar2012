@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.SimpleUser" mutable="false">
+		<id name="userId" type="int">
+			<column name="UserID" />
+			<generator class="identity" />
+		</id>
+		<property name="userGuid" type="java.lang.String" update="false">
+			<column name="UserGuid" length="40" not-null="true" />
+		</property>
+		<property name="loginName" type="java.lang.String" update="false">
+			<column name="LoginName" length="50" not-null="true" />
+		</property>
+		<property name="trueName" type="java.lang.String">
+			<column name="TrueName" length="50" />
+		</property>
+		<property name="nickName" type="java.lang.String">
+			<column name="NickName" length="50" />
+		</property>
+		<property name="email" type="java.lang.String">
+			<column name="Email" />
+		</property>
+		<property name="createDate" type="java.util.Date" update="false">
+			<column name="CreateDate" length="23" not-null="true" />
+		</property>
+		<property name="virtualDirectory" type="java.lang.String">
+			<column name="VirtualDirectory" length="50" not-null="true" />
+		</property>
+		<property name="userFileFolder" type="java.lang.String">
+			<column name="UserFileFolder" length="80" />
+		</property>
+		<property name="gender" type="java.lang.Short">
+			<column name="Gender" not-null="true" />
+		</property>
+		<property name="prepareCourseCount" type="int">
+			<column name="PrepareCourseCount" />
+		</property>
+		<property name="unitId" type="int">
+			<column name="UnitId" />
+		</property>
+		<property name="blogName" type="java.lang.String">
+			<column name="BlogName" />
+		</property>
+		<property name="blogIntroduce" type="java.lang.String">
+			<column name="BlogIntroduce" length="4000" />
+		</property>
+		<property name="userStatus" type="int">
+			<column name="UserStatus" not-null="true" />
+		</property>
+		<property name="userGroupId" type="int">
+			<column name="UserGroupID" not-null="true" />
+		</property>
+		<property name="visitCount" type="int" update="false">
+			<column name="VisitCount" not-null="true" />
+		</property>
+		<property name="visitArticleCount" type="int" update="false">
+			<column name="VisitArticleCount" not-null="true" />
+		</property>
+		<property name="visitResourceCount" type="int" update="false">
+			<column name="VisitResourceCount" not-null="true" />
+		</property>
+		<property name="myArticleCount" type="int" update="false">
+			<column name="MyArticleCount" not-null="true" />
+		</property>
+		<property name="articleCount" type="int" update="false">
+			<column name="ArticleCount" not-null="true" />
+		</property>
+		<property name="otherArticleCount" type="int" update="false">
+			<column name="OtherArticleCount" not-null="true" />
+		</property>
+		<property name="recommendArticleCount" type="int" update="false">
+			<column name="RecommendArticleCount" not-null="true" />
+		</property>
+		<property name="articleCommentCount" type="int" update="false">
+			<column name="ArticleCommentCount" not-null="true" />
+		</property>
+		<property name="articleICommentCount" type="int" update="false">
+			<column name="ArticleICommentCount" not-null="true" />
+		</property>
+		<property name="resourceCount" type="int" update="false">
+			<column name="ResourceCount" not-null="true" />
+		</property>
+		<property name="recommendResourceCount" type="int" update="false">
+			<column name="RecommendResourceCount" not-null="true" />
+		</property>
+		<property name="resourceCommentCount" type="int" update="false">
+			<column name="ResourceCommentCount" not-null="true" />
+		</property>
+		<property name="resourceICommentCount" type="int" update="false">
+			<column name="ResourceICommentCount" not-null="true" />
+		</property>
+		<property name="resourceDownloadCount" type="int" update="false">
+			<column name="ResourceDownloadCount" not-null="true" />
+		</property>
+		<property name="createGroupCount" type="int" update="false">
+			<column name="CreateGroupCount" not-null="true" />
+		</property>
+		<property name="jionGroupCount" type="int" update="false">
+			<column name="JionGroupCount" not-null="true" />
+		</property>
+		<property name="photoCount" type="int" update="false">
+			<column name="PhotoCount" not-null="true" />
+		</property>
+		<property name="videoCount" type="int" update="false">
+			<column name="VideoCount" not-null="true" />
+		</property>
+		<property name="courseCount" type="int" update="false">
+			<column name="CourseCount" not-null="true" />
+		</property>
+		<property name="topicCount" type="int" update="false">
+			<column name="TopicCount" not-null="true" />
+		</property>
+		<property name="commentCount" type="int" update="false">
+			<column name="CommentCount" not-null="true" />
+		</property>
+		<property name="usedFileSize" type="int" update="false">
+			<column name="UsedFileSize" not-null="true" />
+		</property>
+		<property name="userIcon" type="java.lang.String">
+			<column name="UserIcon" />
+		</property>
+		<property name="userScore" type="int" update="false">
+			<column name="UserScore" not-null="true" />
+		</property>		
+		<property name="categoryId" type="java.lang.Integer">
+			<column name="UserClassID" />
+		</property>
+		<property name="positionId" type="int">
+			<column name="PositionID" not-null="true" />
+		</property>
+		<property name="usn" type="int">
+			<column name="Usn" not-null="true" />
+		</property>
+		<property name="subjectId" type="java.lang.Integer">
+			<column name="SubjectId" />
+		</property>		
+		<property name="userTags" type="java.lang.String">
+			<column name="UserTags" length="256" />
+		</property>
+		<property name="gradeId" type="java.lang.Integer">
+			<column name="GradeId" />
+		</property>
+		<property name="articleScore" type="int">
+			<column name="ArticleScore" />
+		</property>
+		<property name="resourceScore" type="int">
+			<column name="ResourceScore" />
+		</property>
+		<property name="photoScore" type="int">
+			<column name="PhotoScore" />
+		</property>
+		<property name="videoScore" type="int">
+			<column name="VideoScore" />
+		</property>
+		<property name="commentScore" type="int">
+			<column name="CommentScore" />
+		</property>
+		<property name="articlePunishScore" type="int">
+			<column name="ArticlePunishScore" />
+		</property>
+		<property name="resourcePunishScore" type="int">
+			<column name="ResourcePunishScore" />
+		</property>
+		<property name="commentPunishScore" type="int">
+			<column name="CommentPunishScore" />
+		</property>
+		<property name="photoPunishScore" type="int">
+			<column name="PhotoPunishScore" />
+		</property>
+		<property name="videoPunishScore" type="int">
+			<column name="VideoPunishScore" />
+		</property>
+		<property name="idCard" type="java.lang.String">
+			<column name="IDcard" length="18" />
+		</property>
+		<property name="qq" type="java.lang.String">
+			<column name="QQ" length="20" />
+		</property>
+		<property name="pushState" type="int">
+			<column name="PushState" not-null="true" />
+		</property>
+		<property name="pushUserId" type="java.lang.Integer">
+			<column name="PushUserId" />
+		</property>
+		<property name="accountId" type="java.lang.String">
+			<column name="AccountId" />
+		</property>
+		<property name="unitPathInfo" type="java.lang.String">
+			<column name="UnitPathInfo" length="1024" not-null="true" />
+		</property>
+		<property name="userType" type="java.lang.String">
+			<column name="UserType" length="256"/>
+		</property>		
+	</class>
+	<sql-query name="findPagingUser" callable="true">
+		<return alias="user" class="cn.edustar.jitar.pojos.SimpleUser">
+			<return-property name="userId" column="UserId" />
+			<return-property name="userGuid" column="UserGuid" />
+			<return-property name="loginName" column="LoginName" />
+			<return-property name="trueName" column="TrueName" />
+			<return-property name="nickName" column="NickName" />
+			<return-property name="email" column="Email" />
+			<return-property name="createDate" column="CreateDate" />
+			<return-property name="virtualDirectory" column="VirtualDirectory" />
+			<return-property name="userFileFolder" column="UserFileFolder" />
+			<return-property name="gender" column="Gender" />
+			<return-property name="prepareCourseCount" column="PrepareCourseCount" />
+			<return-property name="unitId" column="UnitId" />
+			<return-property name="blogName" column="BlogName" />
+			<return-property name="blogIntroduce" column="BlogIntroduce" />
+			<return-property name="userStatus" column="UserStatus" />
+			<return-property name="userGroupId" column="UserGroupID" />
+			<return-property name="visitCount" column="VisitCount" />
+			<return-property name="visitArticleCount" column="VisitArticleCount" />
+			<return-property name="visitResourceCount" column="VisitResourceCount" />
+			<return-property name="myArticleCount" column="MyArticleCount" />
+			<return-property name="articleCount" column="ArticleCount" />
+			<return-property name="otherArticleCount" column="OtherArticleCount" />
+			<return-property name="recommendArticleCount" column="RecommendArticleCount" />
+			<return-property name="articleCommentCount" column="ArticleCommentCount" />
+			<return-property name="articleICommentCount" column="ArticleICommentCount" />
+			<return-property name="resourceCount" column="ResourceCount" />
+			<return-property name="recommendResourceCount" column="RecommendResourceCount" />
+			<return-property name="resourceCommentCount" column="ResourceCommentCount" />
+			<return-property name="resourceICommentCount" column="ResourceICommentCount" />
+			<return-property name="resourceDownloadCount" column="ResourceDownloadCount" />
+			<return-property name="createGroupCount" column="CreateGroupCount" />
+			<return-property name="jionGroupCount" column="JionGroupCount" />
+			<return-property name="photoCount" column="PhotoCount" />
+			<return-property name="videoCount" column="VideoCount" />
+			<return-property name="courseCount" column="CourseCount" />
+			<return-property name="topicCount" column="TopicCount" />
+			<return-property name="commentCount" column="CommentCount" />
+			<return-property name="usedFileSize" column="UsedFileSize" />
+			<return-property name="userIcon" column="UserIcon" />
+			<return-property name="userScore" column="UserScore" />
+			<return-property name="categoryId" column="UserClassID" />
+			<return-property name="positionId" column="PositionID" />
+			<return-property name="usn" column="Usn" />
+			<return-property name="subjectId" column="SubjectId" />			
+			<return-property name="userTags" column="UserTags" />
+			<return-property name="gradeId" column="GradeId" />
+			<return-property name="articleScore" column="ArticleScore" />
+			<return-property name="resourceScore" column="ResourceScore" />
+			<return-property name="photoScore" column="PhotoScore" />
+			<return-property name="videoScore" column="VideoScore" />
+			<return-property name="commentScore" column="CommentScore" />
+			<return-property name="articlePunishScore" column="ArticlePunishScore" />
+			<return-property name="resourcePunishScore" column="ResourcePunishScore" />
+			<return-property name="commentPunishScore" column="CommentPunishScore" />
+			<return-property name="photoPunishScore" column="PhotoPunishScore" />
+			<return-property name="videoPunishScore" column="VideoPunishScore" />
+			<return-property name="idCard" column="IDcard" />
+			<return-property name="qq" column="QQ" />
+			<return-property name="pushState" column="PushState" />
+			<return-property name="pushUserId" column="PushUserId" />
+			<return-property name="accountId" column="AccountId" />
+			<return-property name="unitPathInfo" column="UnitPathInfo" />
+			<return-property name="userType" column="UserType" />
+		</return>
+		{call PageView(?,?,?,?,?,?,?)}
+	</sql-query>
+</hibernate-mapping>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.UnitSubject" table="Jitar_UnitSubject">
+		<id name="unitSubjectId" type="java.lang.Integer">
+			<column name="UnitSubjectId" />
+			<generator class="identity" />
+		</id>
+		<property name="unitId" type="java.lang.Integer">
+			<column name="UnitId" not-null="true" />
+		</property>
+		<property name="subjectId" type="java.lang.Integer">
+			<column name="SubjectId" not-null="true" />
+		</property>
+		<property name="metaSubjectId" type="java.lang.Integer">
+			<column name="MetaSubjectId" not-null="true" />
+		</property>
+		<property name="metaGradeId" type="java.lang.Integer">
+			<column name="MetaGradeId" not-null="true" />
+		</property>
+		<property name="displayName" type="java.lang.String">
+			<column name="DisplayName" length="256" not-null="true" />
+		</property>
+		<many-to-one name="subject" column="SubjectId"
+			class="cn.edustar.jitar.pojos.Subject" fetch="join" not-null="false"
+			lazy="proxy" insert="false" update="false" />
+		<many-to-one name="unit" column="UnitId"
+			class="cn.edustar.jitar.pojos.Unit" fetch="join" not-null="false"
+			lazy="proxy" insert="false" update="false" />
+	</class>
+</hibernate-mapping>

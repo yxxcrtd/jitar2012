@@ -1,0 +1,38 @@
+在Web.XML中
+红杉树视频会议配置
+    <context-param>
+        <param-name>Infowarelab_ServerURL</param-name>
+        <param-value>http://192.168.16.203/</param-value>
+    </context-param>
+    此项的   param-value 为空，则不支持视频会议
+    
+    <context-param>
+        <param-name>Infowarelab_XmlServiceURL</param-name>
+        <param-value>http://192.168.16.203/integration/xml</param-value>
+    </context-param>
+        
+
+
+导航中的视频教研 频道需要在数据库中删除 记录  视频教研 
+可以通过下面SQL查询
+Select * from Where (SiteNavIsShow = 1) AND (OwnerType = 0) AND (OwnerId = 0)
+列出是否有  视频教研 
+
+    
+    <!-- 焦作短信平台 企业信息机mas短信应用接口 的 业务登陆用户名、业务登陆密码 -->
+    <context-param>
+        <param-name>DBSMProxy_SMS_User</param-name>
+        <param-value>admin</param-value>
+    </context-param>    
+    <context-param>
+        <param-name>DBSMProxy_SMS_Password</param-name>
+        <param-value>0</param-value>
+    </context-param>  
+    
+    DBSMProxy_SMS_User的param-value为空则不支持焦作短信，这里是业务的用户和密码
+    焦作短信启用的话 ，焦作的短信数据库地址也需要设置
+    数据库配置文件是  WebContent\smApiConf.xml
+     
+    
+    
+        

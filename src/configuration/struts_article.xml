@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="article" namespace="/manage" extends="groups-default">
+	  <!-- 文章管理 -->
+		<action name="article" class="articleAction">
+			<result name="input" type="freemarker">/WEB-INF/ftl/article/article_new.ftl</result>
+			<result name="List_Success" type="freemarker">/WEB-INF/ftl/article/article_list.ftl</result>
+			<result name="Comment_List" type="freemarker">/WEB-INF/ftl/article/article_comment_list.ftl</result>
+			<result name="Reply_Comment" type="freemarker">/WEB-INF/ftl/article/reply_comment.ftl</result>
+			<result name="Edit_Comment" type="freemarker">/WEB-INF/ftl/article/edit_comment.ftl</result>
+			<result name="Dest_Cate" type="freemarker">/WEB-INF/ftl/article/dest_cate.ftl</result>
+			<result name="Channel_Cate" type="freemarker">/WEB-INF/ftl/channel/channel_cate.ftl</result>			
+		</action> 
+    </package>
+    <package name="index" namespace="/manage" extends="groups-default">
+        <action name="index" class="cn.edustar.jitar.action.NoAction">
+            <result name="error">/error404.jsp</result>       
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,2 @@
+<!-- 支持二级域名 -->
+<Context sessionCookiePath="/" sessionCookieDomain=".harbinedu.cn" privileged="true" /> 

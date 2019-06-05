@@ -1,0 +1,146 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+	<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Getting Started with WebEQ Editor</h1>
+
+	<p>WebEQ Editor is based on the idea of an <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">equation
+template</em>.  There are templates for
+fractions, subscripts, superscripts, matrices, etc.  To build an
+equation, insert templates, and then fill in the blanks.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>
+		<img src="images/main1.gif">
+	</p>
+
+
+	<p>To fill in the blanks, enter letters and numbers from the keyboard,
+select symbols from a palette, or replace a blank with another
+template.  If you select something before inserting a template from
+the toolbar, the symbol or expression you've selected will
+automatically be inserted into the first blank in the template.  Some
+people describe this as "wrapping" a template around a selection.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>By nesting equation templates inside one another, you can build up
+almost any equation.  Navigate around an equation using the
+mouse and arrow keys. You can also cut and paste subexpressions to
+build up more complex expressions.</p>
+
+
+	<p>
+		<img src="images/main2.gif">
+	</p>
+
+
+	<p>The WebEQ Editor templates and symbols are directly based
+on MathML.  See the WebEQ Developers Suite documentation for more information about MathML.</p>
+
+
+	<p>The WebEQ Editor allows you to change many layout and style properties to
+fine-tune visual appearances using the <a href="propmenu.html#propmenu">Properties Menu</a>.
+</p>
+
+
+	
+	<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Moving the Cursor</h2>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>WebEQ Editor tries to make cursor movement as natural and
+as intuitive as possible.  In general, the left, right, up and down
+arrows move the cursor to the next valid insertion point in the
+corresponding direction.  Similarly, clicking the mouse anywhere in an
+equation moves the cursor to the closest valid location to the click.</p>
+
+
+	<p>Behind the scenes, WebEQ Editor is negotiating a potentially
+complicated nested structure of MathML templates.  Moving the cursor
+one position to the right on the screen can involve jumping in and out
+of MathML structures.  The <a href="ancestry.html#ancestry">MathML Ancestry</a>
+gives you information about the MathML structure of the equation.</p>
+
+
+	<p>The cursor may occasionally not move exactly as you would expect on
+account of the nesting of the MathML structure.  In these cases, the
+cursor movement is giving you additional information about the
+structure of your equation.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>Watch the gray box attached to the cursor.  The gray box indicates
+the current template in which the cursor is located.  Usually,
+unexpected cursor motion is the result of moving in and out of
+templates.  See the WebEQ Developers Suite documentation for more information.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Entering Symbols</h2>
+
+	<p>To enter a symbol in an equation, click on it the toolbar, or
+select it from one of the pulldown symbol palettes, also on the toolbar.
+</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>
+		<img src="images/main10.gif">
+	</p>
+
+
+	<p>The standard toolbar configuration contains many commonly used
+symbol characters.  However, there are many symbols available in WebEQ
+which do not appear in the standard toolbar.  See <a href="tbprefs.html#tbprefs">Toolbar Preferences</a> for information about
+customizing the toolbar.</p>
+
+
+	<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Saving Your Work</h2>
+
+	<p>Once you are satisfied with your equation, you can save it in
+several formats.  You can save it as an image, write out the MathML
+encoding to a file, or write out WebEQ Viewer Control applet code.  When
+you save an applet or image, you can import it into an HTML page using
+your favorite HTML editing tools.</p>
+
+
+	<p>All of these functions are available on the <a href="filemenu.html#filemenu">File Menu</a>.  When you choose "Save" or "Save As"
+the first time, you will be prompted to choose the output format you
+wish to use.  You can set options about the output format from the
+Preferences Menu.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>
+		<img src="images/main11.gif">
+	</p>
+
+
+	<p>In order to be able to open a saved equation in WebEQ Editor again,
+you must save the equation in MathML format.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+</body>
+</html>

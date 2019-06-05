@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.SpecialSubjectPhoto" table="S_SpecialSubjectPhoto">
+        <id name="specialSubjectPhotoId" type="java.lang.Integer">
+            <column name="SpecialSubjectPhotoId" />
+            <generator class="identity" />
+        </id>
+        <property name="photoId" type="int">
+            <column name="PhotoId" not-null="true" />
+        </property>
+        <property name="photoTitle" type="java.lang.String">
+            <column name="PhotoTitle" not-null="true" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="specialSubjectId" type="int">
+            <column name="SpecialSubjectId" not-null="true" />
+        </property>
+        <property name="photoUserName" type="java.lang.String">
+            <column name="PhotoUserName" length="50" not-null="true" />
+        </property>
+        <property name="photoUserId" type="int">
+            <column name="PhotoUserId" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

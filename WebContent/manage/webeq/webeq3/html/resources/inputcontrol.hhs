@@ -1,0 +1,414 @@
+[TOPICS=5]
+"Getting Started","topics/main.html"
+"The Toolbar","topics/toolbar.html"
+"Navigating with the Cursor","topics/navigation.html"
+"Keyboard Shortcuts","topics/keyboard.html"
+"Checking Syntax","topics/checksyntax.html"
+
+[KEYWORDS=294]
+"^", 3
+"account", 0
+"action", 3
+"activ", 2
+"ad", 3
+"addition", 3
+"additional", 0
+"again", 2, 4
+"ahead", 2
+"algorithm", 4
+"almost", 0
+"alphabetic", 2
+"anywher", 0
+"appear", 2
+"applet", 0
+"appli", 2
+"around", 0, 2
+"arrow", 0, 2
+"attach", 0
+"automatically", 2
+"back", 4
+"bar", 1
+"bas", 0
+"begin", 2
+"behavior", 2
+"behind", 0
+"black", 2
+"blank", 0, 2, 3
+"blink", 2, 4
+"blu", 1, 4
+"box", 0, 2
+"build", 0
+"button", 1, 4
+"cal", 2
+"cas", 0, 4
+"charact", 2, 3
+"character", 1, 2
+"check", 1, 4
+"children", 2
+"closest", 0
+"cod", 4
+"color", 1, 4
+"common", 1, 3
+"complex", 0
+"complicat", 0
+"consist", 1
+"contain", 1, 2, 4
+"content", 1, 4
+"control", 0, 3, 4
+"convenient", 3
+"copy", 3
+"correspond", 0
+"ctrl", 3
+"ctrl-", 3
+"ctrl-^", 3
+"ctrl-_", 3
+"ctrl-a", 3
+"ctrl-b", 3
+"ctrl-c", 3
+"ctrl-f", 3
+"ctrl-p", 3
+"ctrl-q", 3
+"ctrl-r", 3
+"ctrl-v", 3
+"ctrl-x", 3
+"ctrl-z", 3
+"cu", 2
+"currently", 2
+"cursor", 0, 2, 3
+"cut", 0, 1, 3
+"cycl", 2, 3
+"default", 2
+"delet", 2
+"denot", 4
+"detail", 1, 4
+"detect", 4
+"developer", 0, 1, 4
+"direction", 0
+"directly", 0, 2
+"display", 1, 4
+"documentation", 0, 1, 4
+"doesnt", 2
+"down", 0, 2
+"e.g", 2
+"easi", 2
+"easily", 2
+"edit", 0, 3, 4
+"editor", 0, 1, 2
+"empty", 2
+"ent", 0
+"enter", 0, 2
+"equation", 0, 1, 2, 3, 4
+"error", 4
+"etc", 0
+"even", 0
+"exactly", 0
+"expect", 0, 3
+"explicitly", 2
+"expression", 0, 3, 4
+"extent", 2
+"extra", 4
+"faint", 2
+"far", 4
+"feedback", 4
+"fill", 0, 2
+"find", 2
+"focu", 2
+"follow", 4
+"font", 2
+"forth", 4
+"fraction", 0
+"function", 3, 4
+"generally", 2
+"generat", 1
+"generation", 4
+"giv", 0, 2, 4
+"given", 2
+"gray", 0, 2
+"green", 4
+"group", 2
+"handl", 3
+"hard", 2
+"hav", 2
+"highlight", 1, 4
+"hit", 2
+"horizontally", 2
+"i-beam", 2
+"icon", 1
+"idea", 0
+"illustrat", 2, 4
+"important", 1
+"indicat", 0, 2
+"input", 0, 3, 4
+"insert", 0, 1, 2, 3
+"insertion", 0, 2, 3
+"insid", 0
+"instead", 2
+"interpret", 4
+"interven", 2
+"intuitiv", 0
+"involv", 0
+"italic", 2
+"item", 2
+"jump", 0, 2
+"key", 0, 2, 3
+"keyboard", 0, 2, 3
+"layer", 2
+"lead", 4
+"learn", 3
+"left", 0, 1, 2
+"let", 3
+"letter", 0
+"level", 4
+"lin", 2
+"list", 3
+"locat", 0, 2
+"location", 0
+"loos", 2
+"mac", 3
+"magnify", 1, 3
+"main", 1, 3
+"mak", 0
+"mark", 4
+"markup", 1
+"mathml", 0, 1, 2
+"matric", 0
+"menu", 3
+"merg", 2
+"middl", 1
+"mis-match", 4
+"mod", 4
+"motion", 0
+"mous", 0, 1, 2, 3
+"mov", 0, 2
+"movement", 0, 2
+"multi-charact", 2
+"natural", 0
+"navigat", 0, 2
+"negotiat", 0
+"nest", 0, 2, 4
+"new", 2
+"next", 0, 2
+"normal", 4
+"notic", 2
+"numb", 3
+"number", 0, 2
+"open", 2, 3
+"operand", 4
+"operation", 1, 3
+"operator", 2, 4
+"osx", 3
+"out", 0, 2
+"outlin", 2
+"ov", 1, 2
+"palet", 0, 1
+"panel", 1
+"parenthes", 4
+"parenthesiz", 3
+"past", 0, 1, 3
+"peopl", 3
+"plac", 2
+"plain", 2
+"platform", 3
+"play", 4
+"point", 0, 2
+"pop-up", 1
+"position", 0, 2
+"possibl", 0
+"pref", 3
+"previou", 3
+"problem", 4
+"pulldown", 0
+"put", 2
+"r", 4
+"ready", 2
+"regular", 4
+"releas", 1
+"render", 2
+"reposition", 2
+"result", 0, 2
+"revert", 4
+"right", 0, 1, 2, 4
+"rol", 4
+"row", 2
+"scen", 0
+"screen", 0
+"second", 3
+"section", 1
+"select", 0, 3
+"set", 3
+"shap", 2
+"shift", 2
+"shortcut", 3
+"show", 2
+"shown", 2
+"shrink", 1, 3
+"sid", 1
+"signal", 4
+"similar", 2
+"similarly", 0
+"sin", 2
+"singl", 2
+"sometim", 2
+"spac", 2
+"special", 2
+"standard", 1, 4
+"start", 0, 2, 4
+"structur", 0, 2
+"subexpression", 0
+"subscript", 0
+"suit", 0, 1, 4
+"superscript", 0, 3
+"support", 3
+"symbol", 0, 1, 4
+"syntactic", 4
+"syntax", 1, 4
+"t-shap", 2
+"tab", 2, 3
+"tak", 2
+"templat", 0, 1, 2, 3, 4
+"text", 2
+"though", 3
+"thre", 1
+"tim", 2
+"togeth", 2, 3
+"toggl", 4
+"token", 2
+"tool", 1
+"toolbar", 0, 1, 2, 4
+"toolbox", 1
+"track", 2
+"tri", 0, 2
+"turn", 2
+"two", 2
+"typ", 2, 3
+"underlin", 2
+"underly", 2
+"undo", 1, 3
+"unexpect", 0, 2
+"upright", 2
+"upsid", 2
+"useful", 1, 3
+"usually", 0
+"valid", 0
+"variabl", 2
+"variety", 1
+"vertical", 2
+"vertically", 2
+"visual", 2, 4
+"watch", 0
+"webeq", 0, 1, 2, 3, 4
+"x", 3
+"x^2", 3
+"y", 4
+
+[STOPWORDS=110]
+"0"
+"1"
+"2"
+"3"
+"4"
+"5"
+"6"
+"7"
+"8"
+"9"
+"a"
+"after"
+"all"
+"along"
+"already"
+"also"
+"am"
+"among"
+"an"
+"and"
+"another"
+"any"
+"are"
+"as"
+"at"
+"be"
+"because"
+"been"
+"between"
+"but"
+"by"
+"can"
+"do"
+"does"
+"doesn"
+"done"
+"each"
+"either"
+"for"
+"from"
+"get"
+"has"
+"have"
+"here"
+"how"
+"i"
+"if"
+"in"
+"into"
+"is"
+"isn"
+"it"
+"like"
+"may"
+"maybe"
+"more"
+"must"
+"need"
+"non"
+"not"
+"of"
+"ok"
+"okay"
+"on"
+"or"
+"other"
+"rather"
+"re"
+"s"
+"same"
+"see"
+"so"
+"some"
+"such"
+"t"
+"than"
+"that"
+"the"
+"their"
+"them"
+"then"
+"there"
+"these"
+"they"
+"this"
+"those"
+"to"
+"too"
+"unless"
+"use"
+"used"
+"using"
+"ve"
+"want"
+"was"
+"way"
+"were"
+"what"
+"when"
+"whenever"
+"where"
+"whether"
+"which"
+"will"
+"with"
+"within"
+"without"
+"yet"
+"you"
+"your"

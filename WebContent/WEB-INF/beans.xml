@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+     xmlns:jaxws="http://cxf.apache.org/jaxws"  
+     xsi:schemaLocation="  
+ http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+ http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">  
+     <import resource="classpath:META-INF/cxf/cxf.xml" />  
+     <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />  
+     <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+     <!-- 注解方式注入其他bean -->  
+     <jaxws:endpoint   
+       id="WS_PortalData"   
+       implementor="cn.com.edusoa.WSPortalDataSoapImpl"   
+       address="/WS_PortalData" />
+     
+     <!--下面的写法另一种写法  -->
+     <!-- 
+     <bean name = "wsPortalDataSoapImpl" class="cn.com.edusoa.WSPortalDataSoapImpl" init-method="init" destroy-method="destroy" >
+        <property name="userDao" ref="userDao" /> 
+        <property name="groupDao" ref="groupDao" />
+        <property name="resourceDao" ref="resourceDao" />
+        <property name="prepareCourseDao" ref="prepareCourseDao" />
+     </bean>
+     <jaxws:endpoint   
+       id="WS_PortalData"   
+       implementor="#wsPortalDataSoapImpl"   
+       address="/WS_PortalData" />
+       -->
+ </beans>

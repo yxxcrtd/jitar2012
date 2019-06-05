@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.EvaluationTemplateFields" table="EvaluationTemplateFields">
+        <id name="fieldsId" type="int">
+            <column name="FieldsId" />
+            <generator class="identity" />
+        </id>
+        <property name="evaluationTemplateId" type="java.lang.Integer">
+            <column name="EvaluationTemplateId"  not-null="true"/>
+        </property>         
+        <property name="fieldsCaption" type="java.lang.String">
+          <column name="FieldsCaption" length="2048" />
+        </property>                   
+        <property name="fieldsName" type="java.lang.String">
+          <column name="FieldsName" length="1024" />
+        </property>      
+        <many-to-one name="evaluationTemplate" column="EvaluationTemplateId"
+            class="cn.edustar.jitar.pojos.EvaluationTemplate" fetch="join" not-null="false"
+            lazy="proxy" insert="false" update="false" /> 
+    </class>
+</hibernate-mapping>

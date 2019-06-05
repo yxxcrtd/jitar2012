@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="cn.edustar.jitar.pojos.Group" table="G_Group">
+    <id name="groupId" type="int">
+      <column name="GroupId" />
+      <generator class="identity" />
+    </id>
+    <property name="groupGuid" type="java.lang.String" update="false">
+      <column name="GroupGuid" length="40" not-null="true" />
+    </property>
+    <property name="groupName" type="java.lang.String" update="false">
+      <column name="GroupName" length="32" not-null="true" />
+    </property>
+    <property name="groupTitle" type="java.lang.String">
+      <column name="GroupTitle" length="100" not-null="true" />
+    </property>
+    <property name="categoryId" type="java.lang.Integer">
+      <column name="CategoryId" />
+    </property>
+    <many-to-one name="sysCate" column="CategoryId" class="cn.edustar.jitar.pojos.Category" fetch="join" not-null="false" lazy="proxy"
+      insert="false" update="false" />
+    <property name="createDate" type="java.util.Date">
+      <column name="CreateDate" length="23" not-null="true" />
+    </property>
+    <property name="createUserId" type="int">
+      <column name="CreateUserId" not-null="true" />
+    </property>
+    <property name="groupIcon" type="java.lang.String">
+      <column name="GroupIcon" length="256" />
+    </property>
+    <property name="groupTags" type="java.lang.String">
+      <column name="GroupTags" length="256" />
+    </property>
+    <property name="groupIntroduce" type="java.lang.String">
+      <column name="GroupIntroduce" length="1073741823" />
+    </property>
+    <property name="requisition" type="java.lang.String">
+      <column name="Requisition" length="1073741823" />
+    </property>
+    <property name="isBestGroup" type="boolean">
+      <column name="IsBestGroup" not-null="true" />
+    </property>
+    <property name="isRecommend" type="boolean">
+      <column name="IsRecommend" not-null="true" />
+    </property>
+    <property name="groupState" type="short">
+      <column name="GroupState" not-null="true" />
+    </property>
+    <property name="userCount" type="integer" update="false">
+      <column name="UserCount" not-null="true" />
+    </property>
+    <property name="articleCount" type="integer" update="false">
+      <column name="ArticleCount" not-null="true" />
+    </property>
+    <property name="photoCount" type="integer" update="false">
+      <column name="PhotoCount" not-null="true" />
+    </property>
+    <property name="videoCount" type="integer" update="false">
+      <column name="VideoCount" not-null="true" />
+    </property>
+    <property name="topicCount" type="integer" update="false">
+      <column name="TopicCount" not-null="true" />
+    </property>
+    <property name="discussCount" type="integer" update="false">
+      <column name="DiscussCount" not-null="true" />
+    </property>
+    <property name="actionCount" type="integer" update="false">
+      <column name="ActionCount" not-null="true" />
+    </property>
+    <property name="resourceCount" type="integer" update="false">
+      <column name="ResourceCount" not-null="true" />
+    </property>
+    <property name="courseCount" type="integer" update="false">
+      <column name="CourseCount" not-null="true" />
+    </property>
+    <property name="visitCount" type="integer" update="false">
+      <column name="VisitCount" not-null="true" />
+    </property>
+    <property name="joinLimit" type="integer">
+      <column name="JoinLimit" not-null="true" />
+    </property>
+    <property name="joinScore" type="integer">
+      <column name="JoinScore" not-null="true" />
+    </property>
+    <property name="bestArticleCount" type="integer">
+      <column name="bestArticleCount" not-null="true" />
+    </property>
+    <property name="bestResourceCount" type="integer">
+      <column name="bestResourceCount" not-null="true" />
+    </property>
+    <property name="pushState" type="int">
+      <column name="PushState" not-null="true" />
+    </property>
+    <property name="pushUserId" type="java.lang.Integer">
+      <column name="PushUserId" />
+    </property>
+    <property name="ktNo" type="java.lang.String">
+      <column name="KtNo" length="100" />
+    </property>
+    <property name="ktLevel" type="java.lang.String">
+      <column name="KtLevel" length="50" />
+    </property>
+    <property name="ktStartDate" type="java.util.Date">
+      <column name="KtStartDate" />
+    </property>
+    <property name="ktEndDate" type="java.util.Date">
+      <column name="KtEndDate" />
+    </property>
+    <property name="parentId" type="integer">
+      <column name="ParentId" not-null="true" />
+    </property>
+    <property name="XKXDId" type="java.lang.String">
+      <column name="XKXDId" length="1024" />
+    </property>
+    <property name="XKXDName" type="java.lang.String">
+      <column name="XKXDName" length="1024" />
+    </property>
+    <!-- 所属学科, 可以为 null -->
+    <property name="subjectId" type="java.lang.Integer" column="SubjectId" />
+    <many-to-one name="subject" column="SubjectId" class="cn.edustar.jitar.pojos.Subject" fetch="join" not-null="false" lazy="proxy"
+      insert="false" update="false" />
+    <property name="gradeId" type="java.lang.Integer">
+      <column name="GradeId" />
+    </property>
+    <many-to-one name="grade" column="GradeId" class="cn.edustar.jitar.pojos.Grade" fetch="join" not-null="false" lazy="proxy" insert="false"
+      update="false" />
+  </class>
+</hibernate-mapping>

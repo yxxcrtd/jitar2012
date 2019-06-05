@@ -1,0 +1,70 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+	<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">MathML Export Preferences</h1>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>
+		<img src="images/preferences3.gif">
+	</p>
+
+
+	<dl xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">
+		<dt>
+			<b>Markup type </b>
+		</dt>
+
+		<dd>
+			<p>This option determines whether to generate "presentation markup" which describes how an equation looks, or "content markup" which describes what an equation means. Both styles of markup are valid MathML. See <a href="contentgen.html#contentgen">Generating Content Markup</a> for a full discussion of the strengths and weaknesses of each style of markup. </p>
+
+
+			<p>
+You also have the option of generating "normalized presentation markup" which is the default. When this option is chosen, WebEQ Editor will try to optimize the generated markup by eliminating redundant tags, or inserting extra structure to improve interoperability with other MathML software.
+</p>
+
+
+		</dd>
+
+		<dt>
+			<b>Character encoding </b>
+			<idxentry></idxentry>
+
+			<idxentry></idxentry>
+
+			<idxentry></idxentry>
+
+		</dt>
+
+		<dd>
+			<p>XML in general, and MathML in particular, permits several different ways of representing non-ASCII characters, such as most mathematical symbols. This option determines whether these symbol characters will appear as named entities in the MathML markup (&amp;alpha;), as numerical entities (&amp;#x03b1;) or as UTF-8 encoded Unicode characters (α -- this may appear as a missing character glyph if you don't have fonts with an alpha installed). </p>
+
+
+			<p>In general, UTF-8 is preferred in the XML world, but it can lead to interoperability problems with some tools. Named entities are best for readability, but they frequently cause problems in XML tools since a DTD must be available to process them. Consequently, numerical entities are generally the safest choice.</p>
+
+
+		</dd>
+
+		<dt>
+			<b>Use Namespace / Namespace prefix</b>
+		</dt>
+
+		<dd>The "Use Namespace" check box determines whether WebEQ Editor will
+generate markup using a namespace prefix.  When the box is checked,
+the "Namespace prefix" field becomes enabled, and you can enter the
+prefix you want.  Including the colon in the
+prefix is optional.<idxentry></idxentry>
+
+			<idxentry></idxentry>
+
+		</dd>
+
+	</dl>
+
+</body>
+</html>

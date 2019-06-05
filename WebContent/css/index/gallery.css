@@ -1,0 +1,28 @@
+@import url("common.css");
+
+.gly_main_left { float:left;width:660px; margin:0 20px;background:#ebf4ff;border:1px solid #B0BEC7;}
+.gly_main_right { float:right;width:279px;}
+
+.div_title {width:90%;border-bottom:1px solid #969696;color:#073b9a;padding-bottom:6px;margin:0 auto;}
+#sub_title { color:#000; padding:4px 0 20px 0;}
+.itemOff{margin:4px;float:left;width:24px;height:21px;background:url(playerbg1.gif) no-repeat;text-align:center;font-weight:bold;padding-top:4px;color:#144baf;}
+.itemOff:hover{margin:4px;color:#F00;cursor:pointer;}
+.itemOn{margin:4px;float:left;width:24px;height:21px;background:url(playerbg1.gif) no-repeat;text-align:center;font-weight:bold;padding-top:4px;color:#F00;}
+#Play{background:url(pic_play.gif) no-repeat center right;padding:12px 28px 0 10px;height:24px;margin:4px;}
+#Pause{background:url(pic_stop.gif) no-repeat center right;padding:12px 28px 0 10px;height:24px;margin:4px;}
+
+.gly_right{ border:1px solid #b0bec7;padding:1px;height:532px;overflow:hidden; }
+.gly_right_head {height:20px;background:url(pic_1.gif);color:#073b9a;font-weight:bold;text-align:center;padding-top:6px;}
+
+.gly {width:100%;border:1px solid #b0bec7;overflow:hidden}
+.gly_head {height:19px;background:url(bg3.gif);border-bottom:1px solid #b0bec7;}
+.gly_head_left {height:17px;float:left;background:url(bg6.gif) repeat-x;border-right:1px solid #fff;padding:2px 30px 0 0; color:#07519a;font-weight:bold;}
+.gly_head_right {height:17px;float:right;padding:2px 10px 0 0;font-family:"BankGothic Md BT";color:#1f9a07;}
+.gly_content { padding:10px 6px 6px 6px;text-align:center;}
+
+.photolist { width:180px; float:left;text-align:center;}
+.photolist .img { width:160px;height:104px; float:left;text-align:center;}
+.phototext { padding:6px 0; text-align:center;}
+
+.rank_left{width:20px;height:20px;vertical-align:top;background:url(num_.gif) no-repeat 1px 2px;text-align:center;color:#FFF;font-weight:bold;}
+.rank_right {width:250px;}

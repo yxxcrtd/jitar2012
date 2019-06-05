@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <package name="actions" namespace="/" extends="groups-default">
+    <action name="actions" class="siteActionsAction">
+      <result name="success" type="freemarker">/WEB-INF/ftl2/action/action.ftl</result>
+      <result name="ajax" type="freemarker">/WEB-INF/ftl2/action/ajax_list.ftl</result>
+    </action>
+    <action name="showAction" class="siteShowActionAction">
+      <result name="success" type="freemarker">/WEB-INF/ftl2/action/showAction.ftl</result>
+    </action>
+    <action name="actionEdit" class="siteActionEditAction">
+      <result name="edit" type="freemarker">/WEB-INF/ftl2/action/action_edit.ftl</result>
+      <result name="print" type="freemarker">/WEB-INF/ftl2/action/action_user_print.ftl</result>
+    </action>
+    <action name="createAction" class="siteActionCreateAction">
+      <result name="input" type="freemarker">/WEB-INF/ftl2/action/action_create.ftl</result>
+    </action>
+  </package>
+</struts>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="photo" namespace="/manage" extends="groups-default">	
+		<!-- 相册管理 -->
+		<action name="photo" class="photoAction">
+			<interceptor-ref name="fileUpload">
+        <param name="allowedTypes">image/bmp,image/png,image/gif,image/jpeg,image/jpg,image/x-png,image/pjpeg</param>
+				<param name="maximumSize">6291456</param><!-- 1024 * 1024 * 6 = 6M -->
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="loginInterceptorStack"></interceptor-ref>
+			<result name="input" type="freemarker">/WEB-INF/ftl/input.ftl</result>
+			<result name="List_Success" type="freemarker">/WEB-INF/ftl/photo/Photo_List.ftl</result>
+			<result name="Edit_Success" type="freemarker">/WEB-INF/ftl/photo/Photo_Edit.ftl</result>
+			<result name="List_Staple_Success" type="freemarker">/WEB-INF/ftl/photo/PhotoAndStaple_List.ftl</result>
+			<result name="Tools_Success" type="freemarker">/WEB-INF/ftl/photo/Photo_Tools.ftl</result>
+			<result name="Dest_Cate" type="freemarker">/WEB-INF/ftl/resource/dest_cate.ftl</result>
+			<result name="Channel_Cate" type="freemarker">/WEB-INF/ftl/channel/channel_cate.ftl</result>			
+		</action>
+
+		<!-- 相册分类管理 -->
+		<action name="photostaple" class="photoStapleAction">
+			<result name="List_Success" type="freemarker">/WEB-INF/ftl/photo/PhotoStaple_List.ftl</result>
+			<result name="ListTree_Success" type="freemarker">/WEB-INF/ftl/photo/PhotoStapleTree_List.ftl</result>
+			<result name="Add_Success" type="freemarker">/WEB-INF/ftl/photo/PhotoStaple_Add.ftl</result>
+			<result name="Update_Success" type="freemarker">/WEB-INF/ftl/photo/PhotoStaple_Update.ftl</result>
+		</action>    
+	</package>
+  <package name="showPhoto" namespace="/" extends="groups-default">
+    <action name="showPhoto" class="showPhotoAction">
+      <result name="success" type="freemarker">/WEB-INF/ftl2/photo/showPhoto.ftl</result>
+    </action>
+  </package>
+  
+</struts>

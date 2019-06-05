@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.ActionUser" table="A_ActionUser">
+        <id name="actionUserId" type="java.lang.Integer">
+            <column name="ActionUserId" />
+            <generator class="identity" />
+        </id>
+       
+        <property name="actionId" type="java.lang.Integer">
+            <column name="ActionId" not-null="true" />
+        </property>
+         <!-- 
+        <many-to-one name="Action" class="cn.edustar.jitar.pojos.Action" fetch="select">
+            <column name="ActionId" not-null="true" />
+        </many-to-one>
+    -->
+        <property name="userId" type="java.lang.Integer">
+            <column name="UserId" not-null="true" />
+        </property>
+        <property name="attendUserCount" type="java.lang.Integer">
+            <column name="AttendUserCount" not-null="true" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="Description" length="1073741823" />
+        </property>
+        <property name="inviteUserId" type="java.lang.Integer">
+            <column name="InviteUserId" />
+        </property>
+        <property name="isApprove" type="java.lang.Integer">
+            <column name="IsApprove" not-null="true" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="Status" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,12 @@
+<div style="padding: 6px; background: #DEE">
+ <span style="cursor: pointer; float: right"
+  onclick="document.getElementById('subMenuDiv').style.display='none';">X</span>
+  添加页面
+</div>
+<div style='margin: 4px 0 4px 0; border-top: 2px solid green'></div>
+<div style='height:200px;width:300px;padding:10px;'>
+ <form method='post' action='addpage.action'>
+ <div>页面名称：<input name='pageTitle' /></div>
+ <div><input type='submit' value='创建页面' onclick='if(this.form.pageTitle.value == ""){ alert("请输入页面名称，");return false; }' /></div>
+ </form>
+</div>

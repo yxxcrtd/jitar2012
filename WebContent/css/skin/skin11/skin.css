@@ -1,0 +1,226 @@
+/**/
+body {
+	background: #FBF4E5 none repeat scroll 0% 0%
+}
+
+#container {
+	background:#f9f9f9;
+	margin:auto;
+	text-align:left;
+}
+
+#header {
+	background: transparent url(25_02.jpg) no-repeat scroll left top;
+	border-color: #C1C1BF rgb(193, 193, 191) -moz-use-text-color;
+	border-style: solid solid none;
+	border-width: 1px 1px medium;
+	height: 200px;
+	margin:auto;
+	width:950px;
+}
+
+#toolbar{margin:auto;
+	width:950px;}
+#navbar {
+	background: #FFF;
+	width:952px;
+	margin:auto;
+}
+
+.widgetWindow {
+	border:1px solid #878267;
+	background:#d8e7ee;
+	padding:1px;
+	margin-top:6px;
+}
+
+.widgetFrame {
+	border:1px solid #d8e7ee;
+	background:url('25_19.jpg');
+}
+
+.widgetHeader {
+	border:1px solid #878267;
+	background:url('25_09.jpg');
+	padding:6px 6px 0 6px;
+}
+
+.showWidget {
+	background:url('ico_showMod.gif') no-repeat;
+	width:20px;
+	height:20px;
+	float:left;
+	display:none;
+	cursor:pointer;
+}
+
+.hideWidget {
+	background:url('ico_hideMod.gif') no-repeat;
+	width:20px;
+	height:20px;
+	float:left;
+	display:none;
+	cursor:pointer;
+}
+
+.close {
+	background:url('ico_cls.gif') no-repeat;
+	width:20px;
+	height:20px;
+	float:right;
+	display:none;
+	cursor:pointer;
+}
+
+.edit {
+	float:right;
+	display:none;
+	cursor:pointer;
+}
+
+.options {
+	float:left;
+	display:none;
+	cursor:pointer;
+}
+
+.refresh {
+	float:right;
+	background:url('ico_rfs.gif') no-repeat;
+	width:20px;
+	height:20px;
+	display:none;
+	cursor:pointer;
+}
+
+.ico {
+	float:left;
+}
+
+.title {
+	height:22px;
+	font-weight:bold;	
+}
+
+.widgetEditor {
+	clear:both;
+}
+
+.widgetContent {
+	padding:10px;
+}
+
+/* */
+.friend{
+	display:block;
+	padding-top:5px;
+}
+
+.friendIcon {
+	width:48px;
+	height:48px;
+}
+
+.friendImg,.friendInfo {
+	float:left;
+}
+
+/* 通用行列模式样式 */
+.wrapGridFrame{	padding-top:}
+.wrapGridItem{margin-bottom:6px;border:1px solid #300;}
+.wrapGridItemHeader {padding:4px;}
+.wrapGridBody {	padding:4px;}
+.floatRight {float:right;}
+.floatLeft {float:left;}
+.fontBold{font-weight:bold;}
+.padding2px{padding:2px;}
+
+a.linkButton {
+	display:inline;
+	width:60px;
+	height:20px;
+	text-decoration:none;
+	color:#000;
+}
+
+a.icoBlog { padding-left:20px;background:url('ico_profile.gif') no-repeat left center; }
+a.icoProfile { padding-left:20px;background:url('ico_profile.gif') no-repeat left center; }
+a.icoFriend { padding-left:20px;background:url('ico_addLink.gif') no-repeat left center; }
+a.icoMessage { padding-left:20px;background:url('ico_writeMessage.gif') no-repeat left center; }
+
+/* article comment */
+.commentTable {
+width:100%;
+background:pink;
+ margin:0 0 6px 0;
+}
+.commentLeft{
+ width:60px;
+ background:#FFF;
+ text-align:center;
+ vertical-align:top;
+ }
+ .commentLeft img{ width:64px;height:64px;border:0px; }
+.commentRight
+{
+	background:#FFF;
+	width:100%;
+	padding:6px;
+}
+.commentHeader{
+ width:100%;
+ border-bottom:1px solid #DDE;
+ padding-bottom:4px;
+}
+.commentContent { padding:6px; }
+.commentTitle { font-weight:bold; }
+
+.pagingInput { border:1px solid #009; height:14px;}
+.pagingDiv { background:#DDD;text-align:center; }
+.goButton { width:30px;height:20px; margin-left:4px;}
+
+.stats li { color:#F66; font-size:24px;}
+
+.article_title {
+	font-weight:bold;
+	color:#000;
+	font-size:2.0em;
+	border-bottom:1px solid #000;
+}
+.article_content {
+	color:#000;
+	font-size:11.5pt;
+	padding:6px 0;
+}
+.article_footer{
+	font-size:12px;
+}
+.article_tags {
+	padding:4px 0;
+}
+
+.todo { color:red;font-weight:bold; }
+
+
+
+/* 导航 */
+.navbar {margin:0;padding:6px 0 2px 0;}
+.navbar li{width:80px;text-align:center;float:left;list-style-type:none;padding:4px;border:1px solid #DDD;margin-left:10px;}
+
+
+/* Tab 效果 */
+.tab_div {border-bottom:1px solid red;height:21px;font-size:12px;}
+.tab_div div {float:left;border:1px solid red;margin-left:10px; height:20px;padding:0 10px;background:#EEE}
+.tab_div div span {padding-top:4px;display:block;}
+.tab_div div.cur {display:block; float:left;border:1px solid red;border-bottom:1px solid #FFF;margin-left:10px;height:20px;background:#fff;padding:0 10px;}
+.tab_content { border-width:0 1px 1px 1px;border-style:solid;border-color:red;padding:10px; background:#fff;}
+
+/* 表格 */
+.list_table {  }
+.list_table thead { font-weight:bold; }
+.list_table thead td { border-bottom:2px solid #369;padding-bottom:2px;}
+.list_table tbody td { border-bottom:1px solid #09f;padding-bottom:2px;}
+
+
+
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.UCondition2" table="U_Condition2">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="groupId" type="java.lang.Integer">
+            <column name="GroupId" />
+        </property>
+        <property name="teacherType" type="java.lang.String">
+            <column name="TeacherType" length="50" />
+        </property>
+        <property name="teacherTypeKeyword" type="java.lang.String">
+            <column name="TeacherTypeKeyword" length="50" />
+        </property>
+        <property name="sqlCondition" type="java.lang.String">
+            <column name="SQL_Condition" length="5000" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="cn.edustar.jitar.pojos.Report" table="Jitar_Report">
+    <id name="reportId" type="int">
+      <column name="ReportId" />
+      <generator class="identity" />
+    </id>
+    <property name="objType" type="java.lang.Integer">
+      <column name="ObjType" not-null="true" />
+    </property>
+    <property name="objId" type="java.lang.Integer">
+      <column name="ObjId" not-null="true" />
+    </property>
+    <property name="userId" type="java.lang.Integer">
+      <column name="UserId" not-null="true" />
+    </property>
+    <property name="reportType" type="java.lang.String">
+      <column name="ReportType" not-null="true" length="128" />
+    </property>
+    <property name="createDate" type="java.util.Date" update="false">
+      <column name="CreateDate" length="23" />
+    </property>
+    <property name="objTitle" type="java.lang.String">
+      <column name="ObjTitle" not-null="true" length="128" />
+    </property>
+    <property name="reportContent" type="java.lang.String">
+      <column name="ReportContent" length="128" />
+    </property>
+    <property name="status" type="java.lang.Boolean">
+      <column name="Status" />
+    </property>
+  </class>
+</hibernate-mapping>

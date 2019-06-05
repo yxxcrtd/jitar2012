@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Styles>
+	<Style name="黄色背景" element="span">
+		<Style name="background-color" value="Yellow" />
+	</Style>
+	<Style name="绿色背景" element="span">
+		<Style name="background-color" value="Lime" />
+	</Style>
+	<Style name="字体加粗" element="strong" />
+	<Style name="斜体" element="em" />
+	<Style name="字体加大" element="big" />
+	<Style name="字体缩小" element="small" />
+	<Style name="删除线" element="del" />
+	<Style name="下划线" element="ins" />
+	<Style name="Image on Left" element="img">
+		<Attribute name="style" value="padding: 5px; margin-right: 5px" />
+		<Attribute name="border" value="2" />
+		<Attribute name="align" value="left" />
+	</Style>
+	<Style name="Image on Right" element="img">
+		<Attribute name="style" value="padding: 5px; margin-left: 5px" />
+		<Attribute name="border" value="2" />
+		<Attribute name="align" value="right" />
+	</Style>
+</Styles>

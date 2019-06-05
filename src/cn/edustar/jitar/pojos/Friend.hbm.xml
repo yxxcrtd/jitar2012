@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.Friend" table="U_Friend">
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="userId" type="int">
+            <column name="UserId" not-null="true" />
+        </property>
+        <property name="friendId" type="int">
+            <column name="FriendId" not-null="true" />
+        </property>
+        <property name="addTime" type="java.util.Date">
+            <column name="AddTime" not-null="true" />
+        </property>
+        <property name="typeId" type="java.lang.Integer">
+            <column name="TypeId" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="Remark" length="2000" />
+        </property>
+        <property name="isBlack" type="boolean">
+            <column name="IsBlack" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

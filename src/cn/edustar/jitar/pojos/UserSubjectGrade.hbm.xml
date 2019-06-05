@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.UserSubjectGrade" table="Jitar_UserSubjectGrade">
+		<id name="userSubjectGradeId" type="int">
+			<column name="UserSubjectGradeId" />
+			<generator class="identity" />
+		</id>
+		<property name="userId" type="int">
+			<column name="UserId" not-null="true" />
+		</property>
+		<property name="subjectId" type="java.lang.Integer">
+			<column name="SubjectId" />
+		</property>
+		<property name="gradeId" type="java.lang.Integer">
+			<column name="GradeId" />
+		</property>
+	</class>
+</hibernate-mapping>

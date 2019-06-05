@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.PrepareCourseArticle" table="C_PrepareCourseArticle">
+        <id name="prepareCourseArticleId" type="java.lang.Integer">
+            <column name="PrepareCourseArticleId" />
+            <generator class="identity" />
+        </id>
+        <property name="articleId" type="java.lang.Integer">
+            <column name="ArticleId" not-null="true" />
+        </property>
+        <property name="prepareCourseStageId" type="java.lang.Integer">
+            <column name="PrepareCourseStageId" not-null="true" />
+        </property>
+        <property name="prepareCourseId" type="java.lang.Integer">
+            <column name="PrepareCourseId" not-null="true" />
+        </property>
+        <property name="userId" type="java.lang.Integer">
+            <column name="UserId" not-null="true" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="title" type="java.lang.String">
+            <column name="Title" length="512" not-null="true" />
+        </property>
+        <property name="articleState" type="boolean">
+			<column default="true" name="ArticleState" not-null="true" />
+		</property>
+		<property name="typeState" type="boolean">
+			<column default="false" name="TypeState" not-null="true" />
+		</property>
+    </class>
+</hibernate-mapping>

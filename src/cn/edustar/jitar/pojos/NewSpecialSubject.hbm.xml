@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.NewSpecialSubject" table="T_NewSpecialSubject">
+        <id name="newSpecialSubjectId" type="java.lang.Integer">
+            <column name="NewSpecialSubjectId" />
+            <generator class="identity" />
+        </id>
+        <property name="newSpecialSubjectTitle" type="java.lang.String">
+            <column name="NewSpecialSubjectTitle" not-null="true" />
+        </property>
+        <property name="newSpecialSubjectContent" type="java.lang.String">
+            <column name="NewSpecialSubjectContent" length="1073741823" />
+        </property>
+        <property name="createUserId" type="java.lang.Integer">
+            <column name="CreateUserId" not-null="true" />
+        </property>
+        <property name="createUserName" type="java.lang.String">
+            <column name="CreateUserName" length="50" not-null="true" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="addIp" type="java.lang.String">
+            <column name="AddIp" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

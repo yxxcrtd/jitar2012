@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="channel" namespace="/manage" extends="groups-default">
+		<action name="channel" class="channelAction">
+			<result name="menu" type="freemarker">/WEB-INF/ftl/channel/menu.ftl</result>
+			<result name="main" type="freemarker">/WEB-INF/ftl/channel/main.ftl</result>
+			<result name="head" type="freemarker">/WEB-INF/ftl/channel/head.ftl</result>
+			<result name="index" type="freemarker">/WEB-INF/ftl/channel/index.ftl</result>
+			<result name="manage" type="freemarker">/WEB-INF/ftl/channel/channel_manage.ftl</result>
+			<result name="channelmenu" type="freemarker">/WEB-INF/ftl/channel/channel_menu.ftl</result>
+			<result name="add" type="freemarker">/WEB-INF/ftl/channel/add_channel.ftl</result>
+			<result name="edit" type="freemarker">/WEB-INF/ftl/channel/edit_channel.ftl</result>
+            <result name="list" type="freemarker">/WEB-INF/ftl/channel/channel_list.ftl</result>
+            <result name="skins" type="freemarker">/WEB-INF/ftl/channel/channel_skins.ftl</result>
+            <result name="modulelist" type="freemarker">/WEB-INF/ftl/channel/channelmodulelist.ftl</result>
+            <result name="addmodule" type="freemarker">/WEB-INF/ftl/channel/add_module_${moduletype}.ftl</result>
+            <result name="bulletins" type="freemarker">/WEB-INF/ftl/channel/channel_bulletin_list.ftl</result>
+            <result name="addbulletin" type="freemarker">/WEB-INF/ftl/channel/channel_bulletin_add.ftl</result>
+            <result name="navlist" type="freemarker">/WEB-INF/ftl/channel/channelnav.ftl</result>
+            <result name="addnav" type="freemarker">/WEB-INF/ftl/channel/channelnav_add.ftl</result>
+            <result name="editchannelsuccess" type="freemarker">/WEB-INF/ftl/channel/editchannelsuccess.ftl</result>
+            <result name="accessderror" type="freemarker">/WEB-INF/ftl/mengv1/access_error.ftl</result>
+		</action>
+		<action name="channelcate" class="channelCateAction">
+		    <result name="list" type="freemarker">/WEB-INF/ftl/channel/channel_cate_list.ftl</result>
+		    <result name="add" type="freemarker">/WEB-INF/ftl/channel/channel_cate_list_add.ftl</result>
+		    <result name="edit" type="freemarker">/WEB-INF/ftl/channel/channel_cate_list_add.ftl</result>
+		    <result name="orderlist" type="freemarker">/WEB-INF/ftl/channel/channel_category_order.ftl</result>
+		</action>
+		<action name="channeluser" class="channelUserAction">
+		    <result name="list" type="freemarker">/WEB-INF/ftl/channel/channel_user_list.ftl</result>
+		</action>
+        <action name="channelarticle" class="channelArticleAction">
+            <result name="list" type="freemarker">/WEB-INF/ftl/channel/channel_article_list.ftl</result>
+        </action>
+        <action name="channelresource" class="channelResourceAction">
+            <result name="list" type="freemarker">/WEB-INF/ftl/channel/channel_resource_list.ftl</result>
+        </action>
+        <action name="channelphoto" class="channelPhotoAction">
+            <result name="list" type="freemarker">/WEB-INF/ftl/channel/channel_photo_list.ftl</result>
+        </action>
+        <action name="channelvideo" class="channelVideoAction">
+            <result name="list" type="freemarker">/WEB-INF/ftl/channel/channel_video_list.ftl</result>
+        </action>
+        <action name="channeluserstat" class="channelUserStatAction">
+            <result name="list" type="freemarker">/WEB-INF/ftl/channel/channel_user_stat.ftl</result>
+            <result name="excel" type="freemarker">/WEB-INF/ftl/channel/channel_user_excel.ftl</result>
+        </action>
+        <action name="channelunitstat" class="channelUnitStatAction">
+            <result name="list" type="freemarker">/WEB-INF/ftl/channel/channel_unit_stat.ftl</result>
+            <result name="excel" type="freemarker">/WEB-INF/ftl/channel/channel_unit_excel.ftl</result>
+        </action>
+    </package>
+    <package name="channelpage" namespace="/channel" extends="groups-default">
+        <action name="channel" class="channelhomeAction">
+        </action>
+    </package>
+</struts>
+
+
+

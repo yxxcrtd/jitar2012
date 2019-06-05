@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.ChatUser" table="G_ChatUser">
+		<id name="id" type="int">
+			<column name="Id" />
+			<generator class="identity" />
+		</id>
+	<property name="roomId" type="int">
+		<column name="RoomId" not-null="true"/>
+	</property> 
+	<property name="userId" type="int">
+		<column name="UserId" not-null="true"/>
+	</property> 
+    <property name="userName" type="java.lang.String">
+      <column name="UserName" length="32" not-null="true" />
+    </property>
+     <property name="joinDate" type="java.util.Date" update="false">
+      <column name="JoinDate" length="23" />
+    </property>
+     <property name="isSay" type="boolean">
+    	<column name="IsSay" not-null="true"/>
+    </property>
+    <property name="fontColor" type="java.lang.String">
+      <column name="FontColor" length="32" not-null="true" />
+    </property>
+    
+    <property name="fontSize" type="java.lang.String">
+		<column name="fontSize" length="32" not-null="true"/>
+	</property>
+    <property name="isLeave" type="boolean">
+    	<column name="IsLeave" not-null="true"/>
+    </property>
+    <property name="isActived" type="boolean">
+    	<column name="IsActived" not-null="true"/>
+    </property>
+    <property name="actTime"  type="java.util.Date" update="false">
+    	<column name="ActTime"  length="23" />
+    </property>
+    <property name="sayDate"  type="java.util.Date" update="false">
+    	<column name="SayDate"  length="23" />
+    </property>
+    
+ </class>
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

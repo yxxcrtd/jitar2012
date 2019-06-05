@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cn.edustar.push.MashupPlatform" table="MashupPlatform">
+        <id name="mashupPlatformId" type="java.lang.Integer">
+            <column name="MashupPlatformId" />
+            <generator class="identity" />
+        </id>
+        <property name="platformGuid" type="java.lang.String">
+            <column name="PlatformGuid" length="50" not-null="true" />
+        </property>
+        <property name="platformName" type="java.lang.String">
+            <column name="PlatformName" not-null="true" />
+        </property>
+        <property name="platformHref" type="java.lang.String">
+            <column name="PlatformHref" not-null="true" />
+        </property>
+        <property name="platformState" type="java.lang.Integer">
+            <column name="PlatformState" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

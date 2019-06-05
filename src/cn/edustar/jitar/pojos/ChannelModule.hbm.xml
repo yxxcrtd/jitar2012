@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="cn.edustar.jitar.pojos.ChannelModule" table="Jitar_ChannelModule">
+    <id name="moduleId" type="int">
+      <column name="ModuleId" />
+      <generator class="identity" />
+    </id>
+    <property name="displayName" type="java.lang.String">
+      <column name="DisplayName" length="256" not-null="true" />
+    </property>
+    <property name="channelId" type="int">
+      <column name="ChannelId" not-null="true" />
+    </property>
+    <property name="moduleType" type="java.lang.String">
+      <column name="ModuleType" length="50" />
+    </property>
+    <property name="listItemCount" type="int">
+      <column name="ListItemCount" />
+    </property>
+    <property name="content" type="java.lang.String">
+      <column name="Content" length="1073741823" />
+    </property>
+    <property name="contentTemplate" type="java.lang.String">
+      <column name="ContentTemplate" length="1073741823" />
+    </property>
+    <property name="pageType" type="java.lang.String">
+      <column name="PageType" length="50" />
+    </property>
+    <property name="showCount" type="java.lang.Integer">
+      <column name="ShowCount" />
+    </property>
+    <property name="template" type="java.lang.String">
+      <column name="Template" length="1073741823" />
+    </property>
+    <property name="cateItemType" type="java.lang.String">
+        <column name="CateItemType" length="50" />
+    </property>
+    <property name="cateId" type="java.lang.Integer">
+        <column name="CateId" />
+    </property>
+    <property name="unitType" type="java.lang.String">
+        <column name="UnitType" length="50" />
+    </property>    
+  </class>
+</hibernate-mapping>

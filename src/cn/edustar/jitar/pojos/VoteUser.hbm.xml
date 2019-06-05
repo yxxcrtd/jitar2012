@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.VoteUser" table="P_VoteUser">
+        <id name="voteUserId" type="java.lang.Integer">
+            <column name="VoteUserId" />
+            <generator class="identity" />
+        </id>
+        <property name="voteId" type="int">
+            <column name="VoteId" not-null="true" />
+        </property>
+        <property name="userId" type="int">
+            <column name="UserId" not-null="true" />
+        </property>
+        <property name="addIp" type="java.lang.String">
+            <column name="AddIp" length="50" not-null="false" />
+        </property>
+    </class>
+</hibernate-mapping>

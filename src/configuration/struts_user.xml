@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 注册 -->
+	<package name="register" namespace="/" extends="groups-default">	
+		<action name="register" class="registerAction">
+			<result name="input" type="freemarker">/WEB-INF/ftl2/register/User_Register.ftl</result>
+			<result name="Register_Success" type="freemarker">/WEB-INF/ftl2/register/User_Register.ftl</result>
+		</action>
+	</package> 
+	<package name="regist" namespace="/" extends="groups-default">	
+		<action name="regist" class="registAction">
+			<result name="input" type="freemarker">/WEB-INF/ftl/admin/winupon_User_Register.ftl</result>
+		</action>
+	</package>	
+	<!-- 提供选择用户功能 -->
+    <package name="userchoice" namespace="/" extends="groups-default">  
+        <action name="selectUser" class="selectUserAction">
+            <result name="show" type="freemarker">/WEB-INF/common/selectUser.ftl</result>
+            <result name="list" type="freemarker">/WEB-INF/ftl/searchUserList0.ftl</result>
+            <result name="glist" type="freemarker">/WEB-INF/ftl/searchUserList1.ftl</result>
+        </action>
+    </package>  	
+    <package name="userchoice2" namespace="/manage/common" extends="groups-default">  
+        <action name="user_select" class="userSelectAction">
+            <result name="list" type="freemarker">/WEB-INF/common/user_select.ftl</result>
+        </action>
+        <action name="user_select_top" class="userSelectTopAction">
+            <result name="list" type="freemarker">/WEB-INF/common/user_select_top.ftl</result>
+        </action>
+        <action name="user_select_bottom" class="userSelectBottomAction">
+            <result name="list" type="freemarker">/WEB-INF/common/user_select_bottom.ftl</result>
+        </action>
+    </package>
+    <package name="usermessage1" namespace="/jython" extends="groups-default">  
+        <action name="getLoginUserNewMessageCount" class="getLoginUserNewMessageCountAction">
+        </action>
+    </package>
+    
+    	
+	<!-- manage 下面用户信息维护、好友、公告、短消息等 -->
+	<package name="user" namespace="/manage" extends="groups-default">
+    	<!-- 个人信息维护 -->
+		<action name="user" class="userAction">
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">4096000</param><!-- 头像图片大小不能超过 4000K -->
+				<param name="allowedTypes">image/png,image/gif,image/jpeg,image/jpg,image/x-png,image/pjpeg</param>
+			</interceptor-ref>
+			<interceptor-ref name="loginInterceptorStack"></interceptor-ref>
+			<result name="input" type="freemarker">/WEB-INF/ftl/user/upload_input.ftl</result>
+			<result name="Update_Profile" type="freemarker">/WEB-INF/ftl/user/User_Profile.ftl</result>
+			<result name="Update_SubjectGrade" type="freemarker">/WEB-INF/ftl/user/User_SubjectGrade.ftl</result>
+			<result name="Update_Password" type="freemarker">/WEB-INF/ftl/user/User_Update_Password.ftl</result>
+			<result name="Update_Answer" type="freemarker">/WEB-INF/ftl/user/User_Question_Answer.ftl</result>
+		</action>
+		<!-- 消息 -->
+    <action name="message" class="messageAction">
+        <result name="inbox" type="freemarker">/WEB-INF/ftl/message/msg_inbox_list.ftl</result>
+        <result name="outbox" type="freemarker">/WEB-INF/ftl/message/msg_outbox_list.ftl</result>
+        <result name="trash" type="freemarker">/WEB-INF/ftl/message/msg_trash_list.ftl</result>
+        <result name="add" type="freemarker">/WEB-INF/ftl/message/msg_add.ftl</result>
+        <result name="reply" type="freemarker">/WEB-INF/ftl/message/msg_reply.ftl</result>
+    </action>
+    <action name="user_manage" class="usermanageAction">
+        <result name="index" type="freemarker">/WEB-INF/ftl/user/manage_index.ftl</result>
+        <result name="left" type="freemarker">/WEB-INF/ftl/user/manage_left.ftl</result>
+        <result name="main" type="freemarker">/WEB-INF/ftl/user/manage_main.ftl</result>
+    </action>
+		<!-- 用户好友管理 -->
+		<action name="friend" class="friendAction">
+			<result name="List_Success" type="freemarker">/WEB-INF/ftl/friend/FriendList.ftl</result>
+			<result name="Add_Success" type="freemarker">/WEB-INF/ftl/friend/FriendAdd.ftl</result>
+			<result name="List_Black_Success" type="freemarker">/WEB-INF/ftl/friend/BlackList.ftl</result>
+			<result name="Add_Black_Success" type="freemarker">/WEB-INF/ftl/friend/BlackAdd.ftl</result>
+		</action>
+
+		<!-- 个人公告 -->         
+		<action name="userPlacard" class="cn.edustar.jitar.action.UserPlacardAction">
+			<result name="List_Success" type="freemarker">/WEB-INF/ftl/placard/placard_list.ftl</result>
+			<result name="Edit_Add_placard" type="freemarker">/WEB-INF/ftl/placard/placard_add_edit.ftl</result>
+		</action>
+
+    <!-- 个人留言管理 -->
+    <action name="leaveword" class="leavewordAction">
+      <result name="List_Success" type="freemarker">/WEB-INF/ftl/leaveword/LeaveWordList.ftl</result>
+      <result name="AddLeaveword_Success" type="freemarker">/WEB-INF/ftl/leaveword/LeaveWordAdd.ftl</result>
+      <result name="ReplyLeavewordForm" type="freemarker">/WEB-INF/ftl/leaveword/ReplyLeavewordForm.ftl</result>
+    </action>
+
+    <!-- 个人页面管理及服务 -->  
+    <action name="page" class="pageAction">
+    </action>
+    
+	</package>
+
+  <!-- 用户文件管理 -->
+  <package name="userfilemanage" namespace="/manage/userfm" extends="groups-default">
+    <action name="fileman" class="userFileManageAction">
+      <result name="input" type="freemarker">
+        <param name="location">/WEB-INF/ftl/fileman/fck/login.ftl</param>
+        <param name="contentType">text/xml</param>
+      </result>
+      <!-- 提示用户未登录 -->
+      <result name="login" type="freemarker">
+        <param name="location">/WEB-INF/ftl/fileman/fck/login.ftl</param>
+        <param name="contentType">text/xml</param>
+      </result>
+      <!-- 发生错误 -->
+      <result name="error" type="freemarker">
+        <param name="location">/WEB-INF/ftl/fileman/fck/error.ftl</param>
+        <param name="contentType">text/xml</param>
+      </result>
+      <!-- 列出文件 and/or 文件夹 -->
+      <result name="FoldersAndFiles" type="freemarker">
+        <param name="location">/WEB-INF/ftl/fileman/fck/folders_and_files.ftl</param>
+        <param name="contentType">text/xml</param>
+      </result>
+      <!-- 创建文件夹成功 -->
+      <result name="CreateFolderSuccess" type="freemarker">
+        <param name="location">/WEB-INF/ftl/fileman/fck/create_folder_success.ftl</param>
+        <param name="contentType">text/xml</param>
+      </result>
+      <!-- 上传文件成功 -->
+      <result name="Upload_Success" type="freemarker">/WEB-INF/ftl/fileman/fck/upload_success.ftl</result>
+    </action>
+  </package>
+
+</struts>

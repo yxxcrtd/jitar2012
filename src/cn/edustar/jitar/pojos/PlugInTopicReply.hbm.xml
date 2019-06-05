@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.PlugInTopicReply" table="P_PlugInTopicReply">
+        <id name="plugInTopicReplyId" type="java.lang.Integer">
+            <column name="PlugInTopicReplyId" />
+            <generator class="identity" />
+        </id>
+        <property name="plugInTopicId" type="java.lang.Integer">
+            <column name="PlugInTopicId" not-null="true" />
+        </property>
+        <property name="title" type="java.lang.String">
+            <column name="Title" not-null="true" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="createUserId" type="java.lang.Integer">
+            <column name="CreateUserId" not-null="true" />
+        </property>
+        <property name="createUserName" type="java.lang.String">
+            <column name="CreateUserName" not-null="true" />
+        </property>
+        <property name="addIp" type="java.lang.String">
+            <column name="AddIp" length="50" />
+        </property>
+        <property name="replyContent" type="java.lang.String">
+            <column name="ReplyContent" length="1073741823" />
+        </property>
+    </class>
+</hibernate-mapping>

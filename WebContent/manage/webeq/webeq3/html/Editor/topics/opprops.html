@@ -1,0 +1,241 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+
+<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Operator Properties Dialog</h1>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>The Operator Properties dialog gives you away to control 
+properties that effect the layout of MathML operators.  In MathML, the
+term "operator" is more general than the ordinary mathematical concept
+of an operator.  A MathML operator is basically any bit of notation
+that <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">renders</em> like an operator.  MathML operators include not
+only normal mathematical operators such as +, -, integrals, etc. but
+also notations such as parentheses and braces, since all stretchy symbols 
+are "operators" in MathML.</p>
+
+
+
+<p>The effect of each MathML operator property is described
+discussed below.</p>
+
+
+
+<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Operator Spacing Properties</h2>
+
+
+<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Form</h3>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>The <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">form</b> property is used to designate an operator as
+'prefix', 'infix' or 'postfix'.  By default, this
+property is set to <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">automatic</em>, and in almost all cases, this
+will produce the best results.</p>
+
+
+
+<p>In a few cases, explicitly setting the form can effect the spacing
+around an operator.  Specifically, prefix and postfix operators have
+less space between themselves and their operands than the infix
+version of the operator.  This is most noticeable in the case of a
+unary minus.  However, if you find yourself needing to set the form
+for a minus sign because the automatic setting isn't giving the
+desired result, chances are good that something is wrong with the
+nesting structure of your templates.  
+</p>
+
+
+
+<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Space to left/right of operator</h3>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>These two spacing properties determine the amount of white space to
+the left and right of an operator.  The default value is
+<em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">automatic</em>, which sets the spacing around an operator
+to roughly reflect it's precedence; high precedence operators are
+generally closer to
+their operands than low precedence operators.</p>
+
+
+
+<p>These attributes should normally only be set to achieve special
+effects, or to tweak the appearance of an equation when operators are
+being used in a non-standard way.  These properties can be set to any
+non-negative <a href="propvals.html#sizeval">size value</a>.</p>
+
+
+
+<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Stretchy Operator Properties</h2>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>The next four properties control the behavior of operators that
+stretch.  Operators that stretch include "fence" characters such as
+(,),[,],{,}, and |.  Some arrows also stretch, as do some
+mathematical accent characters such as an overbar or a tilde.</p>
+
+
+
+<p>The default value for all of these properties is
+<em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">automatic</em>, and except for rare situations, this will give the
+best results.  The most common case where any of these properties need
+to be explicitly set is to turn off stretching for a normally stretchy
+character.</p>
+
+
+
+<p>In general, a stretchy operator will shrink or <a href="insertmenu.html#stretchysymbols">grow to match the size of the enclosing
+template</a>.  The following properties modify that behavior.</p>
+
+
+
+<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Max/Min size</h3>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>The <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">min size</b> and <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">max size</b> control the maximum and
+minimum amount a stretchy operator is allowed to stretch.  They can be
+set to any non-negative <a href="propvals.html#sizeval">size value</a>.  The
+max size property can also be set to the keyword 'infinity'.</p>
+
+
+
+<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Allow stretching</h3>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>This true or false property determines whether an operator should
+stretch or not.  While setting this property to 'false' for a
+normally stretchy operators will prevent it from stretching, setting
+it to 'true' will generally have no effect on a non-stretching
+operator.</p>
+
+
+
+<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Stretch symmetrically</h3>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>Most stretchy operators, such as parentheses, stretch symmetrically
+about the centerline of the equation.  In some cases, such as a
+rectangular matrix that is not aligned symmetrically, you would prefer
+that the surrounding parentheses stretch asymmetrically to match the
+matrix.</p>
+
+
+
+<p><img src="images/oppropsym.gif"></p>
+
+
+
+<p>The default value for this property is <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">automatic</em>.
+Typically the only reason to set this property explicitly is to set it
+to 'false' in cases such as that illustrated above.</p>
+
+
+
+<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Context-related Operator Properties</h2>
+
+
+<p>There are several families of MathML operators whose typographic
+properties vary depending on the surrounding context.  The most
+obvious example is the summation operator, where the limits of
+summation are usually placed above and below the summation symbol 
+in equations that are centered and set off from the text, and place in
+the sub- and superscript postions in equations that appear inline.</p>
+
+
+
+<p>The following three properties control context-sensitive behaviors
+of MathML operators.</p>
+
+
+
+<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Enlarge in display style</h3>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>Operators such as the summations, integrals, direct sums, etc. have
+both a small inline version and a larger version for display equations.
+This property controls whether the large form of these operators
+should be automatically used in <a href="layoutprops.html#displaystyle">display
+style</a> contexts. The default value is <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">automatic</em>.</p>
+
+
+
+<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Move limits to script positions in inline style</h3>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>When typesetting operators that have limits,
+there is a choice whether to put them above and below the
+operator, or in the script positions.  As a general rule, limits go
+above and below in equations in <a href="layoutprops.html#displaystyle">display style</a> contexts where vertical space
+is not an issue.  When equations are set inline, however, it is
+usually better to keep vertical spacing to a minimum, so as to affect
+inter-line spacing as little as possible.  Thus, it is tradition to put
+limits in the script positions for inline equations.</p>
+
+
+
+<p>This property tells a MathML renderer whether to
+automatically shift limits into the script positions, when it detects
+that an equation is inline.  Setting the property to 'false'
+will result in limits always being set above and below the operator.
+The default value is <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">automatic</em>.</p>
+
+
+
+<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"><a id="opaccentprop"></a>Treat as an accent for positioning</h3>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>When typesetting overscripts and underscripts, the usual practice
+is to use a smaller type face.  However, when typesetting mathematical
+accents, such as a tilde or a bar, as an overscript, you typically
+want the font size of the accent to match the size of the character to
+which it is attached.  By setting this property to 'true' you
+can instruct MathML renderers not to decrease the font size for an
+operator when it is being typeset as a script.  The default value is
+<em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">automatic</em>.</p>
+
+
+
+</body>
+</html>

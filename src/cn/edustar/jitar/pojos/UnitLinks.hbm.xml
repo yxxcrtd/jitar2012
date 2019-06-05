@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.UnitLinks" table="UnitLinks">
+        <id name="linkId" type="java.lang.Integer">
+            <column name="LinkId" />
+            <generator class="identity" />
+        </id>
+        <property name="unitId" type="java.lang.Integer">
+            <column name="UnitId" not-null="true" />
+        </property>
+        <property name="linkName" type="java.lang.String">
+            <column name="LinkName" length="100" not-null="true" />
+        </property>
+        <property name="linkAddress" type="java.lang.String">
+            <column name="LinkAddress" length="512" not-null="true" />
+        </property>
+        <property name="linkIcon" type="java.lang.String">
+            <column name="LinkIcon" length="512" />
+        </property>
+    </class>
+</hibernate-mapping>

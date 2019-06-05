@@ -1,0 +1,1783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-lazy-init="true"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+            http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd 
+            ">
+	<!-- 由于Spring3对Hibernate的支持发生改变，配置时需要注意格式、名称空间 -->
+	<!-- 导入数据库配置，数据库配置要注意名称空间与这里的一致才能使用，这是xml规范规定的。 -->
+	<import resource="database.xml" />
+  
+	<!-- 配置sessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" lazy-init="false">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingLocations"><!-- 加载 hbm.xml 文件-->
+			<list>
+				<value>classpath:cn/edustar/jitar/pojos/*.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties"><!-- 加载 hibernateProperties 属性-->
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+				<!-- 为了方便调试，下面2行配置移到了hibernate.properties文件中，自己根据需要是否显示调试用的sql语句，hibernate.properties 文件不用提交。-->
+				<!-- <prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop> -->
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+				<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
+				<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop>	
+        	</props>
+		</property>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- 事务拦截器 -->
+	<bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager" ref="transactionManager"/>
+		<property name="transactionAttributes"><!-- 配置事务属性，哪些方法名称需要事务支持，这里需要规范方法的名称，要配置得当。 -->
+			<props>
+				<prop key="get*">PROPAGATION_REQUIRED, readOnly</prop>
+				<prop key="find*">PROPAGATION_REQUIRED, readOnly</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>	
+
+	<!-- 自动创建事务代理 -->
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="beanNames">
+			<list>
+				<value>*Service</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<value>transactionInterceptor</value>
+			</list>
+		</property>
+	</bean>
+
+  <!-- EHCache 缓存服务调用接口  -->
+  <bean id="cacheService" class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+    <constructor-arg ref="cacheProvider" />
+    <constructor-arg type="java.lang.String" value="defaultCache" />
+  </bean>
+  <!-- ehCache缓存服务-->
+  <bean id="cacheProvider" class="cn.edustar.jitar.service.impl.EHCacheProvider" init-method="init" destroy-method="destroy">
+  </bean> 
+
+  <!-- Web应用实例 -->
+  <bean id="jitarContext" class="cn.edustar.jitar.service.impl.JitarContextImpl" scope="singleton" init-method="init" destroy-method="destroy" />
+  
+	<!-- 事件管理 -->
+	<bean id="eventManager" class="cn.edustar.jitar.service.impl.EventManagerImpl" />
+	
+	<!-- 模型管理器 -->
+	<bean id="modelManager" class="cn.edustar.jitar.service.impl.ModelManagerImpl" init-method="init" destroy-method="destroy">
+		<property name="sharedModels">
+			<list>
+        <bean class="cn.edustar.jitar.model.MemcachedExpireTimeConfig" init-method="init" />
+				<bean class="cn.edustar.jitar.model.UserMgrModel" />
+				<bean class="cn.edustar.jitar.model.UserMgrClientModel" />
+				<bean class="cn.edustar.jitar.model.SiteUrlModel" />
+        <bean class="cn.edustar.jitar.model.ContextPathModel" />
+        <bean class="cn.edustar.jitar.model.SSOServerUrlModel" />
+				<bean class="cn.edustar.jitar.model.UtilModel">
+					<property name="jitarContext" ref="jitarContext" />
+				</bean>
+				<bean class="cn.edustar.jitar.model.SiteModel">
+					<property name="configService" ref="configService" />
+				</bean>
+        <bean class="cn.edustar.jitar.model.SubjectNavModel">
+            <property name="siteNavigationService" ref="siteNavigationService" />
+        </bean>   
+				<bean class="cn.edustar.jitar.model.SiteThemeUrlModel">
+					<property name="siteThemeService" ref="siteThemeService" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 对象包装器 -->
+	<bean id="objectWrapper" class="cn.edustar.jitar.jython.JythonObjectWrapper">
+		<property name="exposureLevel" value="0" />
+	</bean>
+
+	<!-- 模板处理器 -->
+	<bean id="templateProcessor" class="cn.edustar.jitar.service.impl.FreeMarkerTemplateProcessor" init-method="init" destroy-method="destroy">
+		<property name="modelManager" ref="modelManager" />
+		<property name="objectWrapper" ref="objectWrapper" />
+	</bean>
+
+	<!-- Jython 脚本管理 -->
+	<bean id="scriptManager" class="cn.edustar.jitar.jython.JythonScriptManager" init-method="init" destroy-method="destroy">
+		<property name="jitarContext" ref="jitarContext" />
+	</bean>
+
+	<!-- Jython Servlet 处理器 -->
+	<bean id="jythonServletHandler" class="cn.edustar.jitar.jython.JythonServletHandler" scope="prototype">
+		<property name="templateProcessor" ref="templateProcessor" />
+		<property name="jythonScriptManager" ref="scriptManager" />
+	</bean>
+	
+	<bean id="imgCut" class="cn.edustar.jitar.action.ImgCut">
+	   <property name="photoService" ref="photoService" />
+	</bean>
+	
+	<!-- 配置 -->
+	<bean id="configService" class="cn.edustar.jitar.service.impl.ConfigServiceImpl" scope="singleton">
+		<property name="configDao" ref="configDao" />
+	</bean>
+	<bean id="configDao" class="cn.edustar.jitar.dao.hibernate.ConfigDaoHibernate" scope="singleton">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="siteThemeService" class="cn.edustar.jitar.service.impl.SiteThemeServiceImpl" scope="singleton">
+		<property name="siteThemeDao" ref="siteThemeDao" />
+		<property name="cacheService">
+			<bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+				<constructor-arg ref="cacheProvider" />
+				<constructor-arg type="java.lang.String" value="siteTheme" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="siteThemeDao" class="cn.edustar.jitar.dao.hibernate.SiteThemeHibernate" scope="singleton">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="siteNavService" class="cn.edustar.jitar.service.impl.SiteNavServiceImpl" scope="singleton" lazy-init="false">
+		<property name="siteNavDao" ref="siteNavDao" />
+	</bean>
+	<bean id="siteNavDao" class="cn.edustar.jitar.dao.hibernate.SiteNavDaoHibernate" scope="singleton" lazy-init="false">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 存储 -->
+	<bean id="storeManager" class="cn.edustar.jitar.service.impl.StoreManagerImpl" init-method="init" destroy-method="destroy">
+		<property name="dataSource" ref="dataSource" />
+	</bean> 
+	<bean id="userFileManageAction" class="cn.edustar.jitar.action.UserFileManageAction" scope="prototype">
+		<property name="storeManager" ref="storeManager" />
+		<property name="userService" ref="userService" />
+	</bean>
+	 
+	<!-- 处理个人主页，文章页，模块请求'bean'重要：每请求一个实例 -->
+	<bean id="showBlog" class="cn.edustar.jitar.servlet.handler.ShowBlogBean" scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="pageService" ref="pageService" />
+		<property name="onlineManager" ref="onlineManager" />
+		<property name="statService" ref="statService" />
+		<property name="templateProcessor" ref="templateProcessor" />
+	</bean>
+	<bean id="showEntry" class="cn.edustar.jitar.servlet.handler.ShowEntryBean" scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="articleService" ref="articleService" />
+		<property name="pageService" ref="pageService" />
+		<property name="templateProcessor" ref="templateProcessor" />
+	</bean>
+	<bean id="showCategory" class="cn.edustar.jitar.servlet.handler.ShowCategoryBean" scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="pageService" ref="pageService" />
+		<property name="templateProcessor" ref="templateProcessor" />
+	</bean>
+	<bean id="pageResCate" class="cn.edustar.jitar.servlet.handler.ResourceCategoryBean" scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="pageService" ref="pageService" />
+		<property name="templateProcessor" ref="templateProcessor" />
+	</bean>
+	<bean id="pageUserProfile" class="cn.edustar.jitar.servlet.handler.UserProfileBean" scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="pageService" ref="pageService" />
+		<property name="templateProcessor" ref="templateProcessor" />
+	</bean>
+	<bean id="userModuleAjax" class="cn.edustar.jitar.servlet.handler.UserModuleAjaxBean" scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="moduleContainer" ref="moduleContainer" />
+	</bean>
+	<bean id="showGroup" class="cn.edustar.jitar.servlet.handler.ShowGroupBean" scope="prototype">
+		<property name="groupService" ref="groupService" />
+		<property name="pageService" ref="pageService" />
+		<property name="onlineManager" ref="onlineManager" />
+		<property name="statService" ref="statService" />
+		<property name="templateProcessor" ref="templateProcessor" />
+	</bean>
+	<bean id="groupModuleAjax" class="cn.edustar.jitar.servlet.handler.GroupModuleAjaxBean" scope="prototype">
+		<property name="groupService" ref="groupService" />
+		<property name="moduleContainer" ref="moduleContainer" />
+	</bean>
+	<bean id="sysModAjax" class="cn.edustar.jitar.servlet.handler.SystemModuleAjaxBean" scope="prototype">
+		<property name="moduleContainer" ref="moduleContainer" />
+	</bean>
+	<bean id="userRssBean" class="cn.edustar.jitar.servlet.handler.UserRssBean" scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="articleService" ref="articleService" />
+		<property name="templateProcessor" ref="templateProcessor" />
+	</bean>
+	<bean id="groupRss" class="cn.edustar.jitar.servlet.handler.GroupRssBean" scope="prototype">
+		<property name="groupService" ref="groupService" />
+		<property name="templateProcessor" ref="templateProcessor" />
+	</bean>
+	<bean id="simpleDataApi" class="cn.edustar.jitar.servlet.handler.SimpleDataApiBean" scope="prototype">
+		<property name="groupService" ref="groupService" />
+	</bean>
+
+	<!-- Rss 代理 -->
+	<bean id="rssProxy" class="cn.edustar.jitar.servlet.handler.RssProxyBean" scope="prototype" />
+
+	<!-- 用户管理 -->
+	<bean id="userAction" class="cn.edustar.jitar.action.UserAction" scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="unitService" ref="unitService" />
+		<property name="configService" ref="configService" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="webSiteManageService" ref="webSiteManageService" />
+	</bean>
+	<bean id="userService" class="cn.edustar.jitar.service.impl.UserServiceCachedImpl">
+		<property name="userDao" ref="userDao" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="unitService" ref="unitService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="tagService" ref="tagService" />
+		<property name="cacheService">
+			<bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+				<constructor-arg ref="cacheProvider"></constructor-arg>
+				<constructor-arg type="java.lang.String" value="user" />
+			</bean>
+		</property>
+		<property name="eventManager" ref="eventManager" />
+		<property name="messageService" ref="messageService" />
+	</bean>
+	<bean id="userDao" class="cn.edustar.jitar.dao.hibernate.UserDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="storeManager" ref="storeManager" />
+	</bean>
+    <!-- 用户被彻底删除后，账号信息的服务 -->
+    <bean id="userDeletedService" class="cn.edustar.jitar.service.impl.UserDeletedServiceImpl">
+        <property name="userDeletedDao" ref="userDeletedDao" />
+    </bean>
+    <bean id="userDeletedDao" class="cn.edustar.jitar.dao.hibernate.UserDeletedDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    	
+    <bean id="selectUserAction" class="cn.edustar.jitar.action.SelectUserAction" scope="prototype">
+        <property name="configService" ref="configService" />
+    </bean>
+    <bean id="userSelectAction" class="cn.edustar.jitar.action.UserSelectAction" scope="prototype">
+    </bean>
+    <bean id="userSelectTopAction" class="cn.edustar.jitar.action.UserSelectTopAction" scope="prototype">
+    </bean>
+    <bean id="userSelectBottomAction" class="cn.edustar.jitar.action.UserSelectBottomAction" scope="prototype">
+    </bean>
+    <bean id="getLoginUserNewMessageCountAction" class="cn.edustar.jitar.action.GetLoginUserNewMessageCountAction" scope="prototype">
+        <property name="messageService" ref="messageService" />
+    </bean>
+    <bean id="messageAction" class="cn.edustar.jitar.action.MessageAction" scope="prototype">
+        <property name="messageService" ref="messageService" />
+        <property name="friendService" ref="friendService" />
+        <property name="userService" ref="userService" />
+    </bean>	
+    <bean id="usermanageAction" class="cn.edustar.jitar.action.UsermanageAction" scope="prototype">
+        <property name="accessControlService" ref="accessControlService" />
+        <property name="pluginService" ref="pluginService" />
+    </bean> 
+	<!-- 注册 -->
+	<bean id="registerAction" class="cn.edustar.jitar.action.RegisterAction" scope="prototype">
+		<property name="unitService" ref="unitService" />
+    <property name="accessControlService" ref="accessControlService" />
+		<property name="userService" ref="userService" />
+		<property name="configService" ref="configService" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="productConfigService" ref="ProductConfigService" />
+	</bean>
+	<bean id="registAction" class="com.winupon.action.RegisterAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	
+    <bean id="favoriteAction" class="cn.edustar.jitar.action.FavoriteAction" scope="prototype">
+        <property name="UFavoritesService" ref="UFavoritesService" />
+    </bean>
+		
+	<!-- 在线 -->
+	<bean id="onlineService" class="cn.edustar.jitar.service.impl.OnLineServiceImpl">
+		<property name="onlineDao" ref="onlineDao" />
+	</bean>
+	<bean id="onlineDao" class="cn.edustar.jitar.dao.hibernate.OnLineDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
+	<!-- 首页在线用户 -->
+	<bean id="onlineAction" class="cn.edustar.jitar.action.OnlineAction" scope="prototype">
+		<property name="configService" ref="configService" />
+		<property name="cacheService">
+			<bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+				<constructor-arg ref="cacheProvider" />
+				<constructor-arg type="java.lang.String" value="online" />
+			</bean>
+		</property>
+		<property name="onlineManage" ref="onlineManage" />
+	</bean>
+	<!-- 用户在线统计 -->
+	<bean id="onlineManage" class="cn.edustar.jitar.manage.impl.OnlineManageImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 资源 -->
+	<bean id="resourceAction" class="cn.edustar.jitar.action.ResourceAction" scope="prototype">
+		<property name="resourceService" ref="resourceService" />
+		<property name="userService" ref="userService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="storeManager" ref="storeManager" />
+		<property name="groupService" ref="groupService" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="commentService" ref="commentService" />
+		<property name="restype_svc" ref="resTypeService" />
+		<property name="prepareCourseService" ref="prepareCourseService" />
+		<property name="viewCountService" ref="viewCountService" />
+		<property name="configService" ref="configService" />
+		<property name="tagService" ref="tagService" />
+		<property name="userPowerService" ref="UserPowerService" />
+		<property name="channelPageService" ref="channelPageService" />
+		<property name="accessControlService" ref="accessControlService" />
+		<property name="userIndexHtmlService" ref="userIndexHtmlService" />
+	</bean>
+	<bean id="userResourceCategoryAction" class="cn.edustar.jitar.action.UserResourceCategoryAction" scope="prototype">
+		<property name="categoryService" ref="categoryService" />
+		<property name="resourceService" ref="resourceService" />
+	</bean>
+	<bean id="resourceService" class="cn.edustar.jitar.service.impl.ResourceServiceImpl">
+		<property name="resourceDao" ref="resourceDao" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="tagService" ref="tagService" />
+		<property name="commentService" ref="commentService" />
+		<property name="statService" ref="statService" />
+		<property name="eventManager" ref="eventManager" />
+		<property name="groupService" ref="groupService" />
+		<property name="prepareCourseService" ref="prepareCourseService" />
+		<property name="viewCountService" ref="viewCountService" />
+	</bean>
+	<bean id="resourceDao" class="cn.edustar.jitar.dao.hibernate.ResourceDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="siteResourcesAction" class="cn.edustar.jitar.action.SiteResourcesAction" scope="prototype">
+	    <property name="unitService" ref="unitService" />
+	    <property name="subjectService" ref="subjectService" />
+	    <property name="cacheProvider" ref="cacheProvider" />
+	    <property name="categoryService" ref="categoryService" />
+    </bean>
+    <!-- 资源访问 -->
+    <bean id="showResourceAction" class="cn.edustar.jitar.action.ShowResourceAction" scope="prototype">
+        <property name="resourceService" ref="resourceService" />
+        <property name="commentService" ref="commentService" />
+        <property name="accessControlService" ref="accessControlService" />
+        <property name="UPunishScoreService" ref="UPunishScoreService" />
+        <property name="configService" ref="configService" /> 
+        <property name="praiseService" ref="praiseService"/>
+	    <property name="browsingService" ref="browsingService"/>      
+	    <property name="favoritesService" ref="UFavoritesService"/>
+	    <property name="reportService" ref="reportService"/>
+	    <property name="userService" ref="userService"/>
+	    <property name="categoryService" ref="categoryService" />
+    </bean>
+		
+    
+    
+    
+    <!-- 评课 -->
+    <bean id="evaluationsAction" class="cn.edustar.jitar.action.EvaluationsAction" scope="prototype">
+        <property name="subjectService" ref="subjectService" />
+        <property name="evaluationService" ref="evaluationService" />
+        <property name="videoService" ref="videoService" />
+        <property name="resourceService" ref="resourceService" />
+        <property name="jitarContext" ref="jitarContext"/>
+    </bean>
+    <bean id="evaluationAction" class="cn.edustar.jitar.action.EvaluationAction" scope="prototype">
+        <property name="evaluationService" ref="evaluationService" />
+        <property name="subjectService" ref="subjectService" />
+    </bean>
+    
+	<!-- 视频 -->
+    <bean id="userVideoCategoryAction" class="cn.edustar.jitar.action.UserVideoCategoryAction" scope="prototype">
+        <property name="categoryService" ref="categoryService" />
+        <property name="videoService" ref="videoService" />
+    </bean>	
+	<bean id="videoAction" class="cn.edustar.jitar.action.VideoAction" scope="prototype">
+		<property name="videoService" ref="videoService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="commentService" ref="commentService" />
+		<property name="userService" ref="userService" />
+		<property name="groupService" ref="groupService" />
+		<property name="tagService" ref="tagService" />
+		<property name="configService" ref="configService" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="messageService" ref="messageService" />
+		<property name="UPunishScoreService" ref="UPunishScoreService" />
+		<property name="siteNavigationService" ref="siteNavigationService" />
+		<property name="specialSubjectService" ref="specialSubjectService" />
+		<property name="channelPageService" ref="channelPageService" />
+		<property name="accessControlService" ref="accessControlService" />
+    <property name="praiseService" ref="praiseService"/>
+    <property name="browsingService" ref="browsingService"/>      
+    <property name="favoritesService" ref="UFavoritesService"/>
+    <property name="reportService" ref="reportService"/>
+		<property name="cacheService">
+      <bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+        <constructor-arg ref="cacheProvider" />
+        <constructor-arg type="java.lang.String" value="video" />
+      </bean>
+    </property>
+	</bean>
+	<bean id="videoService" class="cn.edustar.jitar.service.impl.VideoServiceImpl">
+		<property name="videoDao" ref="videoDao" />
+		<property name="tagService" ref="tagService" />
+		<property name="commentService" ref="commentService" />
+	</bean>
+	<bean id="videoDao" class="cn.edustar.jitar.dao.hibernate.VideoDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 资源类型 -->
+	<bean id="adminResTypeAction" class="cn.edustar.jitar.action.AdminResTypeAction" scope="prototype">
+		<property name="resTypeService" ref="resTypeService" />
+	</bean>
+	<bean id="resTypeAction" class="cn.edustar.jitar.action.ResTypeAction" scope="prototype">
+		<property name="resTypeService" ref="resTypeService" />
+	</bean>
+	<bean id="resTypeDao" class="cn.edustar.jitar.dao.hibernate.ResTypeDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="resTypeService" class="cn.edustar.jitar.service.impl.ResTypeServiceImpl">
+		<property name="resTypeDao" ref="resTypeDao" />
+	</bean>
+
+	<!-- 文章 -->
+	<bean id="articleAction" class="cn.edustar.jitar.action.ArticleAction" scope="prototype">
+    <property name="groupService" ref="groupService" />
+		<property name="articleService" ref="articleService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="commentService" ref="commentService" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="prepareCourseService" ref="prepareCourseService" />
+		<property name="viewCountService" ref="viewCountService" />
+		<property name="configService" ref="configService" />
+		<property name="tagService" ref="tagService" />
+		<property name="specialSubjectService" ref="specialSubjectService" />
+		<property name="userPowerService" ref="UserPowerService" />
+		<property name="channelPageService" ref="channelPageService" />		
+		<property name="accessControlService" ref="accessControlService" />
+		<property name="pagingService" ref="pagingService" />
+		<property name="userIndexHtmlService" ref="userIndexHtmlService" />	
+		<property name="resourceService" ref="resourceService" />	
+		<property name="storeManager" ref="storeManager" />
+		<property name="userService" ref="userService" />
+	</bean>
+	<bean id="articleService" class="cn.edustar.jitar.service.impl.ArticleServiceImpl">
+		<property name="articleDao" ref="articleDao" />
+		<property name="eventManager" ref="eventManager" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="tagService" ref="tagService" />
+		<property name="commentService" ref="commentService" />
+		<property name="statService" ref="statService" />
+		<property name="viewCountService" ref="viewCountService" />
+		<property name="prepareCourseService" ref="prepareCourseService" />
+		<property name="specialSubjectService" ref="specialSubjectService" />
+    <property name="cacheService">
+      <bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+        <constructor-arg ref="cacheProvider" />
+        <constructor-arg type="java.lang.String" value="article" />
+      </bean>
+    </property>
+	</bean>
+	<bean id="articleDao" class="cn.edustar.jitar.dao.hibernate.ArticleDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="viewCountService" ref="viewCountService" />
+	</bean>
+
+	<!-- 相册 -->
+	<bean id="photoAction" class="cn.edustar.jitar.action.PhotoAction" scope="prototype">
+		<property name="tagService" ref="tagService" />
+		<property name="storeManager" ref="storeManager" />
+		<property name="photoService" ref="photoService" />
+		<property name="groupService" ref="groupService" />
+		<property name="configService" ref="configService" />
+		<property name="resourceService" ref="resourceService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="photoStapleService" ref="photoStapleService" />
+		<property name="specialSubjectService" ref="specialSubjectService" />
+		<property name="userPowerService" ref="UserPowerService" />
+		<property name="channelPageService" ref="channelPageService" />
+		<property name="accessControlService" ref="accessControlService" />
+		<property name="userIndexHtmlService" ref="userIndexHtmlService" />
+	</bean>
+	<bean id="photoService" class="cn.edustar.jitar.service.impl.PhotoServiceImpl">
+		<property name="photoDao" ref="photoDao" />
+		<property name="tagService" ref="tagService" />
+		<property name="userService" ref="userService" />
+		<property name="statService" ref="statService" />
+		<property name="storeManager" ref="storeManager" />
+		<property name="eventManager" ref="eventManager" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="photoStapleService" ref="photoStapleService" />
+	</bean>
+	<bean id="photoDao" class="cn.edustar.jitar.dao.hibernate.PhotoDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+  
+  <!-- 显示图片 -->
+  <bean id="showPhotoAction" class="cn.edustar.jitar.action.ShowPhotoAction">
+    <property name="photoService" ref="photoService" />
+  </bean>
+
+	<!-- 相册分类 -->
+	<bean id="photoStapleAction" class="cn.edustar.jitar.action.PhotoStapleAction" scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="photoService" ref="photoService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="photoStapleService" ref="photoStapleService" />
+	</bean>
+	<bean id="photoStapleService" class="cn.edustar.jitar.service.impl.PhotoStapleServiceImpl">
+		<property name="photoStapleDao" ref="photoStapleDao" />
+	</bean>
+	<bean id="photoStapleDao" class="cn.edustar.jitar.dao.hibernate.PhotoStapleDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 链接 -->
+	<bean id="linkService" class="cn.edustar.jitar.service.impl.LinkServiceImpl">
+		<property name="linkDao" ref="linkDao" />
+	</bean>
+	<bean id="linkDao" class="cn.edustar.jitar.dao.hibernate.LinkDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 讨论室 -->
+	<bean id="talkRoomService" class="cn.edustar.jitar.service.impl.TalkRoomServiceImpl">
+		<property name="talkRoomDao" ref="talkRoomDao" />
+	</bean>
+	<bean id="talkRoomDao" class="cn.edustar.jitar.dao.hibernate.TalkRoomDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 群组 -->
+	<bean id="groupAction" class="cn.edustar.jitar.action.GroupAction" scope="prototype">
+		<property name="bbsService" ref="bbsService" />
+		<property name="groupService" ref="groupService" />
+		<property name="configService" ref="configService" />
+		<property name="placardService" ref="placardService" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="messageService" ref="messageService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="accessControlService" ref="accessControlService" />
+		<property name="groupKTUserService" ref="groupKTUserService" />
+		<property name="pageService" ref="pageService" />
+		<property name="unitService" ref="unitService" />
+	</bean>
+	<bean id="groupMemberAction" class="cn.edustar.jitar.action.GroupMemberAction" scope="prototype">
+		<property name="groupService" ref="groupService" />
+		<property name="userService" ref="userService" />
+		<property name="friendService" ref="friendService" />
+		<property name="messageService" ref="messageService" />
+	</bean>
+	<bean id="groupArticleAction" class="cn.edustar.jitar.action.GroupArticleAction" scope="prototype">
+		<property name="groupService" ref="groupService" />
+		<property name="articleService" ref="articleService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="UPunishScoreService" ref="UPunishScoreService" />
+		<property name="messageService" ref="messageService" />
+	</bean>
+    <bean id="groupPhotoAction" class="cn.edustar.jitar.action.GroupPhotoAction" scope="prototype">
+        <property name="groupService" ref="groupService" />
+        <property name="photoService" ref="photoService" />
+        <property name="categoryService" ref="categoryService" />
+        <property name="UPunishScoreService" ref="UPunishScoreService" />
+        <property name="messageService" ref="messageService" />
+    </bean>
+    <bean id="groupVideoAction" class="cn.edustar.jitar.action.GroupVideoAction" scope="prototype">
+        <property name="groupService" ref="groupService" />
+        <property name="videoService" ref="videoService" />
+        <property name="categoryService" ref="categoryService" />
+        <property name="UPunishScoreService" ref="UPunishScoreService" />
+        <property name="messageService" ref="messageService" />
+    </bean>
+	<bean id="groupResourceAction" scope="prototype" class="cn.edustar.jitar.action.GroupResourceAction">
+		<property name="groupService" ref="groupService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="resourceService" ref="resourceService"/>
+		<property name="UPunishScoreService" ref="UPunishScoreService" />
+		<property name="messageService" ref="messageService" />
+	</bean>
+	<bean id="groupCategoryAction" scope="prototype" class="cn.edustar.jitar.action.GroupCategoryAction">
+		<property name="groupService" ref="groupService" />
+		<property name="categoryService" ref="categoryService" />
+	</bean>
+	<bean id="groupPlacardAction" scope="prototype" class="cn.edustar.jitar.action.GroupPlacardAction">
+		<property name="groupService" ref="groupService" />
+		<property name="placardService" ref="placardService" />
+	</bean>
+	<bean id="groupLeavewordAction" scope="prototype" class="cn.edustar.jitar.action.GroupLeavewordAction">
+		<property name="groupService" ref="groupService" />
+		<property name="leavewordService" ref="leavewordService" />
+	</bean>
+	<bean id="groupBbsAction" scope="prototype" class="cn.edustar.jitar.action.GroupBbsAction">
+		<property name="groupService" ref="groupService" />
+		<property name="bbsService" ref="bbsService" />
+	</bean>
+	<bean id="groupTalkRoomAction" scope="prototype" class="cn.edustar.jitar.action.GroupTalkRoomAction">
+		<property name="groupService" ref="groupService" />
+		<property name="talkRoomService" ref="talkRoomService" />
+	</bean>
+	<bean id="groupLinkAction" scope="prototype" class="cn.edustar.jitar.action.GroupLinkAction">
+		<property name="groupService" ref="groupService" />
+		<property name="linkService" ref="linkService" />
+	</bean> 
+  <bean id="groupMeetingAction" scope="prototype" class="com.jitar2Infowarelab.action.GroupMeetingAction">
+      <property name="groupService" ref="groupService" />
+      <property name="userService" ref="userService" />
+      <property name="meetingsService" ref="meetingsService" />
+      <property name="infowarelabService" ref="infowarelabService" />
+      <property name="messageService" ref="messageService" />
+  </bean> 	
+	<bean id="groupDao" class="cn.edustar.jitar.dao.hibernate.GroupDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="groupService" class="cn.edustar.jitar.service.impl.GroupServiceImpl">
+		<property name="groupDao" ref="groupDao" />
+		<property name="tagService" ref="tagService" />
+		<property name="bbsService" ref="bbsService" />
+		<property name="pageService" ref="pageService" />
+		<property name="groupKTUserService" ref="groupKTUserService" />
+		<property name="cacheService">
+			<bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+				<constructor-arg ref="cacheProvider" />
+				<constructor-arg type="java.lang.String" value="group" />
+			</bean>
+		</property>
+		<property name="eventManager" ref="eventManager" />
+		<property name="messageService" ref="messageService" />
+		<property name="userService" ref="userService" />
+		<property name="categoryService" ref="categoryService" />
+		<property name="statService" ref="statService" />
+		<property name="placardService" ref="placardService" />
+		<property name="linkService" ref="linkService" />
+		<property name="leavewordService" ref="leavewordService" />
+	</bean>
+	
+	<!-- 课题组 -->
+	<bean id="groupKTAction" class="cn.edustar.jitar.action.GroupKTAction" scope="prototype">
+        <property name="categoryService" ref="categoryService" />
+        <property name="placardService" ref="placardService"/>
+        <property name="subjectService" ref="subjectService"/>
+        
+	</bean>
+    <bean id="groupKTUserService" class="cn.edustar.jitar.service.impl.GroupKTUserServiceImpl">
+        <property name="groupKTUserDao" ref="groupKTUserDao" />
+    </bean>
+    <bean id="groupKTUserDao" class="cn.edustar.jitar.dao.hibernate.GroupKTUserDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+	<!-- 分类 -->
+	<bean id="categoryDao" class="cn.edustar.jitar.dao.hibernate.CategoryDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="categoryService" class="cn.edustar.jitar.service.impl.CategoryServiceImpl">
+		<property name="categoryDao" ref="categoryDao" />
+		<property name="eventManager" ref="eventManager" />
+		<property name="cacheService">
+			<bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+				<constructor-arg ref="cacheProvider" />
+				<constructor-arg type="java.lang.String" value="category" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="userCateAction" scope="prototype" class="cn.edustar.jitar.action.UserCategoryAction">
+		<property name="categoryService" ref="categoryService" />
+		<property name="articleService" ref="articleService" />
+	</bean>
+
+	<!-- 公告 -->
+	<bean id="adminPlacardAction" class="cn.edustar.jitar.action.AdminPlacardAction" scope="prototype">
+		<property name="placardService" ref="placardService" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="accessControlService" ref="accessControlService" />
+	</bean>
+
+	<!-- 好友管理 -->
+	<bean id="friendAction" class="cn.edustar.jitar.action.FriendAction" scope="prototype">
+		<property name="userService" ref="userService" />
+		<property name="friendService" ref="friendService" />
+		<property name="moduleContainer" ref="moduleContainer" />
+		<property name="messageService" ref="messageService" />
+	</bean>
+	<bean id="friendService" class="cn.edustar.jitar.service.impl.FriendServiceImpl">
+		<property name="friendDao" ref="friendDao" />
+	</bean>
+	<bean id="friendDao" class="cn.edustar.jitar.dao.hibernate.FriendDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 短消息 -->
+	<bean id="messageService" class="cn.edustar.jitar.service.impl.MessageServiceImpl">
+		<property name="messageDao" ref="messageDao" />
+	</bean>
+	<bean id="messageDao" class="cn.edustar.jitar.dao.hibernate.MessageDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 留言 -->
+	<bean id="leavewordAction" class="cn.edustar.jitar.action.LeavewordAction" scope="prototype">
+		<property name="leavewordService" ref="leavewordService" />
+		<property name="userService" ref="userService" />
+		<property name="friendService" ref="friendService" />
+	</bean>
+	<bean id="leavewordService" class="cn.edustar.jitar.service.impl.LeavewordServiceImpl">
+		<property name="leavewordDao" ref="leavewordDao" />
+	</bean>
+	<bean id="leavewordDao" class="cn.edustar.jitar.dao.hibernate.LeavewordDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 组内论坛-->
+	<bean id="boardAction" scope="prototype" class="cn.edustar.jitar.action.BoardAction">
+		<property name="bbsService" ref="bbsService" />
+	</bean>
+	<bean id="bbsService" class="cn.edustar.jitar.service.impl.BbsServiceImpl">
+		<property name="bbsDao" ref="bbsDao" />
+	</bean>
+	<bean id="bbsDao" class="cn.edustar.jitar.dao.hibernate.BbsDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="topicAction" class="cn.edustar.jitar.action.TopicAction" scope="prototype">
+		<property name="bbsService" ref="bbsService" />
+	</bean>
+
+	<!-- 个人公告 -->
+	<bean id="userPlacardAction" class="cn.edustar.jitar.action.UserPlacardAction" scope="prototype">
+		<property name="placardService" ref="placardService" />
+	</bean>
+
+	<!-- 门户 -->
+	<bean id="pageAction" class="cn.edustar.jitar.action.PageAction" scope="prototype">
+		<property name="pageService" ref="pageService" />
+		<property name="groupService" ref="groupService" />
+		<property name="prepareCourseService" ref="prepareCourseService" />
+		<property name="moduleContainer" ref="moduleContainer" />
+		<property name="accessControlService" ref="accessControlService" />
+	</bean>
+	<bean id="pageService" class="cn.edustar.jitar.service.impl.PageServiceImpl">
+		<property name="pageDao" ref="pageDao" />
+		<property name="cacheService">
+			<bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+				<constructor-arg ref="cacheProvider" />
+				<constructor-arg type="java.lang.String" value="page" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="pageDao" class="cn.edustar.jitar.dao.hibernate.PageDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 标签服务 -->
+	<bean id="tagDao" class="cn.edustar.jitar.dao.hibernate.TagDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="tagService" class="cn.edustar.jitar.service.impl.TagServiceImpl">
+		<property name="tagDao" ref="tagDao" />
+	</bean>
+
+	<!-- 模板方案服务 -->
+	<bean id="themeService" class="cn.edustar.jitar.service.impl.ThemeServiceImpl" />
+
+	<!-- 公告 -->
+	<bean id="placardService" class="cn.edustar.jitar.service.impl.PlacardServiceImpl">
+		<property name="placardDao" ref="placardDao" />
+	</bean>
+	<bean id="placardDao" class="cn.edustar.jitar.dao.hibernate.PlacardDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 评论服务 -->
+	<bean id="commentService" class="cn.edustar.jitar.service.impl.CommentServiceImpl">
+		<property name="commentDao" ref="commentDao" />
+		<property name="articleDao" ref="articleDao" />
+		<property name="resourceDao" ref="resourceDao" />
+		<property name="photoDao" ref="photoDao" />
+	</bean>
+	<bean id="commentDao" class="cn.edustar.jitar.dao.hibernate.CommentDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 活动 -->
+	<bean id="actionService" class="cn.edustar.jitar.service.impl.ActionServiceImpl">
+		<property name="actionDao" ref="actionDao" />
+		<property name="actionReplyDao" ref="actionReplyDao" />
+		<property name="actionUserDao" ref="actionUserDao" />
+		<property name="groupDao" ref="groupDao" />
+		<property name="prepareCourseDao" ref="prepareCourseDao" />
+	</bean>
+	<bean id="actionDao" class="cn.edustar.jitar.dao.hibernate.ActionDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="actionUserDao" class="cn.edustar.jitar.dao.hibernate.ActionUserDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="actionReplyDao" class="cn.edustar.jitar.dao.hibernate.ActionReplyDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 集体备课 -->
+	<bean id="prepareCourseService" class="cn.edustar.jitar.service.impl.PrepareCourseServiceImpl">
+		<property name="prepareCourseDao" ref="prepareCourseDao" />
+		<property name="tagService" ref="tagService" />
+		<property name="pageService" ref="pageService" />
+		<property name="groupService" ref="groupService" />
+		<property name="cacheService">
+			<bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+				<constructor-arg ref="cacheProvider" />
+				<constructor-arg type="java.lang.String" value="prepareCourse" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="prepareCourseDao" class="cn.edustar.jitar.dao.hibernate.PrepareCourseDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+    <!--  集体备课视频会议 -->
+    <bean id="prepareCourseMeetingAction" scope="prototype" class="com.jitar2Infowarelab.action.PrepareCourseMeetingAction">
+        <property name="prepareCourseService" ref="prepareCourseService" />
+        <property name="userService" ref="userService" />
+        <property name="meetingsService" ref="meetingsService" />
+        <property name="infowarelabService" ref="infowarelabService" />
+        <property name="messageService" ref="messageService" />
+    </bean> 
+    <!-- 视频会议的频道 -->
+    <bean id="siteVideoMeetingAction" scope="prototype" class="com.jitar2Infowarelab.action.SiteVideoMeetingAction">
+        <property name="userService" ref="userService" />
+        <property name="meetingsService" ref="meetingsService" />
+        <property name="infowarelabService" ref="infowarelabService" />
+        <property name="messageService" ref="messageService" />
+        <property name="userPowerService" ref="UserPowerService" />
+    </bean> 
+
+	<!-- 专题 -->
+	<bean id="specialSubjectService" class="cn.edustar.jitar.service.impl.SpecialSubjectServiceImpl">
+		<property name="specialSubjectDao" ref="specialSubjectDao" />
+	</bean>
+	<bean id="specialSubjectDao" class="cn.edustar.jitar.dao.hibernate.SpecialSubjectDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 学科/学段服务 -->
+	<bean id="subjectService" class="cn.edustar.jitar.service.impl.SubjectServiceImpl" lazy-init="false">
+		<property name="subjectDao" ref="subjectDao" />
+    <property name="accessControlService" ref="accessControlService"></property>
+    <property name="cacheService" ref="cacheService"></property>
+	</bean>
+	<bean id="subjectDao" class="cn.edustar.jitar.dao.hibernate.SubjectDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="adminSubjectAction" class="cn.edustar.jitar.action.AdminSubjectAction" scope="prototype">
+		<property name="subjectService" ref="subjectService" />
+		<property name="siteNavService" ref="siteNavService" />
+	</bean>
+	<bean id="adminMetaSubjectAction" class="cn.edustar.jitar.action.AdminMetaSubjectAction" scope="prototype">
+		<property name="subjectService" ref="subjectService" />
+	</bean>
+	<bean id="adminGradeAction" class="cn.edustar.jitar.action.AdminGradeAction" scope="prototype">
+		<property name="subjectService" ref="subjectService" />
+	</bean>
+	<bean id="adminNewsAction" class="cn.edustar.jitar.action.AdminSiteNewsAction" scope="prototype">
+		<property name="tagService" ref="tagService" />
+		<property name="configService" ref="configService" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="accessControlService" ref="accessControlService" />
+	</bean>
+	<!-- 学科统计服务 -->
+    <bean id="subjectStatService" class="cn.edustar.jitar.service.impl.SubjectStatServiceImpl" lazy-init="false">
+        <property name="subjectService" ref="subjectService" />
+        <property name="articleService" ref="articleService" />
+        <property name="resourceService" ref="resourceService" />
+        <property name="commentService" ref="commentService"/>
+        <property name="uPunishScoreService" ref="UPunishScoreService" />
+        <property name="subjectStatDaoHibernate" ref="subjectStatDaoHibernate" />
+    </bean>
+    <bean id="subjectStatDaoHibernate" class="cn.edustar.jitar.dao.hibernate.SubjectStatDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>	
+    
+	<!-- 系统配置 -->
+	<bean id="sysConfigAction" class="cn.edustar.jitar.action.AdminSysConfigAction" scope="prototype">
+		<property name="configService" ref="configService" />
+    <property name="accessControlService" ref="accessControlService" />
+	</bean>
+
+	<!-- 后台的个人统计  -->
+	<bean id="userStatManage" class="cn.edustar.jitar.manage.impl.UserStatManageImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+    <!--标签  renliang-->
+    <bean id="tagsAction" class="cn.edustar.jitar.action.TagsAction" scope="prototype">
+    </bean>
+    
+    <bean id="subjectGetLoginUserNewMessageCountAction" class="cn.edustar.jitar.action.SubjectGetLoginUserNewMessageCountAction" scope="prototype">
+    	<property name="messageService" ref="messageService"/>
+	</bean>    
+    
+    
+    <bean id="showTagAction_1" class="cn.edustar.jitar.action.ShowTagAction_1" scope="prototype">
+       <property name="tagService" ref = "tagService"/>
+    </bean>
+    
+    <bean id="showMoreTagContentAction" class="cn.edustar.jitar.action.ShowMoreTagContentAction" scope="prototype">
+       <property name="tagService" ref = "tagService"/>
+    </bean>
+    
+    <!-- 视频 renliang -->
+    <bean id = "videosAction" class="cn.edustar.jitar.action.VideosAction" scope="prototype">
+      <property name="categoryService" ref="categoryService" />
+    </bean>
+    
+    <bean id = "subjectVideoAction" class="cn.edustar.jitar.action.SubjectVideoAction" scope="prototype">
+      <property name="categoryService" ref="categoryService" />
+    </bean>
+    
+     <bean id = "subjectHomeAction" class="cn.edustar.jitar.action.SubjectHomeAction" scope="prototype"/>
+    
+    <bean id = "subjectResourceAction" class="cn.edustar.jitar.action.SubjectResourceAction" scope="prototype">
+      <property name="categoryService" ref="categoryService" />
+    </bean>
+    
+    <bean id = "showUserIndex" class="cn.edustar.jitar.action.ShowUserIndexAction" scope="prototype">
+      <property name="userService" ref="userService" />
+    </bean>
+    
+    <bean id = "subjectIndexAction" class="cn.edustar.jitar.action.SubjectIndexAction" scope="prototype">
+      <property name="siteLinksService" ref="siteLinksService" />
+      <property name="statService" ref="statService" />
+      <property name="timerCountService" ref="timerCountService" />
+      <property name="siteNavService" ref="siteNavService" />
+      <property name="templateProcessor" ref="templateProcessor" />
+    </bean>
+    
+    <bean id = "blogAction" class="cn.edustar.jitar.action.BlogAction" scope="prototype">
+      <property name="pagingService" ref="pagingService" />
+    </bean>
+    <bean id = "subjectGroupAction" class="cn.edustar.jitar.action.SubjectGroupAction" scope="prototype">
+      <property name="categoryService" ref="categoryService" />
+    </bean>
+    <bean id = "subjectArticleAction" class="cn.edustar.jitar.action.SubjectArticleAction" scope="prototype">
+      <property name="categoryService" ref="categoryService" />
+      <property name="pagingService" ref="pagingService" />
+      <property name="webSiteManageService" ref="webSiteManageService" />
+    </bean>
+    
+    <bean id = "subjectPrepareCourseAction" class="cn.edustar.jitar.action.SubjectPrepareCourseAction" scope="prototype">
+      <property name="prepareCourseService" ref="prepareCourseService" />
+    </bean>
+    
+    <bean id = "videoListAction" class = "cn.edustar.jitar.action.VideoListAction" scope="prototype"/>
+    
+    <bean id = "showSubjectNewsAction" class = "cn.edustar.jitar.action.ShowSubjectNewsAction" scope="prototype"/>
+    
+    <!-- 图片  renliang -->
+    <bean id="photosAction" class="cn.edustar.jitar.action.PhotosAction" scope="prototype">
+        <property name="categoryService" ref="categoryService"/>
+        <property name="praiseService" ref="praiseService"/>
+        <property name="reportService" ref="reportService"/>
+        <property name="favoritesService" ref="UFavoritesService"/>
+        <property name="commentService" ref="commentService"/>
+        <property name="photoService" ref="photoService"/>
+        <property name="browsingService" ref="browsingService"/>
+        <property name="userService" ref="userService"/>
+    </bean>
+    
+    <bean id="showPhotoListAction" class="cn.edustar.jitar.action.ShowPhotoListAction" scope="prototype">
+        <property name="cate_svc" ref="categoryService"/>
+    </bean>
+    
+    <!-- 博客  renliang -->
+    <bean id="blogsAction" class="cn.edustar.jitar.action.BlogsAction" scope="prototype">
+        <property name="categoryService" ref="categoryService"/>
+        <property name="timerCountService" ref="timerCountService"/>
+        <property name="subjectService" ref="subjectService"/>
+    </bean>
+    
+    <!-- groups  renliang -->
+    <bean id="groupsAction" class="cn.edustar.jitar.action.GroupsAction" scope="prototype">
+        <property name="categoryService" ref="categoryService"/>
+        <property name="subjectService" ref="subjectService"/>
+    </bean>
+    
+    <!-- 备课  renliang -->
+    <bean id="prepareCourseAction" class="cn.edustar.jitar.action.PrepareCourseAction" scope="prototype">
+        <property name="prepareCourseService" ref="prepareCourseService"/>
+        <property name="subjectService" ref="subjectService"/>
+    </bean>
+    
+    <!-- bloglist renliang-->
+    <bean id="blogListAction" class="cn.edustar.jitar.action.BlogListAction" scope="prototype">
+
+        <property name="userService" ref="userService"/>
+    </bean>
+    
+    <!-- morespecialSubject renliang -->
+    <bean id ="morespecialSubject" class="cn.edustar.jitar.action.MorespecialSubject" scope="prototype"/>
+    
+    <!-- renliang-->
+    <bean id = "specialSubjectListAction" class="cn.edustar.jitar.action.SpecialSubjectListAction" scope="prototype">
+       <property name="specialSubjectService" ref="specialSubjectService" />
+    </bean>
+    
+    <bean id="specialSubjectAction" class="cn.edustar.jitar.action.SpecialSubjectAction" scope="prototype">
+       <property name="specialSubjectService" ref="specialSubjectService" />
+       <property name="voteService" ref="voteService" />
+    </bean>
+    
+    <bean id ="newListAction" class = "cn.edustar.jitar.action.NewListAction" scope="prototype"/>
+    
+    <bean id ="activityAction" class = "cn.edustar.jitar.action.ActivityAction" scope="prototype"/>
+    
+    <bean id ="listAllAction" class = "cn.edustar.jitar.action.ListAllAction" scope="prototype"/>
+    
+    <bean id ="moreVoteAction" class = "cn.edustar.jitar.action.MoreVoteAction" scope="prototype"/>
+    
+    <bean id ="subjectBlogListAction" class = "cn.edustar.jitar.action.SubjectBlogListAction" scope="prototype">
+       <property name="pagingService" ref="pagingService" />
+    </bean>
+    
+    <bean id ="manageListAction" class = "cn.edustar.jitar.action.ManageListAction" scope="prototype">
+      <property name="pluginAuthorityCheckService" ref="pluginAuthorityCheckService" />
+      <property name="voteService" ref="voteService" />
+    </bean>
+    
+    <bean id ="topicManageListAction" class = "cn.edustar.jitar.action.TopicManageListAction" scope="prototype">
+      <property name="plugInTopicService" ref="plugInTopicService" />
+      <property name="pluginAuthorityCheckService" ref="pluginAuthorityCheckService" />
+    </bean>
+    
+    <bean id ="questionManageListAction" class = "cn.edustar.jitar.action.QuestionManageListAction" scope="prototype">
+      <property name="pluginAuthorityCheckService" ref="pluginAuthorityCheckService" />
+       <property name="questionAnswerService" ref="questionAnswerService" />
+    </bean>
+    
+    <bean id ="getContentAction" class = "cn.edustar.jitar.action.GetContentAction" scope="prototype">
+      <property name="voteService" ref="voteService" />
+    </bean>
+    
+    <bean id ="questionListAllAction" class = "cn.edustar.jitar.action.QuestionListAllAction" scope="prototype">
+      <property name="pluginService" ref="pluginService" />
+    </bean>
+    
+    <bean id ="questionGetContentAction" class = "cn.edustar.jitar.action.QuestionGetContentAction" scope="prototype">
+      <property name="pluginService" ref="pluginService" />
+      <property name="questionAnswerService" ref="questionAnswerService" />
+    </bean>
+    
+    <bean id ="questionEditFormAction" class = "cn.edustar.jitar.action.QuestionEditFormAction" scope="prototype">
+      <property name="questionAnswerService" ref="questionAnswerService" />
+    </bean>
+    
+    <bean id ="showResultAction" class = "cn.edustar.jitar.action.ShowResultAction" scope="prototype">
+      <property name="vote_svc" ref="voteService" />
+    </bean>
+    
+    <bean id ="newTopicAction" class = "cn.edustar.jitar.action.NewTopicAction" scope="prototype">
+      <property name="plugInTopicService" ref="plugInTopicService" />
+    </bean>
+    
+    <bean id ="modifyVoteAction" class = "cn.edustar.jitar.action.ModifyVoteAction" scope="prototype">
+      <property name="pluginAuthorityCheckService" ref="pluginAuthorityCheckService" />
+      <property name="voteService" ref="voteService" />
+    </bean>
+    
+    <bean id ="showTopicAction" class = "cn.edustar.jitar.action.ShowTopicAction" scope="prototype">
+      <property name="plugInTopicService" ref="plugInTopicService" />
+      <property name="pluginAuthorityCheckService" ref="pluginAuthorityCheckService" />
+    </bean>
+    
+    <bean id ="editFormAction" class = "cn.edustar.jitar.action.EditFormAction" scope="prototype">
+      <property name="voteService" ref="voteService" />
+      <property name="pluginAuthorityCheckService" ref="pluginAuthorityCheckService" />
+    </bean>
+    
+    <bean id ="showSubjectPlacardAction" class = "cn.edustar.jitar.action.ShowSubjectPlacardAction" scope="prototype">
+       <property name="placardService" ref ="placardService"/>
+    </bean>
+    
+    <bean id ="showArticleListAction" class = "cn.edustar.jitar.action.ShowArticleListAction" scope="prototype">
+       <property name="specialSubjectService" ref ="specialSubjectService"/>
+    </bean>
+    
+    <bean id ="groupListAction_1" class = "cn.edustar.jitar.action.GroupListAction" scope="prototype"/>
+    
+    <bean id ="createSpecialSubjectAction" class = "cn.edustar.jitar.action.CreateSpecialSubjectAction" scope="prototype">
+       <property name="specialSubjectService" ref ="specialSubjectService"/>
+    </bean>
+	    
+    <bean id ="showMoreSpecialSubjectListAction" class = "cn.edustar.jitar.action.ShowMoreSpecialSubjectListAction" scope="prototype">
+       <property name="specialSubjectService" ref ="specialSubjectService"/>
+    </bean>
+    
+    <bean id ="specialsubjectAction_1" class = "cn.edustar.jitar.action.SpecialsubjectAction_1" scope="prototype">
+       <property name="specialSubjectService" ref ="specialSubjectService"/>
+    </bean>
+    
+    <bean id ="showTopicListAction" class = "cn.edustar.jitar.action.ShowTopicListAction" scope="prototype">
+       <property name="specialSubjectService" ref ="specialSubjectService"/>
+    </bean>
+	
+	<!-- <bean id="siteConfig" class="cn.edustar.jitar.service.SiteConfig"/> -->
+	
+	<!-- 个人统计 -->
+	<bean id="adminStatAction" class="cn.edustar.jitar.action.AdminStatAction" scope="prototype">
+		<property name="userStatManage" ref="userStatManage" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="unitService" ref="unitService" />
+        <property name="userService" ref="userService" />
+        <property name="UPunishScoreService" ref="UPunishScoreService" />
+	</bean>
+	<bean id="adminStatResultAction" class="cn.edustar.jitar.action.AdminStatResultAction" scope="prototype">
+		<property name="userStatManage" ref="userStatManage" />
+	</bean>
+
+	<!-- 群组统计 -->
+	<bean id="adminStatGroupAction" class="cn.edustar.jitar.action.AdminStatGroupAction" scope="prototype">
+		<property name="groupService" ref="groupService" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="categoryService" ref="categoryService" />
+	</bean>
+
+	<!-- 机构统计 -->
+	<bean id="adminStatUnitAction" class="cn.edustar.jitar.action.AdminStatUnitAction" scope="prototype">
+		<property name="unitService" ref="unitService" />
+	</bean>
+
+    <!-- 学科统计 -->
+    <bean id="adminStatSubjectAction" class="cn.edustar.jitar.action.AdminStatSubjectAction" scope="prototype">
+        <property name="subjectStatService" ref="subjectStatService" />
+    </bean>
+    	
+	<!-- 文件上传 -->
+	<bean id="uploadAction" class="cn.edustar.jitar.action.UploadAction" scope="prototype">
+		<property name="prepareCourseService" ref="prepareCourseService" />
+	</bean>
+	
+	<!-- Lisense -->
+	<bean id="ProductConfigService" class="cn.edustar.jitar.service.impl.ProductConfigImpl" init-method="init">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 在线管理 -->
+	<bean id="onlineManager" class="cn.edustar.jitar.service.impl.MemoryOnlineManagerImpl" init-method="init" destroy-method="destroy">
+	</bean>
+	
+	<bean id="placardListAction" class="cn.edustar.jitar.action.PlacardListAction"/>
+
+	<!-- 延迟统计写入服务 -->
+	<bean id="statService" class="cn.edustar.jitar.service.impl.StatServiceImpl" destroy-method="destroy">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="cacheService">
+			<bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+				<constructor-arg ref="cacheProvider" />
+				<constructor-arg type="java.lang.String" value="online" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 文章资源的点击率服务 -->
+	<bean id="viewCountService" class="cn.edustar.jitar.service.impl.ViewCountServiceImpl">
+		<property name="viewCountDao" ref="viewCountDao" />
+	</bean>
+	<bean id="viewCountDao" class="cn.edustar.jitar.dao.hibernate.ViewCountDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 文章资源的罚分服务 -->
+	<bean id="UPunishScoreService" class="cn.edustar.jitar.service.impl.UPunishScoreServiceImpl">
+		<property name="UPunishScoreDao" ref="UPunishScoreDao" />
+		<property name="configService" ref="configService" />
+		<property name="commentService" ref="commentService" />
+		<property name="resourceService" ref="resourceService" />
+		<property name="articleService" ref="articleService" />
+		<property name="photoService" ref="photoService" />
+		<property name="videoService" ref="videoService" />
+	</bean>
+
+	<bean id="UPunishScoreDao" class="cn.edustar.jitar.dao.hibernate.UPunishScoreDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 用户角色组权限服务 -->
+	<bean id="UserPowerService" class="cn.edustar.jitar.service.impl.UserPowerServiceImpl">
+		<property name="articleService" ref="articleService" />
+		<property name="resourceService" ref="resourceService" />	
+		<property name="UGroupUserDao" ref="UGroupUserDao" />
+		<property name="UGroupPowerDao" ref="UGroupPowerDao" />
+		<property name="UGroupDao" ref="UGroupDao" />
+		<property name="UCondition1Dao" ref="UCondition1Dao" />
+		<property name="UCondition2Dao" ref="UCondition2Dao" />
+	</bean>
+	<bean id="UGroupService" class="cn.edustar.jitar.service.impl.UGroupServiceImpl">
+		<property name="UGroupDao" ref="UGroupDao" />
+	</bean>	
+	<bean id="UGroupDao" class="cn.edustar.jitar.dao.hibernate.UGroupDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="UGroupUserDao" class="cn.edustar.jitar.dao.hibernate.UGroupUserDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="UGroupPowerDao" class="cn.edustar.jitar.dao.hibernate.UGroupPowerDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="UCondition1Dao" class="cn.edustar.jitar.dao.hibernate.UCondition1DaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="UCondition2Dao" class="cn.edustar.jitar.dao.hibernate.UCondition2DaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- 聊天用户服务 -->
+	<bean id="chatUserService" class="cn.edustar.jitar.service.impl.ChatUserServiceImpl">
+		<property name="chatUserDao" ref="chatUserDao" />
+		<property name="cacheService">
+			<bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+				<constructor-arg ref="cacheProvider" />
+				<constructor-arg type="java.lang.String" value="chatUser" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="chatUserDao" class="cn.edustar.jitar.dao.hibernate.ChatUserDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="chatMessageService" ref="chatMessageService" />
+	</bean>
+
+	<!-- 聊天信息服务 -->
+	<bean id="chatMessageService" class="cn.edustar.jitar.service.impl.ChatMessageServiceImpl">
+		<property name="chatMessageDao" ref="chatMessageDao" />
+	</bean>
+	<bean id="chatMessageDao" class="cn.edustar.jitar.dao.hibernate.ChatMessageDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="chatRoomService" class="cn.edustar.jitar.service.impl.ChatRoomServiceImpl">
+		<property name="chatRoomDao" ref="chatRoomDao" />
+	</bean>
+	<bean id="chatRoomDao" class="cn.edustar.jitar.dao.hibernate.ChatRoomDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 日历提醒 -->
+	<bean id="calendarService" class="cn.edustar.jitar.service.impl.CalendarServiceImpl">
+		<property name="calendarDao" ref="calendarDao" />
+	</bean>
+	<bean id="calendarDao" class="cn.edustar.jitar.dao.hibernate.CalendarDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 插件 -->
+	<bean id="pluginService" class="cn.edustar.jitar.service.impl.PluginServiceImpl">
+		<property name="pluginDao" ref="pluginDao" />
+	</bean>
+	<bean id="pluginDao" class="cn.edustar.jitar.dao.hibernate.PluginDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- Q and A 插件 -->
+	<bean id="questionAnswerService" class="cn.edustar.jitar.service.impl.QuestionAnswerServiceImpl">
+		<property name="questionAnswerDao" ref="questionAnswerDao" />
+	</bean>
+	<bean id="questionAnswerDao" class="cn.edustar.jitar.dao.hibernate.QuestionAnswerDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 投票插件 -->
+	<bean id="voteService" class="cn.edustar.jitar.service.impl.VoteServiceImpl">
+		<property name="voteDao" ref="voteDao" />
+		<property name="cacheService">
+			<bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+				<constructor-arg ref="cacheProvider" />
+				<constructor-arg type="java.lang.String" value="vote" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="voteDao" class="cn.edustar.jitar.dao.hibernate.VoteDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 讨论插件 -->
+	<bean id="plugInTopicService" class="cn.edustar.jitar.service.impl.PlugInTopicServiceImpl">
+		<property name="plugInTopicDao" ref="plugInTopicDao" />
+	</bean>
+	<bean id="plugInTopicDao" class="cn.edustar.jitar.dao.hibernate.PlugInTopicDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 页面导航 -->
+	<bean id="siteNavigationService" class="cn.edustar.jitar.service.impl.SiteNavigationServiceImpl" lazy-init="false" scope="singleton">
+		<property name="subjectService" ref="subjectService" />
+	</bean>
+
+	<!-- 框架页面服务 -->
+	<bean id="pageFrameService" class="cn.edustar.jitar.service.impl.PageFrameServiceImpl" init-method="init" destroy-method="destroy">
+		<property name="unitService" ref="unitService" />
+		<property name="userService" ref="userService" />
+		<property name="groupService" ref="groupService" />
+		<property name="pageService" ref="pageService" />
+		<property name="prepareCourseService" ref="prepareCourseService" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="siteThemeService" ref="siteThemeService" />
+		<property name="siteNavService" ref="siteNavService" />
+		<property name="specialSubjectService" ref="specialSubjectService" />
+		<property name="modelManager" ref="modelManager" />
+		<property name="objectWrapper" ref="objectWrapper" />
+		<property name="configService" ref="configService" />
+	</bean>
+
+	<!-- 权限验证服务 -->
+	<bean id="pluginAuthorityCheckService" class="cn.edustar.jitar.service.impl.PluginAuthorityCheckServiceImpl">
+		<property name="userService" ref="userService" />
+		<property name="groupService" ref="groupService" />
+		<property name="prepareCourseService" ref="prepareCourseService" />
+		<property name="unitService" ref="unitService" />
+		<property name="accessControlService" ref="accessControlService" />
+		<property name="specialSubjectService" ref="specialSubjectService" />
+		<property name="subjectService" ref="subjectService" />
+	</bean>
+	<!-- 机构子站点 -->
+	<bean id="unitWebpartAction" class="cn.edustar.jitar.action.UnitWebpartAction" scope="prototype">
+		<property name="unitService" ref="unitService" />
+		<property name="accessControlService" ref="accessControlService" />		
+	</bean>
+	<bean id="subjectWebpartAction" class="cn.edustar.jitar.action.SubjectWebpartAction" scope="prototype">
+		<property name="subjectService" ref="subjectService" />
+		<property name="accessControlService" ref="accessControlService" />
+	</bean>
+
+	<!-- 友情链接 -->
+	<bean id="siteLinksService" class="cn.edustar.jitar.service.impl.SiteLinksServiceImpl">
+		<property name="siteLinksDao" ref="siteLinksDao" />
+	</bean>
+	<bean id="siteLinksDao" class="cn.edustar.jitar.dao.hibernate.SiteLinksDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- 页面自定义 -->
+	<bean id="siteIndexPartService" class="cn.edustar.jitar.service.impl.SiteIndexPartServiceImpl">
+		<property name="siteIndexPartDao" ref="siteIndexPartDao" />
+	</bean>
+	<bean id="siteIndexPartDao" class="cn.edustar.jitar.dao.hibernate.SiteIndexPartDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean> 
+  
+	
+	<!-- 自定义文章分类  -->
+	<bean id="contentSpaceService" class="cn.edustar.jitar.service.impl.ContentSpaceServiceImpl">
+		<property name="contentSpaceDao" ref="contentSpaceDao" />
+	</bean>
+	<bean id="contentSpaceDao" class="cn.edustar.jitar.dao.hibernate.ContentSpaceDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 收藏夹的服务 -->
+	<bean id="UFavoritesService" class="cn.edustar.jitar.service.impl.UFavoritesServiceImpl">
+		<property name="UFavoritesDao" ref="UFavoritesDao" />
+	</bean>
+	<bean id="UFavoritesDao" class="cn.edustar.jitar.dao.hibernate.UFavoritesDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+ 
+  <!-- 举报服务 -->
+  <bean id="reportService" class="cn.edustar.jitar.service.impl.ReportServiceImpl">
+    <property name="reportDao" ref="reportDao" />
+  </bean>
+  <bean id="reportDao" class="cn.edustar.jitar.dao.hibernate.ReportDaoHibernate">
+    <property name="sessionFactory" ref="sessionFactory" />
+  </bean>
+  <bean id="adminReportAction" class="cn.edustar.jitar.action.AdminReportAction" scope="prototype">
+    <property name="reportService" ref="reportService" />
+    <property name="configService" ref="configService" />
+    <property name="articleService" ref="articleService" />
+    <property name="photoService" ref="photoService" />
+    <property name="resourceService" ref="resourceService" />
+    <property name="videoService" ref="videoService" />
+  </bean>
+  
+  <!-- 赞服务 -->
+  <bean id="praiseService" class="cn.edustar.jitar.service.impl.PraiseServiceImpl">
+    <property name="praiseDao" ref="praiseDao" />
+  </bean>
+  <bean id="praiseDao" class="cn.edustar.jitar.dao.hibernate.PraiseDaoHibernate">
+    <property name="sessionFactory" ref="sessionFactory" />
+  </bean>
+  <!-- 浏览记录服务 -->
+  <bean id="browsingService" class="cn.edustar.jitar.service.impl.BrowsingServiceImpl">
+    <property name="browsingDao" ref="browsingDao" />
+    <!-- <property name="shardedJedisPool" ref="shardedJedisPool" /> -->
+    <property name="userService" ref="userService"/>
+  </bean>
+  <bean id="browsingDao" class="cn.edustar.jitar.dao.hibernate.BrowsingDaoHibernate">
+    <property name="sessionFactory" ref="sessionFactory" />
+  </bean>  
+  
+	<!-- 机构 -->
+	<bean id="unitService" class="cn.edustar.jitar.service.impl.UnitServiceImpl">
+		<property name="unitDao" ref="unitDao" />
+		<property name="productConfigService" ref="ProductConfigService" />
+    <property name="cacheService">
+        <bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+            <constructor-arg ref="cacheProvider"></constructor-arg>
+            <constructor-arg type="java.lang.String" value="rootUnit" />
+        </bean>
+    </property>
+	</bean>
+	<bean id="unitDao" class="cn.edustar.jitar.dao.hibernate.UnitDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="pagingService" class="cn.edustar.jitar.service.impl.PagingServiceImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+  <bean id="unitTypeDao" class="cn.edustar.jitar.dao.hibernate.UnitTypeDaoHibernate">
+    <property name="sessionFactory" ref="sessionFactory" />
+  </bean>
+  	
+  <bean id="unitTypeService" class="cn.edustar.jitar.service.impl.UnitTypeServiceImpl">
+    <property name="unitTypeDao" ref="unitTypeDao" />
+	</bean>	
+  <!-- 权限 -->
+	<bean id="accessControlService" class="cn.edustar.jitar.service.impl.AccessControlServiceImpl">
+		<property name="accessControlDao" ref="accessControlDao" />
+	</bean>
+	<bean id="accessControlDao" class="cn.edustar.jitar.dao.hibernate.AccessControlDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="deleteComplexObjectService" class="cn.edustar.jitar.service.impl.DeleteComplexObjectServiceImpl">
+		<property name="articleService" ref="articleService" />
+		<property name="userService" ref="userService" />
+		<property name="userDeletedService" ref="userDeletedService" />
+		<property name="unitService" ref="unitService" />
+		<property name="commentService" ref="commentService" />
+		<property name="groupService" ref="groupService" />
+		<property name="prepareCourseService" ref="prepareCourseService" />
+		<property name="specialSubjectService" ref="specialSubjectService" />	
+		<property name="resourceService" ref="resourceService" />
+		<property name="accessControlService" ref="accessControlService" />
+		<property name="voteService" ref="voteService" />
+		<property name="messageService" ref="messageService" />
+	</bean>
+	
+	<!-- 自定义频道 -->
+	<bean id="channelPageService" class="cn.edustar.jitar.service.impl.ChannelPageServiceImpl">
+		<property name="channelPageDao" ref="channelPageDao" />
+		<property name="cacheService">
+            <bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+                <constructor-arg ref="cacheProvider"></constructor-arg>
+                <constructor-arg type="java.lang.String" value="channel" />
+            </bean>
+        </property>
+	</bean>
+	
+	<bean id="channelPageDao" class="cn.edustar.jitar.dao.hibernate.ChannelPageDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+    <!-- 自定义频道 -->
+    <bean id="channelAction" class="cn.edustar.jitar.action.ChannelAction" scope="prototype">
+    <property name="channelPageService" ref="channelPageService"/>
+    <property name="accessControlService" ref="accessControlService"/>
+    <property name="placardService" ref="placardService"/>
+    <property name="siteNavService" ref="siteNavService"/>
+    <property name="cacheProvider" ref="cacheProvider"/>
+    <property name="unitTypeService" ref="unitTypeService"/>
+    <property name="categoryService" ref="categoryService"/>
+    </bean>	
+    
+    <!-- 自定义频道分类 -->
+    <bean id="channelCateAction" class="cn.edustar.jitar.action.ChannelCateAction" scope="prototype">
+    <property name="channelPageService" ref="channelPageService"/>
+    <property name="accessControlService" ref="accessControlService"/>
+    <property name="categoryService" ref="categoryService"/>
+    </bean> 
+  
+    <!-- 自定义频道用户 -->
+    <bean id="channelUserAction" class="cn.edustar.jitar.action.ChannelUserAction" scope="prototype">
+    <property name="channelPageService" ref="channelPageService"/>
+    <property name="accessControlService" ref="accessControlService"/>
+    <property name="userService" ref="userService"/>
+    <property name="unitService" ref="unitService"/>
+    </bean>
+         	
+    <!-- 自定义频道文章-->
+    <bean id="channelArticleAction" class="cn.edustar.jitar.action.ChannelArticleAction" scope="prototype">
+    <property name="channelPageService" ref="channelPageService"/>
+    <property name="accessControlService" ref="accessControlService"/>
+    <property name="categoryService" ref="categoryService"/>
+    <property name="articleService" ref="articleService"/>
+    </bean>         
+    <!-- 自定义频道资源-->
+    <bean id="channelResourceAction" class="cn.edustar.jitar.action.ChannelResourceAction" scope="prototype">
+    <property name="channelPageService" ref="channelPageService"/>
+    <property name="accessControlService" ref="accessControlService"/>
+    <property name="categoryService" ref="categoryService"/>
+    <property name="groupService" ref="groupService"/>
+    <property name="resourceService" ref="resourceService"/>
+    </bean>     
+    <!-- 自定义频道图片-->
+    <bean id="channelPhotoAction" class="cn.edustar.jitar.action.ChannelPhotoAction" scope="prototype">
+    <property name="channelPageService" ref="channelPageService"/>
+    <property name="accessControlService" ref="accessControlService"/>
+    <property name="categoryService" ref="categoryService"/>
+    <property name="photoService" ref="photoService"/>
+    </bean>     
+    <!-- 自定义频道视频-->
+    <bean id="channelVideoAction" class="cn.edustar.jitar.action.ChannelVideoAction" scope="prototype">
+    <property name="channelPageService" ref="channelPageService"/>
+    <property name="accessControlService" ref="accessControlService"/>
+    <property name="categoryService" ref="categoryService"/>
+    <property name="videoService" ref="videoService"/>
+    </bean>   
+    <!-- 自定义频道个人统计-->
+    <bean id="channelUserStatAction" class="cn.edustar.jitar.action.ChannelUserStatAction" scope="prototype">
+    <property name="channelPageService" ref="channelPageService"/>
+    <property name="accessControlService" ref="accessControlService"/>
+    </bean>   
+    <!-- 自定义频道单位统计-->
+    <bean id="channelUnitStatAction" class="cn.edustar.jitar.action.ChannelUnitStatAction" scope="prototype">
+    <property name="channelPageService" ref="channelPageService"/>
+    <property name="accessControlService" ref="accessControlService"/>
+    </bean>   
+    <!-- 频道访问 -->
+    <bean id="channelhomeAction" class="cn.edustar.jitar.action.ChannelHomeAction" scope="prototype">
+    <property name="channelPageService" ref="channelPageService"/>
+    <property name="templateProcessor" ref="templateProcessor"/>
+    <property name="categoryService" ref="categoryService"/>
+    <property name="unitService" ref="unitService"/>
+    <property name="unitTypeService" ref="unitTypeService"/>
+    <property name="subjectService" ref="subjectService"/>
+    <property name="siteNavService" ref="siteNavService"/>
+    <property name="placardService" ref="placardService"/>
+    <property name="accessControlService" ref="accessControlService"/>
+    </bean>   
+    	
+	<bean id="webSiteManageService" class="cn.edustar.jitar.service.impl.WebSiteManageServiceImpl">
+		<property name="webSiteManageDao" ref="webSiteManageDao" />
+	</bean>
+	<bean id="webSiteManageDao" class="cn.edustar.jitar.dao.hibernate.WebSiteManageDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="jitarColumnService" class="cn.edustar.jitar.service.impl.JitarColumnServiceImpl">
+		<property name="jitarColumnDao" ref="jitarColumnDao" />
+	</bean>
+	<bean id="jitarColumnDao" class="cn.edustar.jitar.dao.hibernate.JitarColumnDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="evaluationService" class="cn.edustar.jitar.service.impl.EvaluationServiceImpl">
+		<property name="evaluationDao" ref="evaluationDao" />
+	</bean>
+	<bean id="evaluationDao" class="cn.edustar.jitar.dao.hibernate.EvaluationDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="userIndexHtmlService" class="cn.edustar.jitar.query.sitefactory.UserIndexHtmlServiceImpl" scope="prototype">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="templateProcessor" ref="templateProcessor" />
+		<property name="pageService" ref="pageService" />
+		<property name="jitarContext" ref="jitarContext" />	
+		<property name="articleService" ref="articleService" />
+		<property name="resourceService" ref="resourceService" />
+	</bean>
+	
+	<bean id="htmlGeneratorService" class="cn.edustar.jitar.query.sitefactory.HtmlGeneratorServiceImpl" scope="prototype">
+		<property name="templateProcessor" ref="templateProcessor" />
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jitarContext" ref="jitarContext" />
+		<property name="configService" ref="configService" />
+		<property name="unitService" ref="unitService" />
+		<property name="articleService" ref="articleService" />
+		<property name="siteNavService" ref="siteNavService" />
+		<property name="subjectService" ref="subjectService" />
+		<property name="statService" ref="statService" />
+		<property name="siteIndexPartService" ref="siteIndexPartService" />
+		<property name="productConfigService" ref="ProductConfigService" />
+        <property name="timerCountService" ref="timerCountService" />
+	</bean>
+	<bean id="generatorSevenDaysCommentArticleService" class="cn.edustar.jitar.query.sitefactory.GeneratorSevenDaysCommentArticleServiceImpl" scope="prototype">
+	<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="meetingsService" class="cn.edustar.jitar.service.impl.MeetingsServiceImpl">
+		<property name="meetingsDao" ref="meetingsDao" />
+	</bean>
+	<bean id="meetingsDao" class="cn.edustar.jitar.dao.hibernate.MeetingsDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+  <bean id="infowarelabService" class="com.jitar2Infowarelab.service.InfowarelabService">
+  </bean>
+	
+    <!-- 定时统计的实现 -->
+    <bean id="timerCountService" class="cn.edustar.jitar.service.impl.TimerCountServiceImpl" scope="singleton">
+        <property name="timerCountDao" ref="timerCountDao" />
+        <property name="cacheService">
+            <bean class="cn.edustar.jitar.service.impl.EHCacheServiceImpl">
+                <constructor-arg ref="cacheProvider"></constructor-arg>
+                <constructor-arg type="java.lang.String" value="timerCount" />
+            </bean>
+        </property>
+    </bean>
+    <bean id="timerCountDao" class="cn.edustar.jitar.dao.hibernate.TimerCountDaoHibernate">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+	<bean id="userContext" class="cn.edustar.jitar.context.impl.UserContextImpl" scope="singleton" init-method="init" destroy-method="destroy">
+		<property name="userService" ref="userService" />
+		<property name="groupService" ref="groupService" />
+		<property name="prepareCourseService" ref="prepareCourseService" />
+		<property name="meetingsService" ref="meetingsService" />
+	</bean>	
+
+    <!-- 前台页面机构栏目 -->
+    <bean id="siteUnitsAction" class="cn.edustar.jitar.action.SiteUnitsAction" scope="prototype">
+    </bean>
+    <!-- 文章栏目 -->
+    <bean id="siteArticlesAction" class="cn.edustar.jitar.action.SiteArticlesAction" scope="prototype">
+    <property name="categoryService" ref="categoryService"/>
+    <property name="pagingService" ref="pagingService"/>
+    <property name="webSiteManageService" ref="webSiteManageService"/>
+    <property name="userService" ref="userService"/>
+    </bean>
+    <bean id="siteHelpAction" class="cn.edustar.jitar.action.SiteHelpAction" scope="prototype"></bean>
+    <bean id="siteShowPlacardListAction" class="cn.edustar.jitar.action.SiteShowPlacardListAction" scope="prototype"></bean>
+    <bean id="siteShowPlacardAction" class="cn.edustar.jitar.action.SiteShowPlacardAction" scope="prototype">
+        <property name="placardService" ref="placardService"></property>
+    </bean>
+    <bean id="goAction" class="cn.edustar.jitar.action.GoAction" scope="prototype">
+        <property name="userService" ref="userService"/>
+        <property name="groupService" ref="groupService"/>
+        <property name="articleService" ref="articleService"/>
+        <property name="photoService" ref="photoService"/>
+        <property name="unitService" ref="unitService"/>
+        <property name="subjectService" ref="subjectService"/>        
+        <property name="uPunishScoreService" ref="UPunishScoreService"/>        
+    </bean>
+    <!-- 新闻 -->
+    <bean id="siteShowNewsAction" class="cn.edustar.jitar.action.SiteShowNewsAction" scope="prototype">
+        <property name="subjectService" ref="subjectService"></property>      
+    </bean>
+     <bean id="siteShowNewsListAction" class="cn.edustar.jitar.action.SiteShowNewsListAction" scope="prototype">
+        <property name="subjectService" ref="subjectService"></property>      
+    </bean>
+    <!-- 活动 -->
+    <bean id="siteActionsAction" class="cn.edustar.jitar.action.SiteActionsAction" scope="prototype"></bean>    
+    <bean id="siteShowActionAction" class="cn.edustar.jitar.action.SiteShowActionAction" scope="prototype">
+        <property name="actionService" ref="actionService"/>
+        <property name="friendService" ref="friendService"/>
+        <property name="groupService" ref="groupService"/>
+        <property name="prepareCourseService" ref="prepareCourseService"/>
+    </bean>
+    <bean id="siteActionEditAction" class="cn.edustar.jitar.action.SiteActionEditAction" scope="prototype">
+        <property name="actionService" ref="actionService"/>
+        <property name="friendService" ref="friendService"/>
+        <property name="groupService" ref="groupService"/>
+        <property name="userService" ref="userService"/>
+        <property name="prepareCourseService" ref="prepareCourseService"/>
+        <property name="accessControlService" ref="accessControlService"/>
+    </bean>
+    <bean id="siteActionCreateAction" class="cn.edustar.jitar.action.SiteActionCreateAction" scope="prototype">
+        <property name="actionService" ref="actionService"/>
+        <property name="friendService" ref="friendService"/>
+        <property name="userService" ref="userService"/>
+        <property name="groupService" ref="groupService"/>
+        <property name="prepareCourseService" ref="prepareCourseService"/>
+        <property name="accessControlService" ref="accessControlService"/>
+    </bean>
+    <bean id="indexAction" class="cn.edustar.jitar.action.SiteIndexAction" scope="prototype">
+      <property name="productConfigService" ref="ProductConfigService"/>
+      <property name="siteIndexPartService" ref="siteIndexPartService"/>
+      <property name="articleService" ref="articleService"/>
+      <property name="timerCountService" ref="timerCountService"/>
+    </bean>
+    
+    <!-- 显示文章 -->
+    <bean id="showArticleAction" class="cn.edustar.jitar.action.ShowArticleAction" scope="prototype">
+      <property name="articleService" ref="articleService"/>
+      <property name="reportService" ref="reportService"/>
+      <property name="praiseService" ref="praiseService"/>
+      <property name="browsingService" ref="browsingService"/>      
+      <property name="favoritesService" ref="UFavoritesService"/>
+      <property name="categoryService" ref="categoryService"/>
+      <property name="userService" ref="userService"/>
+      <property name="commentService" ref="commentService"/>
+      <property name="configService" ref="configService"/>
+    </bean>
+    
+    <!-- 显示自定义分类文章 -->
+    <bean id="showContentAction" class="cn.edustar.jitar.action.ShowContentAction" scope="prototype">
+      <property name="contentSpaceService" ref="contentSpaceService"/>
+    </bean>    
+    <bean id="showCustomArticleAction" class="cn.edustar.jitar.action.ShowCustomArticleAction" scope="prototype">
+      <property name="contentSpaceService" ref="contentSpaceService"/>
+    </bean> 
+    
+    
+    <!-- 添加根站点 -->
+    <bean id="addRootUnit" class="cn.edustar.jitar.action.AddRootUnitAction" scope="prototype">
+        <property name="unitService" ref="unitService"/>
+    </bean>
+    
+    
+    <!-- 单位机构 -->
+    <bean id="unitgetinfoAction" class="cn.edustar.jitar.action.UnitGetInfoAction" scope="prototype">
+        <property name="unitService" ref="unitService"/> 
+        <property name="unitTypeService" ref="unitTypeService"/>
+        <property name="accessControlService" ref="accessControlService"/>
+        <property name="subjectService" ref="subjectService"/>
+        <property name="categoryService" ref="categoryService"/>
+        <property name="cacheProvider" ref="cacheProvider" />
+        <property name="siteNavService" ref="siteNavService" />
+    </bean>
+    
+	<!-- 初始化 -->
+	<bean id="initTask" class="cn.edustar.jitar.service.task.InitTask" init-method="init" lazy-init="false" scope="singleton">
+		<property name="siteThemeService" ref="siteThemeService" />
+		<property name="siteNavService" ref="siteNavService" />
+    <property name="timerCountService" ref="timerCountService" />
+	</bean>	
+	<!-- 定时器 -->
+	<bean id="scheduledTaskStatService" class="cn.edustar.jitar.service.task.JitarStatTaskService">
+		<property name="userStatManage" ref="userStatManage" />
+		<property name="unitService" ref="unitService" />
+		<property name="groupService" ref="groupService" />
+	</bean>
+	<bean id="scheduledTaskGenernateHtml" class="cn.edustar.jitar.query.sitefactory.SiteFactory" destroy-method="destroy" lazy-init="false">
+		<property name="htmlGeneratorService" ref="htmlGeneratorService" />
+    <property name="timerCountService" ref="timerCountService" />
+		<property name="generatorSevenDaysCommentArticleService" ref="generatorSevenDaysCommentArticleService" />		
+	</bean>
+	<!-- 定时器配置 -->
+	<task:scheduled-tasks>
+		<task:scheduled ref="scheduledTaskStatService" method="doAuth" cron="0 0 4 * * ?" />
+		<task:scheduled ref="scheduledTaskGenernateHtml" method="Html" cron="0 0/30 * * * ?" />
+	</task:scheduled-tasks>
+</beans>

@@ -1,0 +1,565 @@
+[TOPICS=11]
+"Getting Started with the WebEQ Publisher","topics/main.html"
+"Preparing the Source Document","topics/prepare.html"
+"Using WebTeX Macros","topics/macros.html"
+"Specifying the Source Document","topics/sourcedoc.html"
+"Specifying the Output Document","topics/outputdoc.html"
+"Specifying the Equation Format","topics/processing.html"
+"Appearance Options","topics/appearance.html"
+"Viewer Control Options","topics/viewer.html"
+"Translation Options","topics/translation.html"
+"Image Options","topics/image.html"
+"Saving your Settings","topics/settings.html"
+
+[KEYWORDS=439]
+"$", 1
+"$..$", 3
+"$\gump", 2
+"$a", 0
+".jpg", 9
+".png", 9
+"18pt", 6
+"9$", 2
+"\$", 1
+"\[", 1
+"\]", 1
+"\define{\gump}{x^2}", 2
+"\pi", 0
+"ability", 2
+"accessibl", 5
+"accompany", 7
+"activ", 3, 5, 8
+"ad", 5
+"add", 6
+"additional", 5
+"adjacent", 3, 4, 5
+"adjust", 5
+"advanc", 0
+"advantag", 8
+"affect", 6, 7, 9
+"again", 0
+"alert", 7
+"align", 6
+"alignment", 6
+"allow", 3, 8
+"alpha", 8
+"alternatively", 8
+"amaya", 8
+"amount", 6
+"appear", 1, 7
+"appearanc", 5, 6
+"append", 9
+"applet", 0, 1, 2, 5, 6, 7, 8
+"application", 8
+"apply", 5
+"arbitrary", 8
+"area", 0, 3, 4
+"around", 6
+"attempt", 6, 7, 8
+"attention", 1
+"attribut", 0
+"author", 0, 1, 2
+"automatic", 7
+"automatically", 1, 3, 10
+"availabl", 8
+"background", 6
+"bas", 2, 6, 7, 9
+"baselin", 6
+"becom", 3, 5, 8
+"begin", 1, 2
+"behavior", 8, 9
+"best", 8
+"binary", 8
+"black", 6
+"block", 2
+"body", 6
+"both", 2, 5
+"bottom", 4, 5, 6
+"bound", 6
+"box", 2, 6, 7, 8
+"brows", 0, 4, 5, 6, 8, 9
+"browser", 5, 8
+"capabl", 5
+"cas", 2, 6
+"caus", 7
+"center", 1
+"centerlin", 6
+"chang", 0, 3, 7
+"charact", 8
+"character", 1, 2, 7, 8
+"check", 0, 2, 3, 4, 7, 8
+"choic", 8
+"circl", 0
+"clas", 7
+"clear", 8
+"client", 8
+"closest", 6
+"cod", 0, 1, 5, 6, 7, 8
+"codebas", 0, 7
+"collection", 2
+"color", 6
+"com", 3
+"command", 2
+"comment", 1, 2
+"common", 0
+"commonly", 2, 9
+"community", 8
+"concensu", 8
+"conjunction", 2
+"contain", 0, 2, 3, 4, 7
+"control", 0, 5, 6, 7, 8
+"convenient", 2
+"convert", 1, 8
+"correspond", 6
+"could", 2
+"creat", 2, 9
+"cut", 7
+"declaration", 5, 8
+"default", 1, 3, 5, 6, 7, 8, 9
+"defin", 2
+"definition", 2
+"definitions;", 2
+"delimit", 1
+"delimiter", 1, 3
+"dependent", 6
+"design", 8
+"desir", 9
+"detect", 1, 3, 8
+"determin", 5, 7
+"developer", 7
+"dialog", 2, 5
+"different", 0
+"dimension", 6, 7
+"direct", 4
+"directly", 3
+"directory", 7, 9
+"disabl", 7
+"disk", 5
+"display", 1, 5, 6, 7
+"distribut", 7
+"divid", 3, 4
+"document", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+"document-wid", 2
+"documentation", 7
+"doesnt", 6
+"dollar", 1
+"down", 6
+"drop-down", 8
+"dur", 8
+"dynamically", 7, 8
+"e.g", 3
+"edit", 9
+"effect", 8
+"embed", 0, 1
+"emerg", 8
+"enabl", 7
+"encod", 1, 3, 8
+"encounter", 8, 9
+"ent", 1, 2, 3, 6, 9
+"enter", 3, 6
+"entity", 8
+"equation", 0, 1, 3, 4, 5, 6, 7, 8, 9
+"error", 8
+"essentially", 2
+"etc", 9
+"exactly", 2
+"exampl", 0, 2, 9
+"exit", 10
+"experiment", 8
+"explicitly", 1, 6, 10
+"explor", 8
+"export", 8
+"expression", 1, 7
+"extend", 2
+"extension", 9
+"external", 2
+"extra", 6
+"facilitat", 2
+"factor", 6
+"fail", 7
+"fall", 6
+"fallback", 5
+"featur", 2, 7
+"field", 1, 2, 3, 4, 8, 9
+"fil", 0, 1, 2, 3, 4, 5, 7, 8, 9
+"file;", 9
+"filenam", 3, 9
+"fin", 0
+"finally", 8
+"find", 1, 6, 9
+"fine-tun", 5
+"finish", 0
+"follow", 0, 2, 3
+"font", 6, 7
+"foreground", 6
+"form", 9
+"format", 0, 2, 4, 5, 6, 8, 9
+"formula.html", 9
+"formula1.jpg", 9
+"formula2.jpg", 9
+"four", 5
+"full", 8
+"fully", 7
+"generally", 0, 5
+"generat", 2, 5, 6, 7, 8, 9
+"given", 0, 2, 9
+"go", 0, 4
+"graphic", 5
+"happen", 7
+"hav", 1
+"havent", 7
+"head", 2, 7
+"header", 5, 8
+"height", 0, 7
+"hexadecimal", 8
+"html", 0, 1, 2, 5, 6, 7, 8, 9
+"i.", 7
+"ibm", 8
+"identify", 8
+"ignor", 1
+"illustrat", 2
+"imag", 0, 1, 5, 6, 9
+"in-lin", 1
+"includ", 1, 2, 5, 8
+"initial", 6
+"inlin", 1
+"input", 1, 3, 4
+"insert", 6, 8
+"insid", 1
+"instal", 7
+"install", 7
+"instead", 6
+"insur", 6
+"integ", 6
+"inter-lin", 6
+"internet", 8
+"interpret", 1, 9
+"interspers", 0
+"introduc", 2, 6
+"java", 0, 5
+"javascript", 7
+"jpeg", 9
+"jpg", 5
+"kind", 1, 2, 5, 8
+"label", 8
+"larg", 0, 2, 7
+"latex", 1
+"lin", 2, 6, 7
+"linebreak", 7
+"list", 6
+"local", 2, 5, 8
+"locally", 7
+"location", 0, 2, 5, 8, 9
+"long", 10
+"lot", 6
+"m", 8
+"macro", 2, 8
+"macros.txt", 2
+"main", 0, 1, 3, 4, 5, 6, 7, 8, 9
+"mak", 0, 6
+"mark", 1
+"markup", 0, 1, 3, 8
+"match", 2, 6
+"math", 0, 1, 3, 8
+"mathematical", 1
+"mathml", 0, 1, 2, 3, 5, 7, 8
+"mathplay", 8
+"maximum", 7
+"mechanism", 7
+"menu", 0, 5, 6, 7, 8, 9
+"messag", 8
+"middl", 6
+"mml", 8
+"mous", 7
+"mozilla", 8
+"much", 6
+"nam", 2, 4, 6, 8, 9
+"namespac", 8
+"nativ", 8
+"necessarily", 6
+"necessary", 5, 10
+"new", 0, 9
+"no", 6, 8, 9, 10
+"notation", 2
+"now", 0
+"numb", 2, 5, 9
+"number", 9
+"numerical", 8
+"onc", 2
+"open", 6, 7, 8, 9
+"option", 0, 2, 5, 6, 7, 8, 9
+"ord", 1
+"ordinarily", 1, 9
+"ordinary", 0
+"out", 0, 5
+"output", 0, 1, 2, 4, 5, 6, 7, 8, 9
+"p", 9
+"pad", 6
+"pag", 1, 5, 7, 8
+"panel", 0, 3, 4, 5, 6, 7, 8, 9
+"particularly", 6
+"past", 7
+"path", 7, 9
+"percentag", 6
+"pick", 4
+"plac", 6, 8, 9
+"plug-in", 5, 8
+"png", 5
+"point", 6, 9
+"pop", 7
+"pop-up", 4
+"positiv", 6
+"possibl", 5
+"post", 0
+"prefix", 8
+"preformat", 1
+"prepar", 0, 1, 8
+"previou", 2, 5
+"primarily", 8
+"probably", 2
+"problem", 6
+"proces", 0, 1, 2, 3, 5, 8, 9
+"produc", 0
+"program", 0
+"prompt", 7
+"properly", 5
+"provid", 2
+"publication", 0
+"publish", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+"pulldown", 5, 8
+"qualifi", 7
+"r", 0
+"r^2$", 0
+"radiu", 0
+"raw", 8
+"re-sizeabl", 4
+"read", 0, 7
+"reader", 5, 7, 8
+"ready", 0
+"recogniz", 1
+"referenc", 8
+"regenerat", 8
+"relativ", 7, 9
+"relevant", 0, 8
+"render", 8
+"replac", 0
+"representation", 8
+"requir", 1, 5
+"rest", 1
+"result", 5, 7
+"right", 7
+"round", 6
+"run", 0, 2
+"sav", 5, 9, 10
+"scienc", 8
+"screen", 3, 4, 6, 7, 8, 9
+"script", 7
+"section", 1
+"security", 7
+"seem", 6
+"seldom", 6
+"select", 5, 7, 8
+"selection", 7
+"send", 4, 8
+"separat", 2, 9
+"sequenc", 9
+"serv", 7
+"set", 0, 1, 2, 3, 4, 5, 6, 7, 8
+"setting", 5, 10
+"shar", 2
+"shorthand", 2
+"show", 1
+"sid", 6
+"sign", 1
+"simply", 7
+"singl", 2, 9
+"siz", 6, 7
+"slop", 6
+"someth", 0
+"sourc", 0, 1, 2, 3, 6, 8
+"spac", 1, 6
+"special", 1, 2
+"specifi", 2, 4, 6, 7, 8, 9
+"specific", 8
+"specify", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+"standard", 1
+"start", 0
+"step", 0
+"str", 8
+"strategy", 6
+"strict", 5, 8
+"strip", 9
+"stylesheet", 8
+"sufficiently", 7
+"suffix", 9
+"suit", 7
+"superior", 5
+"support", 8
+"surround", 1, 3, 6
+"symbol", 1, 8
+"syntax", 2
+"system", 6, 9
+"tag", 0, 1, 5, 6, 8, 9
+"tags;", 7
+"techexplor", 8
+"test", 2
+"text", 0, 1, 3, 6
+"thre", 6, 8
+"tim", 8
+"top", 3, 4, 6
+"top-level", 1
+"translat", 2, 8
+"translation", 2, 5, 8
+"tru", 6
+"tun", 0
+"turn", 1, 5
+"two", 1, 3, 4
+"typ", 0, 5
+"typically", 5, 7
+"uncheck", 7
+"understand", 8
+"unicod", 8
+"uniqu", 8
+"until", 8
+"updat", 0
+"upon", 10
+"url", 7
+"useful", 2, 6, 7
+"usually", 5
+"valu", 6, 8
+"vary", 6
+"verical", 6
+"vertical", 1, 6, 7
+"vertically", 6
+"via", 7
+"view", 0, 5, 6, 7, 8
+"viewabl", 8
+"w3c", 8
+"warn", 6
+"web", 0, 7, 8
+"webeq", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+"webtex", 0, 1, 2, 3, 8
+"whitespac", 2
+"who", 7
+"wid", 7
+"width", 0, 6, 7
+"window", 1, 3, 4, 5, 7
+"work-around", 6
+"worry", 1
+"wors", 6
+"wrap", 7
+"writ", 0, 5, 8
+"written", 9
+"xsl", 8
+
+[STOPWORDS=110]
+"0"
+"1"
+"2"
+"3"
+"4"
+"5"
+"6"
+"7"
+"8"
+"9"
+"a"
+"after"
+"all"
+"along"
+"already"
+"also"
+"am"
+"among"
+"an"
+"and"
+"another"
+"any"
+"are"
+"as"
+"at"
+"be"
+"because"
+"been"
+"between"
+"but"
+"by"
+"can"
+"do"
+"does"
+"doesn"
+"done"
+"each"
+"either"
+"for"
+"from"
+"get"
+"has"
+"have"
+"here"
+"how"
+"i"
+"if"
+"in"
+"into"
+"is"
+"isn"
+"it"
+"like"
+"may"
+"maybe"
+"more"
+"must"
+"need"
+"non"
+"not"
+"of"
+"ok"
+"okay"
+"on"
+"or"
+"other"
+"rather"
+"re"
+"s"
+"same"
+"see"
+"so"
+"some"
+"such"
+"t"
+"than"
+"that"
+"the"
+"their"
+"them"
+"then"
+"there"
+"these"
+"they"
+"this"
+"those"
+"to"
+"too"
+"unless"
+"use"
+"used"
+"using"
+"ve"
+"want"
+"was"
+"way"
+"were"
+"what"
+"when"
+"whenever"
+"where"
+"whether"
+"which"
+"will"
+"with"
+"within"
+"without"
+"yet"
+"you"
+"your"

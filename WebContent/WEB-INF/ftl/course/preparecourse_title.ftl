@@ -1,0 +1,1 @@
+<#if prepareCourse?? ><h2><a href='${SiteUrl}p/${prepareCourse.prepareCourseId}/0/' target='_blank'>${prepareCourse.title} 首页</a></h2></#if>

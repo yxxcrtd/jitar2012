@@ -1,0 +1,126 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+
+<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Preparing the Source Document</h1>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>In order for WebEQ Publisher to automatically detect equation
+markup to be converted into images or applet code, the equation markup
+must be set off from the rest of the HTML input by <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">equation
+delimiters</em>.</p>
+
+
+
+<p>The Publisher recognizes two kinds of equation delimiters.  WebTeX
+equations in the HTML source file can be delimited with either of the
+two standard LaTeX delimiters for mathematical expressions:</p>
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<table xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">
+<tbody>
+<tr>
+<td><b>$ ... $</b></td>
+
+<td>for in-line equations</td>
+
+</tr>
+
+<tr>
+<td><b>\[ ... \]</b></td>
+
+<td>for displayed equations</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>Equations surrounded by the LaTeX display equation delimiters will
+appear centered and set off by vertical space
+from the surrounding text in the output document.</p>
+
+
+
+<p>MathML markup should always be delimited by the standard top-level
+MathML &lt;math&gt; ... &lt;/math&gt; tags.  When using MathML, displayed
+equations must be explicitly marked up by the author using &lt;P&gt; and
+&lt;CENTER&gt; tags.</p>
+
+
+
+<p>By default, WebEQ Publisher will automatically process all
+equations it finds, whether they are encoded as WebTeX or MathML.  If
+you wish to convert only one kind of markup, you can specify this in
+the "Math Encoding" field in the Source Document section of the main
+Publisher window.</p>
+
+
+
+<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Special Characters</h3>
+
+
+<p>Dollar signs require special attention when you use them in a
+Publisher source file, since ordinarily the Publisher will interpret a
+dollar sign as beginning a WebTeX equation. To get a <tt xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">$</tt> symbol
+to show up in the HTML output file, enter <tt xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">\$</tt> in the input
+file.</p>
+
+ 
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+ 
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+ 
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Comments</h3>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>The Publisher will not process any math markup embedded in an HTML
+comment,</p>
+
+
+
+<p>
+<blockquote><pre>&lt;!--  .... --&gt;</pre></blockquote>
+</p>
+
+
+
+<p>Preformatted text inside</p>
+
+
+
+<p>
+<blockquote><pre>&lt;PRE&gt;  ....  &lt;/PRE&gt;</pre></blockquote>
+</p>
+
+
+
+<p>tags will also be ignored by the Publisher, so that you can include
+MathML or WebTeX source code in your page without having to worry that
+it will be turned into an applet.</p>
+
+
+
+</body>
+</html>

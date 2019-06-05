@@ -1,0 +1,19 @@
+<form name="addFriendForm" action="${JITAR_ROOT}manage/friend.action" method="post" target="myiframe">
+	<div class="divFrame">
+		<div class="divCls fontBold" onclick="$('shareDiv').style.display = 'none'">X</div>
+		<div onmousedown="DivUtil.dragStart(event, 'shareDiv')" class="divTitle">添加好友</div>
+		<div class="divSpacer"></div>
+		<div class="divBody">
+			<div>您正在将 ${loginName} 加为好友	</div>
+			<input type="hidden" name="cmd" value="add" />
+			<input type="hidden" name="friendName" id="loginname" value="${loginname}" />			
+			<div>输入留言：</div>
+			<div><textarea id="remark" name="remark" style="width: 100%; height: 200px"></textarea><br/>			
+				<input type="button" value="添加好友" onclick="DivUtil.doAddFriend(addFriendForm)" />
+				<input type="button" value="关闭窗口" onclick="$('shareDiv').style.display = 'none'" />
+			</div>
+			<div style="color: red">最多输入1000字。</div>
+		</div>
+	</div>
+</form>
+<iframe name="myiframe" style="display:none"></iframe>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.ChannelUser" table="Jitar_ChannelUser">
+		<id name="channelUserId" type="int">
+			<column name="ChannelUserId" />
+			<generator class="identity" />
+		</id>
+		<property name="channelId" type="int">
+			<column name="ChannelId" not-null="true" />
+		</property>
+		<property name="userId" type="int">
+			<column name="UserId" not-null="true" />
+		</property>
+		<many-to-one name="user" column="UserId"
+			class="cn.edustar.jitar.pojos.User" fetch="join" not-null="false"
+			lazy="proxy" insert="false" update="false" />
+		<property name="unitId" type="int">
+            <column name="UnitId" not-null="true" />
+        </property>
+        <property name="unitTitle" type="java.lang.String">
+            <column name="UnitTitle" length="50" not-null="true" />
+        </property>        
+        <many-to-one name="channel" column="ChannelId"
+            class="cn.edustar.jitar.pojos.Channel" fetch="join" not-null="false"
+            lazy="proxy" insert="false" update="false" />
+	</class>
+</hibernate-mapping>

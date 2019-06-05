@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <timestamp key="byDay" datePattern="yyyy-MM-dd" />
+  <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{yyyy-MM-dd HH:mm:ss} %p [%t] %c:%L - %m%n</pattern>
+    </encoder>
+  </appender>
+  <appender name="FileLog"
+    class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <prudent>false</prudent>
+    <file>${catalina.base}/logs/jitar_${byDay}.log</file>
+    <rollingPolicy
+      class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+      <fileNamePattern>${catalina.base}/logs/jitar_${byDay}.%i.zip
+      </fileNamePattern>
+      <MinIndex>1</MinIndex>
+      <MaxIndex>5</MaxIndex>
+    </rollingPolicy>
+    <triggeringPolicy
+      class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+      <MaxFileSize>2MB</MaxFileSize>
+    </triggeringPolicy>
+    <encoder>
+      <pattern>[%level] [%d{yyyy-MM-dd HH:mm:ss}] [%logger:%line] %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+  <logger name="org.jasig.cas.client" level="ERROR" />
+  <logger name="cn.edustar.usermgr" level="ERROR" />
+  <logger name="cn.edustar.jitar" level="ERROR" />
+  <logger name="org.apache" level="ERROR" />
+  <logger name="com.opensymphony" level="ERROR" />
+  <logger name="org.springframework" level="ERROR" />
+  <logger name="org.hibernate" level="ERROR" />
+  <logger name="com.mchange.v2.c3p0" level="ERROR" />
+  <logger name="net.sf.ehcache" level="ERROR" />
+  <logger name="org.jboss" level="ERROR" />
+  <logger name="net.rubyeye" level="ERROR" />
+  <logger name="com.google.code.yanf4j" level="ERROR" />  
+  <root level="ERROR">
+    <appender-ref ref="Console" />
+    <appender-ref ref="FileLog" />
+  </root>
+  <root level="DEBUG">
+    <appender-ref ref="Console" />
+  </root>
+</configuration>

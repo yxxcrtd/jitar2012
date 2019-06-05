@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.Resource" table="Jtr_Resource">
+		<id name="resourceId" type="int">
+			<column name="ResourceId" />
+			<generator class="identity" />
+		</id>
+		<property name="objectUuid" type="java.lang.String" update="false">
+			<column name="ObjectUuid" length="40" not-null="true" />
+		</property>
+		<property name="publishToZyk" type="boolean">
+			<column name="IsPublishToZyk" not-null="true" />
+		</property>
+		<property name="title" type="java.lang.String">
+			<column name="Title" length="256" not-null="true" />
+		</property>
+		<property name="userId" type="int">
+			<column name="UserID" not-null="true" />
+		</property>
+		<property name="createDate" type="java.util.Date" update="false">
+			<column name="CreateDate" length="23" not-null="true" />
+		</property>
+		<property name="lastModified" type="java.util.Date">
+			<column name="LastModified" length="23" not-null="true" />
+		</property>
+		<property name="summary" type="java.lang.String">
+			<column name="Summary" length="2000" />
+		</property>
+		<property name="tags" type="java.lang.String">
+			<column name="Tags" length="256" />
+		</property>
+		<property name="viewCount" type="int" update="false">
+			<column name="ViewCount" not-null="true" />
+		</property>
+		<property name="commentCount" type="int" update="false">
+			<column name="CommentCount" not-null="true" />
+		</property>
+		<property name="auditState" type="short">
+			<column name="AuditState" not-null="true" />
+		</property>
+		<property name="userCateId" type="int">
+			<column name="UserCateId" />
+		</property>
+		<many-to-one name="userCate" column="UserCateId" class="cn.edustar.jitar.pojos.Category" fetch="join" not-null="false" lazy="proxy" insert="false" update="false" />
+		<property name="sysCateId" type="int">
+			<column name="SysCateId" />
+		</property>
+		<many-to-one name="sysCate" column="SysCateId" class="cn.edustar.jitar.pojos.Category" fetch="join" not-null="false" lazy="proxy" insert="false" update="false" />
+		<property name="delState" type="boolean">
+			<column name="DelState" not-null="true" />
+		</property>
+		<property name="recommendState" type="boolean">
+			<column name="RecommendState" not-null="true" />
+		</property>
+		<property name="downloadCount" type="int" update="false">
+			<column name="DownloadCount" not-null="true" />
+		</property>
+		<property name="shareMode" type="int">
+			<column name="ShareMode" not-null="true" />
+		</property>
+		<property name="resTypeId" type="java.lang.Integer">
+			<column name="ResTypeId" />
+		</property>
+		<many-to-one name="resType" column="ResTypeId" class="cn.edustar.jitar.pojos.ResType" fetch="join" not-null="false" lazy="proxy" insert="false" update="false" />
+		<property name="author" type="java.lang.String">
+			<column name="Author" length="128" />
+		</property>
+		<property name="publisher" type="java.lang.String">
+			<column name="Publisher" length="128" />
+		</property>
+		<property name="subjectId" type="java.lang.Integer">
+			<column name="SubjectId" />
+		</property>
+		<many-to-one name="subject" column="SubjectId" class="cn.edustar.jitar.pojos.Subject" fetch="join" not-null="false" lazy="proxy" insert="false" update="false" />
+		<property name="href" type="java.lang.String">
+			<column name="Href" length="256" />
+		</property>		
+		<property name="fsize" type="int">
+			<column name="FileSize" not-null="true" />
+		</property>
+		<property name="addIp" type="java.lang.String" update="false">
+			<column name="AddIP" length="50" />
+		</property>
+		<property name="gradeId" type="int">
+			<column name="GradeId" />
+		</property>
+		<many-to-one name="grade" column="GradeId" class="cn.edustar.jitar.pojos.Grade" fetch="join" not-null="false" lazy="proxy" insert="false" update="false" />
+		<property name="unitId" type="java.lang.Integer">
+			<column name="UnitId" not-null="true" />
+		</property>
+		<property name="pushState" type="int">
+			<column name="PushState" not-null="true" />
+		</property>
+		<property name="pushUserId" type="java.lang.Integer">
+			<column name="PushUserId" />
+		</property>
+		<property name="unitPathInfo" type="java.lang.String">
+			<column name="UnitPathInfo" length="1024" not-null="true" />
+		</property>
+		<property name="orginPathInfo" type="java.lang.String">
+			<column name="OrginPathInfo" length="1024" not-null="true" />
+		</property>
+		<property name="rcmdPathInfo" type="java.lang.String">
+			<column name="RcmdPathInfo" length="1024" />
+		</property>
+		<property name="approvedPathInfo" type="java.lang.String">
+			<column name="ApprovedPathInfo" length="1024" />
+		</property>
+	</class>
+</hibernate-mapping>

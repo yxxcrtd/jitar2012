@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.GroupKTUser" table="G_GroupKTUser">
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="groupId" type="int">
+            <column name="GroupId" not-null="true" />
+        </property>
+        <property name="teacherId" type="int">
+            <column name="TeacherId" not-null="true" />
+        </property>
+        <property name="teacherName" type="java.lang.String">
+            <column name="TeacherName" length="50" not-null="true" />
+        </property>
+        <property name="teacherGender" type="java.lang.String">
+            <column name="TeacherGender" length="10" not-null="true" />
+        </property>
+        <property name="teacherUnit" type="java.lang.String">
+            <column name="TeacherUnit" length="100"/>
+        </property>
+        <property name="teacherXZZW" type="java.lang.String">
+            <column name="TeacherXZZW" length="100"/>
+        </property>
+        <property name="teacherZYZW" type="java.lang.String">
+            <column name="TeacherZYZW" length="100"/>
+        </property>
+        <property name="teacherXL" type="java.lang.String">
+            <column name="TeacherXL" length="100"/>
+        </property>
+        <property name="teacherXW" type="java.lang.String">
+            <column name="TeacherXW" length="100"/>
+        </property>
+        <property name="teacherYJZC" type="java.lang.String">
+            <column name="TeacherYJZC"/>
+        </property>
+        <property name="teacherXKXDId" type="java.lang.String">
+            <column name="TeacherXKXDId" length="1024"/>
+        </property>
+        <property name="teacherXKXDName" type="java.lang.String">
+            <column name="TeacherXKXDName" length="1024"/>
+        </property>
+        
+    </class>
+</hibernate-mapping>

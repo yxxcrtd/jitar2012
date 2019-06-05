@@ -1,0 +1,320 @@
+<html>
+<!--Sitemap 1.0-->
+<object type="text/site properties">
+<param name="FrameName" value="bsscright">
+<param name="SiteType" value="index">
+</object>
+<ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="checking syntax">
+<param name="Name" value="Checking Syntax">
+<param name="Local" value="topics/checksyntax.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="color coding">
+<param name="Name" value="Checking Syntax">
+<param name="Local" value="topics/checksyntax.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="Copy">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+<param name="Name" value="The Toolbar">
+<param name="Local" value="topics/toolbar.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="from toolbar">
+<param name="Name" value="The Toolbar">
+<param name="Local" value="topics/toolbar.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="keyboard shortcut">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="cursor">
+<param name="Name" value="Getting Started">
+<param name="Local" value="topics/main.html">
+<param name="Name" value="Navigating with the Cursor">
+<param name="Local" value="topics/navigation.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="gray box">
+<param name="Name" value="Getting Started">
+<param name="Local" value="topics/main.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="gray box">
+<param name="Name" value="Navigating with the Cursor">
+<param name="Local" value="topics/navigation.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="I-beam">
+<param name="Name" value="Navigating with the Cursor">
+<param name="Local" value="topics/navigation.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="upside down T">
+<param name="Name" value="Navigating with the Cursor">
+<param name="Local" value="topics/navigation.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="cursor movement">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="in tokens">
+<param name="Name" value="Navigating with the Cursor">
+<param name="Local" value="topics/navigation.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="unexpected">
+<param name="Name" value="Getting Started">
+<param name="Local" value="topics/main.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="unexpected">
+<param name="Name" value="Navigating with the Cursor">
+<param name="Local" value="topics/navigation.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="with arrow keys">
+<param name="Name" value="Getting Started">
+<param name="Local" value="topics/main.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="with arrow keys">
+<param name="Name" value="Navigating with the Cursor">
+<param name="Local" value="topics/navigation.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="with mouse">
+<param name="Name" value="Getting Started">
+<param name="Local" value="topics/main.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="with mouse">
+<param name="Name" value="Navigating with the Cursor">
+<param name="Local" value="topics/navigation.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="Cut">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="from toolbar">
+<param name="Name" value="The Toolbar">
+<param name="Local" value="topics/toolbar.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="keyboard shortcut">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="keyboard shortcuts">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="expression group">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="fraction">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="nth root">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="parenthesized expression">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="square root">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="subscript">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="superscript">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="Paste">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+<param name="Name" value="The Toolbar">
+<param name="Local" value="topics/toolbar.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="from toolbar">
+<param name="Name" value="The Toolbar">
+<param name="Local" value="topics/toolbar.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="keyboard shortcut">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="symbols">
+<param name="Name" value="Getting Started">
+<param name="Local" value="topics/main.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="entering">
+<param name="Name" value="Getting Started">
+<param name="Local" value="topics/main.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="syntax checking">
+<param name="Name" value="The Toolbar">
+<param name="Local" value="topics/toolbar.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="syntax errors">
+<param name="Name" value="Checking Syntax">
+<param name="Local" value="topics/checksyntax.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="TAB key">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+<param name="Name" value="Navigating with the Cursor">
+<param name="Local" value="topics/navigation.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="cycling through templates">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="templates">
+<param name="Name" value="Getting Started">
+<param name="Local" value="topics/main.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="cycling through with TAB">
+<param name="Name" value="Navigating with the Cursor">
+<param name="Local" value="topics/navigation.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="tokens">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="multi-character">
+<param name="Name" value="Navigating with the Cursor">
+<param name="Local" value="topics/navigation.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="text">
+<param name="Name" value="Navigating with the Cursor">
+<param name="Local" value="topics/navigation.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="toolbar">
+<param name="Name" value="The Toolbar">
+<param name="Local" value="topics/toolbar.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="inserting symbols">
+<param name="Name" value="The Toolbar">
+<param name="Local" value="topics/toolbar.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="inserting templates">
+<param name="Name" value="The Toolbar">
+<param name="Local" value="topics/toolbar.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="toolbox">
+<param name="Name" value="The Toolbar">
+<param name="Local" value="topics/toolbar.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="Undo">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+<param name="Name" value="The Toolbar">
+<param name="Local" value="topics/toolbar.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="from toolbar">
+<param name="Name" value="The Toolbar">
+<param name="Local" value="topics/toolbar.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="keyboard shortcut">
+<param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html">
+</object></li>
+</ul>
+
+</ul>
+</html>

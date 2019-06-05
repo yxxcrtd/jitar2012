@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.GroupMutil" table="G_GroupMutil">
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+    <property name="widgetId" type="int">
+      <column name="WidgetId" not-null="true" />
+    </property>
+    <property name="articleCateId" type="int">
+      <column name="ArticleCateId" />
+    </property>
+    <property name="articleNumShow" type="int">
+      <column name="ArticleNumShow"/>
+    </property>
+    <property name="resourceCateId" type="int">
+      <column name="ResourceCateId"/>
+    </property>
+    <property name="resourceNumShow" type="int">
+      <column name="ResourceNumShow"/>
+    </property>
+    <property name="photoCateId" type="int">
+      <column name="PhotoCateId"/>
+    </property>
+    <property name="photoNumShow" type="int">
+      <column name="PhotoNumShow"/>
+    </property>
+    <property name="videoCateId" type="int">
+      <column name="VideoCateId"/>
+    </property>
+    <property name="videoNumShow" type="int">
+      <column name="VideoNumShow"/>
+    </property>
+    </class>
+</hibernate-mapping>

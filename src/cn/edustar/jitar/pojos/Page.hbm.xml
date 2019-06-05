@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.Page" table="P_Page">
+		<id name="pageId" type="int">
+			<column name="PageId" />
+			<generator class="native" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="Name" length="50" not-null="true" />
+		</property>
+		<property name="title" type="java.lang.String">
+			<column name="Title" not-null="true" />
+		</property>
+		<property name="objType" type="int">
+			<column name="ObjType" not-null="true" />
+		</property>
+		<property name="objId" type="int">
+			<column name="ObjId" not-null="true" />
+		</property>
+    <property name="createDate" type="java.util.Date">
+      <column name="CreateDate" length="23" not-null="true" />
+    </property>
+		<property name="description" type="java.lang.String">
+			<column name="Description" length="4000" />
+		</property>
+		<property name="itemOrder" type="java.lang.Short">
+			<column name="ItemOrder" not-null="true" />
+		</property>
+		<property name="layoutId" type="int">
+			<column name="LayoutId" />
+		</property>
+    <property name="skin" type="java.lang.String">
+      <column name="Skin" length="32" />
+    </property>
+    <property name="customSkin" type="java.lang.String">
+      <column name="CustomSkin" length="4000" />
+    </property>
+    
+	</class>
+</hibernate-mapping>

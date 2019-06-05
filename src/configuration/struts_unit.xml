@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+		"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<!-- 单位机构 -->
+	<package name="Units" namespace="/units/manage" extends="groups-default">
+		<action name="unitgetinfo" class="unitgetinfoAction" >
+			<result name="unitinfo" type="freemarker">/WEB-INF/unitsmanage/unit_into_ajax.ftl</result>
+		</action>
+    </package>
+</struts>

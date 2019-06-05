@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.GroupRelation" table="G_GroupRelation">
+		<id name="id" type="int">
+			<column name="Id" />
+			<generator class="identity" />
+		</id>
+    <property name="srcGroup" type="int">
+      <column name="SrcGroup" not-null="true" />
+    </property>
+    <property name="relation" type="java.lang.String">
+      <column name="Relation" length="32" not-null="true" />
+    </property>
+    <property name="dstGroup" type="int">
+      <column name="DstGroup" not-null="true" />
+    </property>
+    <property name="createDate" type="java.util.Date">
+      <column name="createDate" length="23" />
+    </property>
+    <property name="srcAudit" type="boolean">
+      <column name="SrcAudit" not-null="true" />
+    </property>
+    <property name="dstAudit" type="boolean">
+      <column name="DstAudit" not-null="true" />
+    </property>
+    <property name="srcDelete" type="boolean">
+      <column name="SrcDelete" not-null="true" />
+    </property>
+    <property name="dstDelete" type="boolean">
+      <column name="DstDelete" not-null="true" />
+    </property>
+    <property name="attribute" type="java.lang.String">
+      <column name="Attribute" length="1073741823" />
+    </property>
+	</class>
+</hibernate-mapping>

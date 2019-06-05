@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cn.edustar.push.MashupContent" table="MashupContent">
+        <id name="mashupContentId" type="java.lang.Integer">
+            <column name="MashupContentId" />
+            <generator class="identity" />
+        </id>
+        <property name="title" type="java.lang.String">
+            <column name="Title" not-null="true" />
+        </property>
+        <property name="documentType" type="java.lang.String">
+            <column name="DocumentType" not-null="true" />
+        </property>
+        <property name="href" type="java.lang.String">
+            <column name="Href" length="512" not-null="true" />
+        </property>
+        <property name="pushDate" type="java.util.Date">
+            <column name="PushDate" length="23" not-null="true" />
+        </property>
+        <property name="author" type="java.lang.String">
+            <column name="Author" length="50" not-null="true" />
+        </property>
+        <property name="unitName" type="java.lang.String">
+            <column name="UnitName" not-null="true" />
+        </property>
+         <property name="unitTitle" type="java.lang.String">
+            <column name="unitTitle" not-null="true" />
+        </property>
+        <property name="mashupContentState" type="int">
+            <column name="MashupContentState" not-null="true" />
+        </property>
+        <property name="orginId" type="java.lang.Integer">
+            <column name="OrginId" not-null="true" />
+        </property>
+        <property name="pushUserName" type="java.lang.String">
+            <column name="PushUserName" not-null="true" />
+        </property>
+        <property name="platformGuid" type="java.lang.String">
+            <column name="PlatformGuid" not-null="true" />
+        </property>
+        <property name="platformName" type="java.lang.String">
+            <column name="PlatformName" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,623 @@
+<html>
+<!--Sitemap 1.0-->
+<object type="text/site properties">
+<param name="FrameName" value="bsscright">
+<param name="SiteType" value="index">
+</object>
+<ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="appearance options">
+<param name="Name" value="Appearance Options">
+<param name="Local" value="topics/appearance.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="background color">
+<param name="Name" value="Appearance Options">
+<param name="Local" value="topics/appearance.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="baseline alignment">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="bounding box">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="character names">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="clipping">
+<param name="Name" value="Appearance Options">
+<param name="Local" value="topics/appearance.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="codebase">
+<param name="Name" value="Viewer Control Options">
+<param name="Local" value="topics/viewer.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="comments">
+<param name="Name" value="Preparing the Source Document">
+<param name="Local" value="topics/prepare.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="processing of">
+<param name="Name" value="Preparing the Source Document">
+<param name="Local" value="topics/prepare.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="control panel">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="delimiters">
+<param name="Name" value="Preparing the Source Document">
+<param name="Local" value="topics/prepare.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="escaping">
+<param name="Name" value="Preparing the Source Document">
+<param name="Local" value="topics/prepare.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="dollar signs">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="enabling cut and paste">
+<param name="Name" value="Viewer Control Options">
+<param name="Local" value="topics/viewer.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="entity references">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="equation delimiters">
+<param name="Name" value="Preparing the Source Document">
+<param name="Local" value="topics/prepare.html">
+<param name="Name" value="Specifying the Source Document">
+<param name="Local" value="topics/sourcedoc.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="for display equations">
+<param name="Name" value="Preparing the Source Document">
+<param name="Local" value="topics/prepare.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="for inline equations">
+<param name="Name" value="Preparing the Source Document">
+<param name="Local" value="topics/prepare.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="in screen input">
+<param name="Name" value="Specifying the Source Document">
+<param name="Local" value="topics/sourcedoc.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="equation format">
+<param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="error output">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="example">
+<param name="Name" value="Getting Started with the WebEQ Publisher">
+<param name="Local" value="topics/main.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="processing WebTeX">
+<param name="Name" value="Getting Started with the WebEQ Publisher">
+<param name="Local" value="topics/main.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="font size">
+<param name="Name" value="Appearance Options">
+<param name="Local" value="topics/appearance.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="foreground color">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="generating applets">
+<param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="images">
+<param name="Name" value="Image Options">
+<param name="Local" value="topics/image.html">
+<param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="basenames">
+<param name="Name" value="Image Options">
+<param name="Local" value="topics/image.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="JPEG">
+<param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="options">
+<param name="Name" value="Image Options">
+<param name="Local" value="topics/image.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="PNG">
+<param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="saving to a directory">
+<param name="Name" value="Image Options">
+<param name="Local" value="topics/image.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="input">
+<param name="Name" value="Specifying the Source Document">
+<param name="Local" value="topics/sourcedoc.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="from file">
+<param name="Name" value="Specifying the Source Document">
+<param name="Local" value="topics/sourcedoc.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="from screen">
+<param name="Name" value="Specifying the Source Document">
+<param name="Local" value="topics/sourcedoc.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="JPEG">
+<param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="linebreaking">
+<param name="Name" value="Viewer Control Options">
+<param name="Local" value="topics/viewer.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="macro file">
+<param name="Name" value="Using WebTeX Macros">
+<param name="Local" value="topics/macros.html">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="specifying location of">
+<param name="Name" value="Using WebTeX Macros">
+<param name="Local" value="topics/macros.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="macros">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="in separate files">
+<param name="Name" value="Using WebTeX Macros">
+<param name="Local" value="topics/macros.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="in the document header">
+<param name="Name" value="Using WebTeX Macros">
+<param name="Local" value="topics/macros.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="math encoding">
+<param name="Name" value="Specifying the Source Document">
+<param name="Local" value="topics/sourcedoc.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="math viewer options">
+<param name="Name" value="Viewer Control Options">
+<param name="Local" value="topics/viewer.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="MathML characters">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="namespaces">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="naming images">
+<param name="Name" value="Image Options">
+<param name="Local" value="topics/image.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="options">
+<param name="Name" value="Appearance Options">
+<param name="Local" value="topics/appearance.html">
+<param name="Name" value="Image Options">
+<param name="Local" value="topics/image.html">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+<param name="Name" value="Viewer Control Options">
+<param name="Local" value="topics/viewer.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="alignment">
+<param name="Name" value="Appearance Options">
+<param name="Local" value="topics/appearance.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="appearance">
+<param name="Name" value="Appearance Options">
+<param name="Local" value="topics/appearance.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="background color">
+<param name="Name" value="Appearance Options">
+<param name="Local" value="topics/appearance.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="codebase">
+<param name="Name" value="Viewer Control Options">
+<param name="Local" value="topics/viewer.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="enabling cut and paste">
+<param name="Name" value="Viewer Control Options">
+<param name="Local" value="topics/viewer.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="error output in HTML">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="error output to file">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="font size">
+<param name="Name" value="Appearance Options">
+<param name="Local" value="topics/appearance.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="foreground color">
+<param name="Name" value="Appearance Options">
+<param name="Local" value="topics/appearance.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="image directory">
+<param name="Name" value="Image Options">
+<param name="Local" value="topics/image.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="linebreaking">
+<param name="Name" value="Viewer Control Options">
+<param name="Local" value="topics/viewer.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="macro file location">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="namespace declarations">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="pad dimensions">
+<param name="Name" value="Appearance Options">
+<param name="Local" value="topics/appearance.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="prompting to install">
+<param name="Name" value="Viewer Control Options">
+<param name="Local" value="topics/viewer.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="size control panel">
+<param name="Name" value="Viewer Control Options">
+<param name="Local" value="topics/viewer.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="symbol export">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="translate WebTeX to MathML">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="output">
+<param name="Name" value="Specifying the Output Document">
+<param name="Local" value="topics/outputdoc.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="sending to file">
+<param name="Name" value="Specifying the Output Document">
+<param name="Local" value="topics/outputdoc.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="sending to screen">
+<param name="Name" value="Specifying the Output Document">
+<param name="Local" value="topics/outputdoc.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="output document">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="output file">
+<param name="Name" value="Getting Started with the WebEQ Publisher">
+<param name="Local" value="topics/main.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="format">
+<param name="Name" value="Getting Started with the WebEQ Publisher">
+<param name="Local" value="topics/main.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="output type">
+<param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="applets">
+<param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="applets with images">
+<param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="images only">
+<param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="strict MathML">
+<param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="padding equations">
+<param name="Name" value="Appearance Options">
+<param name="Local" value="topics/appearance.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="PNG">
+<param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="prompting readers to install">
+<param name="Name" value="Viewer Control Options">
+<param name="Local" value="topics/viewer.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="saving settings">
+<param name="Name" value="Saving your Settings">
+<param name="Local" value="topics/settings.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="screen input">
+<param name="Name" value="Specifying the Source Document">
+<param name="Local" value="topics/sourcedoc.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="equation delimiters">
+<param name="Name" value="Specifying the Source Document">
+<param name="Local" value="topics/sourcedoc.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="Source">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="setting up">
+<param name="Name" value="Specifying the Source Document">
+<param name="Local" value="topics/sourcedoc.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="source document">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="source file">
+<param name="Name" value="Getting Started with the WebEQ Publisher">
+<param name="Local" value="topics/main.html">
+<param name="Name" value="Preparing the Source Document">
+<param name="Local" value="topics/prepare.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="preparing">
+<param name="Name" value="Preparing the Source Document">
+<param name="Local" value="topics/prepare.html">
+</object></li>
+</ul>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="special characters">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="strict MathML">
+<param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="translation options">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="type of processing">
+<param name="Name" value="Getting Started with the WebEQ Publisher">
+<param name="Local" value="topics/main.html">
+<param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="Unicode">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="vertical alignment">
+<param name="Name" value="Appearance Options">
+<param name="Local" value="topics/appearance.html">
+</object>
+</li>
+<li>
+<object type="text/sitemap">
+<param name="Name" value="WebTeX">
+<param name="Name" value="Using WebTeX Macros">
+<param name="Local" value="topics/macros.html">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+</object>
+</li>
+<ul>
+<li><object type="text/sitemap">
+<param name="Name" value="converting to MathML">
+<param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html">
+</object></li>
+<li><object type="text/sitemap">
+<param name="Name" value="macros">
+<param name="Name" value="Using WebTeX Macros">
+<param name="Local" value="topics/macros.html">
+</object></li>
+</ul>
+
+</ul>
+</html>

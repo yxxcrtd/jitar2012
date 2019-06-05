@@ -1,0 +1,18 @@
+<html><!--Sitemap 1.0--><object type="text/site properties"><param name="FrameName" value="bsscright">
+<param name="SiteType" value="toc"></object>
+	<ul>
+<li><object type="text/sitemap"><param name="Name" value="WebEQ Input Control"></object></li>
+<ul>
+		<li><object type="text/sitemap"><param name="Name" value="Getting Started">
+<param name="Local" value="topics/main.html"></object></li>
+		<li><object type="text/sitemap"><param name="Name" value="The Toolbar">
+<param name="Local" value="topics/toolbar.html"></object></li>		
+		<li><object type="text/sitemap"><param name="Name" value="Navigating with the Cursor">
+<param name="Local" value="topics/navigation.html"></object></li>
+		<li><object type="text/sitemap"><param name="Name" value="Keyboard Shortcuts">
+<param name="Local" value="topics/keyboard.html"></object></li>
+		<li><object type="text/sitemap"><param name="Name" value="Checking Syntax">
+<param name="Local" value="topics/checksyntax.html"></object></li>
+	</ul>
+</ul>
+</html>

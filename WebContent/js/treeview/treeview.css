@@ -1,0 +1,12 @@
+.treeview div, .treeview a, .treeview img
+{
+  font-size: 12px;
+  line-height: 1em;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+.treeview img
+{
+  vertical-align: middle;
+}

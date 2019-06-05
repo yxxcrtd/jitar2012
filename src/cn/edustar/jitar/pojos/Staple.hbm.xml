@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.Staple" table="B_Staple">
+        <id name="stapleId" type="int">
+            <column name="StapleId" />
+            <generator class="identity" />
+        </id>
+        <property name="userId" type="int">
+            <column name="UserId" not-null="true" />
+        </property>
+        <property name="stapleName" type="java.lang.String">
+            <column name="StapleName" length="50" not-null="true" />
+        </property>
+        <property name="orderNum" type="int">
+            <column name="OrderNum" not-null="true" />
+        </property>
+        <property name="stapleType" type="int">
+            <column name="StapleType" not-null="true" />
+        </property>
+        <property name="invisible" type="boolean">
+            <column name="Invisible" not-null="true" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="blogNum" type="int">
+            <column name="BlogNum" not-null="true" />
+        </property>
+        <property name="views" type="int">
+            <column name="Views" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

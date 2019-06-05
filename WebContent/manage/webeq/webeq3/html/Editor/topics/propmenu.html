@@ -1,0 +1,86 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+	<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">How Properties Work</h1>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>Nearly all MathML templates have display properties that
+can be altered.  In WebEQ Editor, you can edit display properties
+by selecting the template you are interested in then using the Properties Menu to open the appropriate properties dialog box.</p>
+
+
+	<p>Not all properties apply to every template.  Depending on what you
+have selected, some of the Properties Menu entries may be grayed out,
+and within a particular properties dialog, some of the fields may be
+inactive.</p>
+
+
+	<p>Since selecting a template and opening a properties dialog is a
+common operation, WebEQ Editor gives you a way to quickly do this in one step.  Double-clicking on a template listed in the <a href="ancestry.html#ancestry">MathML ancestry</a> will open the most commonly used
+properties dialog for that template.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Special Values</h2>
+
+	<p>Many MathML properties can be set to a wide range of values.  In the property dialogs, these values are just fill-in areas, where
+you can type any value.  See <a href="propvals.html#propvals">Size and Color
+Formats</a> and the help pages for the individual property dialogs
+for details about the specific values accepted by each of these
+properties.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>Two more special values that can be set for a number of properties
+are <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">automatic</em> and <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">inherited</em>.  The precise meaning of
+<em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">automatic</em> varies from property to property.  However, in
+general, it indicates that the renderer should automatically choose
+property values according to standard typesetting rules.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The value <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">inherited</em> means that a property should take its
+value from an enclosing template.  In cases where no enclosing
+template provides a value, renderers will usually try to take the
+value from the surrounding HTML, or choose a reasonable default.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"><a id="stylechange"></a>Style Change Templates</h2>
+
+	<p>Tasks such as setting a font color for a subexpression arise
+frequently when authoring equations.  However, if the subexpression is
+something such as a fraction, for example, you can't directly set the
+font color, since font color isn't one of the fraction templates
+properties.  While selecting every character contained in the fraction
+and changing its color property might be acceptable in a very small
+example, it is not practical in most cases.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>To address this problem, MathML has a <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">style change
+template</em>.  Any MathML property can be set for a style change
+template, and it then applies to all templates nested within it as
+appropriate.  Thus, in the example of the fraction, a good solution is
+to first put the fraction in a style change, and edit the font color
+there.</p>
+
+
+	<p>You can insert a style change template from the <a href="insertlayouts.html#insertlayouts">Insert Layout</a> menu.</p>
+
+
+</body>
+</html>

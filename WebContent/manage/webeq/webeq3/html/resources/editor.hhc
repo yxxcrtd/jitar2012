@@ -1,0 +1,104 @@
+<html><!--Sitemap 1.0--><object type="text/site properties"><param name="FrameName" value="bsscright">
+<param name="SiteType" value="toc"></object>
+
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Getting Started"></object></li>
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Getting Started with WebEQ Editor">
+<param name="Local" value="topics/main.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="The Toolbar">
+<param name="Local" value="topics/toolbar.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Navigating with the Cursor">
+<param name="Local" value="topics/navigation.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Keyboard Input">
+<param name="Local" value="topics/keyboard.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="The MathML Ancestry">
+<param name="Local" value="topics/ancestry.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Generating Content Markup">
+<param name="Local" value="topics/contentgen.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Customizing WebEQ Editor">
+<param name="Local" value="topics/tbprefs.html"></object></li>
+</ul>
+</ul>
+
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Saving Your Work"></object></li>
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Saving and Opening Files">
+<param name="Local" value="topics/filemenu.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Saving as HTML Applets">
+<param name="Local" value="topics/saveasapplet.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Saving as Images">
+<param name="Local" value="topics/saveasimage.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Saving as MathML">
+<param name="Local" value="topics/saveasmathml.html"></object></li>
+</ul>
+</ul>
+
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Working with the Clipboard"></object></li>
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Cutting and Pasting">
+<param name="Local" value="topics/editmenu.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Copy as Special">
+<param name="Local" value="topics/copyas.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Viewing the System Clipboard">
+<param name="Local" value="topics/clipboard.html"></object></li>
+</ul>
+</ul>
+
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Using Templates"></object></li>
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Understanding Templates">
+<param name="Local" value="topics/insertmenu.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Layout Templates">
+<param name="Local" value="topics/insertlayouts.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Space-like Templates">
+<param name="Local" value="topics/insertspacelike.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Script Templates">
+<param name="Local" value="topics/insertscripts.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Table Templates">
+<param name="Local" value="topics/inserttable.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Action Templates">
+<param name="Local" value="topics/insertaction.html"></object></li>
+</ul>
+</ul>
+
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Controlling Style Properties"></object></li>
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="How Properties Work">
+<param name="Local" value="topics/propmenu.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Size and Color Formats">
+<param name="Local" value="topics/propvals.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Font Properties">
+<param name="Local" value="topics/fontprops.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Operator Properties">
+<param name="Local" value="topics/opprops.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Layout Properties">
+<param name="Local" value="topics/layoutprops.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Table Properties">
+<param name="Local" value="topics/matrixprops.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="MSpace Properties">
+<param name="Local" value="topics/mspaceprops.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Action Properties">
+<param name="Local" value="topics/actionprops.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Common Attributes">
+<param name="Local" value="topics/commonattrs.html"></object></li>
+</ul>
+</ul>
+
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Managing Export Formats"></object></li>
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Applet Export Preferences">
+<param name="Local" value="topics/appletprefs.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Image Export Preferences">
+<param name="Local" value="topics/imgprefs.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="MathML Export Preferences">
+<param name="Local" value="topics/mmlprefs.html"></object></li>
+</ul>
+</ul>
+
+</html>

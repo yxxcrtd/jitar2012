@@ -1,0 +1,104 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+	<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">The Font Properties Dialog</h1>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The Font Properties dialog gives you a way to control the font
+properties used to render character data in a template.  The Font
+Properties dialog can also be used to set default font properties for
+an entire equation.  The effect of each property is described
+discussed below.</p>
+
+
+	<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Logical and System Fonts</h3>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The Logical Font option uses the MathML mathvariant attribute to 
+select the font family used to render characters.
+Since MathML is frequently used in conjunction with a style language
+such as CSS in web pages, the MathML mathvariant attribute specifies
+an abstract class of fonts, rather than a specific font on a specific
+computer system. So, if you choose an option such as "san serif", the
+font chosen to render the characters will differ from system to system.</p>
+
+
+
+<p>When the value 'automatic' is specified for identifiers, single
+character identifiers are rendered in italics, while multi-character
+identifiers are rendered in an upright font.  This is standard
+mathematical typesetting practice, but can be changed either by choosing a
+different logical font, or changing the italics preference on the
+General Preferences Dialog.</p>
+
+
+
+<p>The System Font option uses the deprecated MathML fontfamily property 
+to set a specifically named font. For example, if "Times New Roman" is selected,
+the system being used must have a font installed named "Times New Roman" in order 
+to render characters correctly. The font weight and slant attributes are applied 
+to the chosen system font.</p>
+
+
+
+	<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Font Size</h3>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">font size</b> property controls the point size for rendering character data
+in a template.  Legitimate values are any positive <a href="propvals.html#sizeval">size value</a>, or <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">inherited</em>.</p>
+
+
+	<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Font Color</h3>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">font color</b> property determines the
+color in which character data in a template will be rendered, as well
+as any other "foreground" parts of a template, such as the horizontal
+bar in a fraction.  The font color can be set to any <a href="propvals.html#colorval">color value</a>.</p>
+
+
+	<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Background color</h3>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">background color</b> property determines the
+background color for a template.  Note only the background of the
+template is affected.  The background of enclosing templates will not
+be affected.  For this reason, it is usually preferable to set the
+background on the outermost template possible.  For example, if you
+set the background for the individual token templates in a row, the
+background will likely appear ragged, as opposed to the rectangular
+background of the row.  The background color can be set to any <a href="propvals.html#colorval">color value</a>.</p>
+
+
+	<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Equation Defaults</h2>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>At the bottom of the Font Properties dialog are two checkboxes that determine whether the property settings will be sticky or not. If "Apply to each token element in the selection" is chosen, the properties are set for each individual character, and they will stick with them if you cut part of the expression and paste it elsewhere.</p>
+
+
+	<p>By constrast, if you choose "Set as default for selected expression", WebEQ Editor will insert a style change template as needed, and set the properties once for the entire selection. In this case, the properties also apply to non-character data such as fraction lines. However, since the properties are associated with the expression and not the individual characters within it, they are not sticky, and if you cut data out of the expression and paste it elsewhere, the properties will no longer apply. Conversely, the properties you set for the expression will also apply to any new data you add to it.</p>
+
+
+</body>
+</html>

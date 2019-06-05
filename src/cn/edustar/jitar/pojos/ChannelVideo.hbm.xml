@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.ChannelVideo" table="Jitar_ChannelVideo">
+		<id name="channelVideoId" type="int">
+			<column name="ChannelVideoId" />
+			<generator class="identity" />
+		</id>
+		<property name="channelId" type="int">
+			<column name="ChannelId" not-null="true" />
+		</property>
+		<property name="videoId" type="int">
+			<column name="VideoId" not-null="true" />
+		</property>
+		<property name="userId" type="int">
+            <column name="UserId" not-null="true" />
+        </property>
+        <property name="unitId" type="int">
+            <column name="UnitId" not-null="true" />
+        </property>
+        <property name="viewCount" type="int">
+            <column name="ViewCount" not-null="true" />
+        </property>
+		<property name="channelCateId" type="java.lang.Integer">
+            <column name="ChannelCateId" />
+        </property>
+        <property name="channelCate" type="java.lang.String">
+            <column name="ChannelCate" />
+        </property>
+        <many-to-one name="video" class="cn.edustar.jitar.pojos.Video" fetch="join" lazy="proxy" insert="false" update="false">
+            <column name="VideoId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="cn.edustar.jitar.pojos.User" fetch="join" lazy="proxy" insert="false" update="false">
+            <column name="UserId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="unit" class="cn.edustar.jitar.pojos.Unit" fetch="join" lazy="proxy" insert="false" update="false">
+            <column name="UnitId" not-null="true" />
+        </many-to-one>
+	</class>
+</hibernate-mapping>

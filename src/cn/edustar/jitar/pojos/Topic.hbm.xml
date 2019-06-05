@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.Topic"	table="BBS_Topic">
+		<id name="topicId" type="int">
+			<column name="TopicId" />
+			<generator class="identity" />
+		</id>
+	<property name="groupId" type="int">
+		<column name="GroupId" not-null="true"/>
+	</property>
+    <property name="title" type="java.lang.String">
+      <column name="Title" length="128" not-null="true" />
+    </property>
+    <property name="userId" type="int">
+    	<column name="UserId" not-null="true"/>
+    </property>
+     <property name="content" type="java.lang.String">
+      <column name="Content" length="1073741823"  />
+    </property>
+     <property name="createDate" type="java.util.Date" update="false">
+      <column name="CreateDate" length="23" />
+    </property>
+    <property name="isBest" type="boolean">
+    	<column name="IsBest" not-null="true"/>
+    </property>
+    <property name="isTop" type="boolean">
+    	<column name="IsTop" not-null="true"/>
+    </property>
+     <property name="isDeleted" type="boolean">
+    	<column name="IsDeleted" not-null="true"/>
+    </property>
+    <property name="replyCount" type="int">
+      <column name="ReplyCount" not-null="true" />
+    </property>
+   
+    <property name="viewCount" type="int">
+    	<column name="ViewCount" not-null="true"/>
+    </property>
+    <property name="tags" type="java.lang.String">
+    	<column name="Tags" length="128" not-null="true"/>
+    </property>
+ </class>
+</hibernate-mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

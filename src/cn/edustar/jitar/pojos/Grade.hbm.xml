@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.Grade" table="S_Grade" batch-size="10">
+		<id name="gradeId" type="int">
+			<column name="GradeId" />
+		</id>
+		<property name="gradeName" type="java.lang.String">
+			<column name="GradeName" length="32" not-null="true" />
+		</property>
+		<property name="isGrade" type="boolean">
+			<column name="IsGrade" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

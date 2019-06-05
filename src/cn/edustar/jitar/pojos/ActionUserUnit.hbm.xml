@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.ActionUserUnit" table="ActionUserUnit">
+        <id name="actionUserId" type="java.lang.Integer">
+            <column name="ActionUserId" />
+            <generator class="identity" />
+        </id>
+        <property name="actionId" type="java.lang.Integer">
+            <column name="ActionId" not-null="true" />
+        </property>
+        <property name="title" type="java.lang.String">
+          <column name="Title" length="256" not-null="true" />
+       </property>
+       <property name="trueName" type="java.lang.String">
+          <column name="TrueName" length="256" />
+       </property>
+       <property name="loginName" type="java.lang.String">
+          <column name="LoginName" length="256" />
+       </property>
+       <property name="nickName" type="java.lang.String">
+          <column name="NickName" length="256" />
+       </property>
+       <property name="unitName" type="java.lang.String">
+          <column name="UnitName" length="256" />
+       </property>
+       <property name="unitTitle" type="java.lang.String">
+          <column name="UnitTitle" length="256" />
+       </property>  
+        <property name="userId" type="java.lang.Integer">
+            <column name="UserId" not-null="true" />
+        </property>
+        <property name="attendUserCount" type="java.lang.Integer">
+            <column name="AttendUserCount" not-null="true" />
+        </property>
+        <property name="actionUserDescription" type="java.lang.String">
+            <column name="ActionUserDescription" length="1073741823" />
+        </property>
+        <property name="inviteUserId" type="java.lang.Integer">
+            <column name="InviteUserId" />
+        </property>
+        <property name="isApprove" type="java.lang.Integer">
+            <column name="IsApprove" not-null="true" />
+        </property>
+        <property name="actionUserStatus" type="java.lang.Integer">
+            <column name="ActionUserStatus" not-null="true" />
+        </property>
+        <property name="ownerId" type="java.lang.Integer">
+            <column name="OwnerId"/>
+        </property>
+         <property name="ownerType" type="java.lang.String">
+            <column name="OwnerType"/>
+        </property>
+        <property name="createUserId" type="java.lang.Integer">
+            <column name="CreateUserId"/>
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate"/>
+        </property>        
+        <property name="actionType" type="java.lang.Integer">
+            <column name="ActionType"/>
+        </property>        
+        <property name="actionDescription" type="java.lang.String">
+            <column name="ActionDescription" length="1073741823" />
+        </property>
+        <property name="userLimit" type="java.lang.Integer">
+            <column name="UserLimit"/>
+        </property>
+        <property name="startDateTime" type="java.util.Date">
+            <column name="StartDateTime"/>
+        </property>     
+        <property name="finishDateTime" type="java.util.Date">
+            <column name="FinishDateTime"/>
+        </property>     
+        <property name="attendLimitDateTime" type="java.util.Date">
+            <column name="AttendLimitDateTime"/>
+        </property>     
+        <property name="actionUserCreateDate" type="java.util.Date">
+            <column name="ActionUserCreateDate"/>
+        </property>
+        <property name="place" type="java.lang.String">
+            <column name="Place"/>
+        </property>    
+        <property name="attendCount" type="java.lang.Integer">
+            <column name="AttendCount"/>
+        </property> 
+        <property name="attendSuccessCount" type="java.lang.Integer">
+            <column name="AttendSuccessCount"/>
+        </property> 
+        <property name="attendQuitCount" type="java.lang.Integer">
+            <column name="AttendQuitCount"/>
+        </property> 
+        <property name="attendFailCount" type="java.lang.Integer">
+            <column name="AttendFailCount"/>
+        </property>
+        <property name="actionStatus" type="java.lang.Integer">
+            <column name="ActionStatus"/>
+        </property>
+        <property name="visibility" type="java.lang.Integer">
+            <column name="Visibility"/>
+        </property>
+        <property name="isLock" type="java.lang.Integer">
+            <column name="IsLock"/>
+        </property>
+    </class>
+</hibernate-mapping>

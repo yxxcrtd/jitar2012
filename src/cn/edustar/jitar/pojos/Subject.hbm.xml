@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="cn.edustar.jitar.pojos.Subject" table="S_Subject">
+    <id name="subjectId" type="int">
+      <column name="SubjectId" />
+      <generator class="identity" />
+    </id>
+    <many-to-one name="metaSubject" column="MetaSubjectId"
+      class="cn.edustar.jitar.pojos.MetaSubject" fetch="join" not-null="true"
+      lazy="false" insert="true" update="true" />
+    <many-to-one name="metaGrade" column="MetaGradeId"
+      class="cn.edustar.jitar.pojos.Grade" fetch="join" not-null="true"
+      lazy="false" insert="true" update="true" />
+    <property name="subjectName" type="java.lang.String">
+      <column name="SubjectName" length="32" not-null="true" />
+    </property>
+    <property name="orderNum" type="int">
+      <column name="OrderNum" not-null="true" />
+    </property>
+    <property name="subjectCode" type="java.lang.String">
+      <column name="SubjectCode" length="32" not-null="true" />
+    </property>
+    <property name="userCount" type="int">
+      <column name="userCount" not-null="true" />
+    </property>
+    <property name="groupCount" type="int">
+      <column name="groupCount" not-null="true" />
+    </property>
+    <property name="articleCount" type="int">
+      <column name="articleCount" not-null="true" />
+    </property>
+    <property name="resourceCount" type="int">
+      <column name="resourceCount" not-null="true" />
+    </property>
+    <property name="reslibCId" type="int">
+      <column name="reslibCId" not-null="true" />
+    </property>
+    <property name="todayArticleCount" type="int">
+      <column name="TodayArticleCount" not-null="true" />
+    </property>
+    <property name="yesterdayArticleCount" type="int">
+      <column name="YesterdayArticleCount" not-null="true" />
+    </property>
+    <property name="todayResourceCount" type="int">
+      <column name="TodayResourceCount" not-null="true" />
+    </property>
+    <property name="yesterdayResourceCount" type="int">
+      <column name="YesterdayResourceCount" not-null="true" />
+    </property>
+    <property name="subjectGuid" type="java.lang.String">
+      <column name="SubjectGuid" length="40" not-null="true" />
+    </property>
+    <property name="templateName" type="java.lang.String">
+      <column name="TemplateName" length="50" />
+    </property>
+    <property name="themeName" type="java.lang.String">
+      <column name="ThemeName" length="50" />
+    </property>
+    <property name="logo" type="java.lang.String">
+      <column name="Logo" length="512" />
+    </property>
+    <property name="headerContent" type="java.lang.String">
+      <column name="HeaderContent" length="1073741823" />
+    </property>
+    <property name="footerContent" type="java.lang.String">
+      <column name="FooterContent" length="1073741823" />
+    </property>
+    <property name="custormTemplate" type="java.lang.String">
+      <column name="CustormTemplate" length="1073741823" />
+    </property>
+    <property name="shortcutTarget" type="java.lang.String">
+      <column name="ShortcutTarget" length="512" />
+    </property>
+    <property name="historyArticleCount" type="int">
+      <column name="HistoryArticleCount" not-null="true" />
+    </property>
+    <!-- <property name="photoCount" type="int">
+      <column name="PhotoCount" not-null="true" />
+    </property> -->
+    <property name="videoCount" type="int">
+      <column name="VideoCount" not-null="true" />
+    </property>
+    <property name="prepareCourseCount" type="int">
+      <column name="PrepareCourseCount" not-null="true" />
+    </property>
+    <property name="actionCount" type="int">
+      <column name="ActionCount" not-null="true" />
+    </property>    
+  </class>
+</hibernate-mapping>

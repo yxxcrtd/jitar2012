@@ -1,0 +1,41 @@
+@import url("common.css");
+
+.r_s {text-align:center;padding:4px;background:#ececec;border:2px solid #FFF;border-left:0;border-right:0;}
+.s_input { border:1px solid #95a9b4;width:68px;}
+
+.main_left{float:left;width:189px;}
+.main_right{float:right;width:800px;margin:0 0 0 10px;}
+
+.res1 {border:1px solid #b0bec7;background:#FFF;position:relative;z-index:1;}
+.res1_c { margin:1px;background:#eff5fc; padding:20px 0 10px 10px;position:relative;z-index:10;}
+
+.res_table {width:100%;border:1px solid #b0bec7;}
+.res_table tbody td {padding:3px;}
+.td_left {padding:0 6px;border-bottom:1px solid #b0bec7;background:url(resbg1.gif);height:19px;font-weight:bold;vertical-align:bottom;}
+.td_middle {border-bottom:1px solid #b0bec7;background:url(resbg1.gif);height:19px;font-weight:bold;vertical-align:bottom;}
+.td_right{border-bottom:1px solid #b0bec7;background:url(resbg1.gif);height:19px;font-weight:bold;vertical-align:bottom;}
+
+/* New Tab*/
+.tab2 {height:26px;background:url(tab_2.gif) repeat-x;}
+.tab2 div {float:left;border-right:1px solid #b0bec7;height:18px;padding:8px 10px 0 10px; color:#073b9a;font-weight:bold;}
+.tab2 div.cur {float:left;border-right:1px solid #b0bec7;height:18px;padding:8px 10px 0 10px; background:url(tab_2.gif) repeat-x 0 -28px;color:#073b9a;font-weight:bold;}
+.tab_outer {border:1px solid #aec6dd;}
+
+.b1{width:227px;border:1px solid #b0bec7;overflow:hidden;}
+.b1_head {height:19px;border-bottom:1px solid #b0bec7;background:url(rbg2.gif) repeat-x;}
+.b1_head_left {height:19px;width:108px;border-left:1px solid #fff;padding:2px 0 0 10px; color:#07519a;font-weight:bold;}
+.b1_head_right {height:19px;float:right;padding:2px 10px 0 0;font-family:"BankGothic Md BT";color:#1f9a07;font-size:12px;}
+.b1_content { padding:6px;width:100%;}
+
+.tc1 div { float:left;width:66px;height:80px; text-align:center;}
+.tc1 div span { border:1px solid #bdcbd5;padding:1px;display:block;width:56px;height:56px;margin-bottom:4px;}
+
+.pgr{ border:1px solid #b0bec7;background:url(pager_bg1.gif);padding-top:1px;text-align:center;margin:10px 0;height:24px;}
+
+/* 区域使用 */
+.lastlist {width:100%;background:#DDD;}
+.lastlist tr { background:#FFF;}
+.lastlist td {padding:6px;}
+.lastlist th {padding:6px;background:#eee;}
+
+

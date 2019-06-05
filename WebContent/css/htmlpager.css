@@ -1,0 +1,5 @@
+.pagination { clear: both; text-align: center; padding:10px 0}
+.pagination a,.pagination span  { margin-left: 5px; padding: 4px 7px; border: 1px solid #AAE; color: #1E3986; background-color: #fff;}
+.pagination span { color: #fff; background-color: #1E3986; text-decoration: none; }
+.pagination a:hover { color: #fff; background-color: #1E3986; text-decoration: none; }
+.pagination span.dot { color: #1E3986; background-color: #fff; text-decoration: none; }

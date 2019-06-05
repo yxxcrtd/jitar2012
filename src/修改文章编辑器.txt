@@ -1,0 +1,162 @@
+将原来的文章编辑器fckeditor 修改为 ueditor,支持IE11    
+http://ueditor.baidu.com
+
+增加了文件夹:(该目录下的文件时经过修改过的了......)
+     /manage/ueditor
+
+增加了类代码 (修改过的)
+    /src/ueditor/Uploader.java
+
+修改了文件：     
+     (文章) 
+     /WEB-INF/ftl/article/article_new.ftl
+     /WEB-INF/ftl/admin/article_edit.ftl
+     /WEB-INF/ftl/article/article_edit_form.ftl
+     
+     (备课活动)
+     /WEB-INF/ftl2/action/action_create.ftl
+     /WEB-INF/ftl2/action/showAction.ftl
+
+     (专题)
+     /WEB-INF/ftl/specialsubject/admin_specialsubject_add.ftl
+     /WEB-INF/ftl/specialsubject/admin_specialsubject_edit.ftl
+    
+     (新闻公告)
+     /WEB-INF/column/column_news_edit.ftl  (没测试)
+
+     (系统后台 图片新闻)
+     /WEB-INF/ftl/admin/news_add_edit.ftl
+     (系统后台 群组公告)
+     /WEB-INF/ftl/admin/placard_add_edit.ftl
+    
+     (协助组 发表主题)
+     /WEB-INF/ftl/group/group_add_topic.ftl
+     /WEB-INF/ftl/group/group_edit_topic.ftl
+     /WEB-INF/ftl/group/group_reply_list.ftl
+     /WEB-INF/ftl/group/group_edit_reply.ftl
+     /WEB-INF/ftl/group/group_add_reply.ftl
+     
+     (集体备课  共案)
+     /WEB-INF/ftl/course/show_preparecourse_common_edit.ftl
+     (集体备课  个案)
+     /WEB-INF/ftl/course/show_preparecourse_user_edit.ftl
+     /WEB-INF/ftl/course/show_preparecourse_user_content_2.ftl
+     
+     (备课 信息 )
+     /WEB-INF/ftl/course/manage_createPrepareCourse.ftl
+     (备课 流程)
+     /WEB-INF/ftl/course/manage_course_create3.ftl
+     
+     /js/jitar/divcontent/edit.jsp  (用于自定义内容模块的编辑器)
+     
+     /WEB-INF/ftl/action/action_create.ftl
+     /WEB-INF/ftl/action/action_edit.ftl
+     /WEB-INF/ftl/action/action_show.ftl
+          
+     /WEB-INF/ftl/channel/channel_bulletin_add.ftl
+     /WEB-INF/ftl/channel/add_module_Custorm.ftl
+          
+     /WEB-INF/ftl/course/show_preparecourse_action_create.ftl
+     /WEB-INF/ftl/course/show_preparecourse_action_edit.ftl
+     /WEB-INF/ftl/course/show_preparecourse_stage_topic_detail.ftl
+     /WEB-INF/ftl/course/preparecourse_topic_create.ftl
+     /WEB-INF/ftl/course/show_preparecourse_common_content2.ftl
+     /WEB-INF/ftl/course/group_course_plan_edit.ftl (存在两个编辑器)
+     /WEB-INF/ftl/course/group_course_plan_new_change.ftl (动态增加编辑器)
+     
+     
+     /WEB-INF/group/default/show_add_group_topic.ftl
+     /WEB-INF/group/default/show_group_topic.ftl
+     
+     (参与评课 )
+     /WEB-INF/ftl2/evaluation/evaluation_content.ftl
+     /WEB-INF/ftl/evaluation/fieldcontent.ftl           (动态显示编辑器)
+     /WEB-INF/ftl2/evaluation/fieldcontent.ftl (动态生成编辑器)
+          
+     
+     /WEB-INF/mod/questionanswer/editform.ftl
+     /WEB-INF/mod/questionanswer/getcontent.ftl          
+     
+     /WEB-INF/ftl/photo/photo_comment.ftl
+     
+     /WEB-INF/ftl/resource/edit_comment.ftl
+     /WEB-INF/ftl/resource/reply_comment.ftl
+          
+     /WEB-INF/ftl/video/edit_comment.ftl
+     /WEB-INF/ftl/video/Video_CommentList.ftl
+               
+     -------------------下面没测试
+     
+     /WEB-INF/ftl/admin/Admin_ArticleEdit_Common.ftl
+     
+     (下面4个文件调用 Admin_ArticleEdit_Common.ftl,下面4个文件没修改)
+     /WEB-INF/ftl/channel/channel_article_edit.ftl
+     /WEB-INF/ftl/group/group_admin_edit_article.ftl
+     /WEB-INF/subjectmanage/admin_article_edit.ftl
+     /WEB-INF/unitsmanage/admin_article_edit.ftl
+     
+     
+     /WEB-INF/ftl/admin/content_space_article_add.ftl
+     /WEB-INF/ftl/admin/content_space_article_edit.ftl
+     /WEB-INF/ftl/admin/site_index_add.ftl
+     
+     /WEB-INF/ftl/article/edit_comment.ftl    (没找到使用 )
+     /WEB-INF/ftl/article/reply_comment.ftl   (没找到使用 )
+     
+     /WEB-INF/ftl/column/column_news_edit.ftl
+     
+     /WEB-INF/ftl/course/coEditCommonPrepareCourse.ftl
+     /WEB-INF/ftl/course/common_course_edit.ftl
+     /WEB-INF/ftl/course/course_create.ftl
+     /WEB-INF/ftl/course/course_create3.ftl
+     /WEB-INF/ftl/course/course_stage_show.ftl
+     /WEB-INF/ftl/course/group_course_plan_new.ftl  (没调用)
+     /WEB-INF/ftl/course/manage_course_create.ftl   (没调用)
+     /WEB-INF/ftl/course/show_preparecourse_action_content.ftl
+     /WEB-INF/ftl/course/show_preparecourse_common_content.ftl
+     /WEB-INF/ftl/course/show_preparecourse_edit.ftl
+     /WEB-INF/ftl/course/show_preparecourse_stage_edit.ftl
+     /WEB-INF/ftl/course/show_preparecourse_user_content.ftl
+     /WEB-INF/ftl/course/user_course_show.ftl
+     
+     /WEB-INF/ftl/evaluation/evaluation_content_edit.ftl  (动态显示编辑器，可能多个)
+     
+     /WEB-INF/ftl/group/group_placard_add.ftl
+     (群组公告)
+     /WEB-INF/ftl/placard/placard_add_edit.ftl
+     
+     /WEB-INF/ftl/show_group_topic.ftl
+     
+     /WEB-INF/ftl2/action/action_edit.ftl
+     
+     /WEB-INF/ftl2/special/special_topic_new.ftl
+     /WEB-INF/ftl2/special/special_topic_show.ftl     
+
+     /WEB-INF/mod/topic/new_topic.ftl
+     /WEB-INF/mod/topic/show_topic.ftl
+     
+     /WEB-INF/subjectmanage/add_custorm_module.ftl
+     /WEB-INF/subjectmanage/createspecialsubject.ftl
+     /WEB-INF/subjectmanage/news_add.ftl
+     /WEB-INF/subjectmanage/placard_add.ftl
+     /WEB-INF/subjectmanage/subject_content_space_article_add.ftl
+     
+     /WEB-INF/unitsmanage/add_custorm_module.ftl
+     /WEB-INF/unitsmanage/add_news.ftl
+     
+     
+     
+-------------------更新到此结束 --------------------------------
+
+
+
+
+
+///多个编辑器的写法      
+var editor = new baidu.editor.ui.Editor(); 
+editor.render("myEditor"); 
+editor.getContent(); 
+
+var editor1= new baidu.editor.ui.Editor(); 
+editor1.render("myEditor1"); 
+editor1.getContent();      

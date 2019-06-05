@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="cn.edustar.jitar.pojos.UserType" table="Jitar_UserType">
+    <id name="typeId" type="int">
+      <column name="TypeId" />
+      <generator class="identity" />
+    </id>
+    <property name="typeName" type="java.lang.String">
+      <column name="TypeName" length="50" not-null="true" />
+    </property>
+    <property name="isSystem" type="boolean">
+      <column name="IsSystem" not-null="true" />
+    </property>    
+  </class>
+</hibernate-mapping>

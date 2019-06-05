@@ -1,0 +1,20 @@
+@import url("common.css");
+
+.pc_table {width:100%;background:#ddd;}
+.pc_table td {background:#FFF;padding:4px;}
+.pc_head { padding:2px; border:1px solid #F99;background:#cfc;}
+.pc_left_border{border-left:1px solid #ddd}
+.left{width:8%;font-weight:bold;}
+.right{width:42%;}
+.fontbold{font-weight:bold;}
+.course_title {text-align:center;padding:10px;font-size:24px;font-weight:bold;}
+
+.box {width:100%;border:1px solid #b0bec7;overflow:hidden}
+.box_head {height:19px;background:url(bg3.gif);border-bottom:1px solid #b0bec7;}
+.box_head_left {height:17px;float:left;background:url(bg6.gif) repeat-x;border-right:1px solid #fff;padding:2px 30px 0 0; color:#07519a;font-weight:bold;}
+.box_head_right {height:17px;float:right;padding:2px 10px 0 0;font-family:"BankGothic Md BT";color:#1f9a07;}
+.box_content { padding:10px 6px 6px 6px;text-align:left;}
+
+#leftnav{width:160px;background:#EFF5FC;}
+.highlightnav {border:1px solid #ddd;font-weight:bold;background:#FFF}
+tr.curbackground td { background:#cfc;font-weight:bold; }

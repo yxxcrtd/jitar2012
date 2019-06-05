@@ -1,0 +1,129 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+	<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Cutting and Pasting</h1>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The Edit Menu provides cut and paste related operations.</p>
+
+
+	<p></p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Selection</h2>
+
+	<p>To cut or copy, you must first select an expression.  WebEQ
+Editor uses <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">structured selection</em> to insure 
+the MathML structure of the equation is preserved.  This means that you
+cannot select part of one template and part of another.  In practical
+terms, as you drag the cursor to sweep out a selection, when you cross
+over a template boundary, the entire template will be selected.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>Another convenient way to make selections is via the <a href="ancestry.html#ancestry">MathML Ancestry</a>.  Clicking on the name of a
+template in the Ancestry will select it in the editor.</p>
+
+
+	<p>One final way to select an expression is with the backspace and
+delete keys.  Ordinarily, backspace and delete remove the character to
+the left and right of the cursor respectively.  However, if the object
+adjacent to the cursor is a nested template, hitting these keys
+will first highlight the expression.  This give you a chance to reconsider doing the deletion, 
+in case you didn't really mean to delete the entire template.  
+Hitting backspace or delete a second time  
+will then remove the highlighted expression as you would expect.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The Edit menu gives you the following choices:</p>
+
+
+	<dl xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">
+		<dt>
+			<b>Undo</b>
+		</dt>
+
+		<dd>This choice undoes the last cut or paste operation. WebEQ Editor remembers the last three 
+operations so it is possible to undo up to three operations. The keyboard shortcut for Undo is ctrl-z.
+<idxentry></idxentry>
+
+		</dd>
+
+		<dt>
+			<b>Cut</b>
+		</dt>
+
+		<dd>This removes the current selection from the equation, and
+places a presentation MathML representation of the selection on the
+system clipboard. The keyboard shortcut for Cut is ctrl-x.
+<idxentry></idxentry>
+
+		</dd>
+
+		<dt>
+			<b>Copy</b>
+		</dt>
+
+		<dd>This places a presentation MathML representation of the current
+selection on the system clipboard without removing the selection from
+the current equation. The keyboard shortcut for Copy is ctrl-c.</dd>
+
+		<dt>
+			<b>Copy Special</b>
+		</dt>
+
+		<dd>The Copy Special submenu gives you
+three choices for the format to use when putting equation data on the
+system clipboard.  It also lets you copy three useful kinds of
+document header declarations to the clipboard.  For details see <a href="copyas.html#copyas">Copy As Special</a>.
+<idxentry></idxentry>
+
+		</dd>
+
+		<dt>
+			<b>Paste</b>
+		</dt>
+
+		<dd>This option pastes the equation fragment currently on the
+clipboard back into the current equation at the
+current cursor location.  WebEQ Editor can paste anything it places 
+on the clipboard back into the equation, regardles of the format of the
+clipboard data.  However, currently you cannot paste data other applications put 
+on the clipboard into your equation.  The keyboard shortcut for Paste is ctrl-v.
+<idxentry></idxentry>
+
+		</dd>
+
+		<dt>
+			<b>Show System Clipboard</b>
+		</dt>
+
+		<dd>This option displays a text representation of whatever is
+currently on the system clipboard.  For more information about this
+option, see the section devoted to <a href="clipboard.html#clipboard">Viewing the
+System Clipboard</a>
+			<idxentry></idxentry>
+
+		</dd>
+
+	</dl>
+
+</body>
+</html>

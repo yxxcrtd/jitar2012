@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.Tag" table="S_Tags">
+        <id name="tagId" type="int">
+            <column name="TagId" />
+            <generator class="identity" />
+        </id>
+        <property name="tagUuid" type="string">
+            <column name="TagUuid" not-null="true" length="40" />
+        </property>
+        <property name="tagName" type="string">
+            <column name="TagName" not-null="true" length="50" />
+        </property>
+        <property name="refCount" type="int">
+            <column name="RefCount" />
+        </property>
+        <property name="viewCount" type="int">
+            <column name="ViewCount" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" not-null="true" />
+        </property>
+        <property name="tagType" type="int">
+            <column name="TagType" not-null="true" />
+        </property>
+        <property name="disabled" type="boolean">
+            <column name="Disabled" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

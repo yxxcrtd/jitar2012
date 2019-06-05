@@ -1,0 +1,84 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+
+<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">The MathML Ancestry</h1>
+
+
+<p>The MathML Ancestry is the status area displayed just below the
+toolbar.  The Ancestry is there to show you at a glance the nesting of
+the MathML structure at the cursor location, and to give you an easy
+way to select parts of the equation containing the cursor.</p>
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p><img src="images/ancestry1.gif"></p>
+
+
+
+<p>Since all MathML equations consist of templates nested inside a
+&lt;math&gt; element, the ancestry always shows the &lt;math&gt; element on
+the left.  Intermediate MathML templates are listed in order of
+nesting, with the innermost MathML template or symbol at the cursor
+location indicated on the far right.</p>
+
+
+
+<p>When there are too many levels of nesting to display all at once, the Ancestry
+shows dots on the right and/or left edge of the display.  Clicking on the
+dots scrolls the display in the corresponding direction.</p>
+
+
+
+<p>As you move the mouse, the Ancestry automatically updates to
+reflect the nesting at the current cursor position.  Also, when you
+select part of an equation in the editing area, the corresponding
+template label in the Ancestry will be highlighted.</p>
+
+
+
+<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Making Selections from the Ancestry</h2>
+
+
+<p>When you mouse over one of the MathML templates in the Ancestry, it
+will become highlighted in red.  By clicking a highlighted template,
+you can quickly and accurately select the corresponding part of the
+equation in the WebEQ Editor window.</p>
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>By double-clicking an Ancestry label, you can highlight the
+corresponding area of the current equation and simultaneously open the
+default Properties panel for the selection.  Each kind of MathML
+template has a default Properties panel, depending on what MathML
+properties it supports.  Since changes to a Properties panel only
+affect the current selection, this is a very convenient way to edit
+properties.  See <a href="propmenu.html#propmenu">How Properties Work</a> for
+more details.</p>
+
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p><img src="images/ancestry2.gif"></p>
+
+
+
+<p>When a selection contains several kinds of templates, so that
+several Properties panels would apply, you have to open the other
+Properties panels  by hand from the Properties menu.  Only the default
+panel can be opened by double-clicking.</p>
+
+
+
+</body>
+</html>

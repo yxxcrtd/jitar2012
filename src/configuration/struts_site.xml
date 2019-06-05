@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+		"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+  <!-- 前台显示页面如主页等 -->
+  <package name="pages" namespace="/" extends="struts-default">
+    <action name="test" class="testAction">
+          <result name="success" type="freemarker">/WEB-INF/ftl2/site_index.ftl</result>
+      </action>
+  
+    <!-- 临时：群组话题显示界面 -->
+    <action name="showGroupTopic" class="cn.edustar.jitar.action.GroupTopicAction">
+      <result name="success" type="freemarker">/WEB-INF/ftl/show_group_topic.ftl</result>
+      <result name="todo" type="freemarker">/WEB-INF/ftl/todo.ftl</result>
+    </action>
+    <!-- 文章详细页 -->
+    <action name="showArticle" class="showArticleAction">
+      <result name="ShowMoreComment" type="freemarker">/WEB-INF/ftl2/article/showMoreComment.ftl</result>    
+      <result name="success" type="freemarker">/WEB-INF/ftl2/article/showArticle.ftl</result>
+      <result name="ERROR_INFO" type="freemarker">/WEB-INF/ftl2/common/ErrorWithMessage.ftl</result>     
+    </action>
+    
+    <!-- 自定义文章分类相关 -->
+    <action name="showContent" class="showContentAction">
+      <result name="success" type="freemarker">/WEB-INF/ftl2/index/showContent.ftl</result>
+      <result name="error" type="freemarker">/WEB-INF/ftl/Error.ftl</result>
+    </action>
+    <action name="showCustomArticle" class="showCustomArticleAction">
+      <result name="show_custom_contentspace_article" type="freemarker">/WEB-INF/ftl2/index/show_custom_contentspace_article.ftl</result>
+      <result name="show_custom_article" type="freemarker">/WEB-INF/ftl2/index/show_custom_article.ftl</result>
+      <result name="error" type="freemarker">/WEB-INF/ftl/Error.ftl</result>
+    </action>
+    
+    
+      <action name="units" class="siteUnitsAction">
+          <result name="success1" type="freemarker">/WEB-INF/ftl2/unit/site_units1.ftl</result>
+          <result name="success2" type="freemarker">/WEB-INF/ftl2/unit/site_units2.ftl</result>
+          <result name="success3" type="freemarker">/WEB-INF/ftl2/unit/site_units3.ftl</result>
+      </action>
+      
+      <action name="articles" class="siteArticlesAction">
+        <result name="ajax" type="freemarker">/WEB-INF/ftl2/article/ajax_list.ftl</result>
+        <result name="list" type="freemarker">/WEB-INF/ftl2/site_article.ftl</result>
+      </action> 
+      <action name="help" class="siteHelpAction">
+          <result name="success" type="freemarker">/WEB-INF/ftl2/site_help.ftl</result>
+          <result name="error" type="freemarker">/WEB-INF/ftl2/common/ErrorWithMessage.ftl</result>
+      </action>
+      <action name="showPlacardList" class="siteShowPlacardListAction">
+          <result name="success" type="freemarker">/WEB-INF/ftl2/showPlacardList.ftl</result>
+      </action>
+      <action name="showPlacard" class="siteShowPlacardAction">
+          <result name="success" type="freemarker">/WEB-INF/ftl2/show_placard.ftl</result>
+      </action>
+      <action name="showNewsList" class="siteShowNewsListAction">
+          <result name="success" type="freemarker">/WEB-INF/ftl2/showNewsList.ftl</result>
+      </action>
+      <action name="showNews" class="siteShowNewsAction">
+          <result name="success" type="freemarker">/WEB-INF/ftl/show_news.ftl</result>
+      </action>
+      
+      <action name="index" class="indexAction">
+          <result name="success" type="freemarker">/WEB-INF/ftl2/site_index.ftl</result>
+          <result name="ERROR_INFO" type="freemarker">/WEB-INF/ftl2/common/ErrorWithMessage.ftl</result>          
+      </action>
+      <action name="showCustomArticle" class="cn.edustar.jitar.action.ShowCustomArticleAction">
+          <result name="show_custom_contentspace_article" type="freemarker">/WEB-INF/ftl2/index/show_custom_contentspace_article.ftl</result>
+          <result name="show_custom_article" type="freemarker">/WEB-INF/ftl2/index/show_custom_article.ftl</result>
+      </action>
+      
+      
+      <!-- 备课 -->
+      <action name="prepareCourse" class="prepareCourseAction">
+        <result name="success" type="freemarker">/WEB-INF/ftl2/preparecourse/preparecourse.ftl</result>
+        <result name="ajax" type="freemarker">/WEB-INF/ftl2/preparecourse/ajax_list.ftl</result>
+      </action>
+      <!-- 集体备课视频会议  -->
+      <action name="prepareCourseMeeting" class="prepareCourseMeetingAction">
+        <result name="List_Success" type="freemarker">/WEB-INF/ftl/course/preparecourse_meetings_list.ftl</result>
+        <result name="add" type="freemarker">/WEB-INF/ftl/course/preparecourse_meetings_add.ftl</result>
+        <result name="edit" type="freemarker">/WEB-INF/ftl/course/preparecourse_meetings_add.ftl</result>
+        <result name="show" type="freemarker">/WEB-INF/ftl/course/preparecourse_meetings_show.ftl</result>
+        <result name="modify" type="freemarker">/WEB-INF/ftl/course/preparecourse_meetings_modify.ftl</result>
+        <result name="redirect" type="freemarker">/WEB-INF/ftl/course/preparecourse_meetings_open.ftl</result>
+        <result name="error" type="freemarker">/WEB-INF/ftl/Error.ftl</result>
+        <result name="success" type="freemarker">/WEB-INF/ftl/success.ftl</result>
+      </action>
+        <!-- 教研视频  -->
+      <action name="sitevideomeeting" class="siteVideoMeetingAction">
+        <result name="list" type="freemarker">/WEB-INF/ftl2/videomeeting/videomeeting.ftl</result>
+        <result name="ajax" type="freemarker">/WEB-INF/ftl2/videomeeting/ajax_list.ftl</result>
+        <result name="add" type="freemarker">/WEB-INF/ftl2/videomeeting/meetings_add.ftl</result>
+        <result name="edit" type="freemarker">/WEB-INF/ftl2/videomeeting/meetings_add.ftl</result>
+        
+        <result name="show" type="freemarker">/WEB-INF/ftl2/videomeeting/meetings_show.ftl</result>
+        <result name="modify" type="freemarker">/WEB-INF/ftl2/videomeeting/meetings_modify.ftl</result>
+        <result name="redirect" type="freemarker">/WEB-INF/ftl2/videomeeting/meetings_open.ftl</result>
+        <result name="error" type="freemarker">/WEB-INF/ftl/Error.ftl</result>
+        <result name="success" type="freemarker">/WEB-INF/ftl/success.ftl</result>        
+      </action>      
+      <action name="addRootUnit" class="addRootUnit">
+          <result name="error" type="freemarker">/WEB-INF/ftl/Error.ftl</result>
+          <result name="success" type="freemarker">/WEB-INF/ftl/success.ftl</result>
+          <result name="input" type="freemarker">/WEB-INF/ftl/admin/add_root_unit.ftl</result>          
+      </action>
+      
+      <action name="go" class="goAction">
+      <result name="error" type="freemarker">/WEB-INF/ftl/Error.ftl</result>
+      </action>
+      
+      <action name="checkLogin" class="cn.edustar.jitar.action.CheckLoginAction"/>
+        
+
+		<!-- Site RSS -->
+		<action name="rss" class="cn.edustar.jitar.action.RssAction">
+			<result name="article" type="freemarker">/WEB-INF/ftl/site_rss_article.ftl</result>
+			<result name="resource" type="freemarker">/WEB-INF/ftl/site_rss_resource.ftl</result>
+			<result name="photo" type="freemarker">/WEB-INF/ftl/site_rss_photo.ftl</result>
+			<result name="topic" type="freemarker">/WEB-INF/ftl/site_rss_topic.ftl</result>
+			<result name="success" type="freemarker">/WEB-INF/ftl/site_rss.ftl</result>    
+		</action>
+		
+		<!-- 名师博客列表(带分页) -->
+		<action name="famousBlog" class="famousBlogAction">
+			<result name="success" type="freemarker">/WEB-INF/ftl/site_famous_blog_list.ftl</result>
+		</action>
+		
+		<!-- 学科带头人博客列表(带分页) -->
+		<action name="expertBlog" class="expertBlogAction">
+			<result name="success" type="freemarker">/WEB-INF/ftl/site_expert_blog_list.ftl</result>
+		</action>
+		
+    <action name="Favorite" class="favoriteAction">
+        <result name="list" type="freemarker">/WEB-INF/ftl/user/fav_list.ftl</result>
+    </action>
+		
+		<!-- 通用文章列表(带分页) -->
+		<action name="articleList" class="articleListAction">
+		    <result name="success" type="freemarker">/WEB-INF/ftl/site_article_list.ftl</result>
+		</action>
+		
+		<!-- 通用协作组列表, 支持分页, 类型, userId, categoryId, subjectId -->
+		<action name="groupList" class="groupListAction">
+		    <result name="success" type="freemarker">/WEB-INF/ftl/site_group_list.ftl</result>
+		</action>
+		
+		<!-- 通用资源列表 -->
+		<action name="resourceList" class="resourceListAction">
+		    <result name="success" type="freemarker">/WEB-INF/ftl/site_resource_list.ftl</result>
+		</action>
+	
+		<action name="showTag" class="showTagAction_1">
+		    <result name="success" type="freemarker">/WEB-INF/ftl2/tag/show_tag.ftl</result>
+		    <result name="debug" type="freemarker">/WEB-INF/ftl/debug/site_show_tag_debug.ftl</result>
+           <result name = "error" type="freemarker">/WEB-INF/ftl/Error.ftl</result>
+		</action>
+	
+		<!-- 学科页面 -->
+		<action name="showSubject" class="showSubjectAction">
+		    <result name="success" type="freemarker">/WEB-INF/ftl/show_subject.ftl</result>
+		    <result name="debug" type="freemarker">/WEB-INF/ftl/debug/site_show_subject_debug.ftl</result>
+		</action>
+		
+		<!-- 学科工作室 -->
+		<action name="subjectBlogs" class="subjectBlogsAction">
+		    <result name="success" type="freemarker">/WEB-INF/ftl/site_subject_blogs.ftl</result>
+		</action>
+		
+		<!-- 学科协作组 -->
+		<action name="subjectGroups" class="subjectGroupsAction">
+		    <result name="success" type="freemarker">/WEB-INF/ftl/site_subject_groups.ftl</result>
+		</action>
+		
+		<!-- 学科文章 -->
+		<action name="subjectArticles" class="subjectArticlesAction">
+		    <result name="success" type="freemarker">/WEB-INF/ftl/site_subject_articles.ftl</result>
+		</action>
+		
+		<!-- 学科资源 -->
+		<action name="subjectResources"
+		    class="subjectResourcesAction">
+		    <result name="success" type="freemarker">/WEB-INF/ftl/site_subject_resources.ftl</result>
+		</action>
+		
+		<!-- 系统分类 -->
+		<action name="showCategory" class="showCategoryAction">
+		    <result name="success" type="freemarker">/WEB-INF/ftl/site_show_category.ftl</result>
+		    <result name="debug" type="freemarker">/WEB-INF/ftl/debug/site_show_category_debug.ftl</result>
+		</action>
+		
+		<!-- 系统分类下的文章(带分页) -->
+		<action name="showCategoryArticle"
+		    class="showCategoryArticleAction">
+		    <result name="success" type="freemarker">/WEB-INF/ftl/site_show_category_article.ftl</result>
+		    <result name="debug" type="freemarker">/WEB-INF/ftl/debug/site_show_category_article_debug.ftl</result>
+		</action>
+		
+		<!-- 系统分类下的资源(带分页) -->
+		<action name="showCategoryResource"
+		    class="showCategoryResourceAction">
+		    <result name="success" type="freemarker">/WEB-INF/ftl/site_show_category_resource.ftl</result>
+		    <result name="debug" type="freemarker">/WEB-INF/ftl/debug/site_show_category_resource_debug.ftl</result>
+		</action>
+		
+		<!-- 显示新闻 -->
+		<action name="showNews" class="showNewsAction">
+		    <result name="success" type="freemarker">/WEB-INF/ftl2/show_news.ftl</result>
+		</action>
+		
+		<!-- 显示公告 -->
+		<action name="showPlacard" class="showPlacardAction">
+		    <result name="success" type="freemarker">/WEB-INF/ftl2/show_placard.ftl</result>
+		</action>
+		
+	        
+	    <!-- 元数据分类树 -->
+	    <action name="resTypeTree" class="resTypeAction">
+	      <result name="List_Success" type="freemarker">/WEB-INF/ftl/resource/resTypeTree.ftl</result>
+	    </action>        
+	    
+	    <!-- 显示首页排行榜 -->
+        <action name="ranklist" class="rankList">
+            <result name="List_Success" type="freemarker">/WEB-INF/ftl2/site_ranklist.ftl</result>
+        </action>   
+	    <!-- 课题组 -->
+	    <action name="ktgroups" class="groupKTAction">
+        <result name="list_success" type="freemarker">/WEB-INF/ftl2/ktgroups/site_ktgroups.ftl</result>
+        <result name="list_placard" type="freemarker">/WEB-INF/ftl2/ktgroups/ktgroups_placard_list.ftl</result>
+        <result name="list_article" type="freemarker">/WEB-INF/ftl2/ktgroups/ktgroups_article_list.ftl</result>
+        <result name="list_resource" type="freemarker">/WEB-INF/ftl2/ktgroups/ktgroups_resource_list.ftl</result>
+        <result name="list_photo" type="freemarker">/WEB-INF/ftl2/ktgroups/ktgroups_photo_list.ftl</result>
+        <result name="list_video" type="freemarker">/WEB-INF/ftl2/ktgroups/ktgroups_video_list.ftl</result>        
+	    </action>
+	    <!-- 评课 -->
+	    <action name="evaluations" class="evaluationsAction">
+	        <result name="show" type="freemarker">/WEB-INF/ftl2/evaluation/evaluations.ftl</result>
+	        <result name="ajax" type="freemarker">/WEB-INF/ftl2/evaluation/listdata.ftl</result>
+	        <result name="add" type="freemarker">/WEB-INF/ftl2/evaluation/evaluation_add.ftl</result>
+	        <result name="edit" type="freemarker">/WEB-INF/ftl2/evaluation/evaluation_edit.ftl</result>
+	        <result name="content" type="freemarker">/WEB-INF/ftl2/evaluation/evaluation_content.ftl</result>
+	        <result name="list" type="freemarker">/WEB-INF/ftl2/evaluation/userevaluationlist.ftl</result>
+	        <result name="fieldcontent" type="freemarker">/WEB-INF/ftl2/evaluation/fieldcontent.ftl</result>
+	        <result name ="error">/login2/login.jsp</result>
+	    </action>
+	    
+    </package>
+
+	<!-- 后台管理 -->
+    <package name="manageV1" namespace="/manage" extends="groups-default">
+        <!-- 评课管理 -->
+        <action name="evaluation" class="evaluationAction">
+            <result name="plan" type="freemarker">/WEB-INF/ftl/evaluation/evaluation_plan.ftl</result>
+            <result name="edit" type="freemarker">/WEB-INF/ftl/evaluation/evaluation_plan_edit.ftl</result>
+            <result name="template" type="freemarker">/WEB-INF/ftl/evaluation/evaluation_template.ftl</result>
+            <result name="edittemplate" type="freemarker">/WEB-INF/ftl/evaluation/evaluation_template_edit.ftl</result>
+        </action>
+            
+        <!-- 资源类型管理 -->
+        <action name="admin_resType" class="adminResTypeAction">
+            <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/restype_list.ftl</result>
+            <result name="Add_Or_Edit" type="freemarker">/WEB-INF/ftl/admin/restype_info.ftl</result>
+			<result name="Select" type="freemarker">/WEB-INF/ftl/admin/restype_select.ftl</result>
+        </action>
+
+        <!-- 学科管理 -->
+        <action name="admin_subject" class="adminSubjectAction">
+            <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/subject_list.ftl</result>
+            <result name="Add_Or_Edit" type="freemarker">/WEB-INF/ftl/admin/subject_add_edit.ftl</result>
+        </action>
+        
+		<!-- 元学科管理 -->
+		<action name="admin_msubject" class="adminMetaSubjectAction">
+			<result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/msubject_list.ftl</result>
+			<result name="Add_Or_Edit" type="freemarker">/WEB-INF/ftl/admin/msubject_add_edit.ftl</result>
+		</action>
+		<!-- 元学段管理 -->
+		<action name="admin_grade" class="adminGradeAction">
+			<result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/grade_list.ftl</result>
+			<result name="Add_Or_Edit" type="freemarker">/WEB-INF/ftl/admin/grade_add_edit.ftl</result>
+		</action>        
+        
+        
+        <!-- 机构管理
+        <action name="admin_unit" class="adminUnitAction">
+            <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/Unit_List.ftl</result>
+            <result name="Add_Or_Update" type="freemarker">/WEB-INF/ftl/admin/Unit_Add_Or_Update.ftl</result>
+        </action>
+				 -->
+        
+        
+        <!-- 群组统计 -->
+        <action name="admin_stat_group" class="adminStatGroupAction">
+            <result name="input" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Group.ftl</result>
+            <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Group.ftl</result>
+            <result name="List_Success1" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Group_ReLoad.ftl</result>
+            <result name="List_Excel_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Excel_Group.ftl</result>
+        </action>
+        <action name="unitWebpartAction" class="unitWebpartAction"></action>
+        <action name="subjectWebpartAction" class="subjectWebpartAction"></action>
+        
+
+        <!-- 机构统计 -->
+        <action name="admin_stat_unit" class="adminStatUnitAction">
+            <result name="input" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Unit.ftl</result>
+            <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Unit.ftl</result>
+            <result name="List_Success1" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Unit_ReLoad.ftl</result>
+            <result name="List_Excel_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Excel_Unit.ftl</result>
+        </action>
+        
+        <!-- 学科统计 -->
+        <action name="admin_stat_subject" class="adminStatSubjectAction">
+            <result name="input" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Subject.ftl</result>
+            <result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Subject.ftl</result>
+            <result name="List_Success1" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Subject_ReLoad.ftl</result>
+            <result name="List_Excel_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Excel_Subject.ftl</result>
+        </action>
+                
+        <!-- 首页在线用户 -->
+        <action name="online" class="onlineAction">
+        	<result name="success" type="freemarker">/WEB-INF/ftl/mengv1/index/OnLine.ftl</result>
+        </action>
+
+
+    </package>
+</struts>
+  

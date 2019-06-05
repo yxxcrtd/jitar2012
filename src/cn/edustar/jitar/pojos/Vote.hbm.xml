@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.Vote" table="P_Vote">
+        <id name="voteId" type="java.lang.Integer">
+            <column name="VoteId" />
+            <generator class="identity" />
+        </id>
+        <property name="objectGuid" type="java.lang.String">
+            <column name="ObjectGuid" length="40" not-null="true" />
+        </property>        
+        <property name="title" type="java.lang.String">
+            <column name="Title" length="256" not-null="true" />
+        </property>
+        <property name="description" type="java.lang.String">
+            <column name="Description" length="1073741823" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="createUserId" type="int">
+            <column name="CreateUserId" not-null="true" />
+        </property>
+        <property name="createUserName" type="java.lang.String">
+            <column name="CreateUserName" length="50" />
+        </property>        
+        <property name="subjectId" type="java.lang.Integer">
+            <column name="SubjectId" />
+        </property>
+        <property name="gradeId" type="java.lang.Integer">
+            <column name="GradeId" />
+        </property>
+        <property name="endDate" type="java.util.Date">
+            <column name="EndDate" length="23" not-null="true" />
+        </property>        
+        <property name="parentGuid" type="java.lang.String">
+            <column name="ParentGuid" length="50" />
+        </property>
+         <property name="parentObjectType" type="java.lang.String">
+            <column name="ParentObjectType" length="50" />
+        </property>        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="cn.edustar.jitar.pojos.TimerCount" table="Jitar_TimerCount">
+    <id name="countId" type="int">
+      <column name="countId" />
+      <generator class="assigned" />
+    </id>
+    <property name="userCount" type="int">
+      <column name="UserCount" not-null="true" />
+    </property>
+    <property name="groupCount" type="int">
+      <column name="GroupCount" not-null="true" />
+    </property>
+    <property name="totalArticleCount" type="int">
+      <column name="TotalArticleCount" not-null="true" />
+    </property>
+    <property name="totalResourceCount" type="int">
+      <column name="TotalResourceCount" not-null="true" />
+    </property>
+    <property name="commentCount" type="int">
+      <column name="CommentCount" not-null="true" />
+    </property>
+    <property name="photoCount" type="int">
+      <column name="PhotoCount" not-null="true" />
+    </property>
+    <property name="videoCount" type="int">
+      <column name="VideoCount" not-null="true" />
+    </property>
+    <property name="prepareCourseCount" type="int">
+      <column name="PrepareCourseCount" not-null="true" />
+    </property>    
+    <property name="todayArticleCount" type="int">
+      <column name="TodayArticleCount" not-null="true" />
+    </property>
+    <property name="yesterdayArticleCount" type="int">
+      <column name="YesterdayArticleCount" not-null="true" />
+    </property>
+    <property name="historyArticleCount" type="int">
+      <column name="HistoryArticleCount" not-null="true" />
+    </property>
+    <property name="todayResourceCount" type="int">
+      <column name="TodayResourceCount" not-null="true" />
+    </property>
+    <property name="yesterdayResourceCount" type="int">
+      <column name="YesterdayResourceCount" not-null="true" />
+    </property>
+    <property name="countDate" type="java.lang.String">
+      <column name="CountDate" length="10" />
+    </property>
+  </class>
+</hibernate-mapping>

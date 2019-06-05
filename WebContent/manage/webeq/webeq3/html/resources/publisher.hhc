@@ -1,0 +1,44 @@
+<html><!--Sitemap 1.0--><object type="text/site properties"><param name="FrameName" value="bsscright">
+<param name="SiteType" value="toc"></object>
+
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Getting Started"></object></li>
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Getting Started with the WebEQ Publisher">
+<param name="Local" value="topics/main.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Preparing the Source Document">
+<param name="Local" value="topics/prepare.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Using WebTeX Macros">
+<param name="Local" value="topics/macros.html"></object></li>
+</ul>
+</ul>
+
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Setting up the Source and Output"></object></li>
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Specifying the Source Document">
+<param name="Local" value="topics/sourcedoc.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Specifying the Output Document">
+<param name="Local" value="topics/outputdoc.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Specifying the Equation Format">
+<param name="Local" value="topics/processing.html"></object></li>
+</ul>
+</ul>
+
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="The Options Menu"></object></li>
+<ul>
+<li><object type="text/sitemap"><param name="Name" value="Appearance Options">
+<param name="Local" value="topics/appearance.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Viewer Control Options">
+<param name="Local" value="topics/viewer.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Translation Options">
+<param name="Local" value="topics/translation.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Image Options">
+<param name="Local" value="topics/image.html"></object></li>
+<li><object type="text/sitemap"><param name="Name" value="Saving your Settings">
+<param name="Local" value="topics/settings.html"></object></li>
+</ul>
+</ul>
+
+</html>

@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+  "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 一般模块的抽象基类, 其具有 templateProcessor 属性 -->
+	<bean id="moduleParent" abstract="true">
+		<property name="templateProcessor" ref="templateProcessor" />
+	</bean>
+
+	<!-- 提供给 jtr:hql 标签使用的辅助对象 -->
+	<bean id="hqlExecutor" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.tags.HibernateHqlExecutor">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 通用博客列表页面, 支持 subjectId, categoryId, userId, 分页, type -->
+<!-- 	<bean id="blogListAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.PythonSupportAction">
+		<property name="scriptPath" value="/WEB-INF/ftl/site_blog_list.py"></property>
+	</bean> -->
+
+	<!-- 通用文章列表, 支持搜索k, subjectId, categoryId, userId, 分页, type -->
+	<bean id="articleListAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.PythonSupportAction">
+		<property name="scriptPath" value="/WEB-INF/ftl/site_article_list.py" />
+	</bean>
+
+	<!-- 协作组列表 -->
+	<bean id="groupListAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.PythonSupportAction">
+		<property name="scriptPath" value="/WEB-INF/ftl/site_group_list.py" />
+	</bean>
+
+	<!-- 资源列表 -->
+	<bean id="resourceListAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.PythonSupportAction">
+		<property name="scriptPath" value="/WEB-INF/ftl/site_resource_list.py" />
+	</bean>
+    <!-- 排行榜 -->
+    <bean id="rankList" lazy-init="true" singleton="false"
+        class="cn.edustar.jitar.action.RankListAction">
+        <property name="groupService" ref="groupService" />
+        <property name="unitService" ref="unitService" />
+        <property name="userStatManage" ref="userStatManage" />
+    </bean>
+    
+	<!-- 显示一个标签的页面 -->
+	<bean id="showTagAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.PythonSupportAction">
+		<property name="scriptPath" value="/WEB-INF/ftl/show_tag.py" />
+	</bean>
+
+	<!-- 显示一个学科的页面 -->
+	<bean id="showSubjectAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.PythonSupportAction">
+		<property name="scriptPath" value="/WEB-INF/ftl/show_subject.py" />
+	</bean>
+	<!-- 学科工作室页面 -->
+	<bean id="subjectBlogsAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.PythonSupportAction">
+		<property name="scriptPath" value="/WEB-INF/ftl/site_subject_blogs.py" />
+	</bean>
+	<!-- 学科协作组页面 -->
+	<bean id="subjectGroupsAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.PythonSupportAction">
+		<property name="scriptPath" value="/WEB-INF/ftl/site_subject_groups.py" />
+	</bean>
+	<!-- 学科文章页面 -->
+	<bean id="subjectArticlesAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.PythonSupportAction">
+		<property name="scriptPath" value="/WEB-INF/ftl/site_subject_articles.py" />
+	</bean>
+	<!-- 学科资源页面 -->
+	<bean id="subjectResourcesAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.PythonSupportAction">
+		<property name="scriptPath" value="/WEB-INF/ftl/site_subject_resources.py" />
+	</bean>
+
+
+	<!-- 显示一个系统分类的页面 -->
+	<bean id="showCategoryAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.ShowCategoryAction">
+		<property name="categoryService" ref="categoryService" />
+		<property name="dataList">
+			<list>
+				<!-- 系统分类 -->
+				<bean class="cn.edustar.jitar.data.CategoryBean" singleton="false">
+					<property name="categoryService" ref="categoryService" />
+					<property name="varName" value="syscate_tree" />
+					<property name="itemType" value="default" />
+				</bean>
+				<!-- 该分类的文章 -->
+				<bean class="cn.edustar.jitar.data.CategoryArticleBean"
+					singleton="false">
+					<property name="articleService" ref="articleService" />
+				</bean>
+				<!-- 该分类的资源 -->
+				<bean class="cn.edustar.jitar.data.CategoryResourceBean"
+					singleton="false">
+					<property name="resourceService" ref="resourceService" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<!-- 显示一个系统分类下的所有文章(带分页) -->
+	<bean id="showCategoryArticleAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.ShowCategoryAction">
+		<property name="categoryService" ref="categoryService" />
+		<property name="dataList">
+			<list>
+				<!-- 系统分类 -->
+				<bean class="cn.edustar.jitar.data.CategoryBean" singleton="false">
+					<property name="categoryService" ref="categoryService" />
+					<property name="varName" value="syscate_tree" />
+					<property name="itemType" value="default" />
+				</bean>
+				<!-- 列出分类下文章, 支持分页 -->
+				<bean class="cn.edustar.jitar.data.CategoryArticleBean"
+					singleton="false">
+					<property name="articleService" ref="articleService" />
+					<property name="usePager" value="true" />
+					<property name="itemName" value="文章" />
+					<property name="itemUnit" value="篇" />
+					<property name="pageSize" value="30" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<!-- 显示一个系统分类下的所有资源(带分页) -->
+	<bean id="showCategoryResourceAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.ShowCategoryAction">
+		<property name="categoryService" ref="categoryService" />
+		<property name="dataList">
+			<list>
+				<!-- 系统分类 -->
+				<bean class="cn.edustar.jitar.data.CategoryBean" singleton="false">
+					<property name="categoryService" ref="categoryService" />
+					<property name="varName" value="syscate_tree" />
+					<property name="itemType" value="default" />
+				</bean>
+				<!-- 列出分类下资源, 支持分页 -->
+				<bean class="cn.edustar.jitar.data.CategoryResourceBean"
+					singleton="false">
+					<property name="resourceService" ref="resourceService" />
+					<property name="usePager" value="true" />
+					<property name="itemName" value="资源" />
+					<property name="itemUnit" value="个" />
+					<property name="pageSize" value="30" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 显示一个公告的页面 -->
+	<bean id="showPlacardAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.ShowPlacardAction">
+		<property name="placardService" ref="placardService" />
+	</bean>
+
+	<!-- 显示一条新闻的页面 -->
+	<bean id="showNewsAction" lazy-init="true" singleton="false"
+		class="cn.edustar.jitar.ui.ShowNewsAction">
+		<property name="subjectService" ref="subjectService" />
+	</bean>
+
+	<!-- 模块容器 -->
+	<bean id="moduleContainer" init-method="init" destroy-method="destroy"
+		class="cn.edustar.jitar.service.impl.ModuleContainerImpl">
+		<!-- 所包含的模块的定义 -->
+		<property name="modules">
+			<list>
+				<!-- 个人信息(用户)模块 <bean class="cn.edustar.jitar.module.UserProfileModule" 
+					parent="moduleParent"> </bean> 
+				-->
+				<!-- 我的相册 
+				<bean class="cn.edustar.jitar.module.UserPhotoModule" parent="moduleParent">
+				</bean>
+				-->
+				<!-- 我的Rss Feed -->
+				<bean class="cn.edustar.jitar.module.UserRssFeedModule" parent="moduleParent">
+				</bean>
+
+				<!-- 我的好友模块
+				<bean class="cn.edustar.jitar.module.UserFriendLinksModule"
+					parent="moduleParent">
+					<property name="friendService" ref="friendService" />
+				</bean>
+				 -->
+				<!-- 我的短消息模块 -->
+				<bean class="cn.edustar.jitar.module.UserMessageModule" parent="moduleParent">
+					<property name="messageService" ref="messageService" />
+				</bean>
+				<!-- 我的留言模块 -->
+				<bean class="cn.edustar.jitar.module.UserLeavewordModule"
+					parent="moduleParent">
+					<property name="leavewordService" ref="leavewordService" />
+				</bean>
+				<!-- 统计信息(用户)模块 -->
+				<bean class="cn.edustar.jitar.module.UserStatsModule" parent="moduleParent">
+				</bean>
+				<!-- 我的协作组(用户)模块 -->
+				<bean class="cn.edustar.jitar.module.JoinedGroupsModule"
+					parent="moduleParent">
+					<property name="groupService" ref="groupService" />
+				</bean>
+				<!-- 我的公告(用户)模块 -->
+				<bean class="cn.edustar.jitar.module.UserPlacardModule" parent="moduleParent">
+					<property name="placardService" ref="placardService" />
+				</bean>
+				<!-- 协作组公告(用户加入的)模块 -->
+				<bean class="cn.edustar.jitar.module.UgroupPlacardModule"
+					parent="moduleParent">
+					<property name="groupService" ref="groupService" />
+					<property name="placardService" ref="placardService" />
+					<property name="enabled" value="false" />
+				</bean>
+				<!-- 专题分类(用户)模块,也叫博文分类,文章分类 -->
+				<bean class="cn.edustar.jitar.module.UserCateModule" parent="moduleParent">
+					<property name="categoryService" ref="categoryService" />
+				</bean>
+				<!-- 用户资源分类模块 -->
+				<bean class="cn.edustar.jitar.module.UserResCateModule" parent="moduleParent">
+					<property name="categoryService" ref="categoryService" />
+				</bean>
+				<!-- 搜索(用户博文)模块 -->
+				<bean class="cn.edustar.jitar.module.UserBlogSearchModule"
+					parent="moduleParent">
+				</bean>
+				<!-- 日历(用户)模块 -->
+				<bean class="cn.edustar.jitar.module.UserCalendarModule"
+					parent="moduleParent">
+				</bean>
+
+
+
+				<!-- 我的聚合圈(用户) 模块 -->
+				<bean class="cn.edustar.jitar.module.UserTagsFeedModule">
+					<property name="tagService" ref="tagService" />
+					<property name="userService" ref="userService" />
+					<property name="enabled" value="false" />
+				</bean>
+				<!-- 我的日志(用户)模块, 缓存配置的时间单位为秒 -->
+				<bean class="cn.edustar.jitar.module.UserEntriesModule" parent="moduleParent">
+					<property name="articleService" ref="articleService" />
+					<property name="storeManager" ref="storeManager" />
+					<property name="cacheTime" value="0" />
+				</bean>
+				<!-- 我的资源(用户)模块 -->
+				<bean class="cn.edustar.jitar.module.UserResourcesModule"
+					parent="moduleParent">
+					<property name="resourceService" ref="resourceService" />
+				</bean>
+				<!-- 当前在线协作组成员(用户)模块, WARN: 该模块可能比较慢 -->
+				<bean class="cn.edustar.jitar.module.UserGroupMemberOnlineModule"
+					parent="moduleParent">
+					<property name="groupService" ref="groupService" />
+					<property name="onlineManager" ref="onlineManager" />
+					<property name="enabled" value="false" />
+				</bean>
+				<!-- 我的回复提示(用户)模块 -->
+				<bean class="cn.edustar.jitar.module.LastestCommentsModule"
+					parent="moduleParent">
+					<property name="commentService" ref="commentService" />
+					<property name="enabled" value="false" />
+				</bean>
+				<!-- 好友新鲜事 -->
+				<bean class="cn.edustar.jitar.module.FriendThingsModule"
+					parent="moduleParent">
+					<property name="friendService" ref="friendService" />
+					<property name="enabled" value="false" />
+				</bean>
+
+
+
+				<!-- 群组列表 -->
+				<bean class="cn.edustar.jitar.module.GroupListModule" parent="moduleParent">
+					<property name="groupService" ref="groupService" />
+				</bean>
+				<!-- 群组信息 -->
+				<bean class="cn.edustar.jitar.module.GroupInfoModule" parent="moduleParent">
+				</bean>
+				<!-- 群组分类 -->
+				<bean class="cn.edustar.jitar.module.GroupCateModule" parent="moduleParent">
+					<property name="categoryService" ref="categoryService" />
+				</bean>
+				<!-- 群组统计 -->
+				<bean class="cn.edustar.jitar.module.GroupStatModule" parent="moduleParent">
+				</bean>
+				<!-- 协作组组长 -->
+				<bean class="cn.edustar.jitar.module.GroupManagerModule"
+					parent="moduleParent">
+					<property name="groupService" ref="groupService" />
+					<property name="categoryService" ref="categoryService" />
+					<property name="userService" ref="userService" />
+				</bean>
+				<!-- 小组活跃成员 -->
+				<bean class="cn.edustar.jitar.module.GroupActivistModule"
+					parent="moduleParent">
+					<property name="groupService" ref="groupService" />
+				</bean>
+				<!-- 小组最新成员 -->
+				<bean class="cn.edustar.jitar.module.GroupNewbieModule" parent="moduleParent">
+					<property name="groupService" ref="groupService" />
+				</bean>
+				<!-- 小组文章 -->
+				<bean class="cn.edustar.jitar.module.GroupArticleModule"
+					parent="moduleParent">
+					<property name="groupService" ref="groupService" />
+				</bean>
+				<!-- 小组资源 -->
+				<bean class="cn.edustar.jitar.module.GroupResourceModule"
+					parent="moduleParent">
+					<property name="groupService" ref="groupService" />
+				</bean>
+				<!-- 群组公告 -->
+				<bean class="cn.edustar.jitar.module.GroupPlacardModule"
+					parent="moduleParent">
+					<property name="placardService" ref="placardService" />
+				</bean>
+				<!-- 群组在线 -->
+				<bean class="cn.edustar.jitar.module.GroupMemberOnlineModule"
+					parent="moduleParent">
+					<property name="groupService" ref="groupService" />
+					<property name="onlineManager" ref="onlineManager" />
+					<property name="enabled" value="false" />
+				</bean>
+				<!-- 聚合关键词 -->
+				<bean class="cn.edustar.jitar.module.ConvergeKeyWordModule"
+					parent="moduleParent">
+					<property name="tagService" ref="tagService" />
+					<property name="enabled" value="false" />
+				</bean>
+				<!-- 相关协作组 -->
+				<bean class="cn.edustar.jitar.module.RelativeGroupModule"
+					parent="moduleParent">
+					<property name="groupService" ref="groupService" />
+					<property name="tagService" ref="tagService" />
+					<property name="enabled" value="false" />
+				</bean>
+				<!-- 组内留言 -->
+				<bean class="cn.edustar.jitar.module.GroupLeavewordModule"
+					parent="moduleParent">
+					<property name="leavewordService" ref="leavewordService" />
+				</bean>
+				<!-- 小组论坛 -->
+				<bean class="cn.edustar.jitar.module.BbsGroupTopicModule"
+					parent="moduleParent">
+					<property name="bbsService" ref="bbsService" />
+				</bean>
+
+				<!-- 文章评论 -->
+				<bean class="cn.edustar.jitar.module.ArticleCommentsModule"
+					parent="moduleParent">
+					<property name="articleService" ref="articleService" />
+					<property name="commentService" ref="commentService" />
+				</bean>
+				<!-- 文章分页分类型列表 -->
+				<bean class="cn.edustar.jitar.module.UserArticleListModule"
+					parent="moduleParent">
+					<property name="articleService" ref="articleService" />
+					<property name="categoryService" ref="categoryService" />
+				</bean>
+				<!-- 资源分页分类型列表 -->
+				<bean class="cn.edustar.jitar.module.UserResourceListModule"
+					parent="moduleParent">
+					<property name="resourceService" ref="resourceService" />
+					<property name="categoryService" ref="categoryService" />
+				</bean>
+				<!-- 用户完整档案 -->
+				<bean class="cn.edustar.jitar.module.UserFullProfileModule"
+					parent="moduleParent">
+				</bean>
+
+				<!-- 标签: 最新标签列表, 最热门的标签 -->
+				<bean class="cn.edustar.jitar.module.NewTagsModule" parent="moduleParent">
+					<property name="tagService" ref="tagService" />
+				</bean>
+				<bean class="cn.edustar.jitar.module.HotTagsModule" parent="moduleParent">
+					<property name="tagService" ref="tagService" />
+				</bean>
+
+				<!-- 学科: 所有学科列表(可用在任何页面) -->
+				<bean class="cn.edustar.jitar.module.SubjectListModule" parent="moduleParent">
+					<property name="subjectService" ref="subjectService" />
+				</bean>
+
+			</list>
+		</property>
+	</bean>
+</beans>

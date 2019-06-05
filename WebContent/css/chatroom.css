@@ -1,0 +1,268 @@
+	BODY{FONT-SIZE:9pt;}
+	TD{FONT-SIZE:9pt;}
+	FONT{FONT-SIZE:9pt;}
+	
+	.daohang{
+		background:F9F9F9;
+		text-align: center;
+		font-size:12px;
+		font-weight: bold;
+  	    border-top-color:#E9E9E9;
+  	    border-bottom-color:#E9E9E9;
+  	    border-left-color:#E9E9E9;
+  	    border-right-color:#E9E9E9;
+		padding-top: 0px;
+		padding-bottom: 0px;
+
+	}	
+	.daohangAlink{
+		padding-left: 10px;
+		padding-right: 10px;
+		COLOR: #000000; 
+		TEXT-DECORATION:none;
+		}
+		.daohangAlink:link {
+			COLOR: #000000
+		}
+		.daohangAlink:visited {
+			COLOR: #000000
+		}
+		.daohangAlink:hover {
+			COLOR: #0000cc
+		}		
+	
+	.daohangAlink2{
+		padding-left: 0px;
+		padding-right: 0px;
+		COLOR: #ffffff; 
+		TEXT-DECORATION:none;
+		}
+		.daohangAlink2:link {
+			COLOR: #0000cc
+		}
+		.daohangAlink2:visited {
+			COLOR: #000000
+		}
+		.daohangAlink2:hover {
+			COLOR: #0000cc
+		}		
+
+	.danghangText{COLOR: #016A8A; font-size:12px;TEXT-DECORATION: none;}
+	TD{
+		FONT-SIZE:9pt;
+		}
+
+	.titleFont{
+		color:#2A6D97;
+		font-size:13px;	
+		position:relative;
+		left:40px;		
+	}	
+	.groupImge{
+		border-color:#000000; 
+		border-bottom-style: solid; 
+		border-bottom-color:#000000;
+		border-bottom-width:1pt;	
+		border-left-style:solid; 
+		border-left-color:#000000;
+		border-left-width:1pt;	
+		border-top-style:solid; 
+		border-top-color:#000000;
+		border-top-width:1pt;		
+		border-right-style:solid; 
+		border-right-color:#000000;
+		border-right-width:1pt;	
+		}
+	.divShowText{
+		border-color:#000000; 
+		border-bottom-style: solid; 
+		border-bottom-color:#000000;
+		border-bottom-width:1px;	
+		border-left-style:solid; 
+		border-left-color:#000000;
+		border-left-width:1px;	
+		border-top-style:solid; 
+		border-top-color:#000000;
+		border-top-width:1px;		
+		border-right-style:solid; 
+		border-right-color:#000000;
+		border-right-width:1px;	
+		background-color:transparent;
+	}
+	.tableCaption
+	{
+		font-size:13px;
+		text-align:center;
+		font-weight:bold;
+		background:url(/Groups/images/tablecaptionbg2.gif);
+		border-bottom-width: 0px;
+	}	
+	.tableText
+	{
+		font-size:12px;
+		background-color:#FFFFFF;
+		text-align:left;
+		
+	}
+	.tableImg
+	{
+		font-size:12px;
+		background-color:#FFFFFF;
+		text-align:center;
+	}
+	.tableImgText
+	{
+		font-size:12px;
+		background-color:#FFFFFF;
+		text-align:center;
+		cursor:hand;
+	}	
+
+	input,textarea,select,button{
+		border-color:#eeeeee; 
+		border-bottom-style: solid; 
+		border-bottom-color:#eeeeee;
+		border-bottom-width:1px;	
+		border-left-style:solid; 
+		border-left-color:#eeeeee;
+		border-left-width:1px;	
+		border-top-style:solid; 
+		border-top-color:#eeeeee;
+		border-top-width:1px;		
+		border-right-style:solid; 
+		border-right-color:#eeeeee;
+		border-right-width:1px;	
+		background-color:transparent;
+		position:relative;
+		left:10px;
+	}	
+	.tableObjText
+	{
+		font-size:12px;
+		background-color:#FFFFFF;
+		text-align:center;
+	}
+	.groupFont{
+		color:#2A6D97;
+		font-size:12px;	
+		position:relative;
+		top:2px;
+	}
+	.ingroupFont{
+		cursor:hand;
+		color:#2E7A9A;
+		font-size:12px;	
+	}
+	.ingroupFontOver{
+		cursor:hand;	
+		color:#AD3A3B;
+ 	    text-decoration:underline;
+	}
+	.personFont{
+		color:#F65304;
+		font-size:12px;	
+		position:relative;
+		top:1px;		
+	}
+	.personImge{
+		border-color:#ffffff; 
+		border-bottom-style: solid; 
+		border-bottom-color:#ffffff;
+		border-bottom-width:1pt;	
+		border-left-style:solid; 
+		border-left-color:#ffffff;
+		border-left-width:1pt;	
+		border-top-style:solid; 
+		border-top-color:#ffffff;
+		border-top-width:1pt;		
+		border-right-style:solid; 
+		border-right-color:#ffffff;
+		border-right-width:1pt;		 
+		}
+	A.grouptitle:link {COLOR: #1B65BE; font-size:12px;TEXT-DECORATION: none;}
+	A.grouptitle:visited {COLOR: #1B65BE;font-size:12px; TEXT-DECORATION: none;}
+	A.grouptitle:active {COLOR: #ff0000;font-size:12px; TEXT-DECORATION: none;}
+	A.grouptitle:hover {COLOR: #ff0000;font-size:12px; TEXT-DECORATION: none;}
+
+	A.grouptitle2:link {COLOR: #000000; font-size:12px;TEXT-DECORATION: none;}
+	A.grouptitle2:visited {COLOR: #000000;font-size:12px; TEXT-DECORATION: none;}
+	A.grouptitle2:active {COLOR: #ff0000;font-size:12px; TEXT-DECORATION: none;}
+	A.grouptitle2:hover {COLOR: #ff0000;font-size:12px; TEXT-DECORATION: none;}
+
+
+	A.Article:link {COLOR: #696969; font-size:12px;TEXT-DECORATION: none;}
+	A.Article:visited {COLOR: #696969;font-size:12px; TEXT-DECORATION: none;}
+	A.Article:active {COLOR: #ff0000;font-size:12px; TEXT-DECORATION: none;}
+	A.Article:hover {COLOR: #ff0000;font-size:12px; TEXT-DECORATION: none;}
+
+	.mainFont{font-size:12px;color:#4e4e4e}
+	.groupFont{color:#FFFFFF;font-size:12px; position:relative;left:40px;top:2px}
+	.commonFont{color:#000000;font-size:12px;}
+	.Article{
+		color:#696969;
+		font-size:12px;
+			}
+			
+	.daohangAlink2{
+		COLOR: #ffffff; 
+		TEXT-DECORATION:none;
+		}
+		.daohangAlink2:link {
+			COLOR: #ffffff
+		}
+		.daohangAlink2:visited {
+			COLOR: #ffffff
+		}
+		.daohangAlink2:hover {
+			COLOR: #E7A125
+		}		
+
+	
+	.titleFont{
+		color:#2A6D97;
+		font-size:13px;	
+		position:relative;
+		left:40px;		
+	}	
+	.bannertitleFont{
+		color:#ffffff;
+		font-size:13px;	
+	}	
+	.calendarTitleFont{
+		color:#ffffff;
+		font-size:13px;	
+	}		
+	.folderframe{
+		border-color:#666666; 
+		border-bottom-style:dotted;
+		border-bottom-color:#666666;
+		border-bottom-width:1pt;	
+		border-left-style:dotted; 
+		border-left-color:#666666;
+		border-left-width:1pt;	
+		border-top-style:dotted; 
+		border-top-color:#666666;
+		border-top-width:1pt;		
+		border-right-style:dotted; 
+		border-right-color:#666666;
+		border-right-width:1pt;		 
+		}
+	
+.menu {
+	border-top-style:solid; 
+	border-top-color:#dddddd;
+	border-top-width:1pt;		
+	border-bottom-style:solid; 
+	border-bottom-color:#dddddd;
+	border-bottom-width:1pt;		
+	 PADDING-RIGHT: 0px; 
+	 DISPLAY: none; 
+	 PADDING-LEFT: 0px; 
+	 PADDING-BOTTOM: 0px; 
+	 WIDTH: 245px; 
+	 PADDING-TOP: 0px; 
+	 POSITION: absolute;
+	 FONT-SIZE:9px;
+	 background:url(/Groups/images/msgBg.gif) repeat-y;
+}	
+	

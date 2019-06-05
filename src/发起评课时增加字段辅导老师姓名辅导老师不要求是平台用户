@@ -1,0 +1,2 @@
+//发起评课时，需要增加字段，填写辅导老师姓名，辅导老师不要求是平台用户
+数据表增加字段 EvaluationPlan  fdTeacher varchar(50)

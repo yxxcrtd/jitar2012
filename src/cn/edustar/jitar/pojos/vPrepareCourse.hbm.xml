@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.VPrepareCourse" table="vPrepareCourse" mutable="false">
+        <id name="prepareCourseId" type="java.lang.Integer">
+            <column name="PrepareCourseId" />
+            <generator class="assigned" />
+        </id>
+        <property name="title" type="java.lang.String">
+            <column name="Title" not-null="true" />
+        </property>
+        <property name="createUserId" type="java.lang.Integer">
+            <column name="CreateUserId" not-null="true" />
+        </property>
+        <property name="leaderId" type="java.lang.Integer">
+            <column name="LeaderId" not-null="true" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="startDate" type="java.util.Date">
+            <column name="StartDate" length="23" not-null="true" />
+        </property>
+        <property name="endDate" type="java.util.Date">
+            <column name="EndDate" length="23" not-null="true" />
+        </property>
+        <property name="metaSubjectId" type="java.lang.Integer">
+            <column name="MetaSubjectId" />
+        </property>
+        <property name="gradeId" type="java.lang.Integer">
+            <column name="GradeId" />
+        </property>
+        <property name="memberCount" type="java.lang.Integer">
+            <column name="MemberCount" not-null="true" />
+        </property>
+        <property name="articleCount" type="java.lang.Integer">
+            <column name="ArticleCount" not-null="true" />
+        </property>
+        <property name="resourceCount" type="java.lang.Integer">
+            <column name="ResourceCount" not-null="true" />
+        </property>
+        <property name="topicReplyCount" type="java.lang.Integer">
+            <column name="TopicReplyCount" not-null="true" />
+        </property>
+        <property name="topicCount" type="java.lang.Integer">
+            <column name="TopicCount" not-null="true" />
+        </property>
+        <property name="actionCount" type="java.lang.Integer">
+            <column name="ActionCount" not-null="true" />
+        </property>
+        <property name="viewCount" type="java.lang.Integer">
+            <column name="ViewCount" not-null="true" />
+        </property>
+        <property name="status" type="java.lang.Integer">
+            <column name="Status" not-null="true" />
+        </property>
+        <property name="prepareCourseGenerated" type="java.lang.Boolean">
+            <column name="PrepareCourseGenerated" not-null="true" />
+        </property>
+         <property name="itemOrder" type="java.lang.Integer">
+            <column name="ItemOrder" not-null="true" />
+        </property>   
+        <property name="recommendState" type="boolean">
+            <column name="RecommendState" not-null="true" />
+        </property>
+        <property name="privateCount" type="java.lang.Integer">
+            <column name="PrivateCount"/>
+        </property>
+        <property name="editCount" type="java.lang.Integer">
+            <column name="EditCount"/>
+        </property>
+        <property name="createUserName" type="java.lang.String">
+            <column name="CreateUserName"/>
+        </property>        
+        <property name="leaderUserName" type="java.lang.String">
+            <column name="LeaderUserName"/>
+        </property>  
+        <property name="createUserNickName" type="java.lang.String">
+            <column name="CreateUserNickName"/>
+        </property>        
+        <property name="leaderUserNickName" type="java.lang.String">
+            <column name="LeaderUserNickName"/>
+        </property>      
+        <property name="createUserUnitId" type="java.lang.Integer">
+            <column name="CreateUserUnitId"/>
+        </property>
+        <property name="leaderUserUnitId" type="java.lang.Integer">
+            <column name="LeaderUserUnitId"/>
+        </property>
+        <property name="createUserUnitTitle" type="java.lang.String">
+            <column name="CreateUserUnitTitle"/>
+        </property>        
+        <property name="leaderUserUnitTitle" type="java.lang.String">
+            <column name="LeaderUserUnitTitle"/>
+        </property>         
+    </class>
+</hibernate-mapping>

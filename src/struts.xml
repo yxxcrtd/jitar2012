@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    	"configuration/struts-2.0.dtd">
+<struts>
+	<include file="struts-default.xml" />
+	<package name="groups-default" namespace="/manage" extends="struts-default">
+		<interceptors>
+			<interceptor name="loginInterceptor"
+				class="cn.edustar.jitar.interceptor.LoginInterceptor" />
+			<interceptor-stack name="loginInterceptorStack">
+				<interceptor-ref name="loginInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="loginInterceptorStack"></default-interceptor-ref>
+    <default-action-ref name="pagenotfound"></default-action-ref><!-- 不存在的action，避免在控制台输出没有映射的错误信息。 -->
+		<global-results>
+			<result name="error" type="freemarker">/WEB-INF/ftl/Error.ftl</result>
+			<result name="success" type="freemarker">/WEB-INF/ftl/success.ftl</result>
+			<result name="login">/login.jsp</result>
+		</global-results>
+    <action name="pagenotfound">  
+      <result>/error404.jsp</result>  
+    </action>  
+	</package>
+  <include file="configuration/struts_manage.xml" /><!-- 后台管理  -->
+	<include file="configuration/struts_action.xml" /><!-- 活动相关 -->
+	<include file="configuration/struts_user.xml" /><!-- 用户及其相关管理 -->
+	<include file="configuration/struts_group.xml" /><!-- 协作组 -->
+	<include file="configuration/struts_article.xml" /><!-- 博文基本信息 -->
+	<include file="configuration/struts_resource.xml" /><!-- 资源管理 -->
+	<include file="configuration/struts_photo.xml" /><!-- 相册管理 -->
+	<include file="configuration/struts_category.xml" /><!-- 系统分类和用户分类 -->
+	<include file="configuration/struts_site.xml" /><!-- 系统后台管理和用户控制面板 -->
+	<include file="configuration/struts_video.xml" /><!-- 视频管理 -->
+	<include file="configuration/struts_tag.xml" /><!-- tags -->
+	<include file="configuration/struts_channel.xml" /><!-- 频道 -->
+	<include file="configuration/struts_subject.xml" /><!-- 学科 -->
+  <include file="configuration/struts_unit.xml" /><!-- 单位机构  -->
+    
+	<!-- TODO: 合并到别的 xml 配置中 -->
+	<include file="configuration/struts_bbs.xml" /><!-- BBS -->
+
+	<include file="configuration/_test_action.xml" /><!-- 用于测试 -->
+	<include file="configuration/struts_upload.xml" /><!-- 用于测试 -->
+
+	<!-- 视频 -->
+	<package name="vid" namespace="/" extends="struts-default">
+		<action name="videos" class="videosAction">
+			<result name="queryvideo" type="freemarker">/WEB-INF/ftl/queryvideo.ftl</result>
+			<result name="site_videos" type="freemarker">/WEB-INF/ftl2/site_videos.ftl</result>
+			<result name="ajax" type="freemarker">/WEB-INF/ftl2/video/list_ajax.ftl</result>
+		</action>
+	</package>
+
+	<!-- show_video -->
+	<package name="vide" namespace="/" extends="struts-default">
+		<action name="video_list" class="videoListAction">
+			<result name="success" type="freemarker">/WEB-INF/ftl2/video/site_video_list.ftl
+			</result>
+		</action>
+	</package>
+
+	<!--图片 -->
+	<package name="pho" namespace="/" extends="struts-default">
+		<action name="photos" class="photosAction">
+			<result name="success" type="freemarker">/WEB-INF/ftl2/site_photos.ftl</result>
+			<result name="detailphoto" type="freemarker">/WEB-INF/ftl2/photo/site_photos_detail.ftl</result>
+			<result name="detail_comment" type="freemarker">/WEB-INF/ftl2/photo/comment.ftl</result>
+		</action>
+		<action name="showPhotoList" class ="showPhotoListAction">
+		  <result name = "success" type = "freemarker">/WEB-INF/ftl2/show_photo_list.ftl</result>
+		</action>    
+    <action name="showPhotoSearch" class="cn.edustar.jitar.action.ShowPhotoSearch">
+      <result name="success" type="freemarker">/WEB-INF/ftl2/show_photo_search_list.ftl</result>
+    </action>  
+	</package>
+
+	<!-- 博客 -->
+	<package name="blog" namespace="/" extends="groups-default">
+		<action name="blogs" class="blogsAction">
+			<result name="success" type="freemarker">/WEB-INF/ftl2/site_blogs.ftl
+			</result>
+		</action>
+		<action name="blogList" class="blogListAction">
+			<result name="success" type="freemarker">/WEB-INF/ftl2/site_blog_list.ftl
+			</result>
+		</action>
+		<action name="subject_blogList" class = "subjectBlogListAction">
+		  <result name="template1" type="freemarker">/WEB-INF/subjectpage/template1/blogList.ftl
+			</result>
+			<result name="template2" type="freemarker">/WEB-INF/subjectpage/template2/blogList.ftl
+			</result>
+			<result name="template3" type="freemarker">/WEB-INF/subjectpage/template3/blogList.ftl
+			</result>
+			<result name="template4" type="freemarker">/WEB-INF/subjectpage/template4/blogList.ftl
+			</result>
+		</action>
+		<action name="show_user_index" class="showUserIndex">
+		  <result name="index" type="freemarker">/WEB-INF/user/default/index.ftl</result>
+		  <result name ="access_error" type="freemarker">/WEB-INF/ftl/mengv1/access_error.ftl</result>
+		</action>
+	</package>
+	<!-- groups -->
+	<package name="groups" namespace="/" extends="struts-default">
+		<action name="groups" class="groupsAction">
+			<result name="success" type="freemarker">/WEB-INF/ftl2/site_groups.ftl
+			</result>
+		</action>
+	</package>
+
+	<!-- 专题 -->
+	<package name="SpecialSubject" namespace="/" extends="groups-default">
+		<action name="specialSubject" class="specialSubjectAction">
+			<result name="site_specialsubject" type="freemarker">/WEB-INF/ftl2/site_special.ftl</result>
+			<result name="no_specialsubject_page" type="freemarker">/WEB-INF/ftl2/special/no_specialsubject_page.ftl</result>
+			<result name="show_article_list" type="freemarker">/WEB-INF/ftl2/special/special_article_list.ftl</result>
+		</action>
+		<action name="specialSubjectList" class="specialSubjectListAction">
+			<result name="specialsubject_video_list" type="freemarker">/WEB-INF/ftl/specialsubject/specialsubject_video_list.ftl
+			</result>
+			<result name="specialsubject_topic_list" type="freemarker">/WEB-INF/ftl/specialsubject/specialsubject_topic_list.ftl
+			</result>
+			<result name="specialsubject_specialsubject_list" type="freemarker">/WEB-INF/ftl2/special/special_list.ftl</result>
+			<result name="specialsubject_topic_list" type="freemarker">/WEB-INF/ftl2/special/special_topic_all.ftl</result>
+			<result name="specialsubject_article_list" type="freemarker">/WEB-INF/ftl/specialsubject/specialsubject_article_list.ftl
+			</result>
+			<result name="specialsubject_photo_list" type="freemarker">/WEB-INF/ftl/specialsubject/specialsubject_photo_list.ftl</result>
+		</action>
+	</package>
+
+	<package name="specialSubject" namespace="/subject/manage" extends="groups-default">
+		<action name="createspecialsubject" class="createSpecialSubjectAction">
+		  <result name="createspecialsubject" type="freemarker">/WEB-INF/subjectmanage/createspecialsubject.ftl</result>
+		</action>
+	</package>
+
+	<!--morespecialSubject -->
+	<package name="morespecialSub" namespace="/" extends="struts-default">
+		<action name="morespecialSubject" class="morespecialSubject">
+			<result name="success" type="freemarker">/WEB-INF/ftl2/morespecialSubject.ftl
+			</result>
+		</action>
+	</package>
+	
+	<package name="imgCut" namespace="/" extends="struts-default">
+		<action name="imgCut" class="imgCut">
+			<result name="Init" type="freemarker">/WEB-INF/ftl2/common/cropimage.ftl</result>
+		</action>
+	</package>  
+
+	<package name="stat" namespace="/manage" extends="struts-default">
+		<action name="admin_stat" class="adminStatAction">
+			<result name="login">/login.jsp</result>
+			<result name="input" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat.ftl</result>
+			<result name="List_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat.ftl</result>
+			<result name="stat_html">/manage/stat.html</result>
+			<result name="List_Success1" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_ReLoad.ftl</result>
+			<result name="List_Success2" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat1.ftl</result>
+			<!--<result name="stat_html">/manage/stat.html</result> -->
+			<result name="List_Excel_Success" type="freemarker">/WEB-INF/ftl/admin/Admin_Stat_Excel.ftl</result>
+			<result name="excel" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="inputName">excelStream</param>
+				<param name="contentDisposition">filename="stat.xls"</param>
+				<param name="bufferSize">1024</param>
+			</result>
+		</action>
+	</package>
+</struts>
+

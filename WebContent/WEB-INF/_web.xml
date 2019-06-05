@@ -1,0 +1,170 @@
+
+
+<!-- 为了简化配置，浙大的配置已经移除，使用的时候，把wsdl4j-1.6.1.jar放到lib下 -->
+
+<!-- ***********************此处是ZDSOFT****gs.edu88.com:10082********************** -->
+<listener>
+	<listener-class>net.zdsoft.passport.demo.client.SessionManager
+	</listener-class>
+</listener>
+<servlet>
+	<servlet-name>passportClientInit</servlet-name>
+	<servlet-class>
+		net.zdsoft.passport.demo.servlet.PassportClientInitServlet
+	</servlet-class>
+	<init-param>
+		<param-name>passportURL</param-name>
+		<param-value>http://</param-value>
+	</init-param>
+	<init-param>
+		<param-name>serverId</param-name>
+		<param-value>423701</param-value>
+	</init-param>
+	<init-param>
+		<param-name>verifyKey</param-name>
+		<param-value>UT5ZNZR8JQDF6KY6KUEU7U8FQVRJ7AZZ</param-value>
+	</init-param>
+	<load-on-startup>1</load-on-startup>
+</servlet>
+
+<servlet>
+	<servlet-name>verify</servlet-name>
+	<servlet-class>net.zdsoft.passport.demo.servlet.VerifyServlet</servlet-class>
+	<load-on-startup>2</load-on-startup>
+</servlet>
+
+<servlet>
+	<servlet-name>invalidate</servlet-name>
+	<servlet-class>net.zdsoft.passport.demo.servlet.InvalidateServlet</servlet-class>
+	<load-on-startup>3</load-on-startup>
+</servlet>
+
+<servlet>
+	<servlet-name>logout</servlet-name>
+	<servlet-class>	net.zdsoft.passport.demo.servlet.LogoutServlet</servlet-class>
+	<load-on-startup>4</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>verify</servlet-name>
+	<url-pattern>/verify</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+	<servlet-name>invalidate</servlet-name>
+	<url-pattern>/invalidate</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+	<servlet-name>logout</servlet-name>
+	<url-pattern>/logout</url-pattern>
+</servlet-mapping>
+
+<!-- ***********************ZDSOFT到此结束************************** -->
+
+
+<!-- 多级推送的时候使用此段配置  加密/解密私钥。默认值是www.chinaedustar.com，整个平台需统一 -->
+<context-param>
+	<param-name>privateKey</param-name>
+	<param-value>www.chinaedustar.com</param-value>
+</context-param>
+<context-param>
+	<param-name>platformType</param-name>
+	<param-value>2</param-value>
+</context-param>
+<!-- 多级推送的时候使用此段配置结束  -->
+
+<!-- -->
+<context-param>
+	<param-name>product_name</param-name>
+	<param-value>江苏南通港闸</param-value>
+</context-param>
+
+<!-- 登陆成功后是否转到学科页面 1是 0否 -->
+<context-param>
+	<param-name>LoginToSubjectPage</param-name>
+	<param-value>0</param-value>
+</context-param>
+<!-- 登陆成功后是否转到学科页面 1是 0否 结束 -->
+
+<!-- 其他整合的产品，多个产品请使用逗号隔开 -->
+<context-param>
+	<param-name>products</param-name>
+	<param-value>http://10.0.50.24/cookie.aspx</param-value>
+</context-param>
+<!-- 其他整合的产品，多个产品请使用逗号隔开 结束 -->
+
+
+<!-- 个性域名必备配置必须的设置 -->
+<context-param>
+	<param-name>siteUrl</param-name>
+	<param-value>http://www.jitar.com.cn:8080/</param-value>
+</context-param>
+<context-param>
+	<param-name>userUrlPattern</param-name>
+	<param-value>http://{loginName}.blog.jitar.com.cn:8080/</param-value>
+</context-param>
+<context-param>
+	<param-name>unitUrlPattern</param-name>
+	<param-value>http://{unitName}.school.jitar.com.cn:8080/</param-value>
+</context-param>
+<context-param>
+	<param-name>subjectUrlPattern</param-name>
+	<param-value>http://{subjectCode}.subject.jitar.com.cn:8080/
+	</param-value>
+</context-param>
+<!-- 个性域名必备配置必须的设置结束 -->
+
+<!-- 配学科资源群的互通 -->
+<context-param>
+	<param-name>reslib_url</param-name>
+	<param-value>http://jypt.chinaedustar.com:8001/</param-value>
+</context-param>
+<context-param>
+	<param-name>reslib_ip</param-name>
+	<param-value>127.0.0.1</param-value>
+</context-param>
+<!-- 配学科资源群的互通 结束 -->
+
+<!-- 教研的视频会议接口 -->
+<context-param>
+	<param-name>video_url</param-name>
+	<param-value>http://www.jitar.com.cn:5080/edustarmeetings/EnterRoom?interface=jiaoyanInterface
+	</param-value>
+</context-param>
+<!-- 教研的视频会议接口 结束 -->
+
+<!-- 设置user路径 在这里配置这个应该不是好的做法 -->
+<context-param>
+	<param-name>userPath</param-name>
+	<param-value>E:\uuu</param-value>
+</context-param>
+
+
+<!-- 集备配置到另外一个服务器 -->
+<context-param>
+	<param-name>PrepareCourseFileServer</param-name>
+	<param-value>http://192.168.3.6:8080/coursefile/</param-value>
+</context-param>
+
+<!-- 集备多服务器更新 -->
+<servlet>
+	<servlet-name>RemoteUpdatePrepareCourse</servlet-name>
+	<servlet-class>cn.edustar.jitar.servlet.RemoteUpdatePrepareCourse
+	</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>RemoteUpdatePrepareCourse</servlet-name>
+	<url-pattern>/manage/RemoteUpdatePrepareCourse</url-pattern>
+</servlet-mapping>
+<!-- 集备配置到另外一个服务器 结束 -->
+
+<!-- 云平台测试 -->
+<servlet>
+	<servlet-name>EduYun</servlet-name>
+	<servlet-class>cn.edustar.jitar.servlet.EduYunServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>EduYun</servlet-name>
+	<url-pattern>/manage/eduyunlogin</url-pattern>
+</servlet-mapping>

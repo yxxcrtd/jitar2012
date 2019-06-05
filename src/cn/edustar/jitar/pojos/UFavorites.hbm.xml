@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.UFavorites" table="U_Favorites">
+        <id name="favId" type="java.lang.Integer">
+            <column name="favID" />
+            <generator class="identity" />
+        </id>
+        <property name="favUser" type="java.lang.Integer">
+            <column name="favUser" />
+        </property>
+        <property name="objectType" type="java.lang.Integer">
+            <column name="ObjectType" />
+        </property>
+        <property name="objectUuid" type="java.lang.String">
+            <column name="ObjectUuid" length="50" />
+        </property>
+        <property name="objectId" type="java.lang.Integer">
+            <column name="objectID"/>
+        </property>
+        <property name="favDate" type="java.util.Date">
+            <column name="favDate" length="23" not-null="true" />
+        </property>
+        <property name="favTitle" type="java.lang.String">
+            <column name="favTitle" length="500" />
+        </property>
+        <property name="favInfo" type="java.lang.String">
+            <column name="favInfo" />
+        </property>
+        <property name="favTypeId" type="java.lang.Integer">
+            <column name="favTypeID" />
+        </property>
+        <property name="favHref" type="java.lang.String">
+            <column name="favHref" length="1000" />
+        </property>
+    </class>
+</hibernate-mapping>

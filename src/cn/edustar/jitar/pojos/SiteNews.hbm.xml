@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.SiteNews" table="SiteNews">
+		<id name="newsId" type="int">
+			<column name="NewsId" />
+			<generator class="identity" />
+		</id>
+		<property name="subjectId" type="int">
+			<column name="SubjectId" not-null="true" />
+		</property>
+		<property name="userId" type="int">
+			<column name="UserId" not-null="true" />
+		</property>
+		<property name="title" type="java.lang.String">
+			<column name="Title" length="256" not-null="true" />
+		</property>
+		<property name="content" type="java.lang.String">
+			<column name="Content" length="1073741823" />
+		</property>
+		<property name="picture" type="java.lang.String">
+			<column name="Picture" length="256" />
+		</property>
+		<property name="status" type="int">
+			<column name="Status" not-null="true" />
+		</property>
+		<property name="newsType" type="int">
+			<column name="NewsType" not-null="true" />
+		</property>
+		<property name="createDate" type="java.util.Date" update="false">
+			<column name="CreateDate" length="23" not-null="true" />
+		</property>
+		<property name="viewCount" type="int" update="false">
+			<column name="ViewCount" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

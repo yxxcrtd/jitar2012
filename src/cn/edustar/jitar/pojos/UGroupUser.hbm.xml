@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.UGroupUser" table="U_GroupUser">
+        <id name="groupUserId" type="java.lang.Integer">
+            <column name="GroupUserId" />
+            <generator class="identity" />
+        </id>
+        <property name="groupId" type="java.lang.Integer">
+            <column name="GroupId" />
+        </property>
+        <property name="userId" type="java.lang.Integer">
+            <column name="UserId" />
+        </property>
+        <property name="managed" type="java.lang.Integer">
+            <column name="Managed" />
+        </property>
+        
+    </class>
+</hibernate-mapping>

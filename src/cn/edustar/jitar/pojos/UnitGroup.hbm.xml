@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.UnitGroup" table="UnitGroup" mutable="false">
+        <id name="groupId" type="int">
+            <column name="GroupId" />
+            <generator class="assigned" />
+        </id>
+        <property name="groupTitle" type="java.lang.String" update="false">
+			<column name="GroupTitle" />
+		</property>
+        <property name="groupName" type="java.lang.String" update="false">
+			<column name="GroupName" />
+		</property>        
+        <property name="unitId" type="int" update="false">
+            <column name="UnitId"/>
+        </property>
+    </class>
+</hibernate-mapping>

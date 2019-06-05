@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.Question" table="P_Question">
+        <id name="questionId" type="int">
+            <column name="QuestionId" />
+            <generator class="identity" />
+        </id>
+        <property name="objectGuid" type="java.lang.String">
+            <column name="ObjectGuid" length="40" not-null="true" />
+        </property>
+        <property name="parentGuid" type="java.lang.String">
+            <column name="ParentGuid" not-null="true" />
+        </property>
+        <property name="parentObjectType" type="java.lang.String">
+            <column name="ParentObjectType" length="50" not-null="true" />
+        </property>
+        <property name="topic" type="java.lang.String">
+            <column name="Topic" not-null="true" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="createUserId" type="java.lang.Integer">
+            <column name="CreateUserId" not-null="true" />
+        </property>
+        <property name="createUserName" type="java.lang.String">
+            <column name="CreateUserName" length="50" not-null="true" />
+        </property>
+        <property name="questionContent" type="java.lang.String">
+            <column name="QuestionContent" length="1073741823" not-null="true" />
+        </property>
+        <property name="addIp" type="java.lang.String">
+            <column name="AddIp" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

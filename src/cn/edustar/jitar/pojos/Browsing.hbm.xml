@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="cn.edustar.jitar.pojos.Browsing" table="Jitar_Browsing">
+    <id name="browsingId" type="int">
+      <column name="BrowsingId" />
+      <generator class="identity" />
+    </id>
+    <property name="objType" type="java.lang.Integer">
+      <column name="ObjType" not-null="true" />
+    </property>
+    <property name="objId" type="java.lang.Integer">
+      <column name="ObjId" not-null="true" />
+    </property>
+    <property name="userId" type="java.lang.Integer">
+      <column name="UserId" not-null="true" />
+    </property>
+    <property name="browsingDate" type="java.util.Date">
+      <column name="BrowsingDate" length="23" not-null="true" />
+    </property>
+  </class>
+</hibernate-mapping>

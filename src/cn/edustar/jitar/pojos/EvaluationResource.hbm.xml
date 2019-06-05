@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.EvaluationResource" table="EvaluationResource">
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="evaluationPlanId" type="java.lang.Integer">
+            <column name="EvaluationPlanId"  not-null="true"/>
+        </property>         
+        <property name="resourceId" type="java.lang.Integer">
+            <column name="ResourceId"  not-null="true"/>
+        </property>          
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" not-null="true" />
+        </property> 
+        <property name="resourceTitle" type="java.lang.String">
+            <column name="ResourceTitle" length="1024" />
+        </property>    
+        <property name="resourceHref" type="java.lang.String">
+            <column name="ResourceHref" length="1024" />
+        </property> 
+        <many-to-one name="evaluationPlan" column="EvaluationPlanId"
+            class="cn.edustar.jitar.pojos.EvaluationPlan" fetch="join" not-null="false"
+            lazy="proxy" insert="false" update="false" />  
+        <many-to-one name="resource" column="ResourceId"
+            class="cn.edustar.jitar.pojos.Resource" fetch="join" not-null="false"
+            lazy="proxy" insert="false" update="false" />                   
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,149 @@
+html,body{ background:#990000; font-size:12px;}
+#header {
+	background: transparent url(banner.jpg) no-repeat;
+	height:181px;
+	margin:auto;
+	width:1000px;
+}
+#page_footer {width:0px;margin:auto;height:7px;}
+#toolbar{width:1000px;margin:auto;}
+#nav {width:1000px;margin:auto;height:32px;background:url(h_mt.jpg);}
+#blog_name {padding:40px;font-size:36px;font-weight:bold;color:#963; }
+#container {margin:auto;width:1000px;background-color:#ffffff;}
+
+/* new Widget Style */
+.widgetTable { width:100%;} /* ��������ʽ */
+.widgetHead { vertical-align:top;height:32px;} /* ���ͷ����ʽ  */
+.widgetEdit {background-color:#ffffff;} /* �༭������ʽ��Ĭ�ϲ��ɼ�  */
+.widgetContent { background-color:#ffffff;padding:6px 0;} /* ����������ʽ */
+.widgetFoot {} /* β����ʽ */
+
+/* ͷ����������3�� */
+.h_lt {background:url(h_lt.jpg) no-repeat;width:32px;height:32px;}
+.h_mt {background:url(h_mt.jpg) repeat-x;}
+.h_rt {background:url(h_rt.jpg) no-repeat;width:32px;height:32px;}
+
+/* �༭����������3�� */
+.e_lt {background:url(c_lt.jpg);}
+.e_mt {}
+.e_rt {background:url(c_rt.jpg) right;}
+
+/* ���ݲ���������3�� */
+.c_lt {background:url(c_lt.jpg);}
+.c_mt { }
+.c_rt {background:url(c_rt.jpg) right;}
+
+/* ��β������3�� */
+.f_lt {background:url(f_lt.jpg) no-repeat;height:32px;}
+.f_mt {background:url(f_mt.jpg);}
+.f_rt {background:url(f_rt.jpg);}
+
+
+
+.widgetWindow {	margin-bottom:0px;} /* ÿ����֮��ļ����С */
+
+.widgetFrame {}
+.widgetHeader{padding:6px 0 0 0;}
+
+.showWidget {
+	background:url('ico_showMod.gif') no-repeat;
+	width:20px;
+	height:16px;
+	float:left;
+	display:none;
+	cursor:pointer;
+}
+.hideWidget {
+	background:url('ico_hideMod.gif') no-repeat;
+	width:20px;	
+	height:16px;
+	float:left;
+	display:none;
+	cursor:pointer;
+}
+
+.close {
+	background:url('ico_cls.gif') no-repeat;
+	width:20px;
+	height:16px;
+	float:right;
+	display:none;
+	cursor:pointer;
+}
+
+.edit {
+	float:right;
+	display:none;
+	cursor:pointer;
+}
+
+.options {
+	float:left;
+	display:none;
+	cursor:pointer;
+}
+
+.refresh {
+	float:right;
+	background:url('ico_rfs.gif') no-repeat;
+	width:20px;
+	height:16px;
+	display:none;
+	cursor:pointer;
+}
+.mod_icon{margin-top:-2px;padding:0 2px;}
+.ico {float:left;}
+.title {font-weight:bold;}
+
+a.icoBlog { padding-left:20px;background:url('ico_profile.gif') no-repeat left center; }
+a.icoProfile { padding-left:20px;background:url('ico_profile.gif') no-repeat left center; }
+a.icoFriend { padding-left:20px;background:url('ico_addLink.gif') no-repeat left center; }
+a.icoMessage { padding-left:20px;background:url('ico_writeMessage.gif') no-repeat left center; }
+
+/* �б���ʽ */
+ul.listul li{ padding:1px 0 1px 14px; background:url(jian01.gif) no-repeat;background-position:0 0.2em; }
+ul.listul li a:link { text-decoration:none; color:#AE0405;}
+ul.listul li a:visited { text-decoration:none; color:#F00;}
+ul.listul li a:hover { text-decoration:none; color:#F00;}
+ul.listul li a:active { text-decoration:none; color:#F00;}
+/* ��� */
+.list_table {  }
+.list_table thead { font-weight:bold; }
+.list_table thead td { border-bottom:2px solid #369;padding-bottom:2px;}
+.list_table tbody td { border-bottom:1px solid #09f;padding-bottom:2px;}
+
+/* ͨ������ģʽ��ʽ */
+.wrapGridFrame{	padding-top:}
+.wrapGridItem{margin-bottom:6px;border:1px solid #300;}
+.wrapGridItemHeader {padding:4px;}
+.wrapGridBody {	padding:4px;}
+.floatRight {float:right;}
+.floatLeft {float:left;}
+.fontBold{font-weight:bold;}
+.padding2px{padding:2px;}
+
+/* article comment */
+.commentTable {width:100%;background:pink; margin:0 0 6px 0;}
+.commentLeft{ width:60px; background:#FFF; text-align:center; vertical-align:top; } 
+.commentLeft img{ width:64px;height:64px;border:0px; }
+.commentRight{background:#FFF;width:100%;padding:6px;}
+.commentHeader{ width:100%; border-bottom:1px solid #DDE; padding-bottom:4px;}
+.commentContent { padding:6px; }
+.commentTitle { font-weight:bold; }
+
+/* ������ʽ */
+.article_title {
+	font-weight:bold;
+	color:#000;
+	font-size:11.5pt;
+	border-bottom:1px solid #000;
+}
+.article_content {
+	color:#000;
+	font-size:11.5pt;
+	padding:6px 0;
+}
+.article_footer{font-size:12px;}
+.article_tags {padding:4px 0;}
+
+.todo { color:red;font-weight:bold; }

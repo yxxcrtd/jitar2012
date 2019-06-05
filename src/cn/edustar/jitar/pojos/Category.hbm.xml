@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.Category" table="B_Category">
+		<id name="categoryId" type="int">
+			<column name="CategoryId" />
+			<generator class="identity" />
+		</id>
+		<property name="objectUuid" type="java.lang.String" update="false">
+			<column name="ObjectUuid" length="40" not-null="true" />
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="Name" length="64" />
+		</property>
+		<property name="itemType" type="java.lang.String" update="false">
+			<column name="ItemType" length="32" not-null="true" />
+		</property>
+		<property name="parentId" type="java.lang.Integer">
+			<column name="ParentId" />
+		</property>
+		<property name="parentPath" type="java.lang.String">
+			<column name="ParentPath" />
+		</property>
+		<property name="orderNum" type="int">
+			<column name="OrderNum" not-null="true" />
+		</property>
+    <property name="isSystem" type="boolean" update="false">
+      <column name="IsSystem" not-null="true" />
+    </property>		
+    <property name="childNum" type="int" update="false">
+      <column name="ChildNum" not-null="true" />
+    </property>
+		<property name="description" type="java.lang.String">
+			<column name="Description" length="1073741823" />
+		</property>
+		<property name="itemNum" type="int" update="false">
+			<column name="ItemNum" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

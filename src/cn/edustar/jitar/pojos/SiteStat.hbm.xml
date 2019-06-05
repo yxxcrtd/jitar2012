@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="cn.edustar.jitar.pojos.SiteStat" table="S_SiteStat">
+		<id name="id" type="int">
+			<column name="Id" />
+		</id>
+		<property name="visitCount" type="int">
+			<column name="VisitCount" not-null="true" />
+		</property>
+		<property name="userCount" type="int">
+			<column name="UserCount" not-null="true" />
+		</property>
+		<property name="groupCount" type="int">
+			<column name="GroupCount" not-null="true" />
+		</property>
+		<property name="articleCount" type="int">
+			<column name="ArticleCount" not-null="true" />
+		</property>
+		<property name="resourceCount" type="int">
+			<column name="ResourceCount" not-null="true" />
+		</property>
+		<property name="topicCount" type="int">
+			<column name="TopicCount" not-null="true" />
+		</property>
+		<property name="photoCount" type="int">
+			<column name="PhotoCount" not-null="true" />
+		</property>
+        <property name="todayArticleCount" type="int">
+            <column name="TodayArticleCount" not-null="true" />
+        </property>
+        <property name="yesterdayArticleCount" type="int">
+            <column name="YesterdayArticleCount" not-null="true" />
+        </property>
+        <property name="todayResourceCount" type="int">
+            <column name="TodayResourceCount" not-null="true" />
+        </property>
+        <property name="yesterdayResourceCount" type="int">
+            <column name="YesterdayResourceCount" not-null="true" />
+        </property>
+        <property name="commentCount" type="int">
+            <column name="CommentCount" not-null="true" />
+        </property>
+		<property name="dateCount" type="java.lang.String">
+			<column name="DateCount" not-null="false" />
+		</property>
+        <property name="historyArticleCount" type="int">
+			<column name="HistoryArticleCount"  not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

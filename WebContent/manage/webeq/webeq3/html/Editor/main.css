@@ -1,0 +1,74 @@
+BODY    {
+   background: white;
+   font-family: verdana, arial, sans-serif;
+}
+H1
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 150%;
+    COLOR: #cc3366;
+    FONT-FAMILY: "Verdana" sans-serif
+}
+H2
+{
+    FONT-SIZE: 115%;
+    COLOR: #660000;
+    FONT-FAMILY: "Verdana" sans-serif
+}
+H3
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 100%;
+    COLOR: #336633;
+    FONT-FAMILY: "Arial" sans-serif
+}
+H4
+{
+    FONT-SIZE: 100%;
+    COLOR: #333399;
+    FONT-FAMILY: "Arial" sans-serif
+}
+
+TABLE {
+   border-collapse: collapse;
+}
+
+.propval {
+   width: 600px;
+}
+
+.nobg {
+   border: white;
+}
+
+THEAD {
+   background: #cccccc;
+}
+
+TD      { 
+   border: thin solid; 
+   padding: 5px;
+}
+
+UL, DL {
+   position: relative;
+   top: -2ex;
+}
+
+LI {
+   padding-top: 1ex;
+   font-family: verdana, arial, sans-serif;
+}
+
+DT {
+   padding-top: 1ex;
+   font-family: verdana, arial, sans-serif;
+}
+
+DD {
+   padding-top: .5ex;
+   font-family: verdana, arial, sans-serif;
+}
+P {
+   font-family: verdana, arial, sans-serif;
+}

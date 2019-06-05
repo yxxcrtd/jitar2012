@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.SiteLinks" table="SiteLinks">
+        <id name="linkId" type="java.lang.Integer">
+            <column name="LinkId" />
+            <generator class="identity" />
+        </id>
+        <property name="objectType" type="java.lang.String">
+            <column name="ObjectType" length="50" not-null="true" />
+        </property>
+        <property name="objectId" type="java.lang.Integer">
+            <column name="ObjectId" not-null="true" />
+        </property>
+        <property name="linkHref" type="java.lang.String">
+            <column name="LinkHref" not-null="true" />
+        </property>
+        <property name="linkTitle" type="java.lang.String">
+            <column name="LinkTitle" length="50" not-null="true" />
+        </property>
+        <property name="linkIcon" type="java.lang.String">
+            <column name="LinkIcon" />
+        </property>
+    </class>
+</hibernate-mapping>

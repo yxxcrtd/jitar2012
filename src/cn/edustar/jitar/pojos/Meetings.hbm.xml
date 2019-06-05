@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.Meetings" table="S_Meetings">
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="obj" type="java.lang.String">
+            <column name="Object" length="10" not-null="true" />
+        </property>
+        <property name="objId" type="int">
+            <column name="ObjectId" not-null="true" />
+        </property>
+        
+        <property name="confId" type="java.lang.String">
+            <column name="confId"/>
+        </property>
+        <property name="confKey" type="java.lang.String">
+            <column name="confKey"/>
+        </property>
+        <property name="hostUrl" type="java.lang.String">
+            <column name="hostUrl"/>
+        </property>
+        <property name="attendeeUrl" type="java.lang.String">
+            <column name="attendeeUrl"/>
+        </property>
+        <property name="subject" type="java.lang.String">
+            <column name="subject"/>
+        </property>
+        <property name="startTime" type="java.util.Date">
+            <column name="startTime" length="23"/>
+        </property>
+        <property name="endTime" type="java.util.Date">
+            <column name="endTime" length="23"/>
+        </property>
+        <property name="hostName" type="java.lang.String">
+            <column name="hostName"/>
+        </property>
+        <property name="passwd" type="java.lang.String">
+            <column name="passwd"/>
+        </property>
+        <property name="agenda" type="java.lang.String">
+            <column name="agenda"/>
+        </property>
+        <property name="webBaseUrl" type="java.lang.String">
+            <column name="webBaseUrl"/>
+        </property>
+        <property name="beforehandTime" type="java.lang.Integer">
+            <column name="beforehandTime"/>
+        </property>
+        <property name="conferenceType" type="java.lang.Integer">
+            <column name="conferenceType"/>
+        </property>
+        <property name="attendeeAmount" type="java.lang.Integer">
+            <column name="attendeeAmount"/>
+        </property>
+        <property name="openType" type="java.lang.Boolean">
+            <column name="openType"/>
+        </property>
+        <property name="href" type="java.lang.String">
+            <column name="href"/>
+        </property>        
+        <property name="flvThumbNailHref" type="java.lang.String">
+            <column name="flvThumbNailHref"/>
+        </property>        
+        <property name="flvHref" type="java.lang.String">
+            <column name="flvHref"/>
+        </property>   
+        <property name="attendeeIds" type="java.lang.String">
+            <column name="attendeeIds"/>
+        </property>        
+        <property name="attendeeNames" type="java.lang.String">
+            <column name="attendeeNames"/>
+        </property>      
+        <property name="status" type="int">
+            <column name="status"/>
+        </property>
+        <property name="resourceIds" type="java.lang.String">
+            <column name="resourceIds"/>
+        </property>      
+        
+    </class>
+</hibernate-mapping>

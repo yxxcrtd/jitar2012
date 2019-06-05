@@ -1,0 +1,42 @@
+
+表 jitar_user 增加字段   MobilePhone varchar(18) 允许null      （用户的手机号码）
+表 U_GroupPower 增加字段VideoConference int 允许null           （角色组权限--是否有创建视频会议的权限）
+表 EvaluationPlan 表 增加 字段 fdTeacher   varchar(50) null       观课评课中的辅导老师 
+表S_Meetings 中增加如下字段:
+    
+    confId  varchar(32) Null             视频会议的ID
+    confKey varchar(32) Null             视频会议的Key
+    hostUrl varchar(512)    Null         视频会议的管理Url
+    attendeeUrl varchar(512)    Null     视频会议的参会Url
+    subject nvarchar(512)   Null         会议主题
+    startTime   Date Null                会议开始时间
+    endTime Date Null                    会议结束时间
+    hostName    varchar(50) Null         主持人(应该是存在的用户)
+    openType    bit Null                 true 公开   false 不公开
+    passwd  varchar(32) Null             会议室密码
+    agenda  nvarchar(1024)  Null         会议描述
+    beforehandTime  int Null             提前进入会议室时间(分钟?)
+    webBaseUrl  varchar(512)    Null     网络视频会议的网址
+    conferenceType  int Null             会议类型  预约会议：0 即时会议：1 固定会议：2 周期会议：3
+    href varchar(512)    Null            网络视频会议的视频文件
+    flvThumbNailHref varchar(512)    Null    网络视频会议的视频文件，缩略图
+    flvHref varchar(512)    Null            网络视频会议的视频文件转换为flv文件
+    attendeeAmount int Null              参会人数
+    attendeeIds                             参会人Id
+    attendeeNames                            参会人
+    status              int  状态
+    resourceIds varchar(1024)   Null     ----资源文件
+    
+    
+--------------如果在首页导航中增加 视频教研 频道，需要在数据表 SiteNav中增加记录------
+打开数据表 SiteNav中  
+使用SQL查询: Select * from Where (SiteNavIsShow = 1) AND (OwnerType = 0) AND (OwnerId = 0) 列出首页导航记录，增加一条
+
+其中517是ID自动增加的,各个字段填写如下 ：
+
+517     视频教研        sitevideomeeting.action     videomeeting    True    17  False   0   0
+
+---------------更新： 管理员的查询需要修改：
+打开 数据表 U_Condition2 中 关于管理员的查询提交需要修改： 原来是 From User Where adminLevel>=100 OR censorLevel>=100 
+修改为 From User Where userId In(Select userId from AccessControl)
+ 

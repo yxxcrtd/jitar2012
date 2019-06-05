@@ -1,0 +1,166 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+	<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Generating Content Markup</h1>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>MathML can describe an equation in two ways.  
+<em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Presentation markup</em> describes the way an equation
+should look, and <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Content markup</em> describes what an equation
+means.  Ordinarily, editing an equation is a process of getting its
+appearance to look right, and so by default, WebEQ Editor
+generates a presentation markup of an equation in progress.</p>
+
+
+	<p>Once you finish your equation, you can have WebEQ Editor apply
+algorithms to try to infer the mathematical meaning of your equation, and generate a content markup description.  To do this,</p>
+
+
+	<ol xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">
+		<li>Check that WebEQ Editor is able to generate content markup for the
+current equation by clicking the <b>check syntax</b> button on the
+toolbar as described below.</li>
+
+		<li>Change your <a href="mmlprefs.html#mmlprefs">MathML Export Preferences</a>
+to indicate that WebEQ Editor should generate content markup.</li>
+
+		<li>Use the <b>Save As MathML</b> option on the <a href="filemenu.html#filemenu">File Menu</a> or the <b>Copy MathML</b> option from
+<a href="copyas.html#copyas">Copy Special</a> submenu of the Edit Menu.</li>
+
+	</ol>
+
+	<p>As a convenience, whenever you click the <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">check syntax</b> button and the 
+current equation passes the check, WebEQ Editor automatically places
+content markup for the equation on the clipboard using the current
+export preferences for namespaces.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Checking Syntax</h2>
+
+	<p>Two broad problems areas can cause WebEQ Editor's content
+markup generation algorithms to fail.</p>
+
+
+	<ol xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">
+		<li>The equation can be too complicated to be represented as content
+markup.  Content markup can only represent fairly elementary expressions.</li>
+
+		<li>There can be problems with the equation that
+prevent the WebEQ algorithms from inferring the proper mathematical
+meaning.</li>
+
+	</ol>
+
+	<p>To assist in diagnosing these problems, you can check your equation
+by clicking the check mark button on the far right of the standard
+toolbar.  This will highlight parts of your equation, giving you
+visual feedback about any problems with the way in which the equation is
+being interpreted, as illustrated here:</p>
+
+
+	<p>
+		<img src="images/contentgen9.gif">
+	</p>
+
+
+	<p>You can toggle back and forth between syntax highlighting and
+regular display by clicking the check mark button again.  Also,
+starting to edit will revert the equation to normal mode.</p>
+
+
+	<p>If there are obvious problems with your equation, WebEQ Editor will
+display an error message in the editor status line, and highlight the
+template where the error was detected in blinking red.</p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>So long as you don't see any errors, WebEQ Editor is
+generating <em xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">some</em> content markup encoding of your equation.
+However, you should always look carefully to be sure that there aren't
+any subtle errors in the translation, such as extra invisible
+multiplications.</p>
+
+
+	<p>The colors of symbols in a highlighted expression denote the roles
+the content generation algorithm thinks they play in your equation.
+The color codes are as follows:</p>
+
+
+	<table xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">
+		<thead>
+			<tr>
+				<td>
+					<b>Color</b>
+				</td>
+
+				<td>
+					<b>Syntactic Role</b>
+				</td>
+
+			</tr>
+
+		</thead>
+
+		<tbody>
+			<tr>
+				<td>red</td>
+
+				<td>operator</td>
+
+			</tr>
+
+			<tr>
+				<td>blue</td>
+
+				<td>operand</td>
+
+			</tr>
+
+			<tr>
+				<td>green</td>
+
+				<td>function</td>
+
+			</tr>
+
+		</tbody>
+
+	</table>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Limitations of Content Markup</h2>
+
+	<p>Not all equations can be described in equation markup.  For
+example, in presentation markup, it is fine to type "1 + 2 -".  This
+is just a sequence of symbols as far as its appearance is concerned.
+However, from a mathematical viewpoint, this is an unfinished
+expression that doesn't have a well-defined meaning.</p>
+
+
+	<p>If you tried to use WebEQ Editor to generate content markup for this equation, 
+it would
+warn you that it couldn't since the "-" operator expects something to
+the right of it.  You could only generate content markup by completing
+a mathematically meaningful expression, say "1 + 2 - 3".  </p>
+
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>See the WebEQ Developers Suite documentation for a fuller discussion of the issues
+that can arise that prevent proper content markup generation.</p>
+
+
+</body>
+</html>

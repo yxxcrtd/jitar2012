@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.ActionReply" table="A_ActionReply">
+        <id name="actionReplyId" type="java.lang.Integer">
+            <column name="ActionReplyId" />
+            <generator class="identity" />
+        </id>
+        <property name="actionId" type="java.lang.Integer">
+            <column name="ActionId" not-null="true" />
+        </property>
+        <property name="topic" type="java.lang.String">
+            <column name="Topic" length="512" not-null="true" />
+        </property>
+        <property name="createDate" type="java.util.Date" update="false" insert="false">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="userId" type="java.lang.Integer">
+            <column name="UserId" not-null="true" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="Content" length="1073741823" />
+        </property>
+        <property name="addIp" type="java.lang.String">
+            <column name="AddIP" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

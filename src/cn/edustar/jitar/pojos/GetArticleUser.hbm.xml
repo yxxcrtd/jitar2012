@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+<sql-query name="findUserArticle" callable="true">
+	<return alias="articleUser" class="cn.edustar.jitar.pojos.ArticleUser">
+		<return-property name="articleId" column="ArticleId" />
+		<return-property name="title" column="Title" />
+		<return-property name="createDate" column="CreateDate" />
+		<return-property name="objectUuid" column="ObjectUuid" />
+		<return-property name="userId" column="UserId" />
+	</return>
+	{call GetUserArticle(?)}
+</sql-query>
+</hibernate-mapping>

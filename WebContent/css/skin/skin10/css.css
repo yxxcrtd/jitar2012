@@ -1,0 +1,207 @@
+/* CSS Document */
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family: "宋体";
+	font-size: 12px;
+	text-decoration: none;
+	word-spacing: 5px;
+	text-indent: 0pt;
+	background-color: #FFFFFF;
+	color: #FFCC33
+}
+a:link{  text-decoration:none;}
+a:visited{color:#000000; text-decoration:none;}
+a:hover {color:#000000; text-decoration:underline;}
+td{
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	font-family: "宋体";
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+	line-height: 18px;
+}
+a:link{ color:#000000; text-decoration:none;}
+a:visited{color:#000000; text-decoration:none;}
+a:hover {color:#000000; text-decoration:underline;}
+.hs {
+	font-family: "宋体";
+	font-size: 14px;
+	color: #FFCC00;
+}
+.hs a:link{ color:#FFCC00; text-decoration:none;}
+.hs a:visited{color:#FFCC00; text-decoration:none;}
+.hs a:hover {color:#FFCC00; text-decoration:underline;}
+.ct1 {
+	font-family: "宋体";
+	font-size: 14px;
+	font-weight: bold;
+	color: #ffffff;
+}
+.ct1 a:link{ color:#ffffff; text-decoration:none;}
+.ct1 a:visited{color:#ffffff; text-decoration:none;}
+.ct1 a:hover {color:#ffffff; text-decoration:underline;}
+.ct {
+	font-family: "宋体";
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+}
+.ct a:link{ color:#000000; text-decoration:none;}
+.ct a:visited{color:#000000; text-decoration:none;}
+.ct a:hover {color:#000000; text-decoration:underline;}
+.bs {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 18px;
+	color: #FFFFFF;
+}
+.bs a:link{ color:#FFFFFF; text-decoration:none;}
+.bs a:visited{color:#FFFFFF; text-decoration:none;}
+.bs a:hover {color:#FFFFFF; text-decoration:underline;}
+.ht {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 18px;
+	color: #000000;
+}
+.ht a:link{ color:#000000; text-decoration:none;}
+.ht a:visited{color:#000000; font-weight: bold; text-decoration:underline;}
+.ht a:hover {color:#000000; text-decoration:underline;}
+.bb {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 18px;
+	color: #ffffff;
+}
+.bb a:link{ color:#ffffff; text-decoration:none;}
+.bb a:visited{color:#ffffff; font-weight: bold; text-decoration:underline;}
+.bb a:hover {color:#ffffff; text-decoration:underline;}
+.bs_14 {
+	font-family: "宋体";
+	font-size: 14px;
+	line-height: 19px;
+	color: #FFFFFF;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #999999;
+}
+.bs_14 a:link{ color:#FFFFFF; text-decoration:none;}
+.bs_14 a:visited{color:#FFFFFF; text-decoration:none;}
+.bs_14 a:hover {color:#FFFFFF; text-decoration:underline;}
+
+.ls {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 19px;
+	color: #0066CC;
+	padding-top: 4px;
+	padding-left: 4px;
+}
+.ls a:link{  color:#0066CC; text-decoration:none; }
+.ls a:visited{ color:#0066CC; text-decoration:none; }
+.ls a:hover { color:#000000; text-decoration:underline; }
+
+
+.xx {
+	border: 1px solid #666666;
+}
+.x1 {
+	border-left-width: 5px;
+	border-left-style: solid;
+	border-left-color: #666666;
+}
+.xian {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	color: #000000;
+	
+}
+.xian td {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #DFDFDF;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 2px;
+	padding-top: 2px;
+}
+.title a:link{ color:#000000; text-decoration:none;}
+.title a:visited{color:#000000; text-decoration:none;}
+.title a:hover {color:#009999; text-decoration:underline;}
+
+.hz {
+	font-family: "宋体";
+	font-size: 14px;
+	font-weight: bold;
+	color: #CC0000;
+}
+.huangs {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #FF6600;
+	line-height: 18px;
+}
+.hongse {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #CC0000;
+	text-decoration: none;
+	padding-left: 7px;
+}
+.hongse a:link{ color:#CC0000; text-decoration:none;}
+.hongse a:visited{color:#CC0000; text-decoration:none;}
+.hongse a:hover {color:#009999; text-decoration:underline;}
+
+.huise {
+	font-family: "宋体";
+	font-size: 12px;
+	color: #333333;
+	line-height: 19px;
+	text-decoration: none;
+}
+.huise a:link{ color:#333333; text-decoration:none;}
+.huise a:visited{color:#333333; text-decoration:none;}
+.huise a:hover {color:#333333; text-decoration:underline;}
+/*==================================================================*/
+.itemList{ margin:10px; background: #cccccc; border-top : 1px solid #000000;	border-bottom:1px solid #000000; }
+.itemListLeft{ background: #0064A8; color:#ffffff; text-align:right; }
+.itemListRight{ background: #f1f1f1; }
+.STYLE2 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #FF9933;
+}
+#calendar{
+text-align:center;
+width:100%;
+}
+#calendar caption {  
+font:14px 'Century Gothic', Arial, Helvetica, sans-serif;
+}
+#calendar caption a {  
+height:12px;
+}
+#calendar table {
+width:80%;
+border-collapse: collapse; 
+} 
+#calendar th{  
+font-weight:400;
+font-size:12PX;
+height:18px;
+}
+#calendar td { 
+text-align:center;
+font-size: 11px;
+height:18px;
+}
+#calendar td a{
+font-weight:bold;
+}

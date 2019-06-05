@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.SiteNav" table="SiteNav">
+        <id name="siteNavId" type="int">
+            <column name="SiteNavId" />
+            <generator class="identity" />
+        </id>
+        <property name="siteNavName" type="java.lang.String">
+            <column name="SiteNavName" length="50" not-null="true" />
+        </property>
+        <property name="siteNavUrl" type="java.lang.String">
+            <column name="SiteNavUrl" length="512" not-null="true" />
+        </property>
+        <property name="currentNav" type="java.lang.String">
+            <column name="CurrentNav" length="50" />
+        </property>
+        <property name="siteNavIsShow" type="boolean">
+            <column name="SiteNavIsShow" not-null="true" />
+        </property>
+        <property name="isExternalLink" type="boolean">
+            <column name="IsExternalLink" not-null="true" />
+        </property>
+        <property name="siteNavItemOrder" type="java.lang.Integer">
+            <column name="SiteNavItemOrder" not-null="true" />
+        </property>
+        <property name="ownerType" type="int">
+            <column name="OwnerType" not-null="true" />
+        </property>
+        <property name="ownerId" type="int">
+            <column name="OwnerId" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

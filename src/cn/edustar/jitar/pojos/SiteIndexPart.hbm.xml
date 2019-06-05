@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="cn.edustar.jitar.pojos.SiteIndexPart" table="SiteIndexPart">
+    <id name="siteIndexPartId" type="int">
+      <column name="SiteIndexPartId" />
+      <generator class="identity" />
+    </id>
+    <property name="moduleName" type="java.lang.String">
+      <column name="ModuleName" length="50" not-null="true" />
+    </property>
+    <property name="moduleZone" type="int">
+      <column name="ModuleZone" not-null="true" />
+    </property>
+    <property name="moduleOrder" type="int">
+      <column name="ModuleOrder" not-null="true" />
+    </property>
+    <property name="moduleDisplay" type="int">
+      <column name="ModuleDisplay" not-null="true" />
+    </property>
+    <property name="showBorder" type="int">
+      <column name="ShowBorder" not-null="true" />
+    </property>
+    <property name="moduleHeight" type="int">
+      <column name="ModuleHeight" not-null="true" />
+    </property>
+    <property name="moduleWidth" type="int">
+      <column name="ModuleWidth" not-null="true" />
+    </property>
+    <property name="textLength" type="int">
+      <column name="TextLength" not-null="true" />
+    </property>
+    <property name="multiColumn" type="int">
+      <column name="MultiColumn" not-null="true" />
+    </property>    
+    <property name="content" type="java.lang.String">
+      <column name="Content" />
+    </property>
+    <property name="sysCateId" type="java.lang.Integer">
+      <column name="SysCateId" />
+    </property>
+    <property name="showCount" type="java.lang.Integer">
+      <column name="ShowCount" />
+    </property>
+    <property name="partType" type="int">
+      <column name="PartType" not-null="true" />
+    </property>
+    <property name="showType" type="int">
+      <column name="ShowType" not-null="true" />
+    </property>
+  </class>
+</hibernate-mapping>

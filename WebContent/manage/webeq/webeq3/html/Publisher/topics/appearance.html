@@ -1,0 +1,133 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+
+<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Appearance Options</h1>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+
+<p>You can open the Appearance Options panel from the Options menu on
+the WebEQ Publisher main screen.  Appearance options affect all
+<a href="processing.html#processing">equation output formats</a>.</p>
+
+
+
+
+<p><img src="images/appearance1.gif"></p>
+
+
+
+<dl xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">
+<dt><b>Base font size</b>
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+</dt>
+
+
+<dd>Sets the initial point size at which equations are to be displayed.
+Warning: this is system dependent, and doesn't necessarily correspond
+to the browser font sizes.  Any positive integer can be entered, but
+WebEQ Publisher will round to the closest value in the list
+8,10,12,14,16,18,24,30,36,48,64,72. Values are in points.  
+The default point size is 18pt. The default point size is 18.</dd>
+
+
+<dt><b>Background color</b>
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+</dt>
+
+
+<dd>When a color is set, WebEQ Publisher will attempt to make the
+document body background color value match.  If the Publisher finds a
+color explicitly set on the &lt;body&gt; tag in a source document, and no
+background value is set in the Appearance Options panel, the Publisher
+will make the equation background match the document background
+color.</dd>
+
+
+<dt><b>Pad dimensions by</b>
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+</dt>
+
+
+<dd>This option specifies how much padding should be inserted around
+an equation.  You specify the amount of padding as a percentage of the
+width of the equation.  This is particularly useful for introducing a
+"slop factor" when using WebEQ Publisher to generate Viewer Control
+applet code, equation dimensions can vary slightly from browser
+to browser.</dd>
+
+
+<dt><b>Foreground color</b>
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+</dt>
+
+<dd>Enter a color name to set the equation foreground color (the
+default is "black").</dd>
+ 
+
+<dt><b>Vertical alignment</b>
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+<idxentry></idxentry>
+
+</dt>
+
+
+<dd>When WebEQ Publisher generates images or Viewer Control code,
+there is a problem aligning equations with the surrounding text.  The
+only options for vertically aligning images and applets in HTML are
+"top", "middle" and "bottom", but equation baselines seldom fall in
+one of these three places.
+
+<p>As a work-around, when you specify "baseline on centerline of
+bounding box" for vertical alignment, the Publisher will attempt to
+add padding at the top or bottom of each equation to insure that the
+equation baseline will fall on the centerline of the image or applet.
+That way, when the Publisher specifies "middle"
+alignment for the image or applet, the equation baseline will match
+that of the surrounding text.</p>
+
+
+
+<p>The down side of this work-around strategy is that it can introduce
+a lot of extra spacing between lines of text.  If the inter-line
+spacing seems to be a worse problem than the alignment of the
+equations with the text, you can instead "use true bounding box" for
+the verical alignment.  In this case, WebEQ Publisher won't add any
+extra padding, and will use the true equation size instead.</p>
+
+
+</dd>
+
+
+</dl>
+
+
+</body>
+</html>

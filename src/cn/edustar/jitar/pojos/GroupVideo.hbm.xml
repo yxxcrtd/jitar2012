@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.GroupVideo" table="G_GroupVideo">
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+    <property name="groupId" type="int">
+      <column name="GroupId" not-null="true" />
+    </property>
+    <property name="videoId" type="int">
+      <column name="VideoId" not-null="true" />
+    </property>
+    <property name="userId" type="int">
+        <column name="UserId" not-null="true" />
+    </property>
+   <property name="groupCateId" type="int">
+      <column name="GroupCateId" />
+    </property> 
+    <many-to-one name="groupCate" column="GroupCateId" 
+      class="cn.edustar.jitar.pojos.Category"
+      fetch="join" 
+      not-null="false"
+      lazy="proxy"
+      insert="false" update="false"
+      />    
+        <property name="pubDate" type="java.util.Date">
+            <column name="PubDate" not-null="true" />
+        </property>
+    <property name="isGroupBest" type="boolean">
+      <column name="IsGroupBest" not-null="true" />
+    </property>
+    </class>
+</hibernate-mapping>

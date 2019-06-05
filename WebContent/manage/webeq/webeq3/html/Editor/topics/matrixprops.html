@@ -1,0 +1,299 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" href="../main.css" type="text/css">
+</head>
+<body>
+
+	<h1 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Table Properties</h1>
+
+	<p>There are three property dialogs for setting table properties, one for an entire table, one for a table row and one for a table cell. </p>
+
+
+	<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Matrix Properties Dialog</h2>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The MathML matrix template is quite complicated, with a dozen properties which customize its appearance.</p>
+
+
+	<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Properties Taking Lists of Values</h3>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>One important thing to understand is that many matrix properties
+actually take lists of values.  The values
+in the list apply in sequence to the successive rows or columns in the
+matrix.</p>
+
+
+	<p>For example, specifying row alignment for a 3x3 matrix as top
+bottom center' indicates the first row should be top aligned, the
+middle row should be bottom aligned, and the last row should be
+centered vertically.</p>
+
+
+	<p>The values in all matrix property lists are separated by spaces.
+Also, if there are fewer entries in the list than rows or columns, the
+last value will be repeated for all the remaining rows or columns.
+Thus, specifying column alignment as just 'center' for a matrix
+indicates all columns should be centered.</p>
+
+
+	<h3 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Alignment Properties</h3>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<h4 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Align</h4>
+
+	<p>This property controls the alignment of the entire matrix relative
+to the rest of the equation.  The possible values are:</p>
+
+
+	<dl xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">
+		<dt>
+			'axis'
+		</dt>
+
+		<dd>This aligns the center of the matrix with the 'axis' of the
+equation.  The <em>axis</em> of the equation is basically the horizontal
+line through the minus sign.<idxentry></idxentry>
+
+			<idxentry></idxentry>
+
+		</dd>
+
+		<dt>
+			'top'
+		</dt>
+
+		<dd>This value aligns the top of the matrix with the baseline of the equation.<idxentry></idxentry>
+
+			<idxentry></idxentry>
+
+		</dd>
+
+		<dt>
+			'center'
+		</dt>
+
+		<dd>This value places the center of the matrix on the baseline of
+the equation.<idxentry></idxentry>
+
+			<idxentry></idxentry>
+
+		</dd>
+
+		<dt>
+			'bottom'
+		</dt>
+
+		<dd>This aligns the bottom of the matrix with the baseline of the equation.<idxentry></idxentry>
+
+			<idxentry></idxentry>
+
+		</dd>
+
+		<dt>
+			'baseline'
+		</dt>
+
+		<dd>This has the same effect as 'center'.<idxentry></idxentry>
+
+			<idxentry></idxentry>
+
+		</dd>
+
+	</dl>
+
+	<h4 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Row Align</h4>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">row align</b> property controls the vertical alignment of
+table cells within a row.  Row align accepts a list of alignment
+values which apply to successive rows.  The individual values in the
+property list must be chosen from the keywords 'axis',
+'top', 'center', 'bottom', and 'baseline'.
+These keywords have the following meanings.</p>
+
+
+	<dl xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">
+		<dt>
+			'axis'
+		</dt>
+
+		<dd>This aligns the natural axes of all cells in a row.  The <em>axis</em> of
+a cell is the horizontal line through the minus sign.</dd>
+
+		<dt>
+			'top'
+		</dt>
+
+		<dd>This value aligns the tops of all cells in a row.</dd>
+
+		<dt>
+			'center'
+		</dt>
+
+		<dd>This value aligns the center lines of all cells in a row.</dd>
+
+		<dt>
+			'bottom'
+		</dt>
+
+		<dd>This value aligns the bottoms of all cells in a row.</dd>
+
+		<dt>
+			'baseline'
+		</dt>
+
+		<dd>This value aligns the natural baselines of all cells in a row.
+This is the default value.</dd>
+
+	</dl>
+
+	<h4 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Column Align</h4>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">column align</b> property controls the horizontal alignment
+of table cells within a column.  Column align accepts a list of
+alignment values which apply to successive columns.  The individual
+values in the property list must be chosen from the keywords 'left',
+'center', and 'right'.  These keywords have the following
+meanings.</p>
+
+
+	<dl xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">
+		<dt>
+			'left'
+		</dt>
+
+		<dd>This value aligns the left edge of all cells in a column.<idxentry></idxentry>
+
+			<idxentry></idxentry>
+
+		</dd>
+
+		<dt>
+			'center'
+		</dt>
+
+		<dd>This value centers cells in a column.</dd>
+
+		<dt>
+			'right'
+		</dt>
+
+		<dd>This value aligns the right edges of cells in a column.<idxentry></idxentry>
+
+			<idxentry></idxentry>
+
+		</dd>
+
+	</dl>
+
+	<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Spacing and Separator Properties</h2>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<h4 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Row/Column Spacing</h4>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">row spacing</b> and <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">column spacing</b> properties both
+accept lists of values.  The values in the list determine the amount
+of space between successive rows and columns respectively.  Each value
+in the list needs to be a <a href="propvals.html#sizeval">size value</a>.</p>
+
+
+	<h4 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Row/Column Lines</h4>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">row lines</b> and <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">column lines</b> properties accept
+lists of values which indicate what kinds of separator lines (if any)
+should be drawn between successive rows and columns respectively.
+Each of the values in the list must be one of 'none', 'solid', and
+'dashed'.</p>
+
+
+	<h4 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Frame</h4>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">frame</b> property determines whether a
+rectangular box or "frame" will be drawn around the matrix. The
+possible values are 'none', 'solid', 'dashed'
+	</p>
+
+
+	<h4 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Frame Spacing</h4>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>The <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">frame spacing</b> is a list of up to two <a href="propvals.html#sizeval">size values</a>.  The first value determines the
+space between the sides of the matrix and the frame, and the second
+value determines the space between the top and bottom of the matrix and
+the frame. Note that frame spacing is still applied even when the
+frame property is set to 'none', in which case the frame spacing has
+the effect of inserting padding between the matrix and the
+surrounding content</p>
+
+
+	<h4 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Equal Rows/Equal Columns</h4>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<idxentry xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"></idxentry>
+
+	<p>These properties determine whether the heights of all rows and the
+widths of all columns in a matrix are equal.  By default, rows and
+columns are sized to match the tallest and widest of their entries
+respectively.  However, if the equal rows or equal columns properties
+are set, then the heights and widths are determined by the tallest and
+widest entries in the entire matrix instead.</p>
+
+
+	<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Matrix Row Properties Dialog</h2>
+
+	<p>The Matrix Row Properties dialog box contains the <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Row Alignment</b> and <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Column Alignment</b> properties, which are discussed above.</p>
+
+
+	<h2 xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">MatrixCell Properties Dialog</h2>
+
+	<p>The Matrix Row Properties dialog box contains the <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Row Alignment</b> and <b xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance">Column Alignment</b> properties, which are discussed above.</p>
+
+
+</body>
+</html>

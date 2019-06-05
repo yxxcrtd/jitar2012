@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.GroupMember" table="G_GroupMember">
+        <id name="id" type="int">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="groupId" type="int" update="false">
+            <column name="GroupId" not-null="true" />
+        </property>
+        <many-to-one name="group" column="GroupId" class="cn.edustar.jitar.pojos.Group" fetch="join" not-null="false" lazy="proxy" insert="false" update="false" />
+        <property name="userId" type="int" update="false">
+            <column name="UserId" not-null="true" />
+        </property>
+        <property name="status" type="int">
+            <column name="Status" not-null="true" />
+        </property>
+        <property name="groupRole" type="int">
+            <column name="GroupRole" not-null="true" />
+        </property>
+        <property name="joinDate" type="java.util.Date">
+            <column name="JoinDate" length="23" not-null="true" />
+        </property>
+        <property name="articleCount" type="int">
+            <column name="ArticleCount" not-null="true" />
+        </property>
+        <property name="resourceCount" type="int">
+            <column name="ResourceCount" not-null="true" />
+        </property>
+        <property name="courseCount" type="int">
+            <column name="CourseCount" not-null="true" />
+        </property>
+        <property name="topicCount" type="int">
+            <column name="TopicCount" not-null="true" />
+        </property>
+        <property name="replyCount" type="int">
+            <column name="ReplyCount" not-null="true" />
+        </property>
+        <property name="actionCount" type="int">
+            <column name="ActionCount" not-null="true" />
+        </property>
+        <property name="inviterId" type="java.lang.Integer" update="false">
+            <column name="InviterId" />
+        </property>
+        <property name="teacherUnit" type="java.lang.String">
+            <column name="TeacherUnit" length="100"/>
+        </property>
+        <property name="teacherZYZW" type="java.lang.String">
+            <column name="TeacherZYZW" length="100"/>
+        </property>
+        <property name="teacherXL" type="java.lang.String">
+            <column name="TeacherXL" length="100"/>
+        </property>
+        <property name="teacherXW" type="java.lang.String">
+            <column name="TeacherXW" length="100"/>
+        </property>
+        <property name="teacherYJZC" type="java.lang.String">
+            <column name="TeacherYJZC"/>
+        </property>
+        
+    </class>
+</hibernate-mapping>

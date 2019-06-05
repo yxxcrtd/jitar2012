@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.SpecialSubjectTopic" table="S_SpecialSubjectTopic">
+        <id name="specialSubjectTopicId" type="java.lang.Integer">
+            <column name="SpecialSubjectTopicId" />
+            <generator class="identity" />
+        </id>
+        <property name="topicId" type="int">
+            <column name="TopicId" not-null="true" />
+        </property>
+        <property name="topicTitle" type="java.lang.String">
+            <column name="TopicTitle" not-null="true" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+        <property name="specialSubjectId" type="int">
+            <column name="SpecialSubjectId" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.PrepareCourseRelated" table="C_PrepareCourseRelated">
+        <id name="prepareCourseRelatedId" type="java.lang.Integer">
+            <column name="PrepareCourseRelatedId" />
+            <generator class="identity" />
+        </id>
+        <property name="prepareCourseId" type="java.lang.Integer">
+            <column name="PrepareCourseId" not-null="true" />
+        </property>
+        <property name="relatedPrepareCourseId" type="java.lang.Integer">
+            <column name="RelatedPrepareCourseId" not-null="true" />
+        </property>
+        <property name="userId" type="java.lang.Integer">
+            <column name="UserId" not-null="true" />
+        </property>
+        <property name="createDate" type="java.util.Date">
+            <column name="CreateDate" length="23" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="cn.edustar.jitar.pojos.UPunishScore" table="U_PunishScore">
+        <id name="id" type="java.lang.Integer">
+            <column name="Id" />
+            <generator class="identity" />
+        </id>
+        <property name="userId" type="java.lang.Integer">
+            <column name="UserId" not-null="true" />
+        </property>
+        <property name="objType" type="java.lang.Integer">
+            <column name="ObjType" />
+        </property>
+        <property name="objId" type="java.lang.Integer">
+            <column name="ObjId" not-null="true" />
+        </property>
+        <property name="objTitle" type="java.lang.String">
+            <column name="ObjTitle" length="1000" />
+        </property>
+        <property name="punishDate" type="java.util.Date">
+            <column name="PunishDate" length="23"  not-null="true"/>
+        </property>
+        <property name="score" type="java.lang.Float">
+            <column name="Score" precision="53" scale="0" not-null="true" />
+        </property>
+        <property name="reason" type="java.lang.String">
+            <column name="Reason" length="2000" />
+        </property>
+        <property name="createUserId" type="java.lang.Integer">
+            <column name="CreateUserId" not-null="true" />
+        </property>
+        <property name="createUserName" type="java.lang.String">
+            <column name="CreateUserName" length="50" />
+        </property>        
+    </class>
+</hibernate-mapping>
